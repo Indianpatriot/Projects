@@ -4,6 +4,11 @@
   <title>Goal Management Dashboard</title>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <?php 
+    include("Untitled-1b.php"); 
+    if(isset($_SESSION['username'])){}
+    else{ header("location:login.php"); }
+  ?>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,7 +36,7 @@
           <!-- Add Logout link -->
           <tr>
         
-            <td><a href="#">Logout</a></td>
+            <td><a href="logout.php">Logout</a></td>
           </tr>
         </table>
       </nav>
@@ -62,50 +67,86 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form>
+              <form action="Untitled-1b.php" method="post">
                 <div className="form-group">
                   <label>Rename Option:</label>
-                  <input type="text" onChange={handleRenameOptionChange} />
+                  <input 
+                    type="text" 
+                    onChange={handleRenameOptionChange} 
+                    name="Rename_Option"
+                  />
                 </div>
                 <div className="form-group">
                   <label>Leads Generation:</label>
-                  <input type="text" />
+                  <input 
+                    type="text"
+                    name="Leads_Generation" 
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Emails Sent:</label>
+                  <input 
+                    type="text"
+                    name="Emails_Sent" 
+                  />
                 </div>
                 <div className="form-group">
                     <label>Calls Made:</label>
-                    <input type="text" />
+                    <input 
+                      type="text"
+                      name="Calls_Made" 
+                    />
                   </div>
                   <div className="form-group">
                     <label>Progressive Responses:</label>
-                    <input type="text" />
+                    <input 
+                      type="text" 
+                      name="Progressive_Responses"
+                    />
                   </div>
                   <div className="form-group">
                     <label>Meetings Held:</label>
-                    <input type="text" />
+                    <input 
+                      type="text"
+                      name="Meetings_Held" 
+                    />
                   </div>
                   <div className="form-group">
                     <label>WhatsApp Sent:</label>
-                    <input type="text" />
+                    <input 
+                      type="text"
+                      name="WhatsApp_Sent" 
+                    />
                   </div>
                   <div className="form-group">
                     <label>Sessions Planned:</label>
-                    <input type="text" />
+                    <input 
+                      type="text" 
+                      name="Sessions_Planned"
+                    />
                   </div>
                   <div className="form-group">
                     <label>Sessions Held:</label>
-                    <input type="text" />
+                    <input 
+                      type="text"
+                      name="Sessions_Held"
+                    />
                   </div>
                   <div className="form-group">
                     <label>Centres Planned:</label>
-                    <input type="text" />
+                    <input 
+                      type="text"
+                      name="Centres_Planned"
+                    />
                   </div>
+                  
               
-              </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
+            </form>
           </div>
         </div>
       </div>
@@ -128,6 +169,21 @@
               <th>Sessions Held</th>
               <th>Centres Planned</th>
             </tr>
+            <?php while($table = mysqli_fetch_object($results)){ ?>
+            <tr>
+              <th>#<?php echo $table->ID_Number; ?></th>
+              <th><?php echo $table->Rename_Option; ?></th>
+              <th><?php echo $table->Leads_Generation; ?></th>
+              <th><?php echo $table->Emails_Sent; ?></th>
+              <th><?php echo $table->Calls_Made; ?></th>
+              <th><?php echo $table->Progressive_Responses; ?></th>
+              <th><?php echo $table->Meetings_Held; ?></th>
+              <th><?php echo $table->WhatsApp_Sent; ?></th>
+              <th><?php echo $table->Sessions_Planned; ?></th>
+              <th><?php echo $table->Sessions_Held; ?></th>
+              <th><?php echo $table->Centres_Planned; ?></th>
+            </tr>
+            <?php } ?>
           </thead>
           <tbody>
             <!-- Add historical data rows here -->
