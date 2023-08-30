@@ -6,7 +6,7 @@
   <?php session_start(); ?>
 </head>
 <body>
-  <h1> <center>GOAL MANAGAMENT SYSTEM</center></h1>
+  <h1> <center>GOAL MANAGEMENT SYSTEM</center></h1>
   <div class="container">
     <div class="form-container" id="login-section">
       <h2>Login</h2 >
