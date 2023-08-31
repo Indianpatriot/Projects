@@ -79,64 +79,64 @@
                 <div className="form-group">
                   <label>Leads Generation:</label>
                   <input 
-                    type="text"
-                    name="Leads_Generation" 
+                    type="number"
+                    name="Leads_Generation" required
                   />
                 </div>
                 <div className="form-group">
                   <label>Emails Sent:</label>
                   <input 
-                    type="text"
-                    name="Emails_Sent" 
+                    type="number"
+                    name="Emails_Sent" required 
                   />
                 </div>
                 <div className="form-group">
                     <label>Calls Made:</label>
                     <input 
-                      type="text"
-                      name="Calls_Made" 
+                      type="number"
+                      name="Calls_Made" required 
                     />
                   </div>
                   <div className="form-group">
                     <label>Progressive Responses:</label>
                     <input 
-                      type="text" 
-                      name="Progressive_Responses"
+                      type="number" 
+                      name="Progressive_Responses" required
                     />
                   </div>
                   <div className="form-group">
                     <label>Meetings Held:</label>
                     <input 
-                      type="text"
-                      name="Meetings_Held" 
+                      type="number"
+                      name="Meetings_Held" required
                     />
                   </div>
                   <div className="form-group">
                     <label>WhatsApp Sent:</label>
                     <input 
-                      type="text"
-                      name="WhatsApp_Sent" 
+                      type="number"
+                      name="WhatsApp_Sent" required
                     />
                   </div>
                   <div className="form-group">
                     <label>Sessions Planned:</label>
                     <input 
-                      type="text" 
-                      name="Sessions_Planned"
+                      type="number" 
+                      name="Sessions_Planned" required
                     />
                   </div>
                   <div className="form-group">
                     <label>Sessions Held:</label>
                     <input 
-                      type="text"
-                      name="Sessions_Held"
+                      type="number"
+                      name="Sessions_Held" required
                     />
                   </div>
                   <div className="form-group">
                     <label>Centres Planned:</label>
                     <input 
-                      type="text"
-                      name="Centres_Planned"
+                      type="number"
+                      name="Centres_Planned" required
                     />
                   </div>
                   
