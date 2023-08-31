@@ -73,70 +73,70 @@
                   <input 
                     type="text" 
                     onChange={handleRenameOptionChange} 
-                    name="Rename_Option"
+                    name="Rename_Option" required 
                   />
                 </div>
                 <div className="form-group">
                   <label>Leads Generation:</label>
                   <input 
                     type="number"
-                    name="Leads_Generation" required
+                    name="Leads_Generation"  min="1" required
                   />
                 </div>
                 <div className="form-group">
                   <label>Emails Sent:</label>
                   <input 
                     type="number"
-                    name="Emails_Sent" required 
+                    name="Emails_Sent" min="1"  required 
                   />
                 </div>
                 <div className="form-group">
                     <label>Calls Made:</label>
                     <input 
                       type="number"
-                      name="Calls_Made" required 
+                      name="Calls_Made"  min="1" required 
                     />
                   </div>
                   <div className="form-group">
                     <label>Progressive Responses:</label>
                     <input 
                       type="number" 
-                      name="Progressive_Responses" required
+                      name="Progressive_Responses" min="1"  required
                     />
                   </div>
                   <div className="form-group">
                     <label>Meetings Held:</label>
                     <input 
                       type="number"
-                      name="Meetings_Held" required
+                      name="Meetings_Held" min="1"  required
                     />
                   </div>
                   <div className="form-group">
                     <label>WhatsApp Sent:</label>
                     <input 
                       type="number"
-                      name="WhatsApp_Sent" required
+                      name="WhatsApp_Sent"  min="1" required
                     />
                   </div>
                   <div className="form-group">
                     <label>Sessions Planned:</label>
                     <input 
                       type="number" 
-                      name="Sessions_Planned" required
+                      name="Sessions_Planned" min="1"  required
                     />
                   </div>
                   <div className="form-group">
                     <label>Sessions Held:</label>
                     <input 
                       type="number"
-                      name="Sessions_Held" required
+                      name="Sessions_Held" min="1"  required
                     />
                   </div>
                   <div className="form-group">
                     <label>Centres Planned:</label>
                     <input 
                       type="number"
-                      name="Centres_Planned" required
+                      name="Centres_Planned"  min="1" required
                     />
                   </div>
                   
