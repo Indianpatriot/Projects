@@ -5,17 +5,9 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
   <?php 
-    include("Untitled-1b.php"); 
+    include("DB/team.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
-    $goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]."";
-    $parameter = mysqli_query($conn,$goal_parameter);
-    $array = array();
-    $i = 0;
-    while($para = mysqli_fetch_object($parameter)){
-      $array[$i] = $para->parameter;
-      $i++;
-    }
   ?>
 </head>
 <body>
@@ -38,7 +30,6 @@
   
             <td><a href="#">About</a></td>
           </tr>
-
           <tr>
             <td><a href="#" data-bs-toggle="modal" data-bs-target="#goalParametersModal">Create Goal</a></td>
           </tr>
@@ -162,26 +153,19 @@
 
       <!-- Main Content Area -->
       <div id="content" class="col-md-9">
-        <h1>History of Goals</h1>
+        <h1>Team</h1>
         <table class="table"style="width: 115%;" >
           <thead>
             <tr>
-              <?php
-              foreach($array as $value){ ?>
-              <th><?=$value ?></th>
-              <?php } ?>
+              <th>Team Id</th>
+              <th>Team Name</th>
+              <th>Team Domain</th>
             </tr>
             <?php while($table = mysqli_fetch_object($results)){ ?>
             <tr>
-              <th><?php foreach($array as $value){ echo $table->$value; } ?></th>
-              <th><?php echo $table->month; ?></th>
-              <th><?php echo $table->Leads_Generation; ?></th>
-              <th><?php echo $table->progressive; ?></th>
-              <th><?php echo $table->sessions_goals; ?></th>
-              <th><?php echo $table->sales; ?></th>
-              <th><?php echo $table->centres_spokne_to; ?></th>
-              <th><?php echo $table->centres_called; ?></th>
-              <th><?php echo $table->centre_emails; ?></th>
+              <th><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></th>
+              <th><?php echo $table->team_name; ?></th>
+              <th><?php echo $table->team_domain; ?></th>
             </tr>
             <?php } ?>
           </thead>

@@ -1,11 +1,7 @@
 <?php
-session_start();
-$username = $_SESSION['username'];
-$conn = new mysqli("localhost","root","","goal");
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include("DB/dbconn.php");
+$username = $_SESSION['user_id'];
 
 
 if(isset($_REQUEST['Rename_Option'])){
@@ -27,7 +23,7 @@ header("location:Untitled-1.php");
 exit();
 }
 
-$sql = "SELECT * FROM `record` where `username`= '$username'";
+$sql = "SELECT * FROM `record`";
 $results = mysqli_query($conn ,$sql);
  
 

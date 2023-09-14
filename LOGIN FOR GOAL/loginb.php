@@ -1,10 +1,7 @@
 <?php
+include("DB/dbconn.php");
 
-$conn = new mysqli("localhost","root","","goal");
 session_start();
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 
@@ -22,15 +19,16 @@ if(isset($_REQUEST['email'])){
     $sql = "INSERT INTO `users`(`username`, `email`, `password`) VALUES ('$username','$email','$password')";
     $result = mysqli_query($conn ,$sql);
     $_SESSION['username'] = $username;
-    header("Location:Untitled-1.php");
+    header("Location:index.php");
     exit();
 }else{
     $sql = "SELECT * FROM `users` WHERE username = '$username' and password='$password'";
     $result = mysqli_query($conn ,$sql);
     $row  = mysqli_fetch_array($result);
     if(is_array($row)) {
-        $_SESSION['username'] = $username;
-        header("Location:Untitled-1.php");
+        $_SESSION['user_id'] = $row["id"];
+        $_SESSION['role_id'] = $row["role_id"];
+        header("Location:index.php");
         exit();
     } else {
         $_SESSION["message"] = "Invalid Username or Password!";
