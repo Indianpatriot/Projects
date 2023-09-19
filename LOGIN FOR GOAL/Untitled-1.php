@@ -77,79 +77,24 @@
             </div>
             <div class="modal-body">
               <form action="Untitled-1b.php" method="post">
-                <div className="form-group">
-                  <label>Rename Option:</label>
-                  <input 
-                    type="text" 
-                    onChange={handleRenameOptionChange} 
-                    name="Rename_Option" required 
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Leads Generation:</label>
-                  <input 
-                    type="number"
-                    name="Leads_Generation"  min="1" required
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Emails Sent:</label>
-                  <input 
-                    type="number"
-                    name="Emails_Sent" min="1"  required 
-                  />
-                </div>
-                <div className="form-group">
-                    <label>Calls Made:</label>
-                    <input 
-                      type="number"
-                      name="Calls_Made"  min="1" required 
-                    />
-                  </div>
+                <?php foreach($array as $value){ ?>
                   <div className="form-group">
-                    <label>Progressive Responses:</label>
+                    <label><?=$value?>:</label>
                     <input 
-                      type="number" 
-                      name="Progressive_Responses" min="1"  required
+                      type="text" 
+                      onChange={handleRenameOptionChange} 
+                      name="Rename_Option" required 
                     />
-                  </div>
+                  </div>   
+                <?php }?>
+                <?php if($_SESSION['role_id'] != 4){ ?>
                   <div className="form-group">
-                    <label>Meetings Held:</label>
-                    <input 
-                      type="number"
-                      name="Meetings_Held" min="1"  required
-                    />
+                    <label>member:</label>
+                    <select name="member" id="cars">
+                      
+                    </select>
                   </div>
-                  <div className="form-group">
-                    <label>WhatsApp Sent:</label>
-                    <input 
-                      type="number"
-                      name="WhatsApp_Sent"  min="1" required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Sessions Planned:</label>
-                    <input 
-                      type="number" 
-                      name="Sessions_Planned" min="1"  required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Sessions Held:</label>
-                    <input 
-                      type="number"
-                      name="Sessions_Held" min="1"  required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Centres Planned:</label>
-                    <input 
-                      type="number"
-                      name="Centres_Planned"  min="1" required
-                    />
-                  </div>
-                  
-              
+                <?php }?>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -173,15 +118,9 @@
             </tr>
             <?php while($table = mysqli_fetch_object($results)){ ?>
             <tr>
-              <th><?php foreach($array as $value){ echo $table->$value; } ?></th>
-              <th><?php echo $table->month; ?></th>
-              <th><?php echo $table->Leads_Generation; ?></th>
-              <th><?php echo $table->progressive; ?></th>
-              <th><?php echo $table->sessions_goals; ?></th>
-              <th><?php echo $table->sales; ?></th>
-              <th><?php echo $table->centres_spokne_to; ?></th>
-              <th><?php echo $table->centres_called; ?></th>
-              <th><?php echo $table->centre_emails; ?></th>
+              <?php foreach($array as $value){ ?>
+                <th><?php echo $table->$value;  ?></th>
+              <?php } ?>
             </tr>
             <?php } ?>
           </thead>

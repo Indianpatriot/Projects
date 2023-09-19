@@ -23,8 +23,12 @@ header("location:Untitled-1.php");
 exit();
 }
 
-$sql = "SELECT * FROM `record`";
-$results = mysqli_query($conn ,$sql);
- 
+$sql1 = "SELECT * FROM `record`";
+$sql2 = "SELECT * FROM `echo`";
+if($_SESSION["team_id"]==1){
+    $results = mysqli_query($conn ,$sql1);
+}else{
+    $results = mysqli_query($conn ,$sql2);
+}
 
 ?>
