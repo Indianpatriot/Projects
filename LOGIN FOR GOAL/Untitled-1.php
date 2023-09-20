@@ -8,14 +8,6 @@
     include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
-    $goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]."";
-    $parameter = mysqli_query($conn,$goal_parameter);
-    $array = array();
-    $i = 0;
-    while($para = mysqli_fetch_object($parameter)){
-      $array[$i] = $para->parameter;
-      $i++;
-    }
   ?>
 </head>
 <body>
@@ -76,22 +68,31 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form action="Untitled-1b.php" method="post">
-                <?php foreach($array as $value){ ?>
+              <form action="Untitled-1b.php" method="POST">
+                <?php $i=0; while($para = mysqli_fetch_object($parameters)){ ?>
+                  <?php if($para->parameter == 'date'){$i++; continue;}  ?>
                   <div className="form-group">
-                    <label><?=$value?>:</label>
+                    <label><?=$para->parameter?>:</label>
                     <input 
-                      type="text" 
+                      type="<?=$para->parameter_data_type?>" 
                       onChange={handleRenameOptionChange} 
-                      name="Rename_Option" required 
+                      name="<?=$array[$i]?>" required 
+                      min="1"
+                      <?php $i++; ?>
                     />
                   </div>   
                 <?php }?>
                 <?php if($_SESSION['role_id'] != 4){ ?>
-                  <div className="form-group">
+                  <div class="form-group">
                     <label>member:</label>
-                    <select name="member" id="cars">
-                      
+                    <select class="form-select" aria-label="Default select example">
+                      <?php for($i=0; $i<count($user_array_id);$i++){ ?>
+                        <?php for($j=0; $j<count($role_array_id);$j++){ ?>
+                          <?php if($user_array_id[$i] == $role_array_id[$j]){ ?>
+                            <option value="1"><?=$user_array_name[$i]?></option>
+                          <?php } ?>
+                        <?php } ?>
+                      <?php }?>
                     </select>
                   </div>
                 <?php }?>

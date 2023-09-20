@@ -2,25 +2,28 @@
 
 include("DB/dbconn.php");
 $username = $_SESSION['user_id'];
-
-
-if(isset($_REQUEST['Rename_Option'])){
-$Rename_Option = $_REQUEST['Rename_Option'];
-$Leads_Generation = $_REQUEST['Leads_Generation'];
-$Emails_Sent = $_REQUEST['Emails_Sent'];
-$Calls_Made = $_REQUEST['Calls_Made'];
-$Progressive_Responses = $_REQUEST['Progressive_Responses'];
-$Meetings_Held = $_REQUEST['Meetings_Held'];
-$WhatsApp_Sent = $_REQUEST['WhatsApp_Sent'];
-$Sessions_Planned = $_REQUEST['Sessions_Planned'];
-$Sessions_Held = $_REQUEST['Sessions_Held'];
-$Centres_Planned = $_REQUEST['Centres_Planned'];
-
-$sql = "INSERT INTO `record`(`Rename_Option`, `Leads_Generation`, `Emails_Sent`, `Calls_Made`, `Progressive_Responses`, `Meetings_Held`, `WhatsApp_Sent`, `Sessions_Planned`, `Sessions_Held`, `Centres_Planned`, `username`) 
-VALUES ('$Rename_Option','$Leads_Generation','$Emails_Sent','$Calls_Made','$Progressive_Responses','$Meetings_Held','$WhatsApp_Sent','$Sessions_Planned','$Sessions_Held','$Centres_Planned','$username')";
-$result = mysqli_query($conn ,$sql);
-header("location:Untitled-1.php");
-exit();
+$goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]."";
+    $parameter = mysqli_query($conn,$goal_parameter);
+    $parameters = mysqli_query($conn,$goal_parameter);
+    $array = array();
+    $i = 0;
+    while($para = mysqli_fetch_object($parameter)){
+      $array[$i] = $para->parameter;
+      $i++;
+    }
+ 
+if(isset($_REQUEST[$array[0]])){
+    if($_SESSION["team_id"]==1){
+        $sql = "INSERT INTO `record`(`name`, `month`,`Leads_Generation`,`progressive`, `sessions_goals`, `sales`, `centres_spoken_to`, `centres_called`, `centre_emails`) VALUES ('".$_POST[$array[0]]."','".$_POST[$array[1]]."','".$_POST[$array[2]]."','".$_POST[$array[3]]."','".$_POST[$array[4]]."','".$_POST[$array[5]]."','".$_POST[$array[6]]."','".$_POST[$array[7]]."','".$_POST[$array[8]]."')";
+        $result = mysqli_query($conn ,$sql);
+        header("location:Untitled-1.php");
+        exit();
+    }else{
+        $sql ="INSERT INTO `echo`(`name`, `month`,`Tasks`, `Task_By`, `Members`, `Deadline`, `Status`, `Link`) VALUES ('".$_POST[$array[0]]."','".$_POST[$array[1]]."','".$_POST[$array[3]]."','".$_POST[$array[4]]."','".$_POST[$array[5]]."','".$_POST[$array[6]]."','".$_POST[$array[7]]."','".$_POST[$array[8]]."')";
+        $result = mysqli_query($conn ,$sql);
+        header("location:Untitled-1.php");
+        exit();
+    }
 }
 
 $sql1 = "SELECT * FROM `record`";
@@ -30,5 +33,22 @@ if($_SESSION["team_id"]==1){
 }else{
     $results = mysqli_query($conn ,$sql2);
 }
-
+$sql3 = "SELECT * FROM `users` WHERE `role_id` ='4'";
+$sql4 = "SELECT * FROM `role_teams` WHERE `team_id` = ".$_SESSION["team_id"]." ";
+$user_result = mysqli_query($conn ,$sql3);
+$role_result = mysqli_query($conn ,$sql4);
+$user_array_id = array();
+$user_array_name = array();
+$role_array_id = array();
+$i =0;
+while($user_name = mysqli_fetch_object($user_result)){
+    $user_array_id[$i]=$user_name->id;
+    $user_array_name[$i]=$user_name->username;
+    $i++;
+}
+$i = 0;
+while($user_id = mysqli_fetch_object($role_result)){
+    $role_array_id[$i]=$user_id->user_id;
+    $i++;
+}
 ?>
