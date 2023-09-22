@@ -63,84 +63,35 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="goalParametersModalLabel">Goal Parameters</h5>
+              <h5 class="modal-title" id="goalParametersModalLabel">Team Goal Parameters</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form action="Untitled-1b.php" method="post">
+              <div id="inputContainer">
+                <!-- Initial Input Field -->
                 <div className="form-group">
-                  <label>Rename Option:</label>
-                  <input 
-                    type="text" 
-                    onChange={handleRenameOptionChange} 
-                    name="Rename_Option" required 
-                  />
+                  <label>Team Name:</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <?php while($table = mysqli_fetch_object($team_name)){ ?>
+                      <option value="<?php echo $table->team_name; ?>"><?php echo $table->team_name; ?></option>
+                    <?php } ?>
+                  </select> 
+                  <label>Team Mentor:</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <?php while($table = mysqli_fetch_object($team_mentor)){ ?>
+                      <option value="<?php echo $table->team_name; ?>"><?php echo $table->team_name; ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
-                <div className="form-group">
-                  <label>Leads Generation:</label>
-                  <input 
-                    type="number"
-                    name="Leads_Generation"  min="1" required
-                  />
+                <div>
+                  <label for="inputField1">Enter something:</label>
+                  <input type="text" id="inputField1" name="inputField" placeholder="Type something here">
+                  <button type="button" style="width: 80px; float:right;" onclick="removeInputField(1)">Remove</button>
                 </div>
-                <div className="form-group">
-                  <label>Emails Sent:</label>
-                  <input 
-                    type="number"
-                    name="Emails_Sent" min="1"  required 
-                  />
-                </div>
-                <div className="form-group">
-                    <label>Calls Made:</label>
-                    <input 
-                      type="number"
-                      name="Calls_Made"  min="1" required 
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Progressive Responses:</label>
-                    <input 
-                      type="number" 
-                      name="Progressive_Responses" min="1"  required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Meetings Held:</label>
-                    <input 
-                      type="number"
-                      name="Meetings_Held" min="1"  required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>WhatsApp Sent:</label>
-                    <input 
-                      type="number"
-                      name="WhatsApp_Sent"  min="1" required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Sessions Planned:</label>
-                    <input 
-                      type="number" 
-                      name="Sessions_Planned" min="1"  required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Sessions Held:</label>
-                    <input 
-                      type="number"
-                      name="Sessions_Held" min="1"  required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Centres Planned:</label>
-                    <input 
-                      type="number"
-                      name="Centres_Planned"  min="1" required
-                    />
-                  </div>
-                  
-              
+              </div>
+              <!-- Button to Add New Input Field -->
+              <button type="button" style="width: 50px; float:right; margin-right:10px;" onclick="addInputField()">+</button>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -178,9 +129,31 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-  
-</script>
+<!-- JavaScript Function -->
+<script>
+        var inputCount = 1; // Initialize input count
+        
+        function addInputField() {
+            inputCount++; // Increment input count
+            
+            // Create a new input field, label, and remove button
+            var newDiv = document.createElement("div");
+            newDiv.innerHTML = `
+                <label for="inputField${inputCount}">Enter something:</label>
+                <input type="text" id="inputField${inputCount}" name="inputField" placeholder="Type something here">
+                <button type="button" style="width: 80px; float:right;" onclick="removeInputField(${inputCount})">Remove</button>
+            `;
+            
+            // Append the new input field to the container
+            document.getElementById("inputContainer").appendChild(newDiv);
+        }
+        
+        function removeInputField(inputNumber) {
+            // Remove the div containing the input field and remove button
+            var divToRemove = document.getElementById(`inputField${inputNumber}`).parentNode;
+            divToRemove.parentNode.removeChild(divToRemove);
+        }
+    </script>
 
   
 </body>

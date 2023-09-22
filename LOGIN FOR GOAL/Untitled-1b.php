@@ -2,24 +2,15 @@
 
 include("DB/dbconn.php");
 $username = $_SESSION['user_id'];
-$goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]."";
-    $parameter = mysqli_query($conn,$goal_parameter);
-    $parameters = mysqli_query($conn,$goal_parameter);
-    $array = array();
-    $i = 0;
-    while($para = mysqli_fetch_object($parameter)){
-      $array[$i] = $para->parameter;
-      $i++;
-    }
  
-if(isset($_REQUEST[$array[0]])){
+if(isset($_REQUEST[0])){
     if($_SESSION["team_id"]==1){
-        $sql = "INSERT INTO `record`(`name`, `month`,`Leads_Generation`,`progressive`, `sessions_goals`, `sales`, `centres_spoken_to`, `centres_called`, `centre_emails`) VALUES ('".$_POST[$array[0]]."','".$_POST[$array[1]]."','".$_POST[$array[2]]."','".$_POST[$array[3]]."','".$_POST[$array[4]]."','".$_POST[$array[5]]."','".$_POST[$array[6]]."','".$_POST[$array[7]]."','".$_POST[$array[8]]."')";
+        $sql = "INSERT INTO `record`(`name`, `month`,`Leads_Generation`,`progressive`, `sessions_goals`, `sales`, `centres_spoken_to`, `centres_called`, `centre_emails`) VALUES ('".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."')";
         $result = mysqli_query($conn ,$sql);
         header("location:Untitled-1.php");
         exit();
     }else{
-        $sql ="INSERT INTO `echo`(`name`, `month`,`Tasks`, `Task_By`, `Members`, `Deadline`, `Status`, `Link`) VALUES ('".$_POST[$array[0]]."','".$_POST[$array[1]]."','".$_POST[$array[3]]."','".$_POST[$array[4]]."','".$_POST[$array[5]]."','".$_POST[$array[6]]."','".$_POST[$array[7]]."','".$_POST[$array[8]]."')";
+        $sql ="INSERT INTO `echo`(`Name`, `Month`, `Date`, `Tasks`, `Task Done By`, `Members`, `Deadline`, `Status`, `Link`) VALUES ('".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."','".$_POST[0]."')";
         $result = mysqli_query($conn ,$sql);
         header("location:Untitled-1.php");
         exit();

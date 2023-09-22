@@ -8,6 +8,15 @@
     include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
+    $goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]."";
+    $parameter = mysqli_query($conn,$goal_parameter);
+    $parameters = mysqli_query($conn,$goal_parameter);
+    $array = array();
+    $i = 0;
+    while($para = mysqli_fetch_object($parameter)){
+      $array[$i] = $para->parameter;
+      $i++;
+    }
   ?>
 </head>
 <body>
@@ -24,7 +33,7 @@
         <table class="table table-borderless">
           <tr>
      
-            <td><a href="#">Home</a></td>
+            <td><a href="index.php">Home</a></td>
           </tr>
           <tr>
   
@@ -76,12 +85,12 @@
                     <input 
                       type="<?=$para->parameter_data_type?>" 
                       onChange={handleRenameOptionChange} 
-                      name="<?=$array[$i]?>" required 
+                      name="<?=$i?>" required 
                       min="1"
                       <?php $i++; ?>
                     />
                   </div>   
-                <?php }?>
+                <?php } $i=0;?>
                 <?php if($_SESSION['role_id'] != 4){ ?>
                   <div class="form-group">
                     <label>member:</label>
@@ -93,7 +102,7 @@
                           <?php } ?>
                         <?php } ?>
                       <?php }?>
-                    </select>
+                    </select> 
                   </div>
                 <?php }?>
             </div>
