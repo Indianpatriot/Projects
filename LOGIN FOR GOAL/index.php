@@ -80,13 +80,19 @@
                   <label>Team Mentor:</label>
                   <select class="form-select" aria-label="Default select example">
                     <?php while($table = mysqli_fetch_object($team_mentor)){ ?>
-                      <option value="<?php echo $table->team_name; ?>"><?php echo $table->team_name; ?></option>
+                      <option value="<?php echo $table->username; ?>"><?php echo $table->username; ?></option>
                     <?php } ?>
                   </select>
                 </div>
                 <div>
-                  <label for="inputField1">Enter something:</label>
-                  <input type="text" id="inputField1" name="inputField" placeholder="Type something here">
+                  <label for="inputField1">Add Parameter:</label>
+                  <input type="text" id="inputField1" name="inputField" placeholder="Parameter Name">
+                  <select class="form-select" aria-label="Default select example">
+                    <option value="">Parameter data type</option>
+                    <option value="VARCHAR">Text</option>
+                    <option value="INT">Number</option>
+                    <option value="DATE">Date</option>
+                  </select> 
                   <button type="button" style="width: 80px; float:right;" onclick="removeInputField(1)">Remove</button>
                 </div>
               </div>
