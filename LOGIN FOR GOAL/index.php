@@ -9,6 +9,7 @@
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
   ?>
+  <script src="JS/script.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -67,27 +68,26 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form action="Untitled-1b.php" method="post">
+              <form action="indexb.php" method="post">
               <div id="inputContainer">
                 <!-- Initial Input Field -->
                 <div className="form-group">
                   <label>Team Name:</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <?php while($table = mysqli_fetch_object($team_name)){ ?>
-                      <option value="<?php echo $table->team_name; ?>"><?php echo $table->team_name; ?></option>
+                  <select class="form-select" name="team_name" id="category" aria-label="Default select example">
+                    <option value="">Select team name</option>
+                    <?php $i=1; while($table = mysqli_fetch_object($team_name)){ ?>
+                      <option value="<?php echo $i++; ?>"><?php echo $table->team_name; ?></option>
                     <?php } ?>
                   </select> 
                   <label>Team Mentor:</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <?php while($table = mysqli_fetch_object($team_mentor)){ ?>
-                      <option value="<?php echo $table->username; ?>"><?php echo $table->username; ?></option>
-                    <?php } ?>
+                  <select class="form-select" name="team_mentor" id="subcategory" aria-label="Default select example">
+                  
                   </select>
                 </div>
                 <div>
                   <label for="inputField1">Add Parameter:</label>
-                  <input type="text" id="inputField1" name="inputField" placeholder="Parameter Name">
-                  <select class="form-select" aria-label="Default select example">
+                  <input type="text" id="inputField1" name="100" placeholder="Parameter Name">
+                  <select class="form-select" name="500" aria-label="Default select example">
                     <option value="">Parameter data type</option>
                     <option value="VARCHAR">Text</option>
                     <option value="INT">Number</option>
@@ -138,15 +138,25 @@
 <!-- JavaScript Function -->
 <script>
         var inputCount = 1; // Initialize input count
-        
+        var parameter = 100;
+        var data_type = 500;
+        document.cookie = "inputCount=" + inputCount;
         function addInputField() {
             inputCount++; // Increment input count
-            
+            parameter++;
+            data_type++;
+            document.cookie = "inputCount=" + inputCount;
             // Create a new input field, label, and remove button
             var newDiv = document.createElement("div");
             newDiv.innerHTML = `
-                <label for="inputField${inputCount}">Enter something:</label>
-                <input type="text" id="inputField${inputCount}" name="inputField" placeholder="Type something here">
+                <label for="inputField${inputCount}" >Enter something:</label>
+                <input type="text" id="inputField${inputCount}" name="${parameter}" placeholder="Type something here">
+                <select class="form-select" id="inputField${inputCount}" name="${data_type}" aria-label="Default select example">
+                    <option value="">Parameter data type</option>
+                    <option value="VARCHAR">Text</option>
+                    <option value="INT">Number</option>
+                    <option value="DATE">Date</option>
+                  </select>
                 <button type="button" style="width: 80px; float:right;" onclick="removeInputField(${inputCount})">Remove</button>
             `;
             
