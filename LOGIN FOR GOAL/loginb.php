@@ -28,6 +28,7 @@ if(isset($_REQUEST['email'])){
     if(is_array($row)) {
         $_SESSION['user_id'] = $row["id"];
         $_SESSION['role_id'] = $row["role_id"];
+        $_SESSION['user_name'] = $row["username"];
         header("Location:index.php");
         exit();
     } else {

@@ -1,13 +1,23 @@
 <?php
+include("dbconn.php");
 // Simulated subcategory data - you would replace this with data from your server or another source
 $subcategories = array();
 
-if ($_GET["category"] == "1") {
-    $subcategories[] = array("id" => 1, "name" => "Mentor1");
-} elseif ($_GET["category"] == "2") {
-    $subcategories[] = array("id" => 3, "name" => "Mentor2");
-} elseif ($_GET["category"] == "3") {
-    $subcategories[] = array("id" => 5, "name" => "Mentor3");
+
+$id = "SELECT * FROM `role_teams` where `role_id` = '3' and `team_id` = '".$_GET["category"]."'";
+$ids = mysqli_query($conn,$id);
+$i=0;
+$ruid = array();
+while($role = mysqli_fetch_object($ids)){
+    $ruid[$i]= $role->user_id;
+    $i++;
+}
+$result = "(" . implode(",", $ruid) . ")";
+$user ="SELECT * FROM `users` WHERE `role_id` ='3' ANd id IN $result";
+$username = mysqli_query($conn,$user);
+while($row = mysqli_fetch_object($username)){
+        $subcategories[] = array("id" => $row->username, "name" => $row->username);
+        break;
 }
 
 // Return the subcategory data as JSON

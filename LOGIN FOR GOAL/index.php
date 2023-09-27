@@ -31,9 +31,11 @@
   
             <td><a href="#">About</a></td>
           </tr>
+          <?php if($_SESSION['role_id'] != 4){ ?>
           <tr>
-            <td><a href="#" data-bs-toggle="modal" data-bs-target="#goalParametersModal">Create Goal</a></td>
+            <td><a href="#" data-bs-toggle="modal" data-bs-target="#goalParametersModal">Create Parameter</a></td>
           </tr>
+          <?php }?>
           <!-- Add Logout link -->
           <tr>
         
