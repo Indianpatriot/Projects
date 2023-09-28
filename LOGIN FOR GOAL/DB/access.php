@@ -17,7 +17,13 @@
                 exit();
                 echo "ds";
             }else{
-                echo "invalid";
+                if($role_id==3){
+                    $_SESSION["invalid"] = "you are not a team manager";
+                }else{
+                    $_SESSION["invalid"] = "you are not a team member";
+                }
+                header("Location:/goal/Projects/LOGIN%20FOR%20GOAL/index.php");
+                exit();
             }
         }
     }else{

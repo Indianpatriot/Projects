@@ -120,17 +120,23 @@
             <div class="modal-body">
               <table class="table"style="width: 100%;">
                 <tr>
+                  <td>S. No.</td>
                   <td>Member Id</td>
                   <td>Member name</td>
                 </tr>
-                <?php for($i=0; $i<count($user_array_id);$i++){ ?>
+                <?php $sno=1; for($i=0; $i<count($user_array_id);$i++){ ?>
                   <?php for($j=0; $j<count($role_array_id);$j++){ ?>
                     <?php if($user_array_id[$i] == $role_array_id[$j]){ ?>
                       <tr>
+                        <td><?=$sno?></td>
                         <td><?=$user_array_id[$i]?></td>
                         <td><?=$user_array_name[$i]?></td>
+                        <?php if($_SESSION["role_id"] !=4){ ?>
+                          <?php if($_SESSION["role_id"] == 3 &&  $_SESSION['user_id'] ==$user_array_id[$i]){continue;} ?>
+                          <td>remove</td>
+                        <?php } ?>
                       </tr>
-                    <?php } ?>
+                    <?php $sno++; } ?>
                   <?php } ?>
                 <?php }?>
               </table>
@@ -156,7 +162,7 @@
             <?php while($table = mysqli_fetch_object($results)){ ?>
             <tr>
               <?php foreach($array as $value){ ?>
-                <th><?php echo $table->$value;  ?></th>
+                <td><?php echo $table->$value;  ?></td>
               <?php } ?>
             </tr>
             <?php } ?>

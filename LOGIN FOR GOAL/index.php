@@ -122,14 +122,17 @@
             </tr>
             <?php while($table = mysqli_fetch_object($results)){ ?>
             <tr>
-              <th><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></th>
-              <th><?php echo $table->team_name; ?></th>
-              <th><?php echo $table->team_domain; ?></th>
+              <td><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></td>
+              <td><?php echo $table->team_name; ?></td>
+              <td><?php echo $table->team_domain; ?></td>
             </tr>
             <?php } ?>
           </thead>
           <tbody>
             <!-- Add historical data rows here -->
+            <?php if(isset($_SESSION["invalid"])){ ?>
+              <script>window.alert("<?=$_SESSION["invalid"]?>")</script>
+            <?php unset($_SESSION["invalid"]); } ?>
           </tbody>
         </table>
       </div>
