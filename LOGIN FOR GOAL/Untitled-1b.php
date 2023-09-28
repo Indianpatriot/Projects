@@ -30,6 +30,7 @@ $role_result = mysqli_query($conn ,$sql4);
 $user_array_id = array();
 $user_array_name = array();
 $role_array_id = array();
+$user_role_id = array();
 $i =0;
 while($user_name = mysqli_fetch_object($user_result)){
     $user_array_id[$i]=$user_name->id;
@@ -39,6 +40,7 @@ while($user_name = mysqli_fetch_object($user_result)){
 $i = 0;
 while($user_id = mysqli_fetch_object($role_result)){
     $role_array_id[$i]=$user_id->user_id;
+    $user_role_id[$i]=$user_id->role_id;
     $i++;
 }
 

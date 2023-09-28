@@ -131,9 +131,11 @@
                         <td><?=$sno?></td>
                         <td><?=$user_array_id[$i]?></td>
                         <td><?=$user_array_name[$i]?></td>
+                        <!-- <td><?=$user_role_id[$i]?></td> -->
+                        
                         <?php if($_SESSION["role_id"] !=4){ ?>
                           <?php if($_SESSION["role_id"] == 3 &&  $_SESSION['user_id'] ==$user_array_id[$i]){continue;} ?>
-                          <td>remove</td>
+                          <td><button onclick="confirmAction('815')">Remove</button></td>
                         <?php } ?>
                       </tr>
                     <?php $sno++; } ?>
@@ -175,11 +177,10 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-  
-</script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  
+  <script src="JS/confirm.js">
+    
+  </script>
   
 </body>
 </html>
