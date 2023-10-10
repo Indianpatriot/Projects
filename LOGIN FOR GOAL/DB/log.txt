@@ -1,0 +1,15 @@
+Response: true, User ID: 46, roleId: , teamId: 
+Response: true, User ID: 46, roleId: fg, teamId: 655
+Response: false, User ID: 46, roleId: fg, teamId: 655
+Response: true, User ID: 46, roleId: fg, teamId: 655
+Response: false, User ID: 46, roleId: fg, teamId: 655
+Response: true, User ID: 46, roleId: fg, teamId: 655
+Response: true, User ID: 46, roleId: fg, teamId: 655
+Response: true, User ID: 21, roleId: 4, teamId: 1
+Response: true, User ID: 21, roleId: 4, teamId: 1
+Response: true, User ID: 22, roleId: 4, teamId: 1
+Response: true, User ID: 23, roleId: 4, teamId: 1
+Response: true, User ID: 22, roleId: 4, teamId: 1
+Response: true, User ID: 22, roleId: 4, teamId: 1
+Response: true, User ID: 22, roleId: 4, teamId: 1
+Response: true, User ID: 22, roleId: 4, teamId: 1

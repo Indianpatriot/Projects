@@ -2,7 +2,7 @@
 
 include("DB/dbconn.php");
 $username = $_SESSION['user_id'];
-
+$total = array([],[]);
 // print team goal
 $teamID = $_SESSION["team_id"];
 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
@@ -66,15 +66,39 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     
     $result = "`" . implode("`,`", $goalp) . "`)";
     $results = "'" . implode("','", $inputpara) . "')";
+    $date_data = $_REQUEST["date_data"];
     if(isset($_REQUEST["membername"])){
         $i = $_REQUEST["membername"];
         echo $user_array_id[$i];
         echo $user_array_name[$i];
-        $goal = "insert into `$teamname->team_name` (`Member ID`, `Member Name`, $result value ('$user_array_id[$i]', '$user_array_name[$i]',$results";
-        echo "hihi";
+        $temp_uid = $user_array_id[$i];
+       //Checking If data is thee in the database
+        $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '$temp_uid' AND `Date` = '$date_data'";
+        $check = mysqli_query($conn,$query_check_db);
+        $rowcount = mysqli_num_rows($check);
+        if($rowcount >= "1"){
+            //Do Nothing and alert user that data is present
+            $_SESSION["allready"] = "$user_array_name[$i], all ready filled goal";
+            header("Location:Untitled-1.php");
+            exit();
+        }else{
+            $goal = "insert into `$teamname->team_name` (`Member ID`, `Member Name`, $result value ('$user_array_id[$i]', '$user_array_name[$i]',$results";
+            echo "hihi";
+        }
+       
     }else{
+        $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '".$_SESSION['user_id']."' AND `Date` = '$date_data'";
+        $check = mysqli_query($conn,$query_check_db);
+        $rowcount = mysqli_num_rows($check);
+        if($rowcount >= "1"){
+            //Do Nothing and alert user that data is present
+            $_SESSION["allready"] = "".$_SESSION['user_name'].", all ready filled goal";
+            header("Location:Untitled-1.php");
+            exit();
+        }else{
         $goal = "insert into `$teamname->team_name` (`Member ID`, `Member Name`, $result value ('".$_SESSION['user_id']."', '".$_SESSION['user_name']."',$results";
         echo "hihi";
+        }
     }
     if(mysqli_query($conn,$goal)){
        header("location:Untitled-1.php");
@@ -84,6 +108,18 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     }
 }
 
+// add normal member
+$normalmember = "SELECT * FROM `users` WHERE `role_id` = 5";
+$normaladdmember = mysqli_query($conn,$normalmember);
+if(isset($_GET["membername"])){
+    $id = $_GET["membername"];
+    $sql1 = "UPDATE `users` SET `role_id`='4' WHERE `id` = '$id' ";
+    $sql2 = "UPDATE `role_teams` SET `role_id`='4',`team_id`='$teamID' WHERE `user_id` ='$id'";
+    if(mysqli_query($conn,$sql1) && mysqli_query($conn,$sql2)){
+        header("location:Untitled-1.php");
+        exit();
+    }
+}
 
 // Create a string with array elements enclosed in parentheses and separated by commas
 

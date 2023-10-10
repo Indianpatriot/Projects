@@ -31,7 +31,7 @@
   
             <td><a href="#">About</a></td>
           </tr>
-          <?php if($_SESSION['role_id'] != 4){ ?>
+          <?php if(($_SESSION['role_id'] != 4)&&($_SESSION['role_id'] != 5)){ ?>
           <tr>
             <td><a href="#" data-bs-toggle="modal" data-bs-target="#goalParametersModal">Create Parameter</a></td>
           </tr>
@@ -75,12 +75,18 @@
                 <!-- Initial Input Field -->
                 <div className="form-group">
                   <label>Team Name:</label>
-                  <select class="form-select" name="team_name" id="category" aria-label="Default select example">
+                  <select class="form-select" name="team_name" id="category" onchange="createNewInput()" aria-label="Default select example">
                     <option value="">Select team name</option>
-                    <?php $i=1; while($table = mysqli_fetch_object($team_name)){ ?>
+                    <?php $i=1; while($table = mysqli_fetch_object($team_name)){ if( $_SESSION['role_id'] != 3){?>
                       <option value="<?php echo $i++; ?>"><?php echo $table->team_name; ?></option>
+                    <?php }elseif( $_SESSION['team_id'] == $i){ ?>
+                      <option value="<?php echo $i++; ?>"><?php echo $table->team_name; ?></option>
+                    <?php }} ?>
+                    <?php if( $_SESSION['role_id'] != 3){ ?>
+                      <option value="other">Other</option>
                     <?php } ?>
                   </select> 
+                  <div id="dynamicInput"></div>
                   <label>Team Mentor:</label>
                   <select class="form-select" name="team_mentor" id="subcategory" aria-label="Default select example">
                   
@@ -174,6 +180,28 @@
             var divToRemove = document.getElementById(`inputField${inputNumber}`).parentNode;
             divToRemove.parentNode.removeChild(divToRemove);
         }
+
+      function createNewInput() {
+        var selectedValue = document.getElementById("category").value;
+        var dynamicInputContainer = document.getElementById("dynamicInput");
+
+        // Clear previous dynamic input
+        dynamicInputContainer.innerHTML = "";
+
+        if (selectedValue === "other") {
+            var newInput = document.createElement("input");
+            newInput.type = "text";
+            newInput.placeholder = "Create new team name";
+            newInput.name = "newteam";
+            dynamicInputContainer.appendChild(newInput);
+
+            var originalInput = document.createElement("input");
+            originalInput.type = "text";
+            originalInput.placeholder = "team domain";
+            originalInput.name = "teamdomain";
+            dynamicInputContainer.appendChild(originalInput);
+        }
+      }
     </script>
 
   

@@ -12,6 +12,8 @@ while($role = mysqli_fetch_object($ids)){
     $ruid[$i]= $role->user_id;
     $i++;
 }
+
+$subcategories = array();
 $result = "(" . implode(",", $ruid) . ")";
 $user ="SELECT * FROM `users` WHERE `role_id` ='3' ANd id IN $result";
 $username = mysqli_query($conn,$user);
