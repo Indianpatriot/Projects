@@ -184,16 +184,38 @@
 
       <!-- Main Content Area -->
       <div id="content" class="col-md-9">
-        <h1><?=$teamname->team_name?></h1>
-        <table class="table"style="width: 115%;" >
-          <thead>
-            <tr>
-              <?php
-              foreach($array as $value){ ?>
-              <th><?=$value ?></th>
-              <?php } ?>
-            </tr>
-            </thead>
+        <div class="row align-items-center">
+            <div class="col-sm-6 col-12 mb-4 mb-sm-5 ">
+                <!-- Title -->
+                <h1 class="h2 mb-0 ls-tight "><?=$teamname->team_name?></h1>
+            </div>
+            <!-- Actions -->
+            <div class="col-sm-6 col-12 text-sm-end">
+                <div class="mx-n1">
+                <form action="editb.php" method="post">
+                    <span class="btn d-inline-flex btn-sm btn-primary mx-1">
+                            <button type="submit" class="btn btn-primary" >change parameter name</button>
+                    </span>
+                </div>   
+            </div>
+        </div>
+        <table class="table"style="width: 115%;" >  
+           
+                <thead>
+                  <tr>
+                    <?php $val=0;
+                    foreach($array as $value){ ?>
+                    <th>
+                        <?php if($value != "Date" && $value != "Member Name"){ ?>
+                        <input type="text" name="<?=$val ?>" value="<?=$value ?>" required>
+                        <?php }else { ?>
+                            <?php echo $value; continue;  ?>
+                        <?php } ?>
+                    </th>
+                    <?php $val++; } ?>
+                  </tr>
+                </thead>
+                    </form>     
             <tbody>
             <?php 
               $row=0; 
@@ -268,6 +290,8 @@
           
           <tbody>
             <!-- Add historical data rows here -->
+            
+                
           </tbody>
         </table>
       </div>

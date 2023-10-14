@@ -1,6 +1,7 @@
 <?php
 
     include("DB/dbconn.php");
+    
     $j=0;
     $parameter=100;
     $data_type = 500;
