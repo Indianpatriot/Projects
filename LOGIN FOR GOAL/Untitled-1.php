@@ -177,6 +177,11 @@
                     <option value="<?=$memberlist->id?>"><?=$memberlist->username?></option>
                   <?php } ?>
                 </select>
+                <select class="form-select" name="membername" aria-label="Default select example">
+                  <?php while($memberlist = mysqli_fetch_object($normaladdmember)){ ?>
+                    <option value="<?=$memberlist->id?>"><?=$memberlist->username?></option>
+                  <?php } ?>
+                </select>
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">submit</button> 
