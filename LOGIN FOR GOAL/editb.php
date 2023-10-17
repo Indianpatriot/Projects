@@ -16,7 +16,9 @@ include("DB/dbconn.php");
     }
     $val = 0;
     foreach($array as $value){
-        if($value == "Date" && $value = "Member Name"){ continue; }else{   
+        if($value == "Date" || $value == "Member Name"){  continue; }else{ 
+            echo $_REQUEST[$val]." ".$val." ".$value."<br>";
+              
             $sql1="UPDATE `goal_parameter` SET `parameter`='".$_REQUEST[$val]."' WHERE parameter = '$value'";
             $sql2="ALTER TABLE `$teamname->team_name` CHANGE `$value` `".$_REQUEST[$val]."` VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL";
             if(mysqli_query($conn,$sql1)){

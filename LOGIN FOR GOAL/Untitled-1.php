@@ -35,7 +35,7 @@
             <td><a href="#" data-bs-toggle="modal" data-bs-target="#teammember">member</a></td>
           </tr>
           <tr>
-            <td><a href="#" data-bs-toggle="modal" data-bs-target="#goalParametersModal">Create Goal</a></td>
+            <td><a href="#" data-bs-toggle="modal" data-bs-target="#goalParametersModal">Update goal (date-wise)</a></td>
           </tr>
           <!-- Add Logout link -->
           <tr>
@@ -60,6 +60,8 @@
         }
         #sidebar {
       width: 200px; /* Adjust the width as needed */
+   
+
     }
       </style>
       <!-- alert massage -->
@@ -177,11 +179,6 @@
                     <option value="<?=$memberlist->id?>"><?=$memberlist->username?></option>
                   <?php } ?>
                 </select>
-                <select class="form-select" name="membername" aria-label="Default select example">
-                  <?php while($memberlist = mysqli_fetch_object($normaladdmember)){ ?>
-                    <option value="<?=$memberlist->id?>"><?=$memberlist->username?></option>
-                  <?php } ?>
-                </select>
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">submit</button> 
@@ -194,7 +191,7 @@
 
       <!-- Main Content Area -->
       <div id="content" class="col-md-9">
-        <h1><?=$teamname->team_name?></h1>
+        <h1><?=$teamname->team_name?></h1>   <button class="align-right" type= "button"> <a href="edit.php" style="text-decoration: none; color: black; cursor: pointer;">customize </a></button>
         <table class="table"style="width: 115%;" >
           <thead>
             <tr>
@@ -283,7 +280,14 @@
       </div>
     </div>
   </div>
+   <style>
+   .align-right {
+  position: absolute;
+  top: 60px; /* Adjust this value to control the vertical position */
+  right: 10px; /* Adjust this value to control the horizontal position */
+  color: white;}
 
+</style>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  
   <script src="JS/confirm.js">
     
