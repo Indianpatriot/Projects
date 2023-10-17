@@ -30,10 +30,11 @@ function sendResponseToPHP(response, userId, roleId, teamID) {
     // Define a callback function to handle the response from PHP
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-            alert("PHP Response:\n" + xhr.responseText);
+            // alert("PHP Response:\n" + xhr.responseText);
             if (xhr.status === 200) {
                 // PHP script executed successfully, and we received a response
-                console.log("PHP Response:", xhr.responseText);                
+                // console.log("PHP Response:", xhr.responseText); 
+                window.location.href = "Untitled-1.php";               
                 alert("PHP Response:\n" + xhr.responseText);
             } else {
                 alert("PHP Response:\n" + xhr.responseText);
