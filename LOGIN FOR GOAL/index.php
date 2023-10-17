@@ -33,7 +33,7 @@
           </tr>
           <?php if(($_SESSION['role_id'] != 4)&&($_SESSION['role_id'] != 5)){ ?>
           <tr>
-            <td><a href="#" data-bs-toggle="modal" data-bs-target="#goalParametersModal">Create Parameter</a></td>
+            <td><a href="#" data-bs-toggle="modal" data-bs-target="#goalParametersModal">Create Goal Parameter</a></td>
           </tr>
           <?php }?>
           <!-- Add Logout link -->

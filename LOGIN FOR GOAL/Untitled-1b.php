@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $i = $_REQUEST["membername"];
         echo $user_array_id[$i];
         echo $user_array_name[$i];
-        $temp_uid = $user_array_id[$i];
+        $temp_uid = $user_array_id[$i]; 
        //Checking If data is thee in the database
         $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '$temp_uid' AND `Date` = '$date_data'";
         $check = mysqli_query($conn,$query_check_db);
@@ -111,10 +111,12 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 // add normal member
 $normalmember = "SELECT * FROM `users` WHERE `role_id` = 5";
 $normaladdmember = mysqli_query($conn,$normalmember);
+
 if(isset($_GET["membername"])){
     $id = $_GET["membername"];
-    $sql1 = "UPDATE `users` SET `role_id`='4' WHERE `id` = '$id' ";
-    $sql2 = "UPDATE `role_teams` SET `role_id`='4',`team_id`='$teamID' WHERE `user_id` ='$id'";
+    $role_id= $_GET["membertype"];
+    $sql1 = "UPDATE `users` SET `role_id`='$role_id' WHERE `id` = '$id' ";
+    $sql2 = "UPDATE `role_teams` SET `role_id`='$role_id',`team_id`='$teamID' WHERE `user_id` ='$id'";
     if(mysqli_query($conn,$sql1) && mysqli_query($conn,$sql2)){
         header("location:Untitled-1.php");
         exit();
@@ -122,5 +124,26 @@ if(isset($_GET["membername"])){
 }
 
 // Create a string with array elements enclosed in parentheses and separated by commas
+$printid = "SELECT * FROM `role_teams` WHERE `role_id` IN (3,4) AND `team_id` ='$teamID'  ORDER BY `role_id`";
+$printidselect = mysqli_query($conn,$printid);
+$selectid = "";
+if(mysqli_num_rows($printidselect)>0){
+$print = array();
+$p = 0;
+while($pri = mysqli_fetch_object($printidselect)){
+    $print[$p] = $pri->user_id;
+    $p++;
+}
+$selectid = "(" . implode(",", $print) . ")";
+$printname = "SELECT * FROM `users` WHERE `id` IN $selectid ORDER BY role_id ASC";
+$nameprint = mysqli_query($conn,$printname);
 
+$print = array();
+$p = 0;
+while($pri = mysqli_fetch_object($nameprint)){
+    $print[$p] = $pri->username;
+    $p++;
+}
+$selectid = "(" . implode(",", $print) . ")";
+}
 ?>

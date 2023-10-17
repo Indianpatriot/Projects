@@ -73,7 +73,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="goalParametersModalLabel"><?=$teamname->team_name?></h5>
+              <h5 class="modal-title" id="goalParametersModalLabel"><?=$teamname->team_name?><?php echo $selectid?></h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -174,10 +174,16 @@
             </div>
             <div class="modal-body">
               <form action="Untitled-1b.php">
+                <label >member name</label>
                 <select class="form-select" name="membername" aria-label="Default select example">
                   <?php while($memberlist = mysqli_fetch_object($normaladdmember)){ ?>
                     <option value="<?=$memberlist->id?>"><?=$memberlist->username?></option>
                   <?php } ?>
+                </select>
+                <label >member type</label>
+                <select class="form-select" name="membertype" aria-label="Default select example">
+                    <option value="3">team manager</option>
+                    <option value="4">member</option>
                 </select>
             </div>
             <div class="modal-footer">
@@ -191,7 +197,7 @@
 
       <!-- Main Content Area -->
       <div id="content" class="col-md-9">
-        <h1><?=$teamname->team_name?></h1>   <button class="align-right" type= "button"> <a href="edit.php" style="text-decoration: none; color: black; cursor: pointer;">customize </a></button>
+        <h1><?=$teamname->team_name?></h1><b><?php echo $selectid?></b>   <button class="align-right" type= "button"> <a href="edit.php" style="text-decoration: none; color: black; cursor: pointer;">customize </a></button>
         <table class="table"style="width: 115%;" >
           <thead>
             <tr>
