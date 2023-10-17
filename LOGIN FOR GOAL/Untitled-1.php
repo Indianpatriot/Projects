@@ -32,7 +32,7 @@
           </tr>
           <tr>
   
-            <td><a href="#" data-bs-toggle="modal" data-bs-target="#teammember">member</a></td>
+            <td><a href="#" data-bs-toggle="modal" data-bs-target="#teammember">Members</a></td>
           </tr>
           <tr>
             <td><a href="#" data-bs-toggle="modal" data-bs-target="#goalParametersModal">Update goal (date-wise)</a></td>

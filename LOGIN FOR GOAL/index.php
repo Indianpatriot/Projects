@@ -87,7 +87,7 @@
                     <?php } ?>
                   </select> 
                   <div id="dynamicInput"></div>
-                  <label>Team Mentor:</label>
+                  <label>Team Manager:</label>
                   <select class="form-select" name="team_mentor" id="subcategory" aria-label="Default select example">
                   
                   </select>
