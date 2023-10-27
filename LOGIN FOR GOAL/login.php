@@ -14,6 +14,7 @@
       <form action="loginb.php" method="post" id="login-form">
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
+        <p><a href="sendotp.php">forgot password?</a></p>
         <button type="submit">Login</button>
         <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
       </form>

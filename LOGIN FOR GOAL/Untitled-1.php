@@ -234,7 +234,14 @@
                   }
               ?>
               <td>
-                <?php echo $table->$value; ?>
+                <?php
+                  if($value != "Date"){
+                    echo $table->$value;
+                  }else{
+                    echo date("d-m-Y", strtotime($table->$value));
+                  }
+                          
+                ?>
               </td>
               <?php $col++;}$row++;}?>
             </tr>

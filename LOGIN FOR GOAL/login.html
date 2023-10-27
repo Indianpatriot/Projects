@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Sign Up</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <?php session_start(); ?>
+</head>
+<body>
+  <h1> <center>GOAL MANAGEMENT SYSTEM</center></h1>
+  <div class="container">
+    <div class="form-container" id="login-section">
+      <h2>Login</h2>
+      <span style="color:red"><?php if(isset($_SESSION["message"])){ echo $_SESSION["message"]; } unset($_SESSION["message"]); ?> </span>
+      <form action="loginb.php" method="post" id="login-form">
+        <input class="testMe" type="text" name="username" placeholder="Username" required>
+        <div class="password-container">
+          <input class="testMe" type="password" name="password" placeholder="Password" required>
+
+          
+        </div>
+        <div class="test">
+            
+            <input type="checkbox" id="show-login-password"> 
+
+            <span>Show Password</span>
+          </div>
+        <button type="submit">Login</button>
+        <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+      </form>
+    </div>
+    <div class="form-container hidden" id="signup-section">
+      <h2>Sign Up</h2>
+      <form action="loginb.php" method="post" id="signup-form">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <div class="password-container">
+          <input type="password" name="password" placeholder="Password" required>
+          <input type="checkbox" id="show-signup-password"> Show Password
+        </div>
+        <div class="password-container">
+          <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+          <input type="checkbox" id="show-signup-confirm-password"> Show Password
+        </div>
+        <button type="submit">Sign Up</button>
+        <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script >
+    const loginSection = document.getElementById('login-section');
+    const signupSection = document.getElementById('signup-section');
+    const signupLink = document.getElementById('signup-link');
+    const loginLink = document.getElementById('login-link');
+
+    signupLink.addEventListener('click', () => {
+      loginSection.classList.add('hidden');
+      signupSection.classList.remove('hidden');
+    });
+
+    loginLink.addEventListener('click', () => {
+      loginSection.classList.remove('hidden');
+      signupSection.classList.add('hidden');
+    });
+
+    const showLoginPassword = document.getElementById("show-login-password");
+    const loginPassword = document.querySelector("#login-form input[name='password']");
+    showLoginPassword.addEventListener("change", () => {
+      loginPassword.type = showLoginPassword.checked ? "text" : "password";
+    });
+
+    const showSignupPassword = document.getElementById("show-signup-password");
+    const signupPassword = document.querySelector("#signup-form input[name='password']");
+    showSignupPassword.addEventListener("change", () => {
+      signupPassword.type = showSignupPassword.checked ? "text" : "password";
+    });
+
+    const showSignupConfirmPassword = document.getElementById("show-signup-confirm-password");
+    const signupConfirmPassword = document.querySelector("#signup-form input[name='confirm_password']");
+    showSignupConfirmPassword.addEventListener("change", () => {
+      signupConfirmPassword.type = showSignupConfirmPassword.checked ? "text" : "password";
+    });
+  </script>
+</body>
+</html>

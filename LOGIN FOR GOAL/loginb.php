@@ -3,10 +3,12 @@ include("DB/dbconn.php");
 
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
-
+$_SESSION["username"]=$_REQUEST['username'];
+$_SESSION["password"]=$_REQUEST['password'];
 
 if(isset($_REQUEST['email'])){
     $email = $_REQUEST['email'];
+    $_SESSION["email"]=$_REQUEST['email'];
     $sql = "SELECT * FROM `users` WHERE username = '$username' ";
     $result = mysqli_query($conn ,$sql);
     $row  = mysqli_fetch_array($result);
@@ -14,21 +16,27 @@ if(isset($_REQUEST['email'])){
         $_SESSION["message"] = "user all ready exist";
         header("Location:login.php");
         exit();
-    } 
+    }else{
+        $email = $_REQUEST["email"];
+        $otp = rand(1111,9999);
+        $_SESSION["email"]=$email;
+        $_SESSION["otp"] = $otp; 
+        $to_email = $email;
+        $subject = "forget password";
+        $body = "Hi, you otp is $otp";
+        $headers = "From: shahid576ali@gmail.com";
 
-
-    $sql1 = "INSERT INTO `users`(`username`, `email`, `password`, `role_id`) VALUES ('$username','$email','$password','5')";
-    if(mysqli_query($conn ,$sql1)){
-        echo "ddd";
+        if (mail($to_email, $subject, $body, $headers)) {
+                
+            header("Location:verify.php");
+            exit();
+        } else {
+            echo "error found check your internet connection";
+           // header("Location:sendotp.php");
+            exit();
+        }
+    
     }
-    $sql2 = "SELECT * FROM `users` WHERE username = '$username' and password='$password'";
-    $result1 = mysqli_query($conn ,$sql2);
-    $id = mysqli_fetch_object($result1);
-    $sql3 = "INSERT INTO `role_teams`(`user_id`, `role_id`, `team_id`) VALUES ('$id->id','5','0')";
-    $result = mysqli_query($conn,$sql3);
-    $_SESSION['username'] = $username;
-    header("Location:index.php");
-    exit();
 }else{
     $sql = "SELECT * FROM `users` WHERE username = '$username' and password='$password'";
     $result = mysqli_query($conn ,$sql);
