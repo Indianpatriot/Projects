@@ -11,7 +11,7 @@
 
 
 .form-container {
-  width: 200px;
+  width: 100%;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -42,7 +42,7 @@ form h2 {
 }
 
 .test{
-  width:300px;
+  width:100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
