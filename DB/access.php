@@ -6,7 +6,7 @@
         $team_id = $_GET["team_id"];
         $_SESSION["team_id"] = $_GET["team_id"];
         if($role_id == 1){
-            header("Location:/goal%20managment%20system/Projects/LOGIN%20FOR%20GOAL/Untitled-1.php");
+            header("Location:/Untitled-1.php");
             exit();
         }else{
             $sql = "SELECT * FROM `role_teams` WHERE user_id=$user_id and role_id =$role_id and team_id =$team_id";
