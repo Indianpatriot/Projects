@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.hidden {
+  display:none;
+}
+
+
+.form-container {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f5f5f5;
+  margin: 10px;
+}
+
+form input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #4c56af;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.test{
+  width:100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.testMe {
+  width: 100% !important;
+}
