@@ -1,9 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost","root","","goal");
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+include("dbconn.php");
 
     $sql = "SHOW TABLES";
     $result = $conn->query($sql);

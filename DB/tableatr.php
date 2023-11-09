@@ -1,10 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost","root","","goal");
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
+include("dbconn.php");
     
     // Fetch the list of tables from the information schema
 $sql = "SHOW TABLES";
