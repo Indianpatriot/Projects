@@ -7,7 +7,7 @@ $sql = "SHOW TABLES";
 $result = $conn->query($sql);
 
 // Check if there are tables
-$columnsSql = "SHOW COLUMNS FROM `city of joy`";
+$columnsSql = "SHOW COLUMNS FROM `goal_parameter`";
         $columnsResult = $conn->query($columnsSql);
 
         if ($columnsResult->num_rows > 0) {
