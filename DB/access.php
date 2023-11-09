@@ -6,14 +6,14 @@
         $team_id = $_GET["team_id"];
         $_SESSION["team_id"] = $_GET["team_id"];
         if($role_id == 1){
-            header("Location:/gms_simtrak/Untitled-1.php");
+            header("Location:/Untitled-1.php");
             exit();
         }else{
             $sql = "SELECT * FROM `role_teams` WHERE user_id=$user_id and role_id =$role_id and team_id =$team_id";
             $result = mysqli_query($conn ,$sql);
             $row  = mysqli_fetch_array($result);
             if(is_array($row)) {
-                header("Location:/gms_simtrak/Untitled-1.php");
+                header("Location:/Untitled-1.php");
                 exit();
                 echo "ds";
             }else{
@@ -22,7 +22,7 @@
                 }else{
                     $_SESSION["invalid"] = "you are not a team member";
                 }
-                header("Location:/gms_simtrak/index.php");
+                header("Location:/index.php");
                 exit();
             }
         }
