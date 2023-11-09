@@ -2,7 +2,7 @@
 
 include("dbconn.php");
 
-$query = "SELECT * FROM users";
+$query = "SELECT * FROM teams";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
     // Fetch the result as an associative array
@@ -17,7 +17,6 @@ if ($result->num_rows > 0) {
 }
 
 // Close the connection
-$mysqli->close();
+$conn->close();
 ?>
 
-?>
