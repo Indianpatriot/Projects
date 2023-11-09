@@ -3,7 +3,7 @@
 include("dbconn.php");
 
 $query = "SELECT * FROM users";
-$result = $mysqli->query($query);
+$result = $conn->query($query);
 if ($result->num_rows > 0) {
     // Fetch the result as an associative array
     $rows = $result->fetch_all(MYSQLI_ASSOC);
