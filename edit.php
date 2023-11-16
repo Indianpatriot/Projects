@@ -1,14 +1,14 @@
+<?php 
+    include("Untitled-1b.php"); 
+    if(isset($_SESSION['user_id'])){}
+    else{ header("location:login.php"); }
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
   <title>Goal Management Dashboard</title>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <?php 
-    include("Untitled-1b.php"); 
-    if(isset($_SESSION['user_id'])){}
-    else{ header("location:login.php"); }
-  ?>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
