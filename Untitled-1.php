@@ -2,7 +2,7 @@
     include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
-  ?>
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -200,14 +200,14 @@
       <div id="content" class="col-md-9">
         <h1><?=$teamname->team_name?></h1><b><?php echo $selectid?></b>   <button class="align-right" type= "button"> <a href="edit.php" style="text-decoration: none; color: black; cursor: pointer;">customize </a></button>
         <table class="table"style="width: 115%;" >
-          <thead>
+          <!-- <thead>
             <tr>
               <?php
               foreach($array as $value){ ?>
               <th><?=$value ?></th>
               <?php } ?>
             </tr>
-            </thead>
+            </thead> -->
             <tbody>
             <?php 
               $row=0; 
