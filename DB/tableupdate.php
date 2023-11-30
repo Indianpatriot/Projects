@@ -2,7 +2,14 @@
 
 include("dbconn.php");
 
-    $sql = "drop table `goal_parameter`";
+    $sql = "CREATE TABLE `goal_parameter` (
+        `parameter_id` int(10) NOT NULL,
+        `team_id` int(10) NOT NULL,
+        `parameter` varchar(50) NOT NULL,
+        `parameter_data_type` varchar(50) NOT NULL,
+         PRIMARY KEY (`parameter_id`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+      ";
 
     if($conn->query($sql)){
         echo "done";
