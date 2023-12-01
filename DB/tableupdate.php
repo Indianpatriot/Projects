@@ -2,20 +2,16 @@
 
 include("dbconn.php");
 
-    $sql = "CREATE TABLE `echo` (
+    $sql = "CREATE TABLE `city of joy` (
         `ID` int(10) NOT NULL,
         `Member ID` int(10) NOT NULL,
         `Member Name` varchar(50) NOT NULL,
         `Date` date NOT NULL,
-        `LSeT Website` varchar(50) NOT NULL,
-        `ADORE Website` varchar(50) NOT NULL,
-        `Simtrak Website` varchar(50) NOT NULL,
-        `ASCEND website` varchar(50) NOT NULL,
-        `Weeho Portal` varchar(50) NOT NULL,
-        `Foreword website` varchar(50) NOT NULL,
-        `Goal Management System` varchar(50) NOT NULL,
-        `Weeho App` varchar(50) NOT NULL,
-        `Simtrak app` varchar(50) NOT NULL
+        `leads` int(50) DEFAULT NULL,
+        `Cities ongoing` varchar(50) DEFAULT NULL,
+        `cities started` varchar(50) DEFAULT NULL,
+        `Centres` varchar(50) DEFAULT NULL,
+        `Sessions` varchar(50) DEFAULT NULL
       )";
 
     if($conn->query($sql)){
