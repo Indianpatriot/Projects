@@ -7,7 +7,7 @@ $sql = "SHOW TABLES";
 $result = $conn->query($sql);
 
 // Check if there are tables
-$columnsSql = "SHOW COLUMNS FROM `central team simtrak`";
+$columnsSql = "SHOW COLUMNS FROM `central_team_simtrak`";
         $columnsResult = $conn->query($columnsSql);
 
         if ($columnsResult->num_rows > 0) {
