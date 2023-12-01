@@ -2,7 +2,7 @@
 
 include("dbconn.php");
 
-    $sql = "ALTER TABLE `teams`
+    $sql = "ALTER TABLE `users`
     ADD PRIMARY KEY (`id`)";
 
     if($conn->query($sql)){
