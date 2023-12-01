@@ -1,9 +1,7 @@
 <?php
 
 include("DB/dbconn.php");
-echo "hihi";
-        echo $_SESSION['user_id'];
-        echo $_SESSION['user_name'];
+
 $username = $_SESSION['user_id'];
 $total = array([],[]);
 // print team goal

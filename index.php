@@ -14,7 +14,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Goal Management System <?php echo $_SESSION['user_id']; echo "ddsdasd";?></a>
+      <a class="navbar-brand" href="#">Goal Management System</a>
       <div class="collapse navbar-collapse" id="navbarNav"></div>
     </div>
   </nav>
