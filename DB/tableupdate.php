@@ -2,7 +2,7 @@
 
 include("dbconn.php");
 
-    $sql = "ALTER TABLE `central team simtrak`
+    $sql = "ALTER TABLE `city of joy`
     ADD PRIMARY KEY (`ID`);
     ";
 
