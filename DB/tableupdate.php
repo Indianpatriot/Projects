@@ -2,13 +2,13 @@
 
 include("dbconn.php");
 
-    $sql = "INSERT INTO `teams` (`id`, `team_name`, `team_domain`, `Status`) VALUES
-    (1, 'Central team simtrak', 'domain1', 'Active'),
-    (2, 'Echo', 'domain2', 'Active'),
-    (3, 'LSet plan', 'domain3', 'Active'),
-    (4, 'GD1', 'domain4', 'Active'),
-    (5, 'Simtrak Recuitment', 'domain5', 'Active'),
-    (6, 'City of joy', 'domain6', 'Active')";
+    $sql = "CREATE TABLE `users` (
+        `id` int(10) NOT NULL,
+        `username` varchar(50) DEFAULT NULL,
+        `email` varchar(50) DEFAULT NULL,
+        `password` varchar(20) DEFAULT NULL,
+        `role_id` int(10) NOT NULL
+      )";
 
     if($conn->query($sql)){
         echo "done";
