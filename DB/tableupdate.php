@@ -2,8 +2,8 @@
 
 include("dbconn.php");
 
-    $sql = "ALTER TABLE `simtrak recuitment`
-    ADD PRIMARY KEY (`ID`)";
+    $sql = "ALTER TABLE `teams`
+    ADD PRIMARY KEY (`id`)";
 
     if($conn->query($sql)){
         echo "done";
