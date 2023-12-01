@@ -2,8 +2,8 @@
 
 include("dbconn.php");
 
-    $sql = "ALTER TABLE `simtrak recuitment`
-    MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT";
+    $sql = "ALTER TABLE `users`
+    MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37";
 
     if($conn->query($sql)){
         echo "done";
