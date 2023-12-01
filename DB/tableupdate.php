@@ -14,7 +14,6 @@ include("dbconn.php");
         `Article recieved` int(50) DEFAULT NULL,
         `Cities initiated` varchar(50) DEFAULT NULL,
         `Cities started` varchar(50) DEFAULT NULL,
-        primary key (ID)
       )";
 
     if($conn->query($sql)){
