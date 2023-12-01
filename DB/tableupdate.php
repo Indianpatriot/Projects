@@ -6,7 +6,7 @@ include("dbconn.php");
         `ID` int(10) NOT NULL,
         `Member ID` int(10) NOT NULL,
         `Member Name` varchar(50) NOT NULL,
-        `Date` date NOT NULL DEFAULT current_timestamp(),
+        `Date` date NOT NULL,
         `LSeT Website` varchar(50) NOT NULL,
         `ADORE Website` varchar(50) NOT NULL,
         `Simtrak Website` varchar(50) NOT NULL,
