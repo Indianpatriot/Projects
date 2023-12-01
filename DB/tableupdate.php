@@ -2,10 +2,20 @@
 
 include("dbconn.php");
 
-    $sql = "DROP TABLE `city of joy`, `gd1`, `goal_parameter`, `lset plan` ,`record`,`role_teams`,
-    `roles`,
-    `teams`,
-    `users`";
+    $sql = "CREATE TABLE `central team simtrak` (
+        `ID` int(10) NOT NULL,
+        `Member ID` int(10) NOT NULL,
+        `Member Name` varchar(50) NOT NULL,
+        `Date` date NOT NULL DEFAULT current_timestamp(),
+        `New tasks received` int(10) NOT NULL,
+        `Tasks in progress` int(10) NOT NULL,
+        `Continuous tasks` int(10) NOT NULL,
+        `Tasks completed today` int(10) NOT NULL,
+        `Article recieved` int(50) DEFAULT NULL,
+        `Cities initiated` varchar(50) DEFAULT NULL,
+        `Cities started` varchar(50) DEFAULT NULL,
+        primary key (ID)
+      )";
 
     if($conn->query($sql)){
         echo "done";
