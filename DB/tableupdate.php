@@ -2,8 +2,8 @@
 
 include("dbconn.php");
 
-    $sql = "ALTER TABLE `gd1`
-    ADD PRIMARY KEY (`ID`);
+    $sql = "ALTER TABLE `goal_parameter`
+    ADD PRIMARY KEY (`parameter_id`)
     ";
 
     if($conn->query($sql)){
