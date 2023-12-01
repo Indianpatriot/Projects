@@ -2,21 +2,10 @@
 
 include("dbconn.php");
 
-    $sql = "CREATE TABLE `Echo` (
-        `ID` int(10) NOT NULL,
-        `Member ID` int(10) NOT NULL,
-        `Member Name` varchar(50) NOT NULL,
-        `Date` date NOT NULL DEFAULT current_timestamp(),
-        `LSeT Website` varchar(50) NOT NULL,
-        `ADORE Website` varchar(50) NOT NULL,
-        `Simtrak Website` varchar(50) NOT NULL,
-        `ASCEND website` varchar(50) NOT NULL,
-        `Weeho Portal` varchar(50) NOT NULL,
-        `Foreword website` varchar(50) NOT NULL,
-        `Goal Management System` varchar(50) NOT NULL,
-        `Weeho App` varchar(50) NOT NULL,
-        `Simtrak app` varchar(50) NOT NULL
-      )";
+    $sql = "DROP TABLE `city of joy`, `gd1`, `goal_parameter`, `lset plan` ,`record`,`role_teams`,
+    `roles`,
+    `teams`,
+    `users`";
 
     if($conn->query($sql)){
         echo "done";
