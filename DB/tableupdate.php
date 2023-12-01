@@ -16,7 +16,7 @@ include("dbconn.php");
         `Goal Management System` varchar(50) NOT NULL,
         `Weeho App` varchar(50) NOT NULL,
         `Simtrak app` varchar(50) NOT NULL,
-        primary key(ID)
+        primary key(`ID`)
       )";
 
     if($conn->query($sql)){
