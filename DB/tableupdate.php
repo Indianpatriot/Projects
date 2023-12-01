@@ -2,8 +2,8 @@
 
 include("dbconn.php");
 
-    $sql = "ALTER TABLE `city of joy`
-    MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3";
+    $sql = "ALTER TABLE `gd1`
+    MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT";
 
     if($conn->query($sql)){
         echo "done";
