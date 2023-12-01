@@ -3,7 +3,7 @@
 include("dbconn.php");
 
     $sql = "ALTER TABLE `central team simtrak`
-    MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+    ADD PRIMARY KEY (`ID`);
     ";
 
     if($conn->query($sql)){
