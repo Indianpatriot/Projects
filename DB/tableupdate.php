@@ -21,7 +21,7 @@ include("dbconn.php");
     if($conn->query($sql)){
         echo "done";
     }else{
-        echo "not done";
+        echo "not done" . $conn->error;
     }
    
 
