@@ -15,8 +15,7 @@ include("dbconn.php");
         `Foreword website` varchar(50) NOT NULL,
         `Goal Management System` varchar(50) NOT NULL,
         `Weeho App` varchar(50) NOT NULL,
-        `Simtrak app` varchar(50) NOT NULL,
-        primary key(`ID`)
+        `Simtrak app` varchar(50) NOT NULL
       )";
 
     if($conn->query($sql)){
