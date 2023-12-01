@@ -2,8 +2,8 @@
 
 include("dbconn.php");
 
-    $sql = "ALTER TABLE `roles`
-    MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37";
+    $sql = "ALTER TABLE `goal_parameter`
+    MODIFY `parameter_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100";
 
     if($conn->query($sql)){
         echo "done";
