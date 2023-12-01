@@ -2,7 +2,7 @@
 
 include("dbconn.php");
 
-    $sql = "CREATE TABLE `echo` (
+    $sql = "CREATE TABLE `Echo` (
         `ID` int(10) NOT NULL,
         `Member ID` int(10) NOT NULL,
         `Member Name` varchar(50) NOT NULL,
