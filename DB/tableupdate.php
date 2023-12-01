@@ -14,7 +14,7 @@ include("dbconn.php");
         `Article recieved` int(50) DEFAULT NULL,
         `Cities initiated` varchar(50) DEFAULT NULL,
         `Cities started` varchar(50) DEFAULT NULL,
-        primary key ('ID')
+        primary key (ID)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
       ";
 
