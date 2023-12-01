@@ -2,15 +2,20 @@
 
 include("dbconn.php");
 
-    $sql = "CREATE TABLE `gd1` (
+    $sql = "CREATE TABLE `echo` (
         `ID` int(10) NOT NULL,
         `Member ID` int(10) NOT NULL,
         `Member Name` varchar(50) NOT NULL,
-        `Date` int(10) NOT NULL,
-        `ADORE` varchar(50) NOT NULL,
-        `Foreword` varchar(50) NOT NULL,
-        `Sawec` varchar(50) NOT NULL,
-        `Others` varchar(50) NOT NULL
+        `Date` date NOT NULL DEFAULT current_timestamp(),
+        `LSeT Website` varchar(50) NOT NULL,
+        `ADORE Website` varchar(50) NOT NULL,
+        `Simtrak Website` varchar(50) NOT NULL,
+        `ASCEND website` varchar(50) NOT NULL,
+        `Weeho Portal` varchar(50) NOT NULL,
+        `Foreword website` varchar(50) NOT NULL,
+        `Goal Management System` varchar(50) NOT NULL,
+        `Weeho App` varchar(50) NOT NULL,
+        `Simtrak app` varchar(50) NOT NULL
       )";
 
     if($conn->query($sql)){
