@@ -2,8 +2,8 @@
 
 include("dbconn.php");
 
-    $sql = "ALTER TABLE `users`
-    ADD PRIMARY KEY (`id`)";
+    $sql = "ALTER TABLE `central team simtrak`
+    MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20";
 
     if($conn->query($sql)){
         echo "done";
