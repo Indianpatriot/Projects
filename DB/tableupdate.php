@@ -2,7 +2,7 @@
 
 include("dbconn.php");
 
-    $sql = "ALTER TABLE `users`
+    $sql = "ALTER TABLE `teams`
     MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37";
 
     if($conn->query($sql)){
