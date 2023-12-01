@@ -2,7 +2,7 @@
 
 include("dbconn.php");
 
-    $sql = "DELETE FROM `goal_parameter` WHERE parameter_id = '10'";
+    $sql = "drop table `central team simtrak`";
 
     if($conn->query($sql)){
         echo "done";
