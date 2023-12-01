@@ -98,6 +98,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         }else{
         $goal = "insert into `$teamname->team_name` (`Member ID`, `Member Name`, $result value ('".$_SESSION['user_id']."', '".$_SESSION['user_name']."',$results";
         echo "hihi";
+        echo $_SESSION['user_id'];
+        echo $_SESSION['user_name'];
         }
     }
     if(mysqli_query($conn,$goal)){
