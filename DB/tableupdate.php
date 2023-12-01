@@ -17,7 +17,7 @@ include("dbconn.php");
         `Weeho App` varchar(50) NOT NULL,
         `Simtrak app` varchar(50) NOT NULL,
         PRIMARY KEY (`ID`)
-    );
+    )
     ";
 
     if($conn->query($sql)){
