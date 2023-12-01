@@ -2,16 +2,18 @@
 
 include("dbconn.php");
 
-    $sql = "CREATE TABLE `city of joy` (
+    $sql = "CREATE TABLE `central team simtrak` (
         `ID` int(10) NOT NULL,
         `Member ID` int(10) NOT NULL,
         `Member Name` varchar(50) NOT NULL,
         `Date` date NOT NULL,
-        `leads` int(50) DEFAULT NULL,
-        `Cities ongoing` varchar(50) DEFAULT NULL,
-        `cities started` varchar(50) DEFAULT NULL,
-        `Centres` varchar(50) DEFAULT NULL,
-        `Sessions` varchar(50) DEFAULT NULL
+        `New tasks received` int(10) NOT NULL,
+        `Tasks in progress` int(10) NOT NULL,
+        `Continuous tasks` int(10) NOT NULL,
+        `Tasks completed today` int(10) NOT NULL,
+        `Article recieved` int(50) DEFAULT NULL,
+        `Cities initiated` varchar(50) DEFAULT NULL,
+        `Cities started` varchar(50) DEFAULT NULL
       )";
 
     if($conn->query($sql)){
