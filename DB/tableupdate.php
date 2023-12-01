@@ -3,7 +3,7 @@
 include("dbconn.php");
 
     $sql = "ALTER TABLE `echo`
-    ADD PRIMARY KEY (`ID`)";
+    MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10";
 
     if($conn->query($sql)){
         echo "done";
