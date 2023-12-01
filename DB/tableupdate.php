@@ -6,7 +6,7 @@ include("dbconn.php");
         `ID` int(10) NOT NULL,
         `Member ID` int(10) NOT NULL,
         `Member Name` varchar(50) NOT NULL,
-        `Date` DATE NOT NULL DEFAULT CURRENT_DATE,
+        `Date` date NOT NULL DEFAULT current_timestamp(),
         `LSeT Website` varchar(50) NOT NULL,
         `ADORE Website` varchar(50) NOT NULL,
         `Simtrak Website` varchar(50) NOT NULL,
@@ -15,15 +15,13 @@ include("dbconn.php");
         `Foreword website` varchar(50) NOT NULL,
         `Goal Management System` varchar(50) NOT NULL,
         `Weeho App` varchar(50) NOT NULL,
-        `Simtrak app` varchar(50) NOT NULL,
-        PRIMARY KEY (`ID`)
-    )
-    ";
+        `Simtrak app` varchar(50) NOT NULL
+      )";
 
     if($conn->query($sql)){
         echo "done";
     }else{
-        echo "not done" . $conn->error;
+        echo "not done";
     }
    
 
