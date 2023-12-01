@@ -2,10 +2,7 @@
 
 include("dbconn.php");
 
-    $sql = "DROP TABLE `city of joy`, `gd1`, `goal_parameter`, `lset plan` ,`record`,`role_teams`,
-    `roles`,
-    `teams`,
-    `users`";
+    $sql = "DROP TABLE `echo`";
 
     if($conn->query($sql)){
         echo "done";
