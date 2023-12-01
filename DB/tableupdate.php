@@ -2,9 +2,10 @@
 
 include("dbconn.php");
 
-    $sql = "CREATE TABLE `roles` (
-        `id` int(11) NOT NULL,
-        `role_name` varchar(50) NOT NULL
+    $sql = "CREATE TABLE `role_teams` (
+        `user_id` int(10) NOT NULL,
+        `role_id` int(11) DEFAULT NULL,
+        `team_id` int(11) DEFAULT NULL
       )";
 
     if($conn->query($sql)){
