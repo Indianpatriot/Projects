@@ -2,8 +2,9 @@
 
 include("dbconn.php");
 
-    $sql = "ALTER TABLE `echo`
-    MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10";
+    $sql = "ALTER TABLE `central team simtrak`
+    MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+    ";
 
     if($conn->query($sql)){
         echo "done";
