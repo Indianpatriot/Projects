@@ -12,6 +12,8 @@ $teamname = mysqli_fetch_object($teamname);
 echo $teamname->team_name;
 $sql2 = "SELECT * FROM `$teamname->team_name`";
 $team_data = mysqli_query($conn ,$sql2);
+$table = mysqli_fetch_object($team_data);
+var_dump($table);
 
 // team parameter
     $goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]." ORDER BY `goal_parameter`.`team_id` ASC ";
