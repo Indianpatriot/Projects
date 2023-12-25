@@ -1,7 +1,5 @@
 <?php 
     include("Untitled-1b.php"); 
-    $table = mysqli_fetch_object($team_data);
-    var_dump($table);
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
   ?>
@@ -214,7 +212,7 @@
             <?php 
               $row=0; 
               $checkdata=0; 
-              while($table = mysqli_fetch_object($results)){ $checkdata=1; ?>
+              while($table = mysqli_fetch_object($team_data)){ $checkdata=1; ?>
             <tr>
               <?php 
                 $col=1;
