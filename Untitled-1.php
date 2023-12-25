@@ -212,12 +212,7 @@
             <?php 
               $row=0; 
               $checkdata=0; 
-              echo "Before While Loop";
-              $table = mysqli_fetch_object($results);
-              var_dump($table);
-              while($table = mysqli_fetch_object($results)){ $checkdata=1; echo "Inside While Loop";
-                var_dump($table); // This will print the details of $table variable
-                ?>
+              while($table = mysqli_fetch_object($results)){ $checkdata=1; ?>
             <tr>
               <?php 
                 $col=1;
@@ -249,8 +244,7 @@
                           
                 ?>
               </td>
-              <?php $col++;}$row++;} echo "After While Loop";
-?>
+              <?php $col++;}$row++;}?>
             </tr>
               </tbody>
               <tfoot>
