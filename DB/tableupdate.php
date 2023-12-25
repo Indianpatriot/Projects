@@ -3,9 +3,9 @@
 
     include("dbconn.php");
 
-    $sql = "INSERT INTO `city of joy` (`ID`, `Member ID`, `Member Name`, `Date`, `leads`, `Cities ongoing`, `cities started`, `Centres`, `Sessions`) VALUES
-    (1, 31, 'Tanishaa Gupta', '0000-00-00', 454, '455', '22', '44', '55'),
-    (2, 35, 'Bono Jyoshna Biswal', '0000-00-00', 33, '66', 'HHKS', '77', '22')";
+    $sql = "INSERT INTO `echo` (`ID`, `Member ID`, `Member Name`, `Date`, `LSeT Website`, `ADORE Website`, `Simtrak Website`, `ASCEND website`, `Weeho Portal`, `Foreword website`, `Goal Management System`, `Weeho App`, `Simtrak app`) VALUES
+    (8, 0, 'hgjg', '0000-00-00', 'hgjg', 'hgjg', 'hgjg', 'hgjg', 'hgjg', 'hgjg', '', '', ''),
+    (9, 0, '', '2023-09-25', '12', '12', '121', '21', '21', '21', '2', '12', '12')";
 
     if($conn->query($sql)){
         echo "done ok";
