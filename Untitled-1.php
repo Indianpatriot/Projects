@@ -212,7 +212,8 @@
             <?php 
               $row=0; 
               $checkdata=0; 
-              while($table = mysqli_fetch_object($results)){ $checkdata=1; echo "not done" . $conn->error;?>
+              echo "error";
+              while($table = mysqli_fetch_object($results)){ $checkdata=1; echo "not done";?>
             <tr>
               <?php 
                 $col=1;
