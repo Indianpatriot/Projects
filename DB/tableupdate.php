@@ -10,7 +10,7 @@ include("dbconn.php");
     (5, 'noramal user');
 
     if($conn->query($sql)){
-        echo "done";
+        echo "done ok";
     }else{
         echo "not done" . $conn->error;
     }
