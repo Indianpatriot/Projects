@@ -2,8 +2,12 @@
 
 include("dbconn.php");
 
-    $sql = "ALTER TABLE `goal_parameter`
-    MODIFY `parameter_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100";
+    $sql = "INSERT INTO `roles` (`id`, `role_name`) VALUES
+    (1, 'Admin'),
+    (2, 'Subadmin'),
+    (3, 'Manager'),
+    (4, 'Member'),
+    (5, 'noramal user');
 
     if($conn->query($sql)){
         echo "done";
