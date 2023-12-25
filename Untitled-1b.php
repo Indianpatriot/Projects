@@ -10,6 +10,7 @@ $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
 $teamname = mysqli_query($conn,$sql1);
 $teamname = mysqli_fetch_object($teamname);
 $tn= $teamname->team_name;
+echo $tn;
 $sql2 = "SELECT * FROM `$tn`";
 $team_data = mysqli_query($conn ,$sql2);
 $table = mysqli_fetch_object($team_data);
