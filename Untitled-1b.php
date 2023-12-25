@@ -6,10 +6,10 @@ $username = $_SESSION['user_id'];
 $total = array([],[]);
 // print team goal
 $teamID = $_SESSION["team_id"];
-echo $teamID;
 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
-$teamname = mysqli_query($conn,$sql1);
-$teamname = mysqli_fetch_object($teamname);
+$teamnames = mysqli_query($conn,$sql1);
+$teamname = mysqli_fetch_object($teamnames);
+echo $teamname;
 $sql2 = "SELECT * FROM `central team simtrak`";
 $team_data = mysqli_query($conn ,$sql2);
 
