@@ -214,6 +214,7 @@
               $checkdata=0; 
               echo "Before While Loop";
               $table = mysqli_fetch_object($results);
+              var_dump($table);
               while($table = mysqli_fetch_object($results)){ $checkdata=1; echo "Inside While Loop";
                 var_dump($table); // This will print the details of $table variable
                 ?>
