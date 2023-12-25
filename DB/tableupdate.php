@@ -1,13 +1,14 @@
+
 <?php
 
-include("dbconn.php");
+    include("dbconn.php");
 
     $sql = "INSERT INTO `roles` (`id`, `role_name`) VALUES
-    (1, 'Admin'),
-    (2, 'Subadmin'),
-    (3, 'Manager'),
-    (4, 'Member'),
-    (5, 'noramal user');
+        (1, 'Admin'),
+        (2, 'Subadmin'),
+        (3, 'Manager'),
+        (4, 'Member'),
+        (5, 'noramal user')";
 
     if($conn->query($sql)){
         echo "done ok";
@@ -17,5 +18,9 @@ include("dbconn.php");
    
 
 // Close the connection
-$conn->close();
+    $conn->close();
+
 ?>
+
+
+
