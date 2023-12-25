@@ -2,7 +2,7 @@
 
 include("dbconn.php");
 
-$query = "SELECT * FROM `echo`";
+$query = "SELECT * FROM `gd1`";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
     // Fetch the result as an associative array
