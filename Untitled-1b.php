@@ -6,6 +6,7 @@ $username = $_SESSION['user_id'];
 $total = array([],[]);
 // print team goal
 $teamID = $_SESSION["team_id"];
+echo $teamID;
 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
 $teamname = mysqli_query($conn,$sql1);
 $teamname = mysqli_fetch_object($teamname);
