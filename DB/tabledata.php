@@ -6,7 +6,7 @@ $query = "SELECT * FROM `central team simtrak`";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
     // Fetch the result as an associative array
-    $rows = $result->fetch_all(MYSQLI_ASSOC);
+    $rows = mysqli_fetch_object($result);
 
     // Print the contents using print_r
     echo "<pre>";
