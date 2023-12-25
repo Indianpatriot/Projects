@@ -7,12 +7,10 @@ $total = array([],[]);
 // print team goal
 $teamID = $_SESSION["team_id"];
 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
-$teamnames = mysqli_query($conn,$sql1);
-$teamname = mysqli_fetch_object($teamnames);
-echo $teamname;
-$sql2 = "SELECT * FROM `central team simtrak`";
-$team_data = mysqli_query($conn ,$sql2);
-
+$teamname = mysqli_query($conn,$sql1);
+$teamname = mysqli_fetch_object($teamname);
+$sql2 = "SELECT * FROM `$teamname->team_name`";
+$results = mysqli_query($conn ,$sql2);
 
 // team parameter
     $goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]." ORDER BY `goal_parameter`.`team_id` ASC ";
