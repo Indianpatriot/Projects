@@ -204,7 +204,7 @@
             <tr>
               <?php
               foreach($array as $value){ ?>
-              <th><?=$value ?></th>
+              <th><?=$value ?><?php echo "dfd"; ?></th>
               <?php } ?>
             </tr>
             </thead>
