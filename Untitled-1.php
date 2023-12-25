@@ -1,5 +1,7 @@
 <?php 
     include("Untitled-1b.php"); 
+    $table = mysqli_fetch_object($results);
+    var_dump($table);
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
   ?>
