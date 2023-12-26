@@ -107,7 +107,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
        header("location:Untitled-1.php");
     }
     else{
-        echo "Undifiend error";
+        echo $conn->error;
     }
 }
 
