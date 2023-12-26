@@ -9,12 +9,8 @@ $teamID = $_SESSION["team_id"];
 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
 $teamname = mysqli_query($conn,$sql1);
 $teamname = mysqli_fetch_object($teamname);
-$tn= $teamname->team_name;
-echo $tn;
-$sql2 = "SELECT * FROM `$tn`";
-$team_data = mysqli_query($conn ,$sql2);
-$table = mysqli_fetch_object($team_data);
-var_dump($table);
+$sql2 = "SELECT * FROM `$teamname->team_name`";
+$results = mysqli_query($conn ,$sql2);
 
 // team parameter
     $goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]." ORDER BY `goal_parameter`.`team_id` ASC ";
