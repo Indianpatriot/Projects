@@ -5,14 +5,9 @@ include("dbconn.php");
     // Fetch the list of tables from the information schema
 $sql = "SHOW TABLES";
 $result = $conn->query($sql);
-$teamID = $_SESSION["team_id"];
-echo $teamID;
-$sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
-$teamname = mysqli_query($conn,$sql1);
-$teamname = mysqli_fetch_object($teamname);
+
 // Check if there are tables
-echo $teamname->team_name;
-$columnsSql = "SHOW COLUMNS FROM ".$teamname->team_name;
+$columnsSql = "SHOW COLUMNS FROM `Central team simtrak`";
         $columnsResult = $conn->query($columnsSql);
 
         if ($columnsResult->num_rows > 0) {
