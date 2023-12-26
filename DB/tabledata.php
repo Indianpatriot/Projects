@@ -1,8 +1,12 @@
 <?php
 
 include("dbconn.php");
-$t = "central team simtrak";
-$query = "SELECT * FROM `$t`";
+
+$teamID = $_SESSION["team_id"];
+$sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
+$teamname = mysqli_query($conn,$sql1);
+$teamname = mysqli_fetch_object($teamname);
+$query = "SELECT * FROM `$teamname->team_name`";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
     // Fetch the result as an associative array
