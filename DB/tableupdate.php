@@ -3,8 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "INSERT INTO `teams` (`id`, `team_name`, `team_domain`, `Status`) VALUES
-    (1, 'Central team simtrak', 'domain1', 'Active')";
+    $sql = "ALTER TABLE `central team simtrak` RENAME TO `Central team simtrak`";
 
     if($conn->query($sql)){
         echo "done ok";
