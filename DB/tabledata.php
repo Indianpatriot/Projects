@@ -4,8 +4,10 @@ include("dbconn.php");
 
 $teamID = $_SESSION["team_id"];
 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
+echo $teamID;
 $teamname = mysqli_query($conn,$sql1);
 $teamname = mysqli_fetch_object($teamname);
+echo $teamname->team_name;
 $query = "SELECT * FROM `$teamname->team_name`";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
