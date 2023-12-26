@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `central team simtrak` RENAME TO `Central team simtrak`";
+    $sql = "ALTER TABLE `city of joy` RENAME TO `City of joy`";
 
     if($conn->query($sql)){
         echo "done ok";
