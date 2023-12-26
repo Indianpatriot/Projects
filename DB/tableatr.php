@@ -12,7 +12,7 @@ $teamname = mysqli_query($conn,$sql1);
 $teamname = mysqli_fetch_object($teamname);
 // Check if there are tables
 echo $teamname->team_name;
-$columnsSql = "SHOW COLUMNS FROM `".$teamname->team_name;
+$columnsSql = "SHOW COLUMNS FROM ".$teamname->team_name;
         $columnsResult = $conn->query($columnsSql);
 
         if ($columnsResult->num_rows > 0) {
