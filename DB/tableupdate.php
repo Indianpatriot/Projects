@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `simtrak recuitment` RENAME TO `Simtrak Recuitment`";
+    $sql = "UPDATE `goal_parameter` SET `parameter` = 'Article recieved' WHERE `goal_parameter`.`parameter_id` = 58";
 
     if($conn->query($sql)){
         echo "done ok";
