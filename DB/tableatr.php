@@ -7,7 +7,7 @@ $sql = "SHOW TABLES";
 $result = $conn->query($sql);
 
 // Check if there are tables
-$columnsSql = "SHOW COLUMNS FROM `GD1`";
+$columnsSql = "SHOW COLUMNS FROM `LSet plan`";
         $columnsResult = $conn->query($columnsSql);
 
         if ($columnsResult->num_rows > 0) {
