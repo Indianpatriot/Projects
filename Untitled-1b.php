@@ -36,16 +36,12 @@ $i =0;
 while($user_name = mysqli_fetch_object($user_result)){
     $user_array_id[$i]=$user_name->id;
     $user_array_name[$i]=$user_name->username;
-    echo $user_array_id[$i];
-    echo $user_array_name[$i];
     $i++;
 }
 $i = 0;
 while($user_id = mysqli_fetch_object($role_result)){
     $role_array_id[$i]=$user_id->user_id;
-    echo $role_array_id[$i];
     $user_role_id[$i]=$user_id->role_id;
-    echo $user_role_id[$i];
     $i++;
 }
 
@@ -111,17 +107,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
        header("location:Untitled-1.php");
     }
     else{
-        echo $conn->error;
+        echo "Undifiend error";
     }
 }
 
 // add normal member
 $normalmember = "SELECT * FROM `users` WHERE `role_id` = 5";
 $normaladdmember = mysqli_query($conn,$normalmember);
-$memberlist = mysqli_fetch_object($normaladdmember);
-echo "<pre>";
-    print_r($memberlist);
-    echo "</pre>";
 
 if(isset($_GET["membername"])){
     $id = $_GET["membername"];
