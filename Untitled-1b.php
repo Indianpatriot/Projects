@@ -105,6 +105,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     }
     if(mysqli_query($conn,$goal)){
        header("location:Untitled-1.php");
+       exit();
     }
     else{
         echo "Undifiend error";
