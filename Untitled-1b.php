@@ -36,12 +36,16 @@ $i =0;
 while($user_name = mysqli_fetch_object($user_result)){
     $user_array_id[$i]=$user_name->id;
     $user_array_name[$i]=$user_name->username;
+    echo $user_array_id[$i];
+    echo $user_array_name[$i];
     $i++;
 }
 $i = 0;
 while($user_id = mysqli_fetch_object($role_result)){
     $role_array_id[$i]=$user_id->user_id;
+    echo $role_array_id[$i];
     $user_role_id[$i]=$user_id->role_id;
+    echo $user_role_id[$i];
     $i++;
 }
 
