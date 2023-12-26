@@ -118,6 +118,10 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 // add normal member
 $normalmember = "SELECT * FROM `users` WHERE `role_id` = 5";
 $normaladdmember = mysqli_query($conn,$normalmember);
+$memberlist = mysqli_fetch_object($normaladdmember);
+echo "<pre>";
+    print_r($memberlist);
+    echo "</pre>";
 
 if(isset($_GET["membername"])){
     $id = $_GET["membername"];
