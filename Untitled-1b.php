@@ -98,8 +98,9 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     }
     if(mysqli_query($conn,$goal)){
         echo "not done";
-        header("Location:/Untitled-1.php");
-        exit();
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="Untitled-1.php";';
+        echo '</script>';
     }
     else{
         echo "Undifiend error";
