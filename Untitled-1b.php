@@ -60,6 +60,7 @@ $goalp = array();
         if(isset($_REQUEST[$z])){
         $inputpara[$z] = $_REQUEST[$z];
         echo $inputpara[$z];
+        echo "yhi h";
         }
         $z++;
     }
