@@ -70,8 +70,6 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $date_data = $_REQUEST["date_data"];
     if(isset($_REQUEST["membername"])){
         $i = $_REQUEST["membername"];
-        echo $user_array_id[$i];
-        echo $user_array_name[$i];
         $temp_uid = $user_array_id[$i]; 
        //Checking If data is thee in the database
         $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '$temp_uid' AND `Date` = '$date_data'";
@@ -84,7 +82,6 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             exit();
         }else{
             $goal = "insert into `$teamname->team_name` (`Member ID`, `Member Name`, $result value ('$user_array_id[$i]', '$user_array_name[$i]',$results";
-            echo "hihi";
         }
        
     }else{
@@ -98,12 +95,10 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             exit();
         }else{
         $goal = "insert into `$teamname->team_name` (`Member ID`, `Member Name`, $result value ('".$_SESSION['user_id']."', '".$_SESSION['user_name']."',$results";
-        echo "hihi";
-        echo $_SESSION['user_id'];
-        echo $_SESSION['user_name'];
         }
     }
     if(mysqli_query($conn,$goal)){
+        echo "not done";
        header("location:Untitled-1.php");
        exit();
     }
