@@ -98,7 +98,10 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     }
     if(mysqli_query($conn,$goal)){
         echo "not done";
-       header("Location:Untitled-1.php");
+        header("Location:Untitled-1.php");
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+
        exit();
     }
     else{
