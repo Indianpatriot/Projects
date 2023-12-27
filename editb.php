@@ -29,8 +29,9 @@ include("DB/dbconn.php");
         $val++;
     }
 
-    header("Location:Untitled-1.php");
-    exit();
+    echo '<script type="text/javascript">';
+    echo 'window.location.href="Untitled-1.php";';
+    echo '</script>';
 
 
 
