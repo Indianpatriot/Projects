@@ -59,8 +59,6 @@ $goalp = array();
     while(isset($_REQUEST[$z])){ 
         if(isset($_REQUEST[$z])){
         $inputpara[$z] = $_REQUEST[$z];
-        echo $inputpara[$z];
-        echo "yhi h";
         }
         $z++;
     }
@@ -100,7 +98,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     }
     if(mysqli_query($conn,$goal)){
         echo "not done";
-       header("location:Untitled-1.php");
+       header("Location:Untitled-1.php");
        exit();
     }
     else{
