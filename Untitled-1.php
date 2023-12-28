@@ -18,6 +18,23 @@
       <div class="collapse navbar-collapse" id="navbarNav"></div>
     </div>
   </nav>
+  <!-- about section -->
+  <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aboutModalLabel">About</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>This is goal management system, helps you to track your progress and work done for a day.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container-fluid">
     <div class="row">
       <!-- Sidebar -->
@@ -29,7 +46,7 @@
           </tr>
           <tr>
   
-            <td><a href="#">About</a></td>
+            <td><a href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">About</a></td>
           </tr>
           <tr>
   
