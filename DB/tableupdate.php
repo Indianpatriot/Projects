@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DROP TABLE `new team`";
+    $sql = "DELETE FROM teams WHERE `teams`.`id` = 7";
 
     if($conn->query($sql)){
         echo "done ok";
