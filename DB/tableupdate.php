@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `central team simtrak` DROP `new parameter`";
+    $sql = "ALTER TABLE `Central team simtrak` DROP `new parameter`";
 
     if($conn->query($sql)){
         echo "done ok";
