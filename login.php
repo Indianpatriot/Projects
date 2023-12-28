@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,6 @@
   <title>Login and Sign Up</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <meta http-equiv="Cache-control" content="no-cache">
-  <?php session_start(); ?>
   <style>
     body {
      
