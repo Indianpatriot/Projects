@@ -49,7 +49,7 @@ $inputpara = array();
 $i=0;
 $goalp = array();
     while($parat = mysqli_fetch_object($goalparameters)){
-      if($parat->parameter=="Date" || $parat->parameter == 'Member Name'){
+      if($parat->parameter == 'Member Name'){
         continue;
       }  
       $goalp[$i] = $parat->parameter;  
