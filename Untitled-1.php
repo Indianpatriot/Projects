@@ -79,7 +79,6 @@
             </div>
             <div class="modal-body">
               <form action="Untitled-1b.php" method="POST">
-                <input type="text" name="date_data" value="<?php echo date("Y-m-d")?>" hidden>
               <?php $i=0; if($_SESSION['role_id'] != 4){ ?>
                   <div class="form-group">
                     <label>member:</label>
@@ -96,11 +95,11 @@
                  <!-- Input field for Date -->
           <div class="form-group">
             <label>Date:</label>
-            <input type="date" name="date_field" required>
+            <input type="date" name="date_data" required>
           </div>
                 <?php }?>
                 <?php $c=0; while($para = mysqli_fetch_object($parameters)){ ?>
-                  <?php if($para->parameter == 'Member Name'){$i++; continue;}  ?>
+                  <?php if($para->parameter == 'Date' || $para->parameter == 'Member Name'){$i++; continue;}  ?>
                   <div className="form-group">
                     <label><?=$para->parameter?>:</label>
                     <input 

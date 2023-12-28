@@ -49,7 +49,7 @@ $inputpara = array();
 $i=0;
 $goalp = array();
     while($parat = mysqli_fetch_object($goalparameters)){
-      if($parat->parameter == 'Member Name'){
+      if($parat->parameter=="Date" || $parat->parameter == 'Member Name'){
         continue;
       }  
       $goalp[$i] = $parat->parameter;  
@@ -59,16 +59,14 @@ $goalp = array();
     while(isset($_REQUEST[$z])){ 
         if(isset($_REQUEST[$z])){
         $inputpara[$z] = $_REQUEST[$z];
-        echo $inputpara[$z] . "<br>";
         }
         $z++;
     }
 if($_SERVER['REQUEST_METHOD']=="POST"){
-    
-    $result = "`" . implode("`,`", $goalp) . "`)";
-    $results = "'" . implode("','", $inputpara) . "')";
     $date_data = $_REQUEST["date_data"];
-    echo $date_data;
+    $result = "`Date`,`" . implode("`,`", $goalp) . "`)";
+    $results = "'$date_data','" . implode("','", $inputpara) . "')";
+    echo $result;
     if(isset($_REQUEST["membername"])){
         $i = $_REQUEST["membername"];
         $temp_uid = $user_array_id[$i]; 
@@ -98,15 +96,15 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $goal = "insert into `$teamname->team_name` (`Member ID`, `Member Name`, $result value ('".$_SESSION['user_id']."', '".$_SESSION['user_name']."',$results";
         }
     }
-    // if(mysqli_query($conn,$goal)){
-    //     echo "not done";
-    //     echo '<script type="text/javascript">';
-    //     echo 'window.location.href="Untitled-1.php";';
-    //     echo '</script>';
-    // }
-    // else{
-    //     echo "Undifiend error";
-    // }
+    if(mysqli_query($conn,$goal)){
+        echo "not done";
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="Untitled-1.php";';
+        echo '</script>';
+    }
+    else{
+        echo "Undifiend error";
+    }
 }
 
 // add normal member
