@@ -1,15 +1,15 @@
 <?php
 include("DB/dbconn.php");
 
-$username = $_REQUEST['username'];
+$email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
-$_SESSION["username"]=$_REQUEST['username'];
+$_SESSION["email"]=$_REQUEST['email'];
 $_SESSION["password"]=$_REQUEST['password'];
 
-if(isset($_REQUEST['email'])){
+if(isset($_REQUEST['username'])){
     $email = $_REQUEST['email'];
     $_SESSION["email"]=$_REQUEST['email'];
-    $sql = "SELECT * FROM `users` WHERE username = '$username' ";
+    $sql = "SELECT * FROM `users` WHERE email = '$email' ";
     $result = mysqli_query($conn ,$sql);
     $row  = mysqli_fetch_array($result);
     if(is_array($row)) {
@@ -38,7 +38,7 @@ if(isset($_REQUEST['email'])){
     
     }
 }else{
-    $sql = "SELECT * FROM `users` WHERE username = '$username' and password='$password'";
+    $sql = "SELECT * FROM `users` WHERE email = '$email' and password='$password'";
     $result = mysqli_query($conn ,$sql);
     $row  = mysqli_fetch_array($result);
     if(is_array($row)) {

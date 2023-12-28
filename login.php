@@ -20,9 +20,11 @@
       <h2>Login</h2>
       <span style="color:red"><?php if(isset($_SESSION["message"])){ echo $_SESSION["message"]; } unset($_SESSION["message"]); ?></span>
       <form action="loginb.php" method="post" id="login-form">
-        <input type="text" name="username" placeholder="Username" required value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>">
+      <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" id="login-password" placeholder="Password" required>
-        <input type="checkbox" style="display:inline;" onclick="showPassword('login-password') "> Show password
+        <label style="white-space: nowrap; display: inline-block; margin-right: 10px;">
+      <input type="checkbox" style="display:inline; vertical-align: middle;" onclick="showPassword('login-password')"> Show Password
+        </label>
         <button type="submit">Login</button>
         <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
         <p><a href="sendotp.php">Forgot password?</a></p>
@@ -34,7 +36,9 @@
         <input type="text" name="username" placeholder="Username" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" id="signup-password" placeholder="Password" required>
-        <input type="checkbox"  onclick="showPassword('signup-password')" style="display:inline;"> Show password
+        <label style="white-space: nowrap; display: inline-block; margin-right: 10px;">
+        <input type="checkbox" style="display:inline; vertical-align: middle;" onclick="showPassword('signup-password')"> Show Password
+        </label>
         <button type="submit">Sign Up</button>
         <p>Already have an account? <a href="#" id="login-link">Login</a></p>
       </form>
