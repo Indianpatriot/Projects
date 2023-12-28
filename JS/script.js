@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         // Send an AJAX request to a PHP script to get subcategory data
-        xhr.open("GET", "/goal%20managment%20system/Projects/LOGIN%20FOR%20GOAL/DB/get_subcategories.php?category=" + selectedCategoryId, true);
+        xhr.open("GET", "/gms_simtrak/DB/get_subcategories.php?category=" + selectedCategoryId, true);
         xhr.send();
     });
 });
