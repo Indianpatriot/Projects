@@ -52,6 +52,7 @@
             }while($j<$_COOKIE["inputCount"]);
         
     }
-    header("Location:DB/access.php?team_id=$teamID");
-    exit();
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "DB/access.php?team_id=' . $teamID . '";';
+    echo '</script>';
 ?>
