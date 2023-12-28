@@ -77,8 +77,9 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         if($rowcount >= "1"){
             //Do Nothing and alert user that data is present
             $_SESSION["allready"] = "$user_array_name[$i], all ready filled goal";
-            header("Location:Untitled-1.php");
-            exit();
+            echo '<script type="text/javascript">';
+            echo 'window.location.href="Untitled-1.php";';
+            echo '</script>';
         }else{
             $goal = "insert into `$teamname->team_name` (`Member ID`, `Member Name`, $result value ('$user_array_id[$i]', '$user_array_name[$i]',$results";
         }
