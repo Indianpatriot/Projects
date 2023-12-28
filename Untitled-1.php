@@ -100,7 +100,7 @@
           </div>
                 <?php }?>
                 <?php $c=0; while($para = mysqli_fetch_object($parameters)){ ?>
-                  <?php if($para->parameter == 'Date' || $para->parameter == 'Member Name'){$i++; continue;}  ?>
+                  <?php if($para->parameter == 'Member Name'){$i++; continue;}  ?>
                   <div className="form-group">
                     <label><?=$para->parameter?>:</label>
                     <input 
