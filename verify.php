@@ -1,9 +1,10 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
   <title>Login and Sign Up</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <?php session_start(); ?>
+ 
 </head>
 <body>
   <h1> <center>GOAL MANAGEMENT SYSTEM</center></h1>

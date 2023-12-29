@@ -9,7 +9,6 @@ if($_SESSION["otp"] == $otp){
     unset($_SESSION["otp"]);
     $sql1 = "INSERT INTO `users`(`username`, `email`, `password`, `role_id`) VALUES ('$username','$email','$password','5')";
     if(mysqli_query($conn ,$sql1)){
-    echo "ddd";
     }
     $sql2 = "SELECT * FROM `users` WHERE username = '$username' and password='$password'";
     $result1 = mysqli_query($conn ,$sql2);
@@ -20,13 +19,15 @@ if($_SESSION["otp"] == $otp){
     $_SESSION['user_id'] = $id->id;
     $_SESSION['role_id'] = '5';
 
-    header("Location:index.php");
-    exit();
+    echo '<script type="text/javascript">';
+    echo 'window.location.href="index.php";';
+    echo '</script>';
 
 }else{
 	$_SESSION["message"] = "incorrect otp";
-    header("Location:verifyb.php");
-    exit();
+    echo '<script type="text/javascript">';
+    echo 'window.location.href="verify.php";';
+    echo '</script>';
 }
 
 

@@ -128,6 +128,38 @@
           </div>
         </div>
       </div>
+      <!-- team activation status -->
+      <?php while($table = mysqli_fetch_object($teamactive)){ ?> 
+      <div class="modal fade" id="teamactivation<?=$table->id?>" tabindex="-1" aria-labelledby="goalParametersModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="goalParametersModalLabel">Team Status</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="indexb.php" method="post">
+              <div id="inputContainer">
+                <!-- Initial Input Field -->
+                <div className="form-group">
+                  <label for="500"><?=$table->team_name?></label>
+                  <select class="form-select" name="500" aria-label="Default select example">
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                  </select> 
+                </div>
+              </div>
+             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
+
 
       <!-- Main Content Area -->
       <div id="content" class="col-md-9">
@@ -138,12 +170,14 @@
               <th>Team Id</th>
               <th>Team Name</th>
               <th>Team Domain</th>
+              <?php if($_SESSION['role_id']==1){ ?><th>team status</th><?php } ?>
             </tr>
             <?php while($table = mysqli_fetch_object($results)){ ?>
             <tr>
               <td><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></td>
               <td><?php echo $table->team_name; ?></td>
               <td><?php echo $table->team_domain; ?></td>
+              <?php if($_SESSION['role_id']==1){ ?><td><a href="#" data-bs-toggle="modal" data-bs-target="#teamactivation<?=$table->id?>"><?php echo $table->Status; ?></a></td><?php } ?>
             </tr>
             <?php } ?>
           </thead>
