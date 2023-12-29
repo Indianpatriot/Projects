@@ -40,7 +40,7 @@
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" id="signup-password" placeholder="Password" required>
         <label style="white-space: nowrap; display: inline-block; margin-right: 10px;">
-        <input type="checkbox" style="display:inline; vertical-align: middle;" onclick="showPassword('signup-password')"> Show Password
+        <input type="checkbox" style="display:inline; vertical-align: middle; width:10%;" onclick="showPassword('signup-password')"> Show Password
         </label>
         <button type="submit">Sign Up</button>
         <p>Already have an account? <a href="#" id="login-link">Login</a></p>
