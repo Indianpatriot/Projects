@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DELETE FROM `Central team simtrak`";
+    $sql = "DELETE FROM `Echo`";
 
     if($conn->query($sql)){
         echo "done ok";
