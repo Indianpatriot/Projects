@@ -109,7 +109,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 }
 
 // add normal member
-$normalmember = "SELECT * FROM `users` WHERE `role_id` = 5";
+$normalmember = "SELECT * FROM `users` WHERE `role_id` IN (3, 5) ORDER BY id ASC";
 $normaladdmember = mysqli_query($conn,$normalmember);
 
 if(isset($_GET["membername"])){
