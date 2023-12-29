@@ -9,7 +9,7 @@
   <meta http-equiv="Cache-control" content="no-cache">
   <style>  
     .form-container {
-      width: 200px;
+      width: 250px;
     }
   </style>
 </head>
