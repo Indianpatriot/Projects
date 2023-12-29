@@ -23,10 +23,12 @@
             $teamID = $_REQUEST["team_name"];
         }
             do{ 
+
                 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
                 $teamname = mysqli_query($conn,$sql1);
                 $teamname = mysqli_fetch_object($teamname);
                 if(isset($_REQUEST[$parameter])){
+                    
                     if($_REQUEST[$data_type]=="DATE"){
                         $sql1 ="ALTER TABLE `$teamname->team_name` ADD `$_REQUEST[$parameter]` $_REQUEST[$data_type]  DEFAULT CURRENT_TIMESTAMP";
                     }else{                    
