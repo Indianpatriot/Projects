@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DELETE FROM users WHERE `users`.`id` = 39";
+    $sql = "DELETE FROM users WHERE `users`.`id` = 38";
 
     if($conn->query($sql)){
         echo "done ok";
