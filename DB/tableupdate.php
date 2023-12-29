@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DELETE FROM `LSet plan`";
+    $sql = "DELETE FROM `City of joy`";
 
     if($conn->query($sql)){
         echo "done ok";
