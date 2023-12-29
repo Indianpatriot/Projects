@@ -11,6 +11,9 @@
     .form-container {
       width: 250px;
     }
+    form input {
+      width:90%;
+    }
   </style>
 </head>
 <body>
