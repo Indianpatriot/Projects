@@ -112,7 +112,6 @@
                     <option value="">Parameter data type</option>
                     <option value="VARCHAR">Text</option>
                     <option value="INT">Number</option>
-                    <option value="DATE">Date</option>
                   </select> 
                   <button type="button" style="width: 80px; float:right;" onclick="removeInputField(1)">Remove</button>
                 </div>
