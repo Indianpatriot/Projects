@@ -15,8 +15,9 @@ if(isset($_REQUEST['username'])){
     $row  = mysqli_fetch_array($result);
     if(is_array($row)) {
         $_SESSION["message"] = "user all ready exist";
-        header("Location:login.php");
-        exit();
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="login.php";';
+        echo '</script>';
     }else{
         $email = $_REQUEST["email"];
         $otp = rand(1111,9999);
