@@ -26,7 +26,7 @@ if(isset($_REQUEST['username'])){
         $to_email = $email;
         $subject = "forget password";
         $body = "Hi, you otp is $otp";
-        $headers = "From: shahid576ali@gmail.com";
+        $headers = "From: contact@simtrak.in";
 
         if (mail($to_email, $subject, $body, $headers)) {
                 
