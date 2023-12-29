@@ -2,7 +2,7 @@
 
 include("dbconn.php");
 
-$query = "SELECT * FROM `Echo`";
+$query = "SELECT * FROM `LSet plan`";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
     // Fetch the result as an associative array
