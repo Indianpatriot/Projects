@@ -8,8 +8,9 @@
     $_SESSION["otp"] = $otp; 
     if($count ==0){    
         $_SESSION["message"]= "invalid email";
-        header("Location:sendotp.php");
-        exit();
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="sendotp.php";';
+        echo '</script>';
     }else{
             $to_email = $email;
             $subject = "forget password";
@@ -17,9 +18,9 @@
             $headers = "From: shahid576ali@gmail.com";
 
             if (mail($to_email, $subject, $body, $headers)) {
-                
-                header("Location:otp.php");
-                exit();
+                echo '<script type="text/javascript">';
+                echo 'window.location.href="otp.php";';
+                echo '</script>';
             } else {
                 echo "error found check your internet connection";
                // header("Location:sendotp.php");
