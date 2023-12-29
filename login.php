@@ -7,9 +7,9 @@
   <title>Login and Sign Up</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <meta http-equiv="Cache-control" content="no-cache">
-  <style>
-    body {
-     
+  <style>  
+    .form-container {
+      width: 200px;
     }
   </style>
 </head>
