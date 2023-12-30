@@ -1,18 +1,18 @@
 <?php
 include("DB/dbconn.php");
 
-$email = $_REQUEST['email'];
+$username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
-$_SESSION["email"]=$_REQUEST['email'];
+$_SESSION["username"]=$_REQUEST['username'];
 $_SESSION["password"]=$_REQUEST['password'];
 
-if(isset($_REQUEST['username'])){
-
+if(isset($_REQUEST['email'])){
     $email = $_REQUEST['email'];
-    $_SESSION["username"]=$_REQUEST['username'];
-    $sql = "SELECT * FROM `users` WHERE email = '$email' ";
+    $_SESSION["email"]=$_REQUEST['email'];
+    $sql = "SELECT * FROM `users` WHERE username = '$username' ";
     $result = mysqli_query($conn ,$sql);
     $row  = mysqli_fetch_array($result);
+    
     
     if(is_array($row)) {
         $_SESSION["message"] = "User already exists";
@@ -65,6 +65,7 @@ if(isset($_REQUEST['username'])){
         $_SESSION['username'] = $_POST['username'];
         header("Location:login.php");
         exit();
+    }
     }
 }
 ?>
