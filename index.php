@@ -100,7 +100,7 @@
                       <option value="<?php echo $i++; ?>"><?php echo $table->team_name; ?></option>
                     <?php }} ?>
                     <?php if( $_SESSION['role_id'] != 3){ ?>
-                      <option value="other">Other</option>
+                      <option value="other">New Team</option>
                     <?php } ?>
                   </select> 
                   <div id="dynamicInput"></div>
