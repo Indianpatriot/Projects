@@ -1,15 +1,15 @@
 <?php
 include("DB/dbconn.php");
 
-$username = $_REQUEST['username'];
+$email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
-$_SESSION["username"]=$_REQUEST['username'];
+$_SESSION["email"]=$_REQUEST['email'];
 $_SESSION["password"]=$_REQUEST['password'];
 
-if(isset($_REQUEST['email'])){
-    $email = $_REQUEST['email'];
-    $_SESSION["email"]=$_REQUEST['email'];
-    $sql = "SELECT * FROM `users` WHERE username = '$username' ";
+if(isset($_REQUEST['username'])){
+    $username = $_REQUEST['username'];
+    $_SESSION["username"]=$_REQUEST['username'];
+    $sql = "SELECT * FROM `users` WHERE email = '$email' ";
     $result = mysqli_query($conn ,$sql);
     $row  = mysqli_fetch_array($result);
     
@@ -32,6 +32,7 @@ if(isset($_REQUEST['email'])){
             echo '<script type="text/javascript">';
             echo 'window.location.href="verify.php";';
             echo '</script>';
+            
         } else {
             echo "Error found, check your internet connection";
             exit();
@@ -52,20 +53,24 @@ if(isset($_REQUEST['email'])){
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result);
             $_SESSION['team_id'] = $row["team_id"];
-            header("Location:index.php");
-            exit();
+            echo '<script type="text/javascript">';
+            echo 'window.location.href="index.php";';
+            echo '</script>';
+            
         } else {
             $_SESSION["message"] = "Invalid Password!";
-            $_SESSION['username'] = $_POST['username'];
-            header("Location:login.php");
-            exit();
+            $_SESSION['email'] = $_POST['email'];    
+            echo '<script type="text/javascript">';
+            echo 'window.location.href="login.php";';
+            echo '</script>';
         }
     } else {
-        $_SESSION["message"] = "Invalid Username!";
-        $_SESSION['username'] = $_POST['username'];
-        header("Location:login.php");
-        exit();
-    }
+        $_SESSION["message"] = "Invalid email!";
+        $_SESSION['email'] = $_POST['email'];
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="login.php";';
+        echo '</script>';
     }
 }
+
 ?>
