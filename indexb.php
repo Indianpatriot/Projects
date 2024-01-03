@@ -22,7 +22,7 @@
             $newteam = $_REQUEST["newteam"];
             $teamdomain = $_REQUEST["teamdomain"];           
             $sql1 = "CREATE TABLE `$newteam` (`ID` INT(10) NOT NULL , `Member ID` INT(10) NOT NULL , `Member Name` VARCHAR(50) NOT NULL , `Date` DATE NOT NULL )";
-            $sql2 = "INSERT INTO `teams`(`team_name`, `team_domain`) VALUES ('$newteam','$teamdomain')";
+            $sql2 = "INSERT INTO `teams`(`team_name`, `team_domain`,`status`) VALUES ('$newteam','$teamdomain')";
             if(mysqli_query($conn,$sql1) && mysqli_query($conn,$sql2)){
                 $sql3 = "SELECT * FROM `teams` WHERE `team_name` = '$newteam'";
                 $newteamsid = mysqli_query($conn,$sql3);
