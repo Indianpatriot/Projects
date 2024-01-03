@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "UPDATE `teams` SET `Status` = 'Active' WHERE `teams`.`id` = 8`";
+    $sql = "UPDATE `teams` SET `Status` = 'Active' WHERE `teams`.`id` = 8";
 
     if($conn->query($sql)){
         echo "done ok";
