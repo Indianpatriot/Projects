@@ -82,7 +82,7 @@
 
     }
       </style>
-      <!-- alert massage -->
+      <!-- alert massage --> 
       <?php if(isset($_SESSION["allready"])){ ?>
         <script>window.alert("<?=$_SESSION["allready"]?>");</script>
       <?php unset($_SESSION["allready"]); } ?>
@@ -137,7 +137,10 @@
           </div>
         </div>
       </div>
-                  
+      <!-- alert massage -->
+      <?php if(isset($_SESSION["team_manager"])){ ?>
+        <script>window.alert("<?=$_SESSION["team_manager"]?>");</script>
+      <?php unset($_SESSION["team_manager"]); } ?>
       <!-- modal class for team member -->
       <div class="modal fade" id="teammember" tabindex="-1" aria-labelledby="goalParametersModalLabel" aria-hidden="true">
         <div class="modal-dialog">

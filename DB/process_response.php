@@ -8,10 +8,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // remove member
     include("dbconn.php");
-    $rolemember = "UPDATE `role_teams` SET `role_id`='5',`team_id`='0' WHERE `user_id`='$userId' AND `role_id`='$roleId' and `team_id` ='$teamId'";
-    $usermember = "UPDATE `users` SET `role_id`='5' WHERE `id` = '$userId'";
-    if(mysqli_query($conn,$rolemember) && mysqli_query($conn,$usermember) ){
-        echo "member remove";
+    $rolemember = "DELETE FROM `role_teams` WHERE `role_id` = '$roleId' AND `team_id` = '$teamId' AND `user_id` = '$userId'";
+    if($roleId==3){
+        if(mysqli_query($conn,$rolemember)){
+            echo "member remove";
+        }
+    }else{
+        $usermember = "UPDATE `users` SET `role_id`='5' WHERE `id` = '$userId'";
+        if(mysqli_query($conn,$rolemember) && mysqli_query($conn,$usermember) ){
+            echo "member remove";
+        }
     }
     // You can now use these variables in your PHP code
     // For example, you might want to save them to a file, update a database, or perform other actions
