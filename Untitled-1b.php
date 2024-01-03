@@ -127,7 +127,7 @@ if(isset($_GET["membername"])){
                 echo '</script>';
             }
         }else{
-            $_SESSION["team_manager"] = "$$row->username is a team manager they do not add team member";
+            $_SESSION["team_manager"] = "$row->username is a team manager they do not add team member";
             echo '<script type="text/javascript">';
             echo 'window.location.href="Untitled-1.php";';
             echo '</script>';
