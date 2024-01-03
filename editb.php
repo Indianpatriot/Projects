@@ -15,6 +15,7 @@ include("DB/dbconn.php");
       $i++;
     }
     $val = 0;
+    if(isset($_REQUEST[$val])){
     foreach($array as $value){
         if($value == "Date" || $value == "Member Name"){  continue; }else{       
             $sql1="UPDATE `goal_parameter` SET `parameter`='".$_REQUEST[$val]."' WHERE parameter = '$value'";
@@ -25,6 +26,16 @@ include("DB/dbconn.php");
             }
         }
         $val++;
+    }}
+
+
+    if(isset($_REQUEST["parametername"])){
+        $parameterdeletename = "DELETE FROM `goal_parameter` WHERE `parameter` = '".$_REQUEST["parametername"]."'";
+        $parameterdeletetable = "ALTER TABLE `$teamname->team_name` DROP `".$_REQUEST["parametername"]."`";
+        if(mysqli_query($conn,$parameterdeletename)){
+            if(mysqli_query($conn,$parameterdeletetable)){
+            }
+        }
     }
 
     echo '<script type="text/javascript">';
