@@ -1,8 +1,11 @@
 <?php
 
     include("dbconn.php");
-
-    $sql = "SELECT * FROM `teams`";
+    if($_SESSION['role_id']==1){
+        $sql = "SELECT * FROM `teams`";
+    }else{
+        $sql = "SELECT * FROM `teams` where `Status` ='Active'";
+    }
     $results = mysqli_query($conn ,$sql);
     $teamactive = mysqli_query($conn ,$sql);
     $team_name = mysqli_query($conn ,$sql);
