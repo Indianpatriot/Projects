@@ -5,6 +5,17 @@
     $j=0;
     $parameter=100;
     $data_type = 500;
+
+    if(isset($_REQUEST["team_activation"])){
+        $teamastatus = "UPDATE `teams` SET `Status` = '".$_REQUEST["team_activation"]."' WHERE `teams`.`id` = '".$_REQUEST["team_id"]."'";
+        if(mysqli_query($conn ,$teamastatus)){
+            echo '<script type="text/javascript">';
+            echo 'window.location.href = "index.php";';
+            echo '</script>';
+        }else{
+            echo $conn->error;
+        }
+    }
      
     if(isset($_COOKIE["inputCount"])){
         if(isset($_REQUEST["newteam"])){
@@ -46,9 +57,10 @@
                 $parameter++;
                 $data_type++;
             }while($j<$_COOKIE["inputCount"]);
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "DB/access.php?team_id=' . $teamID . '";';
+        echo '</script>';    
         
     }
-    echo '<script type="text/javascript">';
-    echo 'window.location.href = "DB/access.php?team_id=' . $teamID . '";';
-    echo '</script>';
+
 ?>

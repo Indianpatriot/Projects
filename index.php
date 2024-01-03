@@ -140,12 +140,14 @@
               <form action="indexb.php" method="post">
               <div id="inputContainer">
                 <!-- Initial Input Field -->
+                <input type="text" name="team_id" value="<?=$table->id?>" required hidden>
                 <div className="form-group">
                   <label for="500"><?=$table->team_name?></label>
-                  <select class="form-select" name="500" aria-label="Default select example">
-                    <option value="Active">Active</option>
-                    <option value="Inactive">Inactive</option>
-                  </select> 
+                  <select class="form-select" name="team_activation" aria-label="Default select example">
+                    <option value="Active" <?php if($table->Status=="Active"){ echo "selected"; } ?>>Active</option>
+                    <option value="Inactive" <?php if($table->Status=="Inactive"){ echo "selected"; } ?>>Inactive</option>
+                  </select>
+ 
                 </div>
               </div>
              </div>
