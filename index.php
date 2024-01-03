@@ -161,6 +161,39 @@
       </div>
       <?php } ?>
 
+        <!-- edit team info -->
+        <?php while($table = mysqli_fetch_object($editteam)){ ?> 
+      <div class="modal fade" id="editteam<?=$table->id?>" tabindex="-1" aria-labelledby="goalParametersModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="goalParametersModalLabel"><?=$table->team_name?></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="indexb.php" method="post">
+              <div id="inputContainer">
+                <!-- Initial Input Field -->
+                <input type="text" name="team_id" value="<?=$table->id?>" required hidden>
+                <div className="form-group">
+                  <label for="team_name">Team_name:</label>
+                  <input type="text" name = "team_name" value="<?=$table->team_name?>" required>
+                  <label for="team_domain">Team_domain:</label>
+                  <input type="text" name = "team_domain" value="<?=$table->team_domain?>" required>
+ 
+                </div>
+              </div>
+             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
+
 
       <!-- Main Content Area -->
       <div id="content" class="col-md-9">
@@ -171,14 +204,20 @@
               <th>Team Id</th>
               <th>Team Name</th>
               <th>Team Domain</th>
-              <?php if($_SESSION['role_id']==1){ ?><th>team status</th><?php } ?>
+              <?php if($_SESSION['role_id']==1){ ?>
+                <th>team status</th>
+                <th></th>
+              <?php } ?>
             </tr>
             <?php while($table = mysqli_fetch_object($results)){ ?>
             <tr>
               <td><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></td>
               <td><?php echo $table->team_name; ?></td>
               <td><?php echo $table->team_domain; ?></td>
-              <?php if($_SESSION['role_id']==1){ ?><td><a href="#" data-bs-toggle="modal" data-bs-target="#teamactivation<?=$table->id?>"><?php echo $table->Status; ?></a></td><?php } ?>
+              <?php if($_SESSION['role_id']==1){ ?>
+                <td><a href="#" data-bs-toggle="modal" data-bs-target="#teamactivation<?=$table->id?>"><?php echo $table->Status; ?></a></td>
+                <td><a href="#" data-bs-toggle="modal" data-bs-target="#editteam<?=$table->id?>">edit</a></td>
+              <?php } ?>
             </tr>
             <?php } ?>
           </thead>

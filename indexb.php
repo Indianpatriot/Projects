@@ -16,6 +16,17 @@
             echo $conn->error;
         }
     }
+
+    if(isset($_REQUEST["team_domain"])){
+        $teamedit = "UPDATE `teams` SET `team_name` = '".$_REQUEST["team_name"]."', `team_domain` = '".$_REQUEST["team_domain"]."' WHERE `teams`.`id` = '".$_REQUEST["team_id"]."'";
+        if(mysqli_query($conn ,$teamedit)){
+            echo '<script type="text/javascript">';
+            echo 'window.location.href = "index.php";';
+            echo '</script>';
+        }else{
+            echo $conn->error;
+        }
+    }
      
     if(isset($_COOKIE["inputCount"])){
         if(isset($_REQUEST["newteam"])){
