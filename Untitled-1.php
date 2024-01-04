@@ -48,10 +48,12 @@
   
             <td><a href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">About</a></td>
           </tr>
+          <?php if($_SESSION['role_id'] != 4){ ?>
           <tr>
   
             <td><a href="#" data-bs-toggle="modal" data-bs-target="#teammember">Members</a></td>
           </tr>
+          <?php } ?>
           <tr>
             <td><a href="#" data-bs-toggle="modal" data-bs-target="#goalParametersModal">Update goal (date-wise)</a></td>
           </tr>
@@ -217,7 +219,7 @@
 
       <!-- Main Content Area -->
       <div id="content" class="col-md-9">
-        <h1><?=$teamname->team_name?></h1><b><?php echo $selectid?></b>   <button class="align-right" type= "button"> <a href="edit.php" style="text-decoration: none; color: black; cursor: pointer;">customize </a></button>
+        <h1><?=$teamname->team_name?></h1><b><?php echo $selectid?></b> <?php if($_SESSION['role_id'] !=4){ ?>  <button class="align-right" type= "button"> <a href="edit.php" style="text-decoration: none; color: black; cursor: pointer;">customize </a></button> <?php }?>
         <table class="table"style="width: 115%;" >
           <thead>
             <tr>
