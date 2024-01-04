@@ -96,7 +96,7 @@
                     <option value="">Select team name</option>
                     <?php $i=1; while($table = mysqli_fetch_object($team_name)){ if( $_SESSION['role_id'] != 3){?>
                       <option value="<?php echo $i++; ?>"><?php echo $table->team_name; ?></option>
-                    <?php }elseif( $_SESSION['team_id'] == $i){ ?>
+                    <?php }elseif( $_SESSION['team_id'] == $table->id){ ?>
                       <option value="<?php echo $i++; ?>"><?php echo $table->team_name; ?></option>
                     <?php }} ?>
                     <?php if( $_SESSION['role_id'] != 3){ ?>
