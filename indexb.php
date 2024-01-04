@@ -19,10 +19,15 @@
 
     if(isset($_REQUEST["team_domain"])){
         $teamedit = "UPDATE `teams` SET `team_name` = '".$_REQUEST["team_name"]."', `team_domain` = '".$_REQUEST["team_domain"]."' WHERE `teams`.`id` = '".$_REQUEST["team_id"]."'";
+        $changeteamname = "RENAME TABLE `".$_REQUEST["team_old"]."` TO `".$_REQUEST["team_name"]."`";
         if(mysqli_query($conn ,$teamedit)){
-            echo '<script type="text/javascript">';
-            echo 'window.location.href = "index.php";';
-            echo '</script>';
+            if(mysqli_query($conn ,$changeteamname)){
+                echo '<script type="text/javascript">';
+                echo 'window.location.href = "index.php";';
+                echo '</script>';
+            }else{
+                echo $conn->error;
+            }
         }else{
             echo $conn->error;
         }

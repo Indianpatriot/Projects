@@ -175,6 +175,7 @@
               <div id="inputContainer">
                 <!-- Initial Input Field -->
                 <input type="text" name="team_id" value="<?=$table->id?>" required hidden>
+                <input type="text" name="team_old" value="<?=$table->team_name?>" required hidden>
                 <div className="form-group">
                   <label for="team_name">Team_name:</label>
                   <input type="text" name = "team_name" value="<?=$table->team_name?>" required>
