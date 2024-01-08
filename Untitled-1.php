@@ -2,11 +2,7 @@
     include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
-    if(isset($_REQUEST["search"])){
-      $search= $_REQUEST["search"];
-      $sql2 = "SELECT * FROM `$teamname->team_name` where `Member Name` = '$search'";
-      $results = mysqli_query($conn ,$sql2);
-    }elseif(isset($_REQUEST["entriesselect"])){
+    if(isset($_REQUEST["entriesselect"])){
       $entryselect = $_REQUEST["entriesselect"];
       $sql2 = "SELECT * FROM `$teamname->team_name` limit 1,$entryselect";
       $results = mysqli_query($conn ,$sql2);
@@ -247,15 +243,14 @@
       
     </form>
     </div>
-    <form class="col-md-6" action="#">
+    <div class="col-md-6">
       <div class="input-group mb-3">
-        <input type="text" id="search-input" name="search" class="form-control" placeholder="Search" style="width: 70%; height: 10%;">
-        <button class="btn btn-outline-secondary" type="submit" id="search-button" style="width: 30%; height: 10%;">Search</button>
+        <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Search" style="width: 70%; height: 10%;">
       </div>
-    </form>
+                  </civ>
   </div>
   
-        <table class="table"style="width: 115%;" >
+        <table class="table"style="width: 115%;"  id="volunteer_tasktable">
           <thead>
             <tr>
               <?php
@@ -386,7 +381,34 @@
   <script src="JS/confirm.js">
     
   </script>
-  
+   <script>
+        // JavaScript function to filter the table based on input value
+        function filterTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("volunteer_tasktable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                var tdArray = tr[i].getElementsByTagName("td");
+
+                for (var j = 0; j < tdArray.length; j++) {
+                    td = tdArray[j];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break; // Break the inner loop if a match is found in any cell
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
   
 </body>
 </html>
