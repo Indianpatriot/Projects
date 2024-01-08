@@ -2,6 +2,14 @@
     include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
+    if(isset($_REQUEST["entriesselect"])){
+      $entryselect = $_REQUEST["entriesselect"];
+      $sql2 = "SELECT * FROM `$teamname->team_name` limit 1,$entryselect";
+      $results = mysqli_query($conn ,$sql2);
+    }else{
+    $sql2 = "SELECT * FROM `$teamname->team_name` limit 1,10";
+    $results = mysqli_query($conn ,$sql2);
+    }
   ?>
 <!DOCTYPE html>
 <html>
@@ -222,13 +230,13 @@
         <h1><?=$teamname->team_name?></h1><b><?php echo $selectid?></b> <?php if($_SESSION['role_id'] !=4){ ?>  <button class="align-right" type= "button"> <a href="edit.php" style="text-decoration: none; color: black; cursor: pointer;">customize </a></button> <?php }?>
         <div class="row">
     <div class="col-md-6">
-      <form id="entries-form" class="col-md-6">
+      <form id="entries-form" action="#" class="col-md-6">
      
         <div class="input-group mb-3">
-          <select id="entries-select" name="entries-select" class="form-select" style="width: 30%; height: 10%;">
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
+          <select id="entries-select" name="entriesselect" class="form-select" style="width: 30%; height: 10%;">
+            <option value="5" <?php if(isset($_REQUEST["entriesselect"])) { if($_REQUEST["entriesselect"]==5){echo "selected";}}?>>5</option>
+            <option value="10" <?php if(isset($_REQUEST["entriesselect"])) { if($_REQUEST["entriesselect"]==10){echo "selected";}}?>>10</option>
+            <option value="20" <?php if(isset($_REQUEST["entriesselect"])) { if($_REQUEST["entriesselect"]==20){echo "selected";}}?>>20</option>
           </select>
           <button class="btn btn-outline-secondary" type="submit" style="width: 70%; height: 10%;">Show Entries</button>
         </div>

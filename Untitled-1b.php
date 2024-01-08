@@ -9,8 +9,9 @@ $teamID = $_SESSION["team_id"];
 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
 $teamname = mysqli_query($conn,$sql1);
 $teamname = mysqli_fetch_object($teamname);
-$sql2 = "SELECT * FROM `$teamname->team_name`";
-$results = mysqli_query($conn ,$sql2);
+
+
+
 
 // team parameter
     $goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]." ORDER BY `goal_parameter`.`team_id` ASC ";
@@ -33,6 +34,7 @@ $user_array_name = array();
 $role_array_id = array();
 $user_role_id = array();
 $i =0;
+
 while($user_name = mysqli_fetch_object($user_result)){
     $user_array_id[$i]=$user_name->id;
     $user_array_name[$i]=$user_name->username;
