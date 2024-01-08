@@ -220,6 +220,29 @@
       <!-- Main Content Area -->
       <div id="content" class="col-md-9">
         <h1><?=$teamname->team_name?></h1><b><?php echo $selectid?></b> <?php if($_SESSION['role_id'] !=4){ ?>  <button class="align-right" type= "button"> <a href="edit.php" style="text-decoration: none; color: black; cursor: pointer;">customize </a></button> <?php }?>
+        <div class="row">
+    <div class="col-md-6">
+      <form id="entries-form" class="col-md-6">
+     
+        <div class="input-group mb-3">
+          <select id="entries-select" name="entries-select" class="form-select" style="width: 30%; height: 10%;">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+          </select>
+          <button class="btn btn-outline-secondary" type="submit" style="width: 70%; height: 10%;">Show Entries</button>
+        </div>
+      
+    </form>
+    </div>
+    <form class="col-md-6">
+      <div class="input-group mb-3">
+        <input type="text" id="search-input" class="form-control" placeholder="Search" style="width: 70%; height: 10%;">
+        <button class="btn btn-outline-secondary" type="submit" id="search-button" style="width: 30%; height: 10%;">Search</button>
+      </div>
+    </form>
+  </div>
+  
         <table class="table"style="width: 115%;" >
           <thead>
             <tr>
@@ -312,9 +335,33 @@
             <!-- Add historical data rows here -->
           </tbody>
         </table>
+
+        <!-- pagination -->
+        <div class="row">
+    <div class="col-md-12">
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          <!-- You can dynamically generate the pagination items based on the number of pages -->
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">1 <span class="visually-hidden">(current)</span></span>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
       </div>
     </div>
   </div>
+                    
+
    <style>
    .align-right {
   position: absolute;
@@ -327,6 +374,7 @@
   <script src="JS/confirm.js">
     
   </script>
+  
   
 </body>
 </html>
