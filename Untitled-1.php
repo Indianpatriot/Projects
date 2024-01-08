@@ -2,14 +2,18 @@
     include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
-    if(isset($_REQUEST["entriesselect"])){
+    if(isset($_REQUEST["search"])){
+      $search= $_REQUEST["search"];
+      $sql2 = "SELECT * FROM `$teamname->team_name` where `Member Name` = '$search'";
+      $results = mysqli_query($conn ,$sql2);
+    }elseif(isset($_REQUEST["entriesselect"])){
       $entryselect = $_REQUEST["entriesselect"];
       $sql2 = "SELECT * FROM `$teamname->team_name` limit 1,$entryselect";
       $results = mysqli_query($conn ,$sql2);
     }else{
-    $sql2 = "SELECT * FROM `$teamname->team_name` limit 1,10";
-    $results = mysqli_query($conn ,$sql2);
-    }
+      $sql2 = "SELECT * FROM `$teamname->team_name` limit 1,10";
+      $results = mysqli_query($conn ,$sql2);
+      }
   ?>
 <!DOCTYPE html>
 <html>
@@ -243,9 +247,9 @@
       
     </form>
     </div>
-    <form class="col-md-6">
+    <form class="col-md-6" action="#">
       <div class="input-group mb-3">
-        <input type="text" id="search-input" class="form-control" placeholder="Search" style="width: 70%; height: 10%;">
+        <input type="text" id="search-input" name="search" class="form-control" placeholder="Search" style="width: 70%; height: 10%;">
         <button class="btn btn-outline-secondary" type="submit" id="search-button" style="width: 30%; height: 10%;">Search</button>
       </div>
     </form>
