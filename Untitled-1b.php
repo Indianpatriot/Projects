@@ -9,8 +9,18 @@ $teamID = $_SESSION["team_id"];
 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
 $teamname = mysqli_query($conn,$sql1);
 $teamname = mysqli_fetch_object($teamname);
-
-
+// $achieve = "SELECT SUM() AS total_quantity FROM sales WHERE order_date BETWEEN '2022-01-01' AND '2022-12-31'"
+if(isset($_REQUEST["updatetargetgoal"])){
+    $updategoal = "UPDATE `teams` SET `Target` = ".$_REQUEST["updatetargetgoal"]." WHERE `teams`.`id` = '$teamID'";
+    if(mysqli_query($conn,$updategoal)){
+        echo "kya hua bhai";
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="Untitled-1.php";';
+        echo '</script>';
+    }else{
+        echo $conn->error;
+    }
+}
 
 
 // team parameter
@@ -64,7 +74,7 @@ $goalp = array();
         }
         $z++;
     }
-if($_SERVER['REQUEST_METHOD']=="POST"){
+if(isset($_REQUEST["date_data"])){
     $date_data = $_REQUEST["date_data"];
     $result = "`Date`,`" . implode("`,`", $goalp) . "`)";
     $results = "'$date_data','" . implode("','", $inputpara) . "')";

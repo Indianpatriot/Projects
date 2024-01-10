@@ -56,9 +56,8 @@
   
             <td><a href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">About</a></td>
           </tr>
-          <?php if($_SESSION['role_id'] != 4){ ?>
+          <?php if($_SESSION['role_id'] != 4){ ?>  
           <tr>
-  
             <td><a href="#" data-bs-toggle="modal" data-bs-target="#teammember">Members</a></td>
           </tr>
           <?php } ?>
@@ -96,6 +95,32 @@
       <?php if(isset($_SESSION["allready"])){ ?>
         <script>window.alert("<?=$_SESSION["allready"]?>");</script>
       <?php unset($_SESSION["allready"]); } ?>
+      <!-- update target goal -->
+      <div class="modal fade" id="updatetargetgoal" tabindex="-1" aria-labelledby="goalParametersModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="goalParametersModalLabel"><?=$teamname->team_name?><?php echo $selectid?></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="Untitled-1b.php" method="POST">
+                  <div class="form-group">
+                    <label>Monthly target:</label>
+                    <input type="text" name="updatetargetgoal">
+                  </div>
+                
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+     
+
       <!-- Goal Parameters Modal -->
       <div class="modal fade" id="goalParametersModal" tabindex="-1" aria-labelledby="goalParametersModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -229,7 +254,7 @@
       <div id="content" class="col-md-9">
         <h1><?=$teamname->team_name?></h1><b><?php echo $selectid?></b> <?php if($_SESSION['role_id'] !=4){ ?>  <button class="align-right" type= "button"> <a href="edit.php" style="text-decoration: none; color: black; cursor: pointer;">customize </a></button> <?php }?>
         <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5">
       <form id="entries-form" action="#" class="col-md-6">
      
         <div class="input-group mb-3">
@@ -243,7 +268,12 @@
       
     </form>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-3">
+      <?php if($_SESSION['role_id'] != 4){ ?>
+        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#updatetargetgoal">Update monthly goal</button>
+      <?php } ?>
+    </div>
+    <div class="col-md-3">
       <div class="input-group mb-3">
         <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Search" style="width: 70%; height: 10%;">
       </div>
@@ -335,6 +365,8 @@
               </th>
               <?php $col++;}} ?>
               </tr>
+              <tr><td></td></tr>
+              <tr><th>monthly target goal</th><td></td><td><?php echo $teamname->Target;?></td></tr>
               </tfoot>
             
           
