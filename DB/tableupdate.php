@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "UPDATE `teams` SET `Status` = 'Active' WHERE `teams`.`id` = 8";
+    $sql = "ALTER TABLE `teams` ADD `Target` VARCHAR(50) NOT NULL AFTER `team_domain`";
 
     if($conn->query($sql)){
         echo "done ok";
