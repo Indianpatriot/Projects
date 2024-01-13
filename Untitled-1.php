@@ -280,7 +280,7 @@
                   </civ>
   </div>
   
-        <table class="table"style="width: 115%;"  id="volunteer_tasktable">
+        <table class="table table-success table-striped" style="width: 100%;"  id="volunteer_tasktable">
           <thead>
             <tr>
               <?php

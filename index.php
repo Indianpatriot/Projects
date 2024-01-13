@@ -7,8 +7,10 @@
 <html>
 <head>
   <title>Goal Management Dashboard</title>
+
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="JS/script.js"></script>
 </head>
 <body>
@@ -25,7 +27,7 @@
         <table class="table table-borderless">
           <tr>
      
-            <td><a href="#">Home</a></td>
+            <td><a href="#"><i class="bi bi-house-door"></i> Home</a></td>
           </tr>
           <tr>
   
@@ -199,7 +201,7 @@
       <!-- Main Content Area -->
       <div id="content" class="col-md-9">
         <h1>Team</h1>
-        <table class="table"style="width: 115%;" >
+        <table class="table table-success table-striped" style="width: 115%;" >
           <thead>
             <tr>
               <th>Team Id</th>
