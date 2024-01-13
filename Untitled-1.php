@@ -270,7 +270,7 @@
     </div>
     <div class="col-md-3">
       <?php if($_SESSION['role_id'] != 4){ ?>
-        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#updatetargetgoal">Update monthly goal</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updatetargetgoal">Update monthly goal</button>
       <?php } ?>
     </div>
     <div class="col-md-3">
