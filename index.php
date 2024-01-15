@@ -111,9 +111,8 @@
                   <label for="inputField1">Add Parameter:</label>
                   <input type="text" id="inputField1" name="100" placeholder="Parameter Name">
                   <select class="form-select" name="500" aria-label="Default select example">
-                    <option value="">Parameter data type</option>
                     <option value="VARCHAR">Text</option>
-                    <option value="INT">Number</option>
+                    <option value="INT" selected>Number</option>
                   </select> 
                   <button type="button" style="width: 80px; float:right;" onclick="removeInputField(1)">Remove</button>
                 </div>
@@ -253,10 +252,8 @@
                 <label for="inputField${inputCount}" >Enter something:</label>
                 <input type="text" id="inputField${inputCount}" name="${parameter}" placeholder="Type something here">
                 <select class="form-select" id="inputField${inputCount}" name="${data_type}" aria-label="Default select example">
-                    <option value="">Parameter data type</option>
                     <option value="VARCHAR">Text</option>
-                    <option value="INT">Number</option>
-                    <option value="DATE">Date</option>
+                    <option value="INT" select>Number</option>
                   </select>
                 <button type="button" style="width: 80px; float:right;" onclick="removeInputField(${inputCount})">Remove</button>
             `;
