@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DROP TABLE `Central team simtrak`,`City of joy`,`Echo`,`GD1`,`Glowball`,`LSet plan`,`Simtrak Recuitment`";
+    $sql = "TRUNCATE TABLE `teams`";
 
     if($conn->query($sql)){
         echo "done ok";
