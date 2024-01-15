@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "INSERT INTO `role_teams` (`user_id`, `role_id`, `team_id`) VALUES ('49','1','-1')";
+    $sql = "DROP TABLE `Central team simtrak`,`City of joy`,`Echo`,`GD1`,`Glowball`,`LSet plan`,`Simtrak Recuitment`";
 
     if($conn->query($sql)){
         echo "done ok";
