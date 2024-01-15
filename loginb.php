@@ -27,10 +27,11 @@ if(isset($_REQUEST['username'])){
         $subject = "Forget password";
         $body = "Hello $username,
 
-            Greetings from Simtrak! Your verification code is $otp, valid for the next 5 minutes. Please keep it confidential and do not share it with anyone.
+        Greetings from Simtrak! Your verification code is $otp, valid for the next 5 minutes.
+        Please keep it confidential and do not share it with anyone.
         
-            Best regards,
-            Simtrak Team";
+        Best regards,
+        Simtrak Team";
         $headers = "From: contact@simtrak.in";
 
         if (mail($to_email, $subject, $body, $headers)) {

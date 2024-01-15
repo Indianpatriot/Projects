@@ -4,6 +4,7 @@
     $otp = rand(1111,9999);
     $result = mysqli_query($conn,"SELECT * FROM `users` WHERE email='$email'");
     $count = mysqli_num_rows($result);
+    $username = mysqli_fetch_object($result);
     $_SESSION["email"]=$email;
     $_SESSION["otp"] = $otp; 
     if($count ==0){    
@@ -14,7 +15,13 @@
     }else{
             $to_email = $email;
             $subject = "forget password";
-            $body = "Hi, you otp is $otp";
+            $body = "Hello $username->username,
+
+            Greetings from Simtrak! Your password reset OTP is $otp, valid for the next 5 minutes.
+            Keep it secure and refrain from sharing it with others.
+            
+            Best regards,
+            Simtrak Team";
             $headers = "From: contact@simtrak.in";
 
             if (mail($to_email, $subject, $body, $headers)) {
