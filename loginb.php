@@ -25,7 +25,12 @@ if(isset($_REQUEST['username'])){
         $_SESSION["otp"] = $otp;
         $to_email = $email;
         $subject = "Forget password";
-        $body = "Hi, your OTP is $otp";
+        $body = "Hello $username,
+
+            Greetings from Simtrak! Your verification code is $otp, valid for the next 5 minutes. Please keep it confidential and do not share it with anyone.
+        
+            Best regards,
+            Simtrak Team";
         $headers = "From: contact@simtrak.in";
 
         if (mail($to_email, $subject, $body, $headers)) {
