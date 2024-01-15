@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "delete from `goal_parameter` WHERE `goal_parameter`.`team_id` <> 0";
+    $sql = "delete from `role_teams` WHERE `role_teams`.`team_id` <> -1";
 
     if($conn->query($sql)){
         echo "done ok";
