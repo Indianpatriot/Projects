@@ -144,12 +144,13 @@
                       <?php }?>
                     </select> 
                   </div>
+                  <?php }?>
                  <!-- Input field for Date -->
           <div class="form-group">
             <label>Date:</label>
             <input type="date" name="date_data" required>
           </div>
-                <?php }?>
+                
                 <?php $c=0; while($para = mysqli_fetch_object($parameters)){ ?>
                   <?php if($para->parameter == 'Date' || $para->parameter == 'Member Name'){$i++; continue;}  ?>
                   <div className="form-group">

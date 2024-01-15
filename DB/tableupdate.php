@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "UPDATE `users` SET `role_id` = '1' WHERE `users`.`id` = 49";
+    $sql = "delete `users` WHERE `users`.`role_id` <> 1";
 
     if($conn->query($sql)){
         echo "done ok";
