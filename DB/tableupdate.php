@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "INSERT INTO `role_teams` (`s.no`, `user_id`, `role_id`, `team_id`) VALUES ('49','1','-1')";
+    $sql = "INSERT INTO `role_teams` (`user_id`, `role_id`, `team_id`) VALUES ('49','1','-1')";
 
     if($conn->query($sql)){
         echo "done ok";
