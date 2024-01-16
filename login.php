@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login and Sign Up</title>
+  <link rel="icon" href="image/icon.png" type="image/png"/>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <meta http-equiv="Cache-control" content="no-cache">
   <style>  
