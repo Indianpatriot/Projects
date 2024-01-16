@@ -15,6 +15,7 @@
 <html>
 <head>
   <title>Goal Management Dashboard</title>
+  <link href="image/icon.png" rel="icon" type="image/png" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
   
