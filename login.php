@@ -45,7 +45,7 @@
         <input type="email" name="email" placeholder="Email" required>
         <select name="team_id">
           <?php while($select = mysqli_fetch_object($results)){?>
-            <option value="$select->"></option>
+            <option value="<?=$select->id?>"><?=$select->team_name?></option>
           <?php } ?>
         </select>
         <input type="password" name="password" id="signup-password" placeholder="Password" required>
