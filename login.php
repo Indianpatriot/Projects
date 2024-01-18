@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php 
+  include("DB/dbconn.php");
+  $sql = "SELECT * FROM `teams`";
+  $results = mysqli_query($conn ,$sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +43,11 @@
       <form action="loginb.php" method="post" id="signup-form">
         <input type="text" name="username" placeholder="Username" required>
         <input type="email" name="email" placeholder="Email" required>
+        <select name="team_id">
+          <?php while($select = mysqli_fetch_object($results)){?>
+            <option value="$select->"></option>
+          <?php } ?>
+        </select>
         <input type="password" name="password" id="signup-password" placeholder="Password" required>
         <label style="white-space: nowrap; display: inline-block; margin-right: 10px;">
         <input type="checkbox" style="display:inline; vertical-align: middle; width:10%;" onclick="showPassword('signup-password')"> Show Password

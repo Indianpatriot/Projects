@@ -1,6 +1,5 @@
 <?php
 include("DB/dbconn.php");
-
 $email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
 $_SESSION["email"]=$_REQUEST['email'];
