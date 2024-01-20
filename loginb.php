@@ -8,6 +8,7 @@ $_SESSION["password"]=$_REQUEST['password'];
 if(isset($_REQUEST['username'])){
     $username = $_REQUEST['username'];
     $_SESSION["username"]=$_REQUEST['username'];
+    $_SESSION["select_team_id"] = $_REQUEST['team_id'];
     $sql = "SELECT * FROM `users` WHERE email = '$email' ";
     $result = mysqli_query($conn ,$sql);
     $row  = mysqli_fetch_array($result);

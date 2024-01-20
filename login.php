@@ -19,6 +19,10 @@
     form input {
       width:90%;
     }
+    form select{
+      width: 245px;
+      height: 35px;
+    }
   </style>
 </head>
 <body>
@@ -43,7 +47,8 @@
       <form action="loginb.php" method="post" id="signup-form">
         <input type="text" name="username" placeholder="Username" required>
         <input type="email" name="email" placeholder="Email" required>
-        <select name="team_id">
+        <select name="team_id" class="form-select" plca aria-label="Default select example">
+          <option value=""  disabled selected>select team</option>
           <?php while($select = mysqli_fetch_object($results)){?>
             <option value="<?=$select->id?>"><?=$select->team_name?></option>
           <?php } ?>
