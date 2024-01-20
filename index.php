@@ -96,7 +96,7 @@
                 <div className="form-group">
                   <label>Team Name:</label>
                   <select class="form-select" name="team_name" id="category" onchange="createNewInput()" aria-label="Default select example">
-                    <option value="">Select team name</option>
+                    <option value=""  disabled selected>Select team name</option>
                     <?php $i=1; while($table = mysqli_fetch_object($team_name)){ if( $_SESSION['role_id'] != 3){?>
                       <option value="<?php echo $i++; ?>"><?php echo $table->team_name; ?></option>
                     <?php }elseif( $_SESSION['team_id'] == $table->id){ ?>
@@ -110,8 +110,8 @@
                 </div>
                 <div>
                   <label for="inputField1">Add Parameter:</label>
-                  <input type="text" id="inputField1" name="100" placeholder="Parameter Name">
-                  <select class="form-select" name="500" aria-label="Default select example">
+                  <input type="text" id="inputField1" name="100" placeholder="Parameter Name" required>
+                  <select class="form-select" name="500" aria-label="Default select example" required>
                     <option value="VARCHAR">Text</option>
                     <option value="INT" selected>Number</option>
                   </select> 
@@ -251,8 +251,8 @@
             var newDiv = document.createElement("div");
             newDiv.innerHTML = `
                 <label for="inputField${inputCount}" >Enter something:</label>
-                <input type="text" id="inputField${inputCount}" name="${parameter}" placeholder="Type something here">
-                <select class="form-select" id="inputField${inputCount}" name="${data_type}" aria-label="Default select example">
+                <input type="text" id="inputField${inputCount}" name="${parameter}" placeholder="Type something here" required>
+                <select class="form-select" id="inputField${inputCount}" name="${data_type}" aria-label="Default select example" required>
                     <option value="VARCHAR">Text</option>
                     <option value="INT" select>Number</option>
                   </select>
