@@ -3,7 +3,12 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `LSET` ADD `Number of New Volunteers` INT(10) NOT NULL AFTER `Member Name`;";
+    $sql = "ALTER TABLE `Ascend` ADD `goalset` INT(10) NOT NULL AFTER `ID`;
+            ALTER TABLE `Glowball` ADD `goalset` INT(10) NOT NULL AFTER `ID`;
+            ALTER TABLE `Lset Institution Development` ADD `goalset` INT(10) NOT NULL AFTER `ID`;
+            ALTER TABLE `Matrix` ADD `goalset` INT(10) NOT NULL AFTER `ID`;
+            ALTER TABLE `Weeho` ADD `goalset` INT(10) NOT NULL AFTER `ID`;
+            ";
 
     if($conn->query($sql)){
         echo "done ok";
