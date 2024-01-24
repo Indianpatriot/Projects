@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DELETE FROM `goal_parameter` WHERE parameter = ''";
+    $sql = "INSERT INTO `central team simtraks`(`goalset`) VALUES ('1')";
 
     if($conn->query($sql)){
         echo "done ok";
