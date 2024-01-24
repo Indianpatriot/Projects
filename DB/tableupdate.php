@@ -3,11 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "   ALTER TABLE `Weeho` ADD `goalset` INT(10) NOT NULL AFTER `ID`;
-  
- 
-            
-            ";
+    $sql = "INSERT INTO `Ascend`(`goalset`) VALUES ('1')";
 
     if($conn->query($sql)){
         echo "done ok";
