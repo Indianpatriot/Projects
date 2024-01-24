@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `LSET` ADD `goalset` INT(10) NOT NULL AFTER `ID`;";
+    $sql = "DELETE FROM `goal_parameter` WHERE parameter = ''";
 
     if($conn->query($sql)){
         echo "done ok";
