@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `Lset Institution Development` ADD `Number of New Volunteers` INT NOT NULL AFTER `Member Name`;";
+    $sql = "ALTER TABLE `Matrix` ADD `Number of New Volunteers` INT NOT NULL AFTER `Member Name`;";
 
     if($conn->query($sql)){
         echo "done ok";
