@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "INSERT INTO `Ascend`(`goalset`) VALUES ('1')";
+    $sql = "INSERT INTO `Glowball`(`goalset`) VALUES ('1')";
 
     if($conn->query($sql)){
         echo "done ok";
