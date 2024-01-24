@@ -383,8 +383,6 @@
               </th>
               <?php $col++;}} ?>
               </tr>
-              <tr><td></td></tr>
-              <tr><th>monthly target goal</th><td></td><td><?php echo $teamname->Target;?></td></tr>
               </tfoot>
             
           
