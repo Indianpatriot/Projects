@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "   ALTER TABLE `Matrix` ADD `goalset` INT(10) NOT NULL AFTER `ID`;
+    $sql = "   ALTER TABLE `Weeho` ADD `goalset` INT(10) NOT NULL AFTER `ID`;
   
  
             
