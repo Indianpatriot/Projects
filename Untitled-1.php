@@ -109,10 +109,17 @@
             <div class="modal-body">
               <form action="Untitled-1b.php" method="POST">
                   <div class="form-group">
-                    <label>Monthly target:</label>
-                    <input type="text" name="updatetargetgoal">
+                  <input type="text" name="team_manager_id" value="<?=$_SESSION['user_id']?>" hidden require>
+                  <input type="text" name="team_manager_name" value="<?=$_SESSION['user_name']?>" hidden require>
+                    <?php $i=0; foreach($array as $value){?>
+                      <?php if($value == "Date"){?>
+                        <input type="text" name="<?=$i?>" value="<?=$goalset->$value?>" hidden require>
+                      <?php } elseif($value == "Member Name") { continue;}else{ ?>
+                        <label><?=$value?></label>
+                        <input type="text" name="<?=$i?>" required>
+                    <?php } $i++; }?>
                   </div>
-                
+                      
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -290,6 +297,13 @@
               <?php
               foreach($array as $value){ ?>
               <th><?=$value ?></th>
+              <?php } ?>
+            </tr>
+            <tr>
+              <th>month goal</th>
+              <?php
+              foreach($array as $value){ if($value=="Date"){continue;}?>
+              <td><?=$goalset->$value ?></td>
               <?php } ?>
             </tr>
             </thead>

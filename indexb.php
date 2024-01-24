@@ -1,10 +1,12 @@
 <?php
 
     include("DB/dbconn.php");
-    
+    $i =0;
     $j=0;
     $parameter=100;
     $data_type = 500;
+    $selectedOptions = isset($_POST["options"]) ? $_POST["options"] : [];
+    $arrayLength = count($selectedOptions);
 
     if(isset($_REQUEST["team_activation"])){
         $teamastatus = "UPDATE `teams` SET `Status` = '".$_REQUEST["team_activation"]."' WHERE `teams`.`id` = '".$_REQUEST["team_id"]."'";
@@ -49,6 +51,30 @@
         else{ 
             $teamID = $_REQUEST["team_name"];
         }
+
+        do{ 
+           
+            $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
+            $teamname = mysqli_query($conn,$sql1);
+            $teamname = mysqli_fetch_object($teamname);
+            if(isset($selectedOptions[$i])){
+                
+                if($selectedOptions[$i]=="DATE"){
+                    $sql1 ="ALTER TABLE `$teamname->team_name` ADD `$selectedOptions[$i]` varchar  DEFAULT CURRENT_TIMESTAMP";
+                }else{                    
+                    $sql1 ="ALTER TABLE `$teamname->team_name` ADD `$selectedOptions[$i]` varchar(50)";
+                }
+                    $sql2 ="INSERT INTO `goal_parameter`(`team_id`, `parameter`, `parameter_data_type`) VALUES ('$teamID','".$selectedOptions[$i]."','varchar')";
+                if(mysqli_query($conn ,$sql1)){
+                
+                }
+                if(mysqli_query($conn ,$sql2)){
+                    
+                }
+            }    
+            $i++; 
+        }while($i<$arrayLength);
+
             do{ 
 
                 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";

@@ -47,13 +47,13 @@
       <form action="loginb.php" method="post" id="signup-form">
         <input type="text" name="username" placeholder="Username" required>
         <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" id="signup-password" placeholder="Password" required>
         <select name="team_id" class="form-select" plca aria-label="Default select example">
           <option value=""  disabled selected>select team</option>
           <?php while($select = mysqli_fetch_object($results)){?>
             <option value="<?=$select->id?>"><?=$select->team_name?></option>
           <?php } ?>
         </select>
-        <input type="password" name="password" id="signup-password" placeholder="Password" required>
         <label style="white-space: nowrap; display: inline-block; margin-right: 10px;">
         <input type="checkbox" style="display:inline; vertical-align: middle; width:10%;" onclick="showPassword('signup-password')"> Show Password
         </label>

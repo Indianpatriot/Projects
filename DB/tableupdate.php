@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "TRUNCATE TABLE `teams`";
+    $sql = "ALTER TABLE `LSET` ADD `goalset` INT(10) NOT NULL AFTER `ID`;";
 
     if($conn->query($sql)){
         echo "done ok";

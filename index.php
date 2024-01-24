@@ -106,8 +106,11 @@
                       <option value="other">New Team</option>
                     <?php } ?>
                   </select> 
+                  <input type="text">
+                  
                   <div id="dynamicInput"></div>
                 </div>
+                <input type="text">
                 <div>
                   <label for="inputField1">Add Parameter:</label>
                   <input type="text" id="inputField1" name="100" placeholder="Parameter Name" required>

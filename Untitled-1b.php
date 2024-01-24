@@ -9,18 +9,12 @@ $teamID = $_SESSION["team_id"];
 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
 $teamname = mysqli_query($conn,$sql1);
 $teamname = mysqli_fetch_object($teamname);
+$goalset = "SELECT * FROM `$teamname->team_name` where `goalset`='1'";
+$goalset = mysqli_query($conn,$goalset);
+$goalset = mysqli_fetch_object($goalset);
 // $achieve = "SELECT SUM() AS total_quantity FROM sales WHERE order_date BETWEEN '2022-01-01' AND '2022-12-31'"
-if(isset($_REQUEST["updatetargetgoal"])){
-    $updategoal = "UPDATE `teams` SET `Target` = ".$_REQUEST["updatetargetgoal"]." WHERE `teams`.`id` = '$teamID'";
-    if(mysqli_query($conn,$updategoal)){
-        echo "kya hua bhai";
-        echo '<script type="text/javascript">';
-        echo 'window.location.href="Untitled-1.php";';
-        echo '</script>';
-    }else{
-        echo $conn->error;
-    }
-}
+
+
 
 
 // team parameter
@@ -34,6 +28,29 @@ if(isset($_REQUEST["updatetargetgoal"])){
       $array[$i] = $para->parameter;
       $i++;
     }
+// update goal
+if(isset($_REQUEST["team_manager_id"])){
+    $updategoal = "UPDATE `$teamname->team_name` SET `Member ID` = ".$_REQUEST["team_manager_id"].", `Member Name`= '".$_REQUEST["team_manager_name"]."' WHERE `goalset` = '1'";
+    if(mysqli_query($conn,$updategoal)){
+        $i=0;  
+        foreach($array as $value){
+            if($value == "Member Name"){continue;}
+            $updategoal = "UPDATE `$teamname->team_name` SET `$value`= '".$_REQUEST[$i]."' WHERE `goalset` = '1'";
+            if(mysqli_query($conn,$updategoal)){
+            }else{
+                echo $conn->error;
+            }
+            $i++;
+        }  
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="Untitled-1.php";';
+        echo '</script>';
+    }else{
+        echo $conn->error;
+    }
+}
+
+
 
 $sql3 = "SELECT * FROM `users` WHERE `role_id` ='4' OR `role_id` ='3'";
 $sql4 = "SELECT * FROM `role_teams` WHERE `team_id` = ".$_SESSION["team_id"]." ";

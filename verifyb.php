@@ -21,7 +21,7 @@ if($_SESSION["otp"] == $otp){
     $_SESSION['role_id'] = '4';
 
     echo '<script type="text/javascript">';
-    echo 'window.location.href="index.php";';
+    echo 'window.location.href="DB/access.php?team_id=<?=$team_id?>";';
     echo '</script>';
 
 }else{
