@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "INSERT INTO `central team simtraks`(`goalset`) VALUES ('1')";
+    $sql = "INSERT INTO `LSET`(`goalset`) VALUES ('1')";
 
     if($conn->query($sql)){
         echo "done ok";
