@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DELETE FROM `lset` WHERE `parameter_id` = 88";
+    $sql = "DELETE FROM `LSET` WHERE `parameter_id` = 88";
 
     if($conn->query($sql)){
         echo "done ok";
