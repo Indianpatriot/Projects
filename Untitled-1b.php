@@ -133,6 +133,7 @@ if(isset($_REQUEST["date_data"])){
         echo '</script>';
     }
     else{
+        echo $conn->error;
         echo "Undifiend error";
     }
 }
