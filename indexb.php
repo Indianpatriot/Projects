@@ -64,9 +64,9 @@
                 }else{                    
                     $sql1 ="ALTER TABLE `$teamname->team_name` ADD `$selectedOptions[$i]` varchar(50)";
                 }
-                    $sql2 ="INSERT INTO `goal_parameter`(`team_id`, `parameter`, `parameter_data_type`) VALUES ('$teamID','".$selectedOptions[$i]."','varchar')";
+                    
                 if(mysqli_query($conn ,$sql1)){
-                
+                    $sql2 ="INSERT INTO `goal_parameter`(`team_id`, `parameter`, `parameter_data_type`) VALUES ('$teamID','".$selectedOptions[$i]."','varchar')";
                 }
                 if(mysqli_query($conn ,$sql2)){
                     
