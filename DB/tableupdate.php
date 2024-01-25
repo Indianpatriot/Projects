@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `Matrix` ADD `Number of New Volunteers` INT NOT NULL AFTER `Member Name`;";
+    $sql = "DELETE FROM `lset` WHERE `parameter_id` = 88";
 
     if($conn->query($sql)){
         echo "done ok";
