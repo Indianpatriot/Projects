@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DELETE FROM `goal_parameter` WHERE `parameter_id` IN ('85','86','87')";
+    $sql = "DELETE FROM `LSET` WHERE `parameter_id` IN ('85','86','87')";
 
     if($conn->query($sql)){
         echo "done ok";
