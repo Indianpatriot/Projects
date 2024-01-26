@@ -25,7 +25,7 @@
     }
   </style>
 </head>
-<body>
+<body style="background-image: url('https://adore.simtrak.in/data/sys/bg.jpg');background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
   <h1 > <center>GOAL MANAGEMENT SYSTEM</center></h1>
   <div class="container">
     <div class="form-container" id="login-section">
