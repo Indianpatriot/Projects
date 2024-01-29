@@ -4,10 +4,10 @@
     else{ header("location:login.php"); }
     if(isset($_REQUEST["entriesselect"])){
       $entryselect = $_REQUEST["entriesselect"];
-      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' limit 1,$entryselect";
+      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' limit 0,$entryselect";
       $results = mysqli_query($conn ,$sql2);
     }else{
-      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' limit 1,10";
+      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' limit 0,10";
       $results = mysqli_query($conn ,$sql2);
       }
   ?>
@@ -305,7 +305,7 @@
               <td></td>
               <?php
               foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
-              <td><?=$value?><?=$totalhistory->$value ?></td>
+              <td><?=$totalhistory->$value ?></td>
               <?php } ?>
             </tr>
             <tr>
