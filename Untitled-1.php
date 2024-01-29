@@ -316,6 +316,14 @@
               <?php } ?>
               <td></td>
             </tr>
+            <tr>
+              <th>total month</th>
+              <td></td>
+              <?php
+              foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
+              <td><?=$totalmonth->$value ?></td>
+              <?php } ?>
+            </tr>
             </thead>
             <tbody>
             <?php 

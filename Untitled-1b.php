@@ -43,7 +43,9 @@ if(isset($_GET["delete_goal"])){
 $totalhistory = "select $totalsum from `$teamname->team_name` where `goalset` <> '1'";
 $totalhistory = mysqli_query($conn,$totalhistory);
 $totalhistory = mysqli_fetch_object($totalhistory);
-
+$totalmonth = "select $totalsum from `$teamname->team_name` where `Date` BETWEEN DATE('01-01-2024') AND DATE('31-01-2024') `goalset` <> '1'";
+$totalmonth = mysqli_query($conn,$totalmonth);
+$totalmonth = mysqli_fetch_object($totalmonth);
 // update goal
 if(isset($_REQUEST["team_manager_id"])){
     $updategoal = "UPDATE `$teamname->team_name` SET `Member ID` = ".$_REQUEST["team_manager_id"].", `Member Name`= '".$_REQUEST["team_manager_name"]."' WHERE `goalset` = '1'";
