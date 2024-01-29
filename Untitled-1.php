@@ -307,6 +307,7 @@
               foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
               <td><?=$totalhistory->$value ?></td>
               <?php } ?>
+              <td></td>
             </tr>
             <tr>
               <th>month goal</th>
@@ -323,6 +324,7 @@
               foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
               <td><?=$totalmonth->$value ?></td>
               <?php } ?>
+              <td></td>
             </tr>
             </thead>
             <tbody>
