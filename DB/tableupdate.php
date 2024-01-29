@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "delete from `teams` where `id` = '9';";
+    $sql = "INSERT INTO `LSET` (`goalset`) VALUES ('1')";
 
     if($conn->query($sql)){
         echo "done ok";
