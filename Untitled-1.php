@@ -344,7 +344,7 @@
                 ?>
               </td>
               <?php }?>
-              <td><a href="Untitled-1b.php?delete_goal=<?=$table->ID ?>">delete</a></td>
+              <td><?php if($_SESSION['role_id'] != 4){ ?><a href="Untitled-1b.php?delete_goal=<?=$table->ID ?>">delete</a><?php }?></td>
               <?php }?>
             </tr>
               </tbody>
