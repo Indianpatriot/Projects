@@ -95,7 +95,7 @@
                 <!-- Initial Input Field -->
                 <div className="form-group">
                   <label>Team Name:</label>
-                  <select class="form-select" name="team_name" id="category" onchange="createNewInput()" aria-label="Default select example">
+                  <select class="form-select" name="team_name" id="category" onchange="createNewInput()" aria-label="Default select example" required>
                     <option value=""  disabled selected>Select team name</option>
                     <?php $i=1; while($table = mysqli_fetch_object($team_name)){ if( $_SESSION['role_id'] != 3){?>
                       <option value="<?php echo $i++; ?>"><?php echo $table->team_name; ?></option>
