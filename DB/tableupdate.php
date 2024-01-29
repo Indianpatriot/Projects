@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "INSERT INTO `LSET` (`goalset`) VALUES ('1')";
+    $sql = "ALTER TABLE `LSET` DROP `Number of New Volunteer`";
 
     if($conn->query($sql)){
         echo "done ok";
