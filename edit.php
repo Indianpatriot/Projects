@@ -32,7 +32,12 @@
           </tr>
           <tr>
   
-            <td><a href="#" data-bs-toggle="modal" data-bs-target="#deleteparameter">delete parameter</a></td>
+            <td><a href="#" data-bs-toggle="modal" data-bs-target="#deleteparameter">Delete parameter</a></td>
+          </tr>
+
+            <tr>
+  
+            <td><a href="#" data-bs-toggle="modal" data-bs-target="">Reorder parameters</a></td>
           </tr>
           <!-- Add Logout link -->
           <tr>
