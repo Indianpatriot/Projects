@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DELETE FROM `LSET` WHERE `goalset`='0'";
+    $sql = "INSERT INTO `LSET` (`ID`, `Member ID`, `Member Name`, `Date`, `New tasks received`, `Tasks in progress asaadasadaasdasdasda`, `Continuous tasks`, `Tasks completed today`, `Article recieved`, `Cities initiated`, `Cities started`, `goalset`) VALUES (NULL, '', '', current_timestamp(), '', '', '', '', '', NULL, '', '1')";
 
     if($conn->query($sql)){
         echo "done ok";
