@@ -312,7 +312,7 @@
             <tr>
               <th>month goal</th>
               <?php
-              foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
+              foreach($array as $value){ if($value=="Date"){continue;} if($value == "Member Name"){echo "<td></td>"; continue; }?>
               <td><?=$goalset->$value ?></td>
               <?php } ?>
               <td></td>
