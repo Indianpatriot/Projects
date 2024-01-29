@@ -98,9 +98,9 @@
                   <select class="form-select" name="team_name" id="category" onchange="createNewInput()" aria-label="Default select example" required>
                     <option value=""  disabled selected>Select team name</option>
                     <?php $i=1; while($table = mysqli_fetch_object($team_name)){ if( $_SESSION['role_id'] != 3){?>
-                      <option value="<?php echo $i++; ?>"><?php echo $table->team_name; ?></option>
+                      <option value="<?=$table->id ?>"><?php echo $table->team_name; ?></option>
                     <?php }elseif( $_SESSION['team_id'] == $table->id){ ?>
-                      <option value="<?php echo $i++; ?>"><?php echo $table->team_name; ?></option>
+                      <option value="<?=$table->id ?>"><?php echo $table->team_name; ?></option>
                     <?php }} ?>
                     <?php if( $_SESSION['role_id'] != 3){ ?>
                       <option value="other">New Team</option>
