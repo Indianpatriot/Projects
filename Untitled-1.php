@@ -301,6 +301,14 @@
               <th></th>
             </tr>
             <tr>
+              <th>total history</th>
+              <td></td>
+              <?php
+              foreach($array as $value){ if($value=="Date"){continue;}?>
+              <td><?=$totalhistory->$value ?></td>
+              <?php } ?>
+            </tr>
+            <tr>
               <th>month goal</th>
               <?php
               foreach($array as $value){ if($value=="Date"){continue;}?>
