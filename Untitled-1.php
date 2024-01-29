@@ -331,80 +331,22 @@
               $checkdata=0; 
               while($table = mysqli_fetch_object($results)){ $checkdata=1; ?>
             <tr>
-              <?php 
-                $col=1;
-                $totalcount=0;
-                foreach($array as $value){
-                  if($col == "1" || $col == "2"){
-                  //Do Nothing
-                  }else{
-                    if($row==0){
-                      if(is_numeric($table->$value) || empty($table->$value)){
-                        $total[0][$col]= intval($table->$value);
-                      }else{
-                        $total[0][$col]= 0;
-                      }
-                      $totalcount=1;
-                    }else if(is_numeric($table->$value)){
-                      $total[0][$col] += intval($table->$value);
-                      $totalcount=1;
-                    }
-                  }
-              ?>
+              <?php foreach($array as $value){ ?>
               <td>
                 <?php
                   if($value != "Date"){
                     echo $table->$value;
                   }else{
                     echo date("d-m-Y", strtotime($table->$value));
-                  }
-                          
+                  }          
                 ?>
               </td>
-              
-              <?php $col++;}?>
+              <?php }?>
               <td><a href="Untitled-1b.php?delete_goal=<?=$table->ID ?>">delete</a></td>
-              <?php $row++;}?>
+              <?php }?>
             </tr>
               </tbody>
-              <tfoot>
-              <tr>
-              <?php 
-                $ca=1; 
-                if($checkdata==1 ){ 
-                foreach($array as $value){ ?>
-                <th>
-                  <?php if($ca <="2"){
-                    //Do Nothing
-                    
-                  }else{
-                    echo $value;
-                  }
-                ?>
-              </th>
-              <?php $ca++;} ?>
-              </tr>
-              <tr>
-              <?php 
-                $col=1;
-                foreach($array as $value){ ?>
-                <th>
-                  <?php 
-                    if($totalcount=1){
-                      if($col <="2"){
-                        //Do Nothing
-                        if($col == "1"){
-                          echo "Total";
-                        }
-                      }else{
-                        echo $total[0][$col];
-                      }
-                    }
-                  ?>
-              </th>
-              <?php $col++;}} ?>
-              </tr>
-              </tfoot>
+              
             
           
           <tbody>
