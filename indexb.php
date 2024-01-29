@@ -62,12 +62,12 @@
             if(isset($selectedOptions[$i])){
                 
                 if($selectedOptions[$i]=="DATE"){
-                    $sql1 ="ALTER TABLE `$teamname->team_name` ADD `$selectedOptions[$i]` varchar  DEFAULT CURRENT_TIMESTAMP";
+                    $sql6 ="ALTER TABLE `$teamname->team_name` ADD `$selectedOptions[$i]` varchar  DEFAULT CURRENT_TIMESTAMP";
                 }else{                    
-                    $sql1 ="ALTER TABLE `$teamname->team_name` ADD `$selectedOptions[$i]` varchar(50)";
+                    $sql6 ="ALTER TABLE `$teamname->team_name` ADD `$selectedOptions[$i]` varchar(50)";
                 }
                     
-                if(mysqli_query($conn ,$sql1)){
+                if(mysqli_query($conn ,$sql6)){
                     $sql2 ="INSERT INTO `goal_parameter`(`team_id`, `parameter`, `parameter_data_type`) VALUES ('$teamID','".$selectedOptions[$i]."','varchar')";
                 }
                 if(mysqli_query($conn ,$sql2)){
