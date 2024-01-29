@@ -288,10 +288,10 @@
       <div class="input-group mb-3">
         <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Search" style="width: 70%; height: 10%;">
       </div>
-                  </civ>
+                  </div>
   </div>
   
-        <table class="table table-success table-striped" style="width: 100%;"  id="volunteer_tasktable">
+        <table class="table table-success table-striped" style="width:150%;" id="volunteer_tasktable">
           <thead>
             <tr>
               <?php

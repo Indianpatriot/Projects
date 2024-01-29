@@ -20,8 +20,8 @@ include("DB/dbconn.php");
         if($value == "Date" || $value == "Member Name"){  continue; }else{       
             $sql1="UPDATE `goal_parameter` SET `parameter`='".$_REQUEST[$val]."' WHERE parameter = '$value'";
             $sql2="ALTER TABLE `$teamname->team_name` CHANGE `$value` `".$_REQUEST[$val]."` VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL";
-            if(mysqli_query($conn,$sql1)){
-                if(mysqli_query($conn,$sql2)){
+            if(mysqli_query($conn,$sql2)){
+                if(mysqli_query($conn,$sql1)){
                 }
             }
         }
@@ -32,8 +32,8 @@ include("DB/dbconn.php");
     if(isset($_REQUEST["parametername"])){
         $parameterdeletename = "DELETE FROM `goal_parameter` WHERE `parameter` = '".$_REQUEST["parametername"]."'";
         $parameterdeletetable = "ALTER TABLE `$teamname->team_name` DROP `".$_REQUEST["parametername"]."`";
-        if(mysqli_query($conn,$parameterdeletename)){
-            if(mysqli_query($conn,$parameterdeletetable)){
+        if(mysqli_query($conn,$parameterdeletetable)){
+            if(mysqli_query($conn,$parameterdeletename)){
             }
         }
     }
