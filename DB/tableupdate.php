@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `Lset Institution Development` CHANGE `ID` `ID` INT(10) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`ID`);";
+    $sql = "ALTER TABLE `Matrix` CHANGE `ID` `ID` INT(10) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`ID`);";
 
     if($conn->query($sql)){
         echo "done ok";
