@@ -46,6 +46,8 @@
                 $newteamsid = mysqli_query($conn,$sql3);
                 $newteamid = mysqli_fetch_object($newteamsid);
                 $teamID = $newteamid->id;
+                $sql4 = "INSERT INTO `$teamname->team_name` (`goalset`) VALUES ('1')";
+                $a = mysqli_query($conn,$sql4); 
             }
         }
         else{ 
