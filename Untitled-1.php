@@ -298,6 +298,7 @@
               foreach($array as $value){ ?>
               <th><?=$value ?></th>
               <?php } ?>
+              <th></th>
             </tr>
             <tr>
               <th>month goal</th>
@@ -305,6 +306,7 @@
               foreach($array as $value){ if($value=="Date"){continue;}?>
               <td><?=$goalset->$value ?></td>
               <?php } ?>
+              <td></td>
             </tr>
             </thead>
             <tbody>
@@ -343,7 +345,10 @@
                           
                 ?>
               </td>
-              <?php $col++;}$row++;}?>
+              
+              <?php $col++;}?>
+              <td><a href="Untitled-1b.php?delete_goal=<?=$table->ID ?>">delete</a></td>
+              <?php $row++;}?>
             </tr>
               </tbody>
               <tfoot>
