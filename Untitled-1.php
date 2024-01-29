@@ -304,7 +304,7 @@
               <th>total history</th>
               <td></td>
               <?php
-              foreach($array as $value){ if($value=="Date"){continue;}?>
+              foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
               <td><?=$totalhistory->$value ?></td>
               <?php } ?>
             </tr>
