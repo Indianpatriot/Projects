@@ -37,10 +37,10 @@ if(isset($_GET["delete_goal"])){
       $array[$i] = $para->parameter;
       $i++;
     }
-    $totalsum = $aFiltered = array_slice(array_diff($array, $exclude), 2);
-    $totalsum = "" . implode(", ", array_map(function($item) { return "SUM($item) AS $item"; }, $totalsum)) . "";
+    $totalsum = array_slice($array, 2);
+    $totalsum = "" . implode(", ", array_map(function($item) { return "SUM(`$item`) AS `$item`"; }, $totalsum)) . "";
 // total history and month total
-$totalhistory = "select $totalsum from $teamname->team_name where `goalset` <> '1'";
+$totalhistory = "select $totalsum from `$teamname->team_name` where `goalset` <> '1'";
 $totalhistory = mysqli_query($conn,$totalhistory);
 $totalhistory = mysqli_fetch_object($totalhistory);
 
