@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "delete from `teams` whele `team_id`='3';";
+    $sql = "delete from `teams` whele `id`='3';";
 
     if($conn->query($sql)){
         echo "done ok";
