@@ -13,7 +13,7 @@ include("DB/dbconn.php");
     $i = 0;
     while($para = mysqli_fetch_object($parameter)){
       $array[$i] = $para->parameter;
-      $idarray[$i] = $para->parameter;
+      $idarray[$i] = $para->parameter_id;
       $i++;
     }
 
