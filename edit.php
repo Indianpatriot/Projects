@@ -99,12 +99,12 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="goalParametersModalLabel"><?=$teamname->team_name?> parameter reorder</h5>
+              <h5 class="modal-title" id="goalParametersModalLabel"><?=$teamname->team_name?> parameter</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form action="editb.php">
-                <label for="before">before parameter</label>
+                <label for="before">first parameter</label>
                 <select class="form-select" name="before" aria-label="Default select example">
                   <?php $i=0; foreach($array as $value){ ?>
                     <?php if($value != "Date" && $value != "Member Name"){ ?>
@@ -112,7 +112,7 @@
                     <?php }?>
                   <?php $i++; } ?>
                 </select>
-                <label for="after">after parameter</label>
+                <label for="after">second parameter</label>
                 <select class="form-select" name="after" aria-label="Default select example">
                   <?php $i=0; foreach($array as $value){ ?>
                     <?php if($value != "Date" && $value != "Member Name"){ ?>
