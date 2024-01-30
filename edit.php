@@ -103,7 +103,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form action="#">
+              <form action="editb.php">
                 <label for="before">before parameter</label>
                 <select class="form-select" name="before" aria-label="Default select example">
                   <?php $i=0; foreach($array as $value){ ?>
