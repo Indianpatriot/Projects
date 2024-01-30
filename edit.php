@@ -70,7 +70,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="goalParametersModalLabel"><?=$teamname->team_name?> member</h5>
+              <h5 class="modal-title" id="goalParametersModalLabel"><?=$teamname->team_name?> parameter delete</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -99,12 +99,19 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="goalParametersModalLabel"><?=$teamname->team_name?> member</h5>
+              <h5 class="modal-title" id="goalParametersModalLabel"><?=$teamname->team_name?> parameter reorder</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form action="#">
-                <label >parameter name</label>
+                <label >reorder parameter</label>
+                <select class="form-select" name="parametername" aria-label="Default select example">
+                  <?php foreach($array as $value){ ?>
+                    <?php if($value != "Date" && $value != "Member Name"){ ?>
+                    <option value="<?=$value?>"><?=$value?></option>
+                    <?php }?>
+                  <?php } ?>
+                </select>
                 <select class="form-select" name="parametername" aria-label="Default select example">
                   <?php foreach($array as $value){ ?>
                     <?php if($value != "Date" && $value != "Member Name"){ ?>
