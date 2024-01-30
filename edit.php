@@ -37,7 +37,7 @@
 
             <tr>
   
-            <td><a href="#" data-bs-toggle="modal" data-bs-target="">Reorder parameters</a></td>
+            <td><a href="#" data-bs-toggle="modal" data-bs-target="#reorderparameter">Reorder parameters</a></td>
           </tr>
           <!-- Add Logout link -->
           <tr>
@@ -75,6 +75,35 @@
             </div>
             <div class="modal-body">
               <form action="editb.php">
+                <label >parameter name</label>
+                <select class="form-select" name="parametername" aria-label="Default select example">
+                  <?php foreach($array as $value){ ?>
+                    <?php if($value != "Date" && $value != "Member Name"){ ?>
+                    <option value="<?=$value?>"><?=$value?></option>
+                    <?php }?>
+                  <?php } ?>
+                </select>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">submit</button> 
+              </form>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- reorderparameter -->
+      <!-- add member popup -->
+      <div class="modal fade" id="reorderparameter" tabindex="-1" aria-labelledby="goalParametersModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="goalParametersModalLabel"><?=$teamname->team_name?> member</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="#">
                 <label >parameter name</label>
                 <select class="form-select" name="parametername" aria-label="Default select example">
                   <?php foreach($array as $value){ ?>
