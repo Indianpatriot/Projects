@@ -19,8 +19,6 @@ include("DB/dbconn.php");
 
     // reorder parameter
     if(isset($_REQUEST["before"])){
-        echo $idarray[$_REQUEST["after"]];
-        echo $idarray[$_REQUEST["before"]];
         $sql1="UPDATE `goal_parameter` SET `parameter`='".$array[$_REQUEST["after"]]."' WHERE `parameter_id` = '".$idarray[$_REQUEST["before"]]."'";
         $sql2="UPDATE `goal_parameter` SET `parameter`='".$array[$_REQUEST["before"]]."' WHERE `parameter_id` = '".$idarray[$_REQUEST["after"]]."'";
         if(mysqli_query($conn,$sql2)){
@@ -54,9 +52,9 @@ include("DB/dbconn.php");
         }
     }
 
-    // echo '<script type="text/javascript">';
-    // echo 'window.location.href="Untitled-1.php";';
-    // echo '</script>';
+    echo '<script type="text/javascript">';
+    echo 'window.location.href="Untitled-1.php";';
+    echo '</script>';
 
 
 
