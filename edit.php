@@ -75,7 +75,7 @@
             </div>
             <div class="modal-body">
               <form action="editb.php">
-                <label >parameter name</label>
+                <label for="parametername">parameter name</label>
                 <select class="form-select" name="parametername" aria-label="Default select example">
                   <?php foreach($array as $value){ ?>
                     <?php if($value != "Date" && $value != "Member Name"){ ?>
@@ -104,15 +104,16 @@
             </div>
             <div class="modal-body">
               <form action="#">
-                <label >reorder parameter</label>
-                <select class="form-select" name="parametername" aria-label="Default select example">
+                <label for="before">before parameter</label>
+                <select class="form-select" name="before" aria-label="Default select example">
                   <?php foreach($array as $value){ ?>
                     <?php if($value != "Date" && $value != "Member Name"){ ?>
                     <option value="<?=$value?>"><?=$value?></option>
                     <?php }?>
                   <?php } ?>
                 </select>
-                <select class="form-select" name="parametername" aria-label="Default select example">
+                <label for="after">after parameter</label>
+                <select class="form-select" name="after" aria-label="Default select example">
                   <?php foreach($array as $value){ ?>
                     <?php if($value != "Date" && $value != "Member Name"){ ?>
                     <option value="<?=$value?>"><?=$value?></option>
