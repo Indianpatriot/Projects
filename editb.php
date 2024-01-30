@@ -9,11 +9,20 @@ include("DB/dbconn.php");
     $parameters = mysqli_query($conn,$goal_parameter);
     $goalparameters = mysqli_query($conn,$goal_parameter);
     $array = array();
+    $idarray = array();
     $i = 0;
     while($para = mysqli_fetch_object($parameter)){
       $array[$i] = $para->parameter;
+      $idarray[$i] = $para->parameter;
       $i++;
     }
+
+    // reorder parameter
+    if(isset($_REQUEST["before"])){
+        $sql1="UPDATE `goal_parameter` SET `parameter`='".$_REQUEST[$val]."' WHERE  = '$value'";
+    }
+
+
     $val = 0;
     if(isset($_REQUEST[$val])){
     foreach($array as $value){

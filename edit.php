@@ -106,19 +106,19 @@
               <form action="#">
                 <label for="before">before parameter</label>
                 <select class="form-select" name="before" aria-label="Default select example">
-                  <?php foreach($array as $value){ ?>
+                  <?php $i=0; foreach($array as $value){ ?>
                     <?php if($value != "Date" && $value != "Member Name"){ ?>
-                    <option value="<?=$value?>"><?=$value?></option>
+                    <option value="<?=$i?>"><?=$value?></option>
                     <?php }?>
-                  <?php } ?>
+                  <?php $i++; } ?>
                 </select>
                 <label for="after">after parameter</label>
                 <select class="form-select" name="after" aria-label="Default select example">
-                  <?php foreach($array as $value){ ?>
+                  <?php $i=0; foreach($array as $value){ ?>
                     <?php if($value != "Date" && $value != "Member Name"){ ?>
-                    <option value="<?=$value?>"><?=$value?></option>
+                    <option value="<?=$i?>"><?=$value?></option>
                     <?php }?>
-                  <?php } ?>
+                  <?php $i++; } ?>
                 </select>
             </div>
             <div class="modal-footer">
