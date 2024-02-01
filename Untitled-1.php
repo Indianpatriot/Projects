@@ -4,10 +4,10 @@
     else{ header("location:login.php"); }
     if(isset($_REQUEST["entriesselect"])){
       $entryselect = $_REQUEST["entriesselect"];
-      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' limit 0,$entryselect";
+      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' AND `Date` BETWEEN DATE('2024-01-01') AND DATE('2024-01-31') limit 0,$entryselect";
       $results = mysqli_query($conn ,$sql2);
     }else{
-      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' limit 0,10";
+      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' AND `Date` BETWEEN DATE('2024-01-01') AND DATE('2024-01-31') limit 0,10";
       $results = mysqli_query($conn ,$sql2);
       }
   ?>
