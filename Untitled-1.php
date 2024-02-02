@@ -67,6 +67,11 @@
           <tr>
             <td><a href="#" data-bs-toggle="modal" data-bs-target="#goalParametersModal">Update goal (date-wise)</a></td>
           </tr>
+
+
+            <tr>
+            <td><a href="#" data-bs-toggle="modal" data-bs-target="#monthparameters">Previous months</a></td>
+          </tr>
           <!-- Add Logout link -->
           <tr>
         
