@@ -2,9 +2,9 @@
     include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
-    if(isset($_REQUEST["select_month"])){
-      $month = $_REQUEST["select_month"];
-      $year = $_REQUEST["select_year"];
+    if(isset($_GET["select_month"])){
+      $month = $_GET["select_month"];
+      $year = $_GET["select_year"];
       $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
       $end_date = date('Y-m-t', strtotime($start_date));
       $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' AND `Date` BETWEEN '$start_date' AND '$end_date'";
