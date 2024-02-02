@@ -77,7 +77,7 @@
 
 
             <tr>
-            <td><a href="#" data-bs-toggle="modal" data-bs-target="#monthparameters">Previous months</a></td>
+            <td><a href="#" data-bs-toggle="modal" data-bs-target="#previousyear">Previous months</a></td>
           </tr>
           <!-- Add Logout link -->
           <tr>
@@ -272,6 +272,38 @@
           </div>
         </div>
       </div>
+      
+      <!-- previous year -->
+      <div class="modal fade" id="previousyear" tabindex="-1" aria-labelledby="goalParametersModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="goalParametersModalLabel"><?=$teamname->team_name?> member</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="#">
+                <label >month</label>
+                <select class="form-select" name="select_month" aria-label="Default select example">
+                  <?php for ($month = 1; $month <= 12; $month++) { ?>                  
+                    <option value="<?=$month?>"><?=date("F", mktime(0, 0, 0, $month, 1))?></option>
+                  <?php } ?>
+                </select>
+                <label >year</label>
+                <select class="form-select" name="select_year" aria-label="Default select example">
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">submit</button> 
+              </form>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <!-- Main Content Area -->
       <div id="content" class="col-md-9">
