@@ -2,12 +2,19 @@
     include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
-    if(isset($_REQUEST["entriesselect"])){
-      $entryselect = $_REQUEST["entriesselect"];
-      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' AND `Date` BETWEEN DATE('2024-01-01') AND DATE('2024-01-31') limit 0,$entryselect";
+    if(isset($_REQUEST["select_month"])){
+      $month = $_REQUEST["select_month"];
+      $year = $_REQUEST["select_year"];
+      $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
+      $end_date = date('Y-m-t', strtotime($start_date));
+      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' AND `Date` BETWEEN DATE($start_date) AND DATE($end_date)";
       $results = mysqli_query($conn ,$sql2);
     }else{
-      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' AND `Date` BETWEEN DATE('2024-01-01') AND DATE('2024-01-31') limit 0,10";
+      $year = date('Y');
+      $month = date('n');
+      $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
+      $end_date = date('Y-m-t', strtotime($start_date));
+      $sql2 = "SELECT * FROM `$teamname->team_name` where `goalset` <>'1' AND `Date` BETWEEN DATE($start_date) AND DATE($end_date)";
       $results = mysqli_query($conn ,$sql2);
       }
   ?>
@@ -270,20 +277,6 @@
       <div id="content" class="col-md-9">
         <h1><?=$teamname->team_name?></h1><b><?php echo $selectid?></b> <?php if($_SESSION['role_id'] !=4){ ?>  <button class="align-right" type= "button"> <a href="edit.php" style="text-decoration: none; color: black; cursor: pointer;">customize </a></button> <?php }?>
         <div class="row">
-    <div class="col-md-5">
-      <form id="entries-form" action="#" class="col-md-6">
-     
-        <div class="input-group mb-3">
-          <select id="entries-select" name="entriesselect" class="form-select" style="width: 30%; height: 10%;">
-            <option value="5" <?php if(isset($_REQUEST["entriesselect"])) { if($_REQUEST["entriesselect"]==5){echo "selected";}}?>>5</option>
-            <option value="10" <?php if(isset($_REQUEST["entriesselect"])) { if($_REQUEST["entriesselect"]==10){echo "selected";}}?>>10</option>
-            <option value="20" <?php if(isset($_REQUEST["entriesselect"])) { if($_REQUEST["entriesselect"]==20){echo "selected";}}?>>20</option>
-          </select>
-          <button class="btn btn-outline-secondary" type="submit" style="width: 70%; height: 10%;">Show Entries</button>
-        </div>
-      
-    </form>
-    </div>
     <div class="col-md-3">
       <?php if($_SESSION['role_id'] != 4){ ?>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updatetargetgoal">Update monthly goal</button>
@@ -360,28 +353,6 @@
             <!-- Add historical data rows here -->
           </tbody>
         </table>
-
-        <!-- pagination -->
-        <div class="row">
-    <div class="col-md-12">
-      <nav aria-label="Page navigation">
-        <ul class="pagination">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-          </li>
-          <!-- You can dynamically generate the pagination items based on the number of pages -->
-          <li class="page-item active" aria-current="page">
-            <span class="page-link">1 <span class="visually-hidden">(current)</span></span>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
       </div>
     </div>
   </div>
