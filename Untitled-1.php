@@ -32,8 +32,10 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Goal Management System</a>
-      <div class="collapse navbar-collapse" id="navbarNav"></div>
+      <a class="navbar-brand" href="#">Goal Management System</a> 
+      <div class="d-flex" id="navbarNav">
+        <a href="edit.php" class="btn btn-primary">Customize</a>
+      </div>
     </div>
   </nav>
   <!-- about section -->
@@ -72,6 +74,11 @@
           </tr>
             <tr>
             <td><a href="#" data-bs-toggle="modal" data-bs-target="#previousyear">Previous months</a></td>
+          </tr>
+          <tr>
+            <td>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#updatetargetgoal">Update Monthly goal</a>
+            </td>
           </tr>
           <?php } ?>
           <tr>
@@ -305,20 +312,17 @@
 
       <!-- Main Content Area -->
       <div id="content" class="col-md-9">
-        <h1><?=$teamname->team_name?></h1><b><?php echo $selectid?></b> <?php if($_SESSION['role_id'] !=4){ ?>  <button class="align-right" type= "button"> <a href="edit.php" style="text-decoration: none; color: black; cursor: pointer;">customize </a></button> <?php }?>
-        <div class="row">
-    <div class="col-md-3">
-      <?php if($_SESSION['role_id'] != 4){ ?>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updatetargetgoal">Update monthly goal</button>
-      <?php } ?>
-    </div>
-    <div class="col-md-3">
-      <div class="input-group mb-3">
-        <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Search" style="width: 70%; height: 10%;">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+          <h1><?=$teamname->team_name?></h1><b><?php echo $selectid?></b> 
+        </div>
+        <div class="col-md-4">
+          <div class="input-group mb-4">
+          <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Search">
+          </div>
+        </div>
       </div>
-                  </div>
-  </div>
-  
+
         <table class="table table-success table-striped" style="width:150%;" id="volunteer_tasktable">
           <thead>
             <tr>
