@@ -273,7 +273,7 @@ function goBack() {
 <div class="col-lg-3">
 <div class="sparkline10-graph">
 <center><img src="https://adore.simtrak.in/data/sys/com_logo.png"></br>
-<strong>Task Management System</strong></center>
+<strong>Goal Management System</strong></center>
 </div>
 </div>
 <div class="col-lg-3">
@@ -293,7 +293,7 @@ Powered By</br>
 </br>
         <div class="container-fluid">
 <div class="row">
-    <div class="col-lg-9">
+    <div class="col-lg-12">
 <div style="margin-top:0px;margin-bottom:20px" class="sparkline13-list shadow-reset mg-tb-30">
 <div class="sparkline13-hd">
 <div class="main-sparkline13-hd">
