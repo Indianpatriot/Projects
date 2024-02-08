@@ -1,9 +1,9 @@
 
 <?php
 
-    include("dbcon.php");
+    include("dbconn.php");
 
-    $sql = "UPDATE `users` SET `username`='Priti sinha' WHERE `id`= '56'";
+    $sql = "INSERT INTO `users` (`username`, `email`, `password`, `role_id`) VALUES ('Simran shrama', 'Simran.adoreindia@gmail.com', 'SimranAdore', '1')";
 
     if($conn->query($sql)){
         echo "done ok";
