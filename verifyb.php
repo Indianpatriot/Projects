@@ -16,7 +16,7 @@ if($_SESSION["otp"] == $otp){
     $id = mysqli_fetch_object($result1);
     $sql3 = "INSERT INTO `role_teams`(`user_id`, `role_id`, `team_id`) VALUES ('$id->id','4','$team_id')";
     $result = mysqli_query($conn,$sql3);
-    $_SESSION['username'] = $username;
+    $_SESSION['user_name'] = $username;
     $_SESSION['user_id'] = $id->id;
     $_SESSION['role_id'] = '4';
 
