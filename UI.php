@@ -361,23 +361,7 @@ $(document).ready(function() {
             
 </thead>
 <tbody>
-<tr>
-<td width="10%">TSK - 24043</td>
-<td width="10%" style="overflow-wrap: break-word;">
-    2023/08/04</td>
-<td width="35%">
-To work on adore in backend<br/>
-<a class="btn btn-white btn-xs btn-warning">Paused</a></td>
-<td width="25%">
-        
-    <a href="#" class="btn btn-success" title="Task Notes" onclick="window.open('https://adore.simtrak.in/addons/teams/assets/task_notes.php?task_id=24043&type=notes','Task Notes','width=1500,height=400')"><i class='fa fa-pencil' aria-hidden='true'></i> </a>
-     <a href="#" class="btn btn-success" title="Task Notes" onclick="window.open('https://adore.simtrak.in/addons/teams/assets/task_notes.php?task_id=24043&type=link','Task Notes','width=1500,height=400')"><i class='fa fa-link' aria-hidden='true'></i> </a>
-   
-       <a href="#" class="btn btn-primary" title="Status Change" onclick="window.open('https://adore.simtrak.in/cores/engines/change_d.php?unique_id=24043&change_type=status&change_object=status&table_name=tasks_tbl&old_value=paused&updater_id=14014&unique_name=task_id&change_ftype=0&change_sobject=NA&change_sfield=NA&change_option=5','Status Change','width=500,height=400')"><i class='fa fa-gg-circle' aria-hidden='true'></i> </a>
 
-          <a href="#" class="btn btn-primary" title="Edit Task" onclick="window.open('https://adore.simtrak.in/addons/teams/assets/task_edit.php?tk_id=24043','Task Edit','width=500,height=400')"><i class='fa fa-edit' aria-hidden='true'></i> </a>
-        
-</td>
 <td width="10%"></td>
 <td width="10%">Self</td>
 
