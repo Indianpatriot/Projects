@@ -1,7 +1,7 @@
 
 <?php
 
-    include("dbconn.php");
+    include("dbcon.php");
 
     $sql = "INSERT INTO `users` (`username`, `email`, `password`, `role_id`) VALUES ('Simran shrama', 'Simran.adoreindia@gmail.com', 'SimranAdore', '1')";
 

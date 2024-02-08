@@ -1,6 +1,6 @@
 <?php
 
-include("dbconn.php");
+include("dbcon.php");
 
 $query = "SELECT * FROM `users`";
 $result = $conn->query($query);
