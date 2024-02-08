@@ -32,7 +32,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Goal Management System</a> 
+    <a class="navbar-brand" href="#" style="font-size:32px"><b>Goal Management System</b></a>
       <div class="d-flex" id="navbarNav">
         <a href="edit.php" class="btn btn-primary">Customize</a>
       </div>
