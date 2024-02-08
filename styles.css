@@ -14,7 +14,7 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background: hsla(0, 0%, 100%, 0);
+  background: hsl(0, 0%, 100%);
   margin: 10px;
 }
 
