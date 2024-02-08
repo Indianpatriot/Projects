@@ -311,6 +311,54 @@ $(document).ready(function() {
               <?php } ?>
               <th></th>
             </tr>
+            <tr>
+              <th>total history</th>
+              <td></td>
+              <?php
+              foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
+              <td><?=$totalhistory->$value ?></td>
+              <?php } ?>
+              <td></td>
+            </tr>
+            <tr>
+              <th>month goal</th>
+              <?php
+              foreach($array as $value){ if($value=="Date"){continue;} if($value == "Member Name"){echo "<td></td>"; continue; }?>
+              <td><?=$goalset->$value ?></td>
+              <?php } ?>
+              <td></td>
+            </tr>
+            <tr>
+              <th>total month</th>
+              <td></td>
+              <?php
+              foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
+              <td><?=$totalmonth->$value ?></td>
+              <?php } ?>
+              <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <?php 
+              $row=0; 
+              $checkdata=0; 
+              while($table = mysqli_fetch_object($results)){ $checkdata=1; ?>
+            <tr>
+              <?php foreach($array as $value){ ?>
+              <td>
+                <?php
+                  if($value != "Date"){
+                    echo $table->$value;
+                  }else{
+                    echo date("d-m-Y", strtotime($table->$value));
+                  }          
+                ?>
+              </td>
+              <?php }?>
+              <td><?php if($_SESSION['role_id'] != 4){ ?><a href="Untitled-1b.php?delete_goal=<?=$table->ID ?>">delete</a><?php }?></td>
+              <?php }?>
+            </tr>
+            
 </thead>
 <tbody>
 <tr>
