@@ -311,6 +311,8 @@ $(document).ready(function() {
               <?php } ?>
               <th></th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
               <th>total history</th>
               <td></td>
@@ -337,8 +339,7 @@ $(document).ready(function() {
               <?php } ?>
               <td></td>
             </tr>
-            </thead>
-            <tbody>
+            
             <?php 
               $row=0; 
               $checkdata=0; 
@@ -361,7 +362,7 @@ $(document).ready(function() {
             
 </thead>
 <tbody>
-    
+
 </tbody>
 </table>
 </div>
