@@ -406,10 +406,9 @@ function myFunctiosn1() {
                     <div class="col-lg-9">
                         <input type="text" name = "team_name" value="<?=$table->team_name?>" required>
                     </div>
-                    <label for="team_domain">Team_domain:</label>
-                    <input type="text" name = "team_domain" value="<?=$table->team_domain?>" required> 
                 </div>
-    </div>
+            </div>
+        </div>
     <?php $i=0; if($_SESSION['role_id'] != 4){ ?>
     <div class="form-group-inner">
       <div class="row">
