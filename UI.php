@@ -9,6 +9,7 @@
     $end_date = date('Y-m-t', strtotime($start_date));
     $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
     $results = mysqli_query($conn ,$sql2);
+    echo "ok";
   }else{
     $year = date('Y');
     $month = date('n');
