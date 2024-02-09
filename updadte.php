@@ -1,23 +1,4 @@
-<?php 
-    include("Untitled-1b.php"); 
-    if(isset($_SESSION['user_id'])){}
-    else{ header("location:login.php"); }
-    if(isset($_GET["select_month"])){
-      $month = $_GET["select_month"];
-      $year = $_GET["select_year"];
-      $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
-      $end_date = date('Y-m-t', strtotime($start_date));
-      $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
-      $results = mysqli_query($conn ,$sql2);
-    }else{
-      $year = date('Y');
-      $month = date('n');
-      $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
-      $end_date = date('Y-m-t', strtotime($start_date));
-      $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
-      $results = mysqli_query($conn ,$sql2);
-      }
-  ?>
+
 <!doctype html>
 <title>Task Assign |  SIMTRAK </title>
 <head>
@@ -414,52 +395,313 @@ function myFunctiosn1() {
 <div class="sparkline10-graph">
 <br>
 <div class="all-form-element-inner">
-    <div id="formbox">
-        <form id="uploadForm" enctype="multipart/form-data">
-            <div class="form-group-inner">
-                <?php $i=0; if($_SESSION['role_id'] != 4){ ?>
-                    <div class="form-group-inner">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <label class="login2 pull-right pull-right-pro">Member Name:</label>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="chosen-select-single">
-						            <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" id="priority" name="priority" required>
-						        	    <optgroup label="Preferred Priority">
-                                        <option value="Urgent within 0-2 days">Urgent within 0-2 days </option></optgroup>																				<optgroup label="All Priorities">
-						        	    <option value="Urgent within 0-2 days">Urgent within 0-2 days</option>
-                                        <option value="Medium urgency within 3-7 days">Medium urgency within 3-7 days</option>
-                                        <option value="Not urgent over 7 days">Not urgent over 7 days</option>
-        				            </select>
-						        	    </optgroup>
-						        </div>
-                            </div>
-                        </div>
-                    </div> 
-                <?php }?>
-            </div>       
-            <div class="form-group-inner">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <label class="login2 pull-right pull-right-pro">Priority:</label>
-                    </div>
-                    
-                </div>
-            </div>                                            
-            <center>
-                <input type="text" placeholder="Project ID" id="project_id" name="project_id" value="0" required readonly hidden>
-                <input type="text" placeholder="Assigned By" id="assigned_by" name="assigned_by" value="14014" required readonly hidden>
-                <input type="text" placeholder="Task Status" id="status" name="status" value="ongoing" required readonly hidden>                        
-                <input type="text" placeholder="Task Status" id="type_task" name="type_task" value="self" required readonly hidden>
-                <input name="timestamp" type="text" id="timestamp" value="2024/02/08&nbsp;10:48:41pm" requiredreadonly hidden>
-                <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
-                <script>'.$window_close.'</script>
-                <a href="#" class="btn btn-danger" onclick="javascript:window.close('','_parent','');" >Close</a>
-            </center>
-        </form>
-    </div>
+  <div id="formbox">
+                                                    
+                                                           <form id="uploadForm" enctype="multipart/form-data">
+                                                     <input type="text" placeholder="Task Assign Date" id="task_assigndate" name="task_assigndate" value="09/02/2024"required readonly hidden>
+                                                    
+                                                    
+                                                    <div class="form-group-inner">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-3">
+                                                                                                                                                            
+                                                                                                                                                        </div>
+                                                                        <div class="col-lg-9">
+                                                                           <div class="chosen-select-single">
+																				
+																				<input type="text" id="assigned_to[]" name="assigned_to[]" value="14014" required readonly hidden>                                                                                
+																					</select>
+																					</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                            
+                                                                    
+                                                                    
+                                                                
+                                                                    
+                                                               
+                                                                    
+                                                                    
+                                                                    
+                                                                    <div class="form-group-inner">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-3">
+                                                                            <label class="login2 pull-right pull-right-pro">Task Name:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-9">
+                                                                            <input type="text"
+                                                                                placeholder="Task Name"
+                                                                                class="form-control" id="task_name" name="task_name" required>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                    
+                                                                    
+                                                                    
+                                                                       <!-- <div class="form-group-inner">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-3">
+                                                                            <label class="login2 pull-right pull-right-pro">Tag user:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-9">
+                                                                           <select  style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" id="tag_user" name="assigned_to[]"  multiple="multiple">
+                                                                                    <option value="11001">Sayantan Chowdhury </option>
+                                                                                    <option value="11018">Dinesh Agarwal </option>
+                                                                                    <option value="11133">Simran Sharma </option>
+                                                                                    <option value="11165">ASHISH MUKHERJEE </option>
+                                                                                    <option value="13544">Aditi Jain </option>
+                                                                                    <option value="13621">Ankita Bhowmik </option>
+                                                                                    <option value="13675">Paramita Naskar </option>
+                                                                                    <option value="13698">Shravya Katiyar </option>
+                                                                                    <option value="13790">Richa Yadav </option>
+                                                                                    <option value="13793">amita kumari </option>
+                                                                                    <option value="13909">Nitin SN </option>
+                                                                                    <option value="13943">Mahati Mithipati </option>
+                                                                                    <option value="13948">jadeja urvrajsinh </option>
+                                                                                    <option value="13972">Nithish Kumar M V </option>
+                                                                                    <option value="14014">shahid ali </option>
+                                                                                    <option value="14016">aishwarya singh </option>
+                                                                                    <option value="14020">Gopika G </option>
+                                                                                    <option value="14085">Moushumi Hatikakoti </option>
+                                                                                    <option value="14130">BonoJyoshna Biswal </option>
+                                                                                    <option value="14142">Ashwini Bhudke </option>
+                                                                                    <option value="14160">Bhawna Arora </option>
+                                                                                    <option value="14161">Nethi Shivani </option>
+                                                                                    <option value="14170">shalini singh </option>
+                                                                                    <option value="14211">SUNIDHI SHARMA </option>
+                                                                                    <option value="14220">Vipul Taneja </option>
+                                                                                    <option value="14226">Korlagunta Pallavi </option>
+                                                                                    <option value="14230">Varchasvi gupta </option>
+                                                                                    <option value="14232">Ivo Mastrangelo </option>
+                                                                                    <option value="14235">Kajal Yadav </option>
+                                                                                    <option value="14242">Sumit Thakur </option>
+                                                                                    <option value="14247">Dhananjay Pant </option>
+                                                                                    <option value="14253">Rupak Chowdhury </option>
+                                                                                    <option value="14254">Shreya Goel </option>
+                                                                                    <option value="14280">Nikhil Vemprala </option>
+                                                                                    <option value="14282">sweksha dixit </option>
+                                                                                    <option value="14283">Prateeksha Khaire </option>
+                                                                                    <option value="14288">Khushi Kapoor </option>
+                                                                                    <option value="14296">Sriju Ghosh </option>
+                                                                                    <option value="14297">Kirti Kumari </option>
+                                                                                    <option value="14311">SNEHA Nag </option>
+                                                                                    <option value="14312">Gurleen Bains </option>
+                                                                                    <option value="14315">Varsha Kolekar </option>
+                                                                                    <option value="14316">Priti Sinha </option>
+                                                                                    <option value="14317">Aneena George </option>
+                                                                                    <option value="14319">Kiran Kashyap </option>
+                                                                                    <option value="14331">Bhavna Gunjal </option>
+                                                                                    <option value="14332">Megha Sharma </option>
+                                                                                    <option value="14334">Shrishti Devda </option>
+                                                                                    <option value="14336">Sathyapriya Giridharan </option>
+                                                                                    <option value="14339">Chitheeshma G </option>
+                                                                                    <option value="14346">Komal Roy </option>
+                                                                                    <option value="14359">Hanshika RV </option>
+                                                                                    <option value="14361">Himani Bansal </option>
+                                                                                    <option value="14363">ADITI SINGH </option>
+                                                                                    <option value="14368">Divyanshi Mittal </option>
+                                                                                    <option value="14370">Neha Palande </option>
+                                                                                    <option value="14372">Reetika Verma </option>
+                                                                                    <option value="14375">Bhumika Srivastava </option>
+                                                                                    <option value="14376">Chethan R </option>
+                                                                                    <option value="14377">Dipika Bothra </option>
+                                                                                    <option value="14382">Shubham Goel </option>
+                                                                                    <option value="14384">Gowri SG </option>
+                                                                                    <option value="14385">Divya Choudhary </option>
+                                                                                    <option value="14387">Aastha Priya </option>
+                                                                                    <option value="14389">Niharika Racha </option>
+                                                                                    <option value="14390">Ayush Agarwal </option>
+                                                                                    <option value="14394">Tanusha Lamba </option>
+                                                                                    <option value="14396">PranayVikas Boga </option>
+                                                                                    <option value="14397">Nitesh Kumar </option>
+                                                                                    <option value="14398">Rahul Kumar </option>
+                                                                                    <option value="14399">Meghna Soni </option>
+                                                                                    <option value="14403">Amit Saha </option>
+                                                                                    <option value="14406">Divyansh Dwivedi </option>
+                                                                                    <option value="14407">Ammisha Amarasimha </option>
+                                                                                    <option value="14408">Anshta Verma </option>
+                                                                                    <option value="14410">Satakshi Kashundhan </option>
+                                                                                    <option value="14413">Prawaja Lagad </option>
+                                                                                    <option value="14414">Rehmat Naqash </option>
+                                                                                    <option value="14415">TANISHA BANSAL </option>
+                                                                                    <option value="14418">Priyanka Tiwari </option>
+                                                                                    <option value="14420">Saksham Sahu </option>
+                                                                                    <option value="14423">Jeba JasmineJ </option>
+                                                                                    <option value="14426">Nikita Jetwani </option>
+                                                                                    <option value="14428">Lavanya Pandey </option>
+                                                                                    <option value="14429">Aishwarya Satpute </option>
+                                                                                    <option value="14431">Tanisha Rymbai </option>
+                                                                                    <option value="14432">Anantha Gokul Sivakumar </option>
+                                                                                    <option value="14435">Ahana Shabnam </option>
+                                                                                    <option value="14436">Akangsha Yadav </option>
+                                                                                    <option value="14439">Vinay Sharma </option>
+                                                                                    <option value="14441">Isha Malik </option>
+                                                                                    <option value="14442">ARYA SHARMA </option>
+                                                                                    <option value="14444">Arnold Jairaj </option>
+                                                                                    <option value="14445">Anshika Agarwal </option>
+                                                                                    <option value="14448">Shubhan Tuteja </option>
+                                                                                    <option value="14449">Trisha Baruah </option>
+                                                                                    <option value="14450">Yogita Khah </option>
+                                                                                    <option value="14452">Ritika Kumari </option>
+                                                                                    <option value="14453">Namrata Bajpai </option>
+                                                                                    <option value="14455">Soham Chaskar </option>
+                                                                                    <option value="14457">Hrishita Gangadhara </option>
+                                                                                    <option value="14460">Neha Bhaisora </option>
+                                                                                    <option value="14461">Tanushree Mittal </option>
+                                                                                    <option value="14462">Pallavi Agerwala </option>
+                                                                                    <option value="14463">Prakash Chowdhury </option>
+                                                                                    <option value="14464">Joydeep Das </option>
+                                                                                    <option value="14468">Baishakhi Roy </option>
+                                                                                    <option value="14469">Neha Singh </option>
+                                                                                    <option value="14472">Anshika Gupta </option>
+                                                                                    <option value="14473">Keerthana Srinivas </option>
+                                                                                    <option value="14476">Rushil Mathur </option>
+                                                                                    <option value="14477">Sriniketh Sudheendra </option>
+                                                                                    <option value="14478">Sahil Nanda </option>
+                                                                                    <option value="14479">Mugdha Chaturvedi </option>
+                                                                                    <option value="14481">Aynaz Shaikh </option>
+                                                                                    <option value="14482">Nandini Jangir </option>
+                                                                                    <option value="14483">Ashmit Kumar </option>
+                                                                                    <option value="14484">Bhavyasree Sirigiri </option>
+                                                                                    <option value="14489">Anuj Upadhyay </option>
+                                                                                    <option value="14490">Karan Tewari </option>
+                                                                                    <option value="14491">Christy Biju </option>
+                                                                                    <option value="14494">Avantika Sharma </option>                                                                        </div>
+                                                                    </div>
+                                                                </div>-->
+                                                                
+                                                                
+                                                                <!--
+                                                                <div class="form-group-inner">   
+                                                            <div class="row">
+                                                                        <div class="col-lg-3">
+                                                                            <label class="login2 pull-right pull-right-pro">Task Description:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-9">
+                                                                            <textarea
+                                                                                placeholder="Task Description"
+                                                                                class="form-control"  id="task_description" name="task_description" maxlength="5000"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                -->
+                                                                <div class="form-group-inner">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-3">
+                                                                            <label  class="login2 pull-right pull-right-pro">Task Type:</label>
+                                                                        </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                        <div class="col-lg-12">
+                                                                            <input type="checkbox" id="task_d"  name="task_d" value="NA" hidden checked>
+                                                                            <input type="checkbox" id="task_d"  name="task_d" onclick="myFunctiosn()" value="CT" checked> Continuous
+                                                                            <input type="checkbox" id="task_d1"  name="task_d1" onchange="myFunctiosn1()" value="RR"> Recurring
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="text" style="display:none">
+                                                                <div class="form-group-inner">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-3">
+                                                                            <label  class="login2 pull-right pull-right-pro">Task Deadline:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-9">
+                                                                            <input type="text"
+                                                                                placeholder="Task Deadline"
+                                                                                class="form-control" id="task_deadline" name="task_deadline"  value="11/02/2024" required="true" readonly="true">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                 </div>
+                                                            <div id="recurring" style="display:none">
+                                                                <div class="form-group-inner">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-3">
+                                                                            <label  class="login2 pull-right pull-right-pro">Select Recurring days:</label><br>
+                                                                        </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                        <div class="col-lg-12" >
+                                                                            <!--<select  style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" id="recurring[]" name="recurring[]"  multiple="multiple">-->
+                                                                            <!--    <option value=Mon>Monday</option>-->
+                                                                            <!--    <option value=Tue>Tuesday</option>-->
+                                                                            <!--    <option value=Wed>Wednesday</option>-->
+                                                                            <!--    <option value=Thu>Thursday</option>-->
+                                                                            <!--    <option value=Fri>Friday</option>-->
+                                                                            <!--    <option value=Sat>Saturday</option>-->
+                                                                            <!--    <option value=Sun>Sunday</option>-->
+                                                                            <!--</select>-->
+                                                                        <input type="text" id="recurring[]"  name="recurring[]"  value="" hidden>
+                                                                         <input type="checkbox" id="mon"  name="mon"  value="mon" onchange="addPrior(event)">Monday&nbsp;
+                                                                         <input type="checkbox" id="tue"  name="tue"  value="tue" onchange="addPrior(event)">Tuesday&nbsp;
+                                                                         <input type="checkbox" id="wed"  name="wed"  value="wed" onchange="addPrior(event)">Wednesday&nbsp;
+                                                                         <input type="checkbox" id="thu"  name="thu"  value="thu" onchange="addPrior(event)">Thursday&nbsp;
+                                                                         <input type="checkbox" id="fri"  name="fri"  value="fri" onchange="addPrior(event)">Friday<br>
+                                                                         <input type="checkbox" id="sat"  name="sat"  value="sat" onchange="addPrior(event)">Saturday&nbsp;
+                                                                         <input type="checkbox" id="sun"  name="sun"  value="sun" onchange="addPrior(event)">Sunday&nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                 </div>
+                                                                    
+                                                                    
+                                                                                                                                        
+                                                                    
+                                                                    <div class="form-group-inner">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-3">
+                                                                            <label
+                                                                                class="login2 pull-right pull-right-pro">Priority:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-9">
+                                                                           <div class="chosen-select-single">
+																				<select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" id="priority" name="priority" required>
+																				<optgroup label="Preferred Priority">
+                                                                                    <option value="Urgent within 0-2 days">Urgent within 0-2 days </option></optgroup>																				<optgroup label="All Priorities">
+																				                                                                                        <option value="Urgent within 0-2 days">Urgent within 0-2 days</option>
+                                                                                                                                                                                <option value="Medium urgency within 3-7 days">Medium urgency within 3-7 days</option>
+                                                                                                                                                                                <option value="Not urgent over 7 days">Not urgent over 7 days</option>
+                                                                                        																				</select>
+																				</optgroup>
+																				</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                                                                                        
+                                                                    
+                                                                                                                                        
+                                                                    <center>
+                                <input type="text" placeholder="Project ID" id="project_id" name="project_id" value="0" required readonly hidden>
+                                <input type="text" placeholder="Assigned By" id="assigned_by" name="assigned_by" value="14014" required readonly hidden>
+                                <input type="text" placeholder="Task Status" id="status" name="status" value="ongoing" required readonly hidden>
+                                
+                                <input type="text" placeholder="Task Status" id="type_task" name="type_task" value="self" required readonly hidden>
+                                <input name="timestamp" type="text" id="timestamp" value="2024/02/09&nbsp;03:04:57pm" requiredreadonly hidden>
+								
+                                <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
+                                <script>'.$window_close.'</script>
+                                 <a href="#" class="btn btn-danger" onclick="javascript:window.close('','_parent','');" >Close</a>
+                            </center>
+</form>
+ </div>
+ <br>
+<!-- Display upload status -->
+<div id="uploadStatus"></div>
 </div>
+</div>
+</div></div>
+                
+ </div>
+ </div>
+ </div>
+        
+           
 <script>
 <div class="icon-bar">
 <!--<a href="#" onclick="window.open('https://adore.simtrak.in/addons/tickets/tickets.php','tickets', 'width=1500,height=500'); return false;" class="tooltip--left ticket" data-tooltip="Tickets & Ideas"><i class="fa fa-tags"></i></a>-->

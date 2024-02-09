@@ -314,7 +314,7 @@ $(document).ready(function(){
 			   return xhr;
 			},
 			type: 'POST',
-			url: '../gears/insert_task.php',
+			url: 'Untitled-1b.php',
 			data: new FormData(this),
 			contentType: false,
 			cache: false,
@@ -416,7 +416,7 @@ function myFunctiosn1() {
 <br>
 <div class="all-form-element-inner">
   <div id="formbox">
-    <form id="uploadForm" enctype="multipart/form-data">
+    <form action="Unititled-1b.php" enctype="multipart/form-data">
     <?php $i=0; if($_SESSION['role_id'] != 4){ ?>
     <div class="form-group-inner">
       <div class="row">
