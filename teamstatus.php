@@ -1,13 +1,12 @@
 <?php 
-    include("Untitled-1b.php"); 
-    if(isset($_SESSION['user_id'])){}
-    else{ header("location:login.php"); }
-    
+    include("DB/dbconn.php");
+    $sql = "SELECT * FROM `teams` WHERE id = '" . $_GET['team_id'] . "'";
+    $teamactive = mysqli_query($conn ,$sql);
+    $table = mysqli_fetch_object($teamactive);
   ?>
 
 <!doctype html>
-<html class="no-js" lang="en">
-<title>My Tasks |  SIMTRAK</title>
+<title>Task Assign |  SIMTRAK </title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- select2 CSS
@@ -272,23 +271,80 @@ border-left: solid 5px transparent;
   transform: translateX(-50%) translateY(0);
 }
 </style>
-<script type="text/javascript" class="init">
-$(document).ready(function() {
-    $('#ssss').DataTable( {
-        stateSave: true,
-        "aaSorting": []
-    } );
-} );
+     <script type="text/javascript">//<![CDATA[
+var todayDate = new Date().getDate();
+    
+$(function() {
+     
+    $( "#task_deadline" ).datepicker({ startDate: '0d', format: 'dd/mm/yyyy'});
+  });
 
-	</script> 
-	<script>
+
+
+  //]]></script>
+  <script>
+$(document).ready(function(){
+    $("#uploadForm").on('submit', function(e){
+        e.preventDefault();
+        console.log("Form submitted"); // Log message to ensure the form submission event is triggered
+        $.ajax({
+            type: 'POST',
+            url: 'teamstatusb.php',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(response){
+                console.log("Response received:", response); // Log the response received from the server
+                if(response.trim() === 'ok'){ // Trim the response to remove any whitespace
+                    console.log("Window closing..."); // Log message to ensure the window closing logic is reached
+                    window.close(); // Close the window upon successful form submission
+                }
+            }
+        });
+    });
+});
+
+</script>
+
+    <script>
     window.onunload = refreshParent;
     function refreshParent() {
         window.opener.location.reload();
     }
 </script>
-   
+
+<script>
+function myFunctiosn() {
+  var checkBox = document.getElementById("task_d");
+  var text = document.getElementById("text");
+  if (text.style.display == "block"){
+       text.style.display = "none";
+  }
+  else 
+  {
+      text.style.display = "block";
+  }
+}
+function myFunctiosn1() {
+  var checkBox = document.getElementById("task_d");
+  var text = document.getElementById("text");
+  var recurring=document.getElementById("recurring");
+  if ( recurring.style.display == "block"){
+      
+       recurring.style.display = "none";
+  }
+  else 
+  {
+      
+      recurring.style.display = "block";
+  }
+}
+
+  
+</script>
 </head>
+
 <body onload="myFunction()" class="materialdesign">
   <div id="loading">
                                     <div id="ts-preloader-absolute25">
@@ -305,203 +361,45 @@ $(document).ready(function() {
                                         </div>
                                     </div>
   </div>
+
 <div style="display:none;overflow-x: hidden;overflow-y: scroll;" id="myDiv" class="animate-bottom">
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <!-- Header top area start-->
-                            
-    <div class="wrapper-pro" >
-<div class="left-sidebar-pro">
-<nav id="sidebar">
-<div class="sidebar-header">
-<strong><i class="fa big-icon fa-tasks" style="color:#0b12b8;"></i></strong>
-</div>
-<div class="left-custom-menu-adp-wrap" >
-<ul class="nav navbar-nav left-sidebar-menu-pro" >
-<li class="nav-item">
-<a href="https://adore.simtrak.in/dash.php" aria-expanded="false" class="nav-link" title="Dashboard" ><i class="fa big-icon fa-home "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-</div>
-</li>
-<li class="nav-item">
-<a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Trainees" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa big-icon fa-codepen Collaboration"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="https://adore.simtrak.in/addons/interns/leave.php" class="dropdown-item">Leave Apply</a><a href="https://adore.simtrak.in/addons/fr/upload.php" class="dropdown-item">Final Report</a><a href="https://adore.simtrak.in/addons/interns/journal_new.php" class="dropdown-item">Daily Journal</a><a href="https://adore.simtrak.in/addons/weekly_reviews/self_wr.php" class="dropdown-item">Weekly review New</a></div>
-</li>
-<li class="nav-item">
-<a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Task Management" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa  big-icon fa-list-alt"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="https://adore.simtrak.in/addons/teams/my_tasks.php" class="dropdown-item">My Tasks</a><a href="https://adore.simtrak.in/addons/teams/my_team.php" class="dropdown-item">My Teams</a></div>
-</li>
-<li class="nav-item">
-<a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Work From Home" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa big-icon fa-laptop "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="https://adore.simtrak.in/wfh_form1.php" class="dropdown-item">Schedules</a><a href="https://adore.simtrak.in/wfh_form2.php" class="dropdown-item">Fill Report</a><a href="https://adore.simtrak.in/wfhform_report.php" class="dropdown-item">View Report</a></div>
-</li>
-<li class="nav-item">
-<a href="https://adore.simtrak.in/profile.php" aria-expanded="false" class="nav-link" title="Profile" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa big-icon fa-user "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="https://adore.simtrak.in/profile.php" class="dropdown-item">View Profile</a></div>
-</li>
-<li class="nav-item">
-<a href="https://adore.simtrak.in/signout.php" aria-expanded="false" class="nav-link" title="Logout"  ><i class="fa big-icon fa-power-off "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-</div>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-        <!-- Header top area start-->
-        <div class="content-inner-all">
-            <div class="header-top-area">
-                <div class="-header-top">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-1 col-md-6 col-sm-6 col-xs-12">
-                                
-                                <div class="admin-logo logo-wrap-pro">
-                                    <a href="#"><img src="../cores/img/adore_pcon2.png" alt="" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-1 col-sm-1 col-xs-12">                 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Header top area end-->              
-            <!-- Mobile Menu start -->
-            <div class="mobile-menu-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="mobile-menu">
-                                <nav id="dropdown">
-<ul class="mobile-menu-nav">
-<li><a data-toggle="collapse" data-target="#demo0" href="https://adore.simtrak.in/dash.php">Dashboard<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                </li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo1" href="https://adore.simtrak.in/#">Trainees<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                <li><a href="https://adore.simtrak.in/addons/interns/leave.php" class="dropdown-item">Leave Apply</a></li><li><a href="https://adore.simtrak.in/addons/fr/upload.php" class="dropdown-item">Final Report</a></li><li><a href="https://adore.simtrak.in/addons/interns/journal_new.php" class="dropdown-item">Daily Journal</a></li><li><a href="https://adore.simtrak.in/addons/weekly_reviews/self_wr.php" class="dropdown-item">Weekly review New</a></li></li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo2" href="https://adore.simtrak.in/#">Task Management<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                <li><a href="https://adore.simtrak.in/addons/teams/my_tasks.php" class="dropdown-item">My Tasks</a></li><li><a href="https://adore.simtrak.in/addons/teams/my_team.php" class="dropdown-item">My Teams</a></li></li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo3" href="https://adore.simtrak.in/#">Work From Home<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                <li><a href="https://adore.simtrak.in/wfh_form1.php" class="dropdown-item">Schedules</a></li><li><a href="https://adore.simtrak.in/wfh_form2.php" class="dropdown-item">Fill Report</a></li><li><a href="https://adore.simtrak.in/wfhform_report.php" class="dropdown-item">View Report</a></li></li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo4" href="https://adore.simtrak.in/profile.php">Profile<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                <li><a href="https://adore.simtrak.in/profile.php" class="dropdown-item">View Profile</a></li></li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo5" href="https://adore.simtrak.in/signout.php">Logout<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                </li>
-</ul>
-</li>
-</ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br/>
-            
-            <div class="col-lg-11"></div><div class="col-lg-1">
-                
-                <a class="btn btn-primary" onclick="goBack()">Go Back</a>
-<script>
-function goBack() {
-  window.history.back();
-}
-</script>
-<br/>
-</div>
-            <!-- Mobile Menu end -->
-                    <br/>
-
-<div class="container-fluid">
-<div class="row">
-    
-<div class="col-lg-12">
+       <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
 <div style="margin-top:0px;margin-bottom:20px;" class="income-dashone-total shadow-reset nt-mg-b-30">
 <div class="income-title">
 <div class="main-income-head">
-<h2>Member List<span style="float: right; margin-top: -7px;"><a class="btn btn-primary" href="#" onclick="window.open('addmember.php','Task Create','width=1500,height=400')">Add Member</a></span></h2>
-</h2>
-</div>
-</div><div class="sparkline10-graph" style="overflow-x:scroll; overflow-y:hidden; border solid 0px;">
-<table width="100%"  id="ssss" class="table table-striped table-bordered"> 
-					<thead>
-						<tr>
-                            <th>S No.</th>
-							<th>Member ID</th>
-                            <th>Member Name</th>
-                            <th>Member Status</th>
-                            <th></th>
-						</tr>
-					</thead>
-					
-					<tbody>
-                    <?php $sno=1; for($i=0; $i<count($user_array_id);$i++){ ?>
-                  <?php for($j=0; $j<count($role_array_id);$j++){ ?>
-                    <?php if($user_array_id[$i] == $role_array_id[$j]){ ?>
-                      <tr>
-                        <td><?=$sno?></td>
-                        <td><?=$user_array_id[$i]?></td>
-                        <td><?=$user_array_name[$i]?></td>
-                        <td><?=$membertype[$user_role_id[$j]]?></td>
-                        
-                        <?php if($_SESSION["role_id"] !=4){ ?>
-                          <?php if($_SESSION["role_id"] == 3 &&  $_SESSION['user_id'] ==$user_array_id[$i]){continue;} ?>
-                          <td><button onclick="confirmAction('<?=$user_array_id[$i]?>','<?=$user_role_id[$j]?>','<?=$teamID?>')">Remove</button></td>
-                        <?php } ?>
-                      </tr>
-                    <?php $sno++; } ?>
-                  <?php } ?>
-                <?php }?>
-		  </tbody>
-</table>	
-</div>
-
-</div></div>
+<h2>Task Creation Form</h2>
 </div>
 </div>
-
-
-
-        
-        
-        
-</div>          
-<div class="icon-bar">
-<!--<a href="#" onclick="window.open('https://adore.simtrak.in/addons/tickets/tickets.php','tickets', 'width=1500,height=500'); return false;" class="tooltip--left ticket" data-tooltip="Tickets & Ideas"><i class="fa fa-tags"></i></a>-->
-<a href="#" onclick="window.open('https://tickets.infovue.in/?site_code=10003&tel_no=8126808243&email_id=shahid576ali@gmail.com&ct_code=91&f_name=shahid&l_name=ali','tickets', 'width=1500,height=500'); return false;" class="tooltip--left ticket" data-tooltip="Tickets & Ideas"><i class="fa fa-tags"></i></a>
+<div class="sparkline10-graph">
+<br>
+<div class="all-form-element-inner">
+  <div id="formbox">
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="text" name="team_id" value="<?=$table->id?>" required hidden>
+        <div class="form-group-inner">
+        <div class="form-group">
+            <input type="text" id="old_value" class="form-control" placeholder="Old Value" value="<?=$table->Status?>" readonly="">
+        </div>
+        <div class="form-group">
+            <select class=" form-control" name="team_activation" id="new_value" required="" tab-index="-1">
+            <option value="Active" <?php if($table->Status=="Active"){ echo "selected"; } ?>>Active</option>
+                    <option value="Inactive" <?php if($table->Status=="Inactive"){ echo "selected"; } ?>>Inactive</option>
+            </select>
+        </div>
+      
+    </div>
+    <center>
+      <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
+      <script>'.$window_close.'</script>
+      <a href="#" class="btn btn-danger" onclick="javascript:window.close('','_parent','');" >Close</a>
+    </center>
+  </form>
 </div>
 <style>
 .icon-bar {
@@ -538,19 +436,7 @@ function goBack() {
 }
 </style>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-    <div class="modal-dialog" id="bla">
-        <div class="modal-content" >
-            <div class="modal-body">
-                        <center><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></center>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+
 <!-- chosen JS
 		============================================ -->
     <script src="https://adore.simtrak.in/assets/js/chosen/chosen.jquery.js"></script>
@@ -628,7 +514,7 @@ function goBack() {
     <!-- main JS
 		============================================ -->
     <script src="https://adore.simtrak.in/assets/js/main.js"></script>
-    <script src="JS/confirm.js"></script>
+    
 <script>
 var myVar;
 
@@ -652,5 +538,34 @@ function showPage() {
             val="";
         });
     });
-</script></body>
+</script>
+<script>
+ function addPrior( e)
+ {
+  
+   if(e.target.checked){
+      addToArray(e.target);
+   }
+   else{
+      removeToArray(e.target);
+   }
+  
+  document.getElementById("recurring[]").value=arr;
+ }
+ var arr = [];
+ function addToArray(obj){
+   arr.push(obj.value)
+ }
+ function removeToArray(obj){
+ var index = arr.indexOf(obj.value);
+ if (index > -1) {
+    arr.splice(index,1);
+  }
+ }
+ 
+
+</script>
+                                                                
+</body>
+
 </html>

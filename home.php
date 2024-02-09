@@ -1,23 +1,8 @@
 <?php 
-  include("Untitled-1b.php"); 
-  if(isset($_SESSION['user_id'])){}
-  else{ header("location:login.php"); }
-  if(isset($_GET["select_month"])){
-    $month = $_GET["select_month"];
-    $year = $_GET["select_year"];
-    $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
-    $end_date = date('Y-m-t', strtotime($start_date));
-    $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
-    $results = mysqli_query($conn ,$sql2);
-  }else{
-    $year = date('Y');
-    $month = date('n');
-    $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
-    $end_date = date('Y-m-t', strtotime($start_date));
-    $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
-    $results = mysqli_query($conn ,$sql2);
-    }
-?>
+    include("DB/team.php"); 
+    if(isset($_SESSION['user_id'])){}
+    else{ header("location:login.php"); }
+  ?>
 <!doctype html>
 <html class="no-js" lang="en">
 <title>Dashboard | SIMTRAK </title>
@@ -288,14 +273,14 @@ Powered By</br>
 <div style="margin-top:0px;margin-bottom:20px" class="sparkline13-list shadow-reset mg-tb-30">
 <div class="sparkline13-hd">
 <div class="main-sparkline13-hd">
-<h1><?=$teamname->team_name?></h1>
+<h1>TEAM</h1>
 <div class="sparkline13-outline-icon">
 </div>
 </div>
 </div><script type="text/javascript" class="init">
 $(document).ready(function() {
 	$('#ssss').DataTable({
-	    "pageLength": 5,
+	    "pageLength": 10,
 	     "lengthChange": false,
 	    "order": [[ 0, "desc" ]]
     } );
@@ -307,68 +292,31 @@ $(document).ready(function() {
     <a href="#" onclick="window.open('updategoal.php', 
                          'newwindow', 
                          'width=500,height=500'); 
-                        return false;" class="btn btn-primary">Add Goal</a>
+                        return false;" class="btn btn-primary">Add Team</a>
 <table width="100%"  id="ssss" class="table table-striped table-bordered"> 
 <thead>
-<tr>
-              <?php
-              foreach($array as $value){ ?>
-              <th><?=$value ?></th>
-              <?php } ?>
-              <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <th>total history</th>
-              <td></td>
-              <?php
-              foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
-              <td><?=$totalhistory->$value ?></td>
-              <?php } ?>
-              <td></td>
-            </tr>
-            <tr>
-              <th>month goal</th>
-              <?php
-              foreach($array as $value){ if($value=="Date"){continue;} if($value == "Member Name"){echo "<td></td>"; continue; }?>
-              <td><?=$goalset->$value ?></td>
-              <?php } ?>
-              <td></td>
-            </tr>
-            <tr>
-              <th>total month</th>
-              <td></td>
-              <?php
-              foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
-              <td><?=$totalmonth->$value ?></td>
-              <?php } ?>
-              <td></td>
-            </tr>
-            
-            <?php 
-              $row=0; 
-              $checkdata=0; 
-              while($table = mysqli_fetch_object($results)){ $checkdata=1; ?>
-            <tr>
-              <?php foreach($array as $value){ ?>
-              <td>
-                <?php
-                  if($value != "Date"){
-                    echo $table->$value;
-                  }else{
-                    echo date("d-m-Y", strtotime($table->$value));
-                  }          
-                ?>
-              </td>
-              <?php }?>
-              <td><?php if($_SESSION['role_id'] != 4){ ?><a href="Untitled-1b.php?delete_goal=<?=$table->ID ?>">delete</a><?php }?></td>
-              <?php }?>
-            </tr>
-            
+    <tr>
+        <th>Team Id</th>
+        <th>Team Name</th>
+        <th>Team Domain</th>
+        <?php if($_SESSION['role_id']==1){ ?>
+        <th>team status</th>
+        <th></th>
+        <?php } ?>
+    </tr>
 </thead>
 <tbody>
-
+            <?php while($table = mysqli_fetch_object($results)){ ?>
+            <tr>
+              <td><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></td>
+              <td><?php echo $table->team_name; ?></td>
+              <td><?php echo $table->team_domain; ?></td>
+              <?php if($_SESSION['role_id']==1){ ?>
+                <td><a href="#" onclick="window.open('teamstatus.php?team_id=<?=$table->id?>', 'newwindow', 'width=500,height=500'); return false;"><?php echo $table->Status; ?></a></td>
+                <td><a href="#" data-bs-toggle="modal" data-bs-target="#editteam<?=$table->id?>">edit</a></td>
+              <?php } ?>
+            </tr>
+            <?php } ?>
 </tbody>
 </table>
 </div>
@@ -456,19 +404,7 @@ $(document).ready(function() {
 }
 </style>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-    <div class="modal-dialog" id="bla">
-        <div class="modal-content" >
-            <div class="modal-body">
-                        <center><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></center>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+
 <!-- chosen JS
 		============================================ -->
     <script src="https://adore.simtrak.in/assets/js/chosen/chosen.jquery.js"></script>
