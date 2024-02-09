@@ -395,18 +395,21 @@ function myFunctiosn1() {
 <div class="all-form-element-inner">
   <div id="formbox">
     <form id="uploadForm" enctype="multipart/form-data">
-    <div id="inputContainer">
-                <!-- Initial Input Field -->
-                <input type="text" name="team_id" value="<?=$table->id?>" required hidden>
-                <input type="text" name="team_old" value="<?=$table->team_name?>" required hidden>
+        <input type="text" name="team_id" value="<?=$table->id?>" required hidden>
+        <input type="text" name="team_old" value="<?=$table->team_name?>" required hidden>
+        <div class="form-group-inner">
+            <div id="inputContainer" class="row">
                 <div className="form-group">
-                  <label for="team_name">Team_name:</label>
-                  <input type="text" name = "team_name" value="<?=$table->team_name?>" required>
-                  <label for="team_domain">Team_domain:</label>
-                  <input type="text" name = "team_domain" value="<?=$table->team_domain?>" required>
- 
+                    <div class="col-lg-3">
+                        <label class="login2 pull-right pull-right-pro">Team Name:</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" name = "team_name" value="<?=$table->team_name?>" required>
+                    </div>
+                    <label for="team_domain">Team_domain:</label>
+                    <input type="text" name = "team_domain" value="<?=$table->team_domain?>" required> 
                 </div>
-              </div>
+    </div>
     <?php $i=0; if($_SESSION['role_id'] != 4){ ?>
     <div class="form-group-inner">
       <div class="row">
