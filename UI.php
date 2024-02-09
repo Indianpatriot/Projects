@@ -2,9 +2,9 @@
   include("Untitled-1b.php"); 
   if(isset($_SESSION['user_id'])){}
   else{ header("location:login.php"); }
-  if(isset($_GET["select_month"])){
-    $month = $_GET["select_month"];
-    $year = $_GET["select_year"];
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $month = $_POST["select_month"];
+    $year = $_POST["select_year"];
     $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
     $end_date = date('Y-m-t', strtotime($start_date));
     $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
@@ -147,7 +147,7 @@
 <li class="nav-item">
 <a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Goal Management" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa  big-icon fa-list-alt"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="#" onclick="window.open('monthgoal.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Month Goal</a><a href="#" onclick="window.open('updategoal.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Previous Month Goal</a></div>
+<a href="#" onclick="window.open('monthgoal.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Month Goal</a><a href="#" onclick="window.open('periousmonth.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Previous Month Goal</a></div>
 </li>
 <li class="nav-item">
 <a href="https://adore.simtrak.in/profile.php" aria-expanded="false" class="nav-link" title="Member" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="bi big-icon bi-people-fill"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
