@@ -642,7 +642,7 @@ function goBack() {
     <!-- main JS
 		============================================ -->
     <script src="https://adore.simtrak.in/assets/js/main.js"></script>
-    
+    <script src="JS/confirm.js"></script>
 <script>
 var myVar;
 
