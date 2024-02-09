@@ -285,7 +285,7 @@ Powered By</br>
 <div class="col-lg-3">
 <div class="sparkline10-graph">
     Today is
-<h3><php $currentDate = date("d/m/y"); echo $currentDate; ?>f</h3><br/></br>
+<h3><?php echo Date('d/m/y'); ?></h3><br/></br>
 </div>
 </div>
 </div>
