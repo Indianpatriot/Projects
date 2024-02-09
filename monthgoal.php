@@ -396,7 +396,7 @@ function myFunctiosn1() {
   <div id="formbox">
     <form id="uploadForm" enctype="multipart/form-data">
     <input type="text" name="team_manager_id" value="<?=$_SESSION['user_id']?>" hidden require>
-                  <input type="text" name="team_manager_name" value="<?=$_SESSION['user_name']?>" hidden require>
+    <input type="text" name="team_manager_name" value="<?=$_SESSION['user_name']?>" hidden require>
                   
     <?php $c=0; while($para = mysqli_fetch_object($parameters)){ ?>
     <?php if($para->parameter == 'Date' || $para->parameter == 'Member Name'){$i++; continue;}  ?>
