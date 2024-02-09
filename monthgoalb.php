@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(mysqli_query($conn,$updategoal)){
         $i=0;  
         foreach($array as $value){
-            if($value == "Member Name"){continue;}
+            if($value == 'Date' || $value == 'Member Name'){$i++; continue;}
             $updategoal = "UPDATE `$teamname->team_name` SET `$value`= '".$_REQUEST[$i]."' WHERE `goalset` = '1'";
             if(mysqli_query($conn,$updategoal)){
             }else{
