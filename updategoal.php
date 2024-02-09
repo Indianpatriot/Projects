@@ -425,7 +425,7 @@ function myFunctiosn1() {
           </div>
           <div class="col-lg-9">
                 <div class="chosen-select-single">
-		              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" required>
+		              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="membername" required>
                     <?php for($i=0; $i<count($user_array_id);$i++){ ?>
                         <?php for($j=0; $j<count($role_array_id);$j++){ ?>
                             <?php if($user_array_id[$i] == $role_array_id[$j]){ ?>
@@ -447,7 +447,7 @@ function myFunctiosn1() {
         <div class="col-lg-9">
         <div class="input-group date">
             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-            <input type="text" class="form-control" placeholder="Date of Journal" id="doj" name="doj" value="09/02/2024" required="">
+            <input type="Date" class="form-control" placeholder="Date of Journal" name="date_data" value="09/02/2024" required="">
         </div>
         </div>
       </div>
