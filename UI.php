@@ -313,7 +313,7 @@ $(document).ready(function() {
 <div class="sparkline10-graph">
 <div class="static-table-list " style="overflow-x:scroll; overflow-y:hidden; border solid 0px;">
     <br/>
-    <a href="#" onclick="window.open('https://adore.simtrak.in/addons/teams/assets/task_create.php?type=self', 
+    <a href="#" onclick="window.open('updategoal.php', 
                          'newwindow', 
                          'width=500,height=500'); 
                         return false;" class="btn btn-primary">Add Task</a>
