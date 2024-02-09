@@ -6,6 +6,7 @@ $year = date('Y');
 $month = date('n');
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $month = $_POST["select_month"];
+    define("month", $_POST["select_month"]);
     $year = $_POST["select_year"];
     echo "ok";
 }
