@@ -2,8 +2,9 @@
   include("Untitled-1b.php"); 
   if(isset($_SESSION['user_id'])){}
   else{ header("location:login.php"); }
-  include("periousmonthb.php");
   $_SESSION["team_name"] = $teamname->team_name;
+  include("periousmonthb.php");
+  
  ?>
 <!doctype html>
 <html class="no-js" lang="en">
