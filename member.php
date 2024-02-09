@@ -1,9 +1,8 @@
 <?php 
     include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
-    else{ header("location:login.php"); }
-    
-  ?>
+    else{ header("location:login.php"); }  
+?>
 
 <!doctype html>
 <html class="no-js" lang="en">

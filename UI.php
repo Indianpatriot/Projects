@@ -147,7 +147,7 @@
 <li class="nav-item">
 <a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Goal Management" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa  big-icon fa-list-alt"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="https://adore.simtrak.in/addons/teams/my_tasks.php" class="dropdown-item">Month Goal</a><a href="https://adore.simtrak.in/addons/teams/my_team.php" class="dropdown-item">Previous Month Goal</a></div>
+<a href="#" onclick="window.open('monthgoal.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Month Goal</a><a href="#" onclick="window.open('updategoal.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Previous Month Goal</a></div>
 </li>
 <li class="nav-item">
 <a href="https://adore.simtrak.in/profile.php" aria-expanded="false" class="nav-link" title="Member" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="bi big-icon bi-people-fill"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
@@ -304,10 +304,7 @@ $(document).ready(function() {
 <div class="sparkline10-graph">
 <div class="static-table-list " style="overflow-x:scroll; overflow-y:hidden; border solid 0px;">
     <br/>
-    <a href="#" onclick="window.open('updategoal.php', 
-                         'newwindow', 
-                         'width=500,height=500'); 
-                        return false;" class="btn btn-primary">Add Goal</a>
+    <a href="#" onclick="window.open('updategoal.php', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-primary">Add Goal</a>
 <table width="100%"  id="ssss" class="table table-striped table-bordered"> 
 <thead>
 <tr>
