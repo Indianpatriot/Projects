@@ -404,7 +404,7 @@ function myFunctiosn1() {
                         <label class="login2 pull-right pull-right-pro">Team Name:</label>
                     </div>
                     <div class="col-lg-9">
-                        <input type="text" name = "team_name" value="<?=$table->team_name?>" required>
+                        <input type="text" name = "team_name" value="0" required>
                     </div>
                 
             </div>
