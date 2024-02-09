@@ -139,7 +139,7 @@
 <div class="left-custom-menu-adp-wrap" >
 <ul class="nav navbar-nav left-sidebar-menu-pro" >
 <li class="nav-item">
-<a href="https://adore.simtrak.in/dash.php" aria-expanded="false" class="nav-link" title="Dashboard" ><i class="fa big-icon fa-home "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+<a href="index.php" aria-expanded="false" class="nav-link" title="Dashboard" ><i class="fa big-icon fa-home "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
 </div>
 </li>
@@ -285,7 +285,7 @@ Powered By</br>
 <div class="col-lg-3">
 <div class="sparkline10-graph">
     Today is
-<h3>08/02/2024</h3><br/></br>
+<h3><php $currentDate = date("d/m/y"); echo $currentDate; ?>f</h3><br/></br>
 </div>
 </div>
 </div>
@@ -316,7 +316,7 @@ $(document).ready(function() {
     <a href="#" onclick="window.open('updategoal.php', 
                          'newwindow', 
                          'width=500,height=500'); 
-                        return false;" class="btn btn-primary">Add Task</a>
+                        return false;" class="btn btn-primary">Add Goal</a>
 <table width="100%"  id="ssss" class="table table-striped table-bordered"> 
 <thead>
 <tr>
