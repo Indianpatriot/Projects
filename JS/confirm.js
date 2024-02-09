@@ -30,11 +30,14 @@ function sendResponseToPHP(response, userId, roleId, teamID) {
     // Define a callback function to handle the response from PHP
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-            // alert("PHP Response:\n" + xhr.responseText);
             if (xhr.status === 200) {
                 // PHP script executed successfully, and we received a response
-                // console.log("PHP Response:", xhr.responseText); 
-                window.location.href = "member.php";               
+                // Log the redirection
+                console.log("Redirecting to member.php...");
+                // Open member.php after successful response
+                window.location.href = "member.php";
+                // Log the new URL
+                console.log("New URL:", window.location.href);
                 alert("PHP Response:\n" + xhr.responseText);
             } else {
                 alert("PHP Response:\n" + xhr.responseText);
