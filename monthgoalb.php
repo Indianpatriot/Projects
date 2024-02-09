@@ -9,7 +9,7 @@ $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
 $teamname = mysqli_query($conn,$sql1);
 $teamname = mysqli_fetch_object($teamname);
 
-if(isset($_REQUEST["team_manager_id"])){
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     $updategoal = "UPDATE `$teamname->team_name` SET `Member ID` = ".$_REQUEST["team_manager_id"].", `Member Name`= '".$_REQUEST["team_manager_name"]."' WHERE `goalset` = '1'";
     if(mysqli_query($conn,$updategoal)){
         $i=0;  
