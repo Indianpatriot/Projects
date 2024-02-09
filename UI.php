@@ -295,7 +295,7 @@ Powered By</br>
 </div><script type="text/javascript" class="init">
 $(document).ready(function() {
 	$('#ssss').DataTable({
-	    "pageLength": 5,
+	    "pageLength": 20,
 	     "lengthChange": false,
 	    "order": [[ 0, "desc" ]]
     } );
