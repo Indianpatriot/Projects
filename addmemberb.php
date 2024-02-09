@@ -3,7 +3,7 @@ include("DB/dbconn.php");
     // add normal member
 $normalmember = "SELECT * FROM `users` WHERE `role_id` IN (3, 5) ORDER BY id ASC";
 $normaladdmember = mysqli_query($conn,$normalmember);
-
+$teamID = $_SESSION["team_id"];
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Assuming $conn is your database connection
 
