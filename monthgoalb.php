@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_query($conn, $updategoal)) {
         $i = 0;
         foreach ($array as $value) {
-            if ($value == 'Date' || $value == 'Member Name') {
+            if ($value == 'Member Name') {
                 $i++;
                 continue;
             }
