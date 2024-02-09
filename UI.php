@@ -317,7 +317,7 @@ $(document).ready(function() {
             </thead>
             <tbody>
             <tr>
-              <th>total history</th>
+              <th>Total History</th>
               <td></td>
               <?php
               foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
@@ -326,7 +326,7 @@ $(document).ready(function() {
               <td></td>
             </tr>
             <tr>
-              <th>month goal</th>
+              <th>Month Goal</th>
               <?php
               foreach($array as $value){ if($value=="Date"){continue;} if($value == "Member Name"){echo "<td></td>"; continue; }?>
               <td><?=$goalset->$value ?></td>
@@ -334,7 +334,7 @@ $(document).ready(function() {
               <td></td>
             </tr>
             <tr>
-              <th>total month</th>
+              <th>Total Month</th>
               <td></td>
               <?php
               foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
