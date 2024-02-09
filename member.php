@@ -319,32 +319,12 @@ $(document).ready(function() {
 <div class="left-custom-menu-adp-wrap" >
 <ul class="nav navbar-nav left-sidebar-menu-pro" >
 <li class="nav-item">
-<a href="https://adore.simtrak.in/dash.php" aria-expanded="false" class="nav-link" title="Dashboard" ><i class="fa big-icon fa-home "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+<a href="home.php" aria-expanded="false" class="nav-link" title="Dashboard" ><i class="fa big-icon fa-home "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
 </div>
 </li>
 <li class="nav-item">
-<a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Trainees" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa big-icon fa-codepen Collaboration"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="https://adore.simtrak.in/addons/interns/leave.php" class="dropdown-item">Leave Apply</a><a href="https://adore.simtrak.in/addons/fr/upload.php" class="dropdown-item">Final Report</a><a href="https://adore.simtrak.in/addons/interns/journal_new.php" class="dropdown-item">Daily Journal</a><a href="https://adore.simtrak.in/addons/weekly_reviews/self_wr.php" class="dropdown-item">Weekly review New</a></div>
-</li>
-<li class="nav-item">
-<a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Task Management" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa  big-icon fa-list-alt"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="https://adore.simtrak.in/addons/teams/my_tasks.php" class="dropdown-item">My Tasks</a><a href="https://adore.simtrak.in/addons/teams/my_team.php" class="dropdown-item">My Teams</a></div>
-</li>
-<li class="nav-item">
-<a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Work From Home" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa big-icon fa-laptop "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="https://adore.simtrak.in/wfh_form1.php" class="dropdown-item">Schedules</a><a href="https://adore.simtrak.in/wfh_form2.php" class="dropdown-item">Fill Report</a><a href="https://adore.simtrak.in/wfhform_report.php" class="dropdown-item">View Report</a></div>
-</li>
-<li class="nav-item">
-<a href="https://adore.simtrak.in/profile.php" aria-expanded="false" class="nav-link" title="Profile" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa big-icon fa-user "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="https://adore.simtrak.in/profile.php" class="dropdown-item">View Profile</a></div>
-</li>
-<li class="nav-item">
-<a href="https://adore.simtrak.in/signout.php" aria-expanded="false" class="nav-link" title="Logout"  ><i class="fa big-icon fa-power-off "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+<a href="logout.php" aria-expanded="false" class="nav-link" title="Logout"  ><i class="fa big-icon fa-power-off "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
 </div>
 </li>
