@@ -34,7 +34,7 @@ function sendResponseToPHP(response, userId, roleId, teamID) {
             if (xhr.status === 200) {
                 // PHP script executed successfully, and we received a response
                 // console.log("PHP Response:", xhr.responseText); 
-                window.location.href = "addmember.php";               
+                window.location.href = "member.php";               
                 alert("PHP Response:\n" + xhr.responseText);
             } else {
                 alert("PHP Response:\n" + xhr.responseText);
