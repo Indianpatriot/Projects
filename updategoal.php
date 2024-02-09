@@ -466,12 +466,7 @@ function myFunctiosn1() {
       </div>
     <?php }?>
     <center>
-      <input type="text" placeholder="Project ID" id="project_id" name="project_id" value="0" required readonly hidden>
-      <input type="text" placeholder="Assigned By" id="assigned_by" name="assigned_by" value="14014" required readonly hidden>
-      <input type="text" placeholder="Task Status" id="status" name="status" value="ongoing" required readonly hidden>
-      <input type="text" placeholder="Task Status" id="type_task" name="type_task" value="self" required readonly hidden>
-      <input name="timestamp" type="text" id="timestamp" value="2024/02/08&nbsp;10:48:41pm" requiredreadonly hidden>
-			<button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
+      <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
       <script>'.$window_close.'</script>
       <a href="#" class="btn btn-danger" onclick="javascript:window.close('','_parent','');" >Close</a>
     </center>
