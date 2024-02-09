@@ -24,7 +24,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo "ok";
             }
         }else{
-            $_SESSION["team_manager"] = "$row->username is a team manager, can't be a member.";
             echo "ok";
         }
     }else{
