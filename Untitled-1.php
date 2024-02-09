@@ -124,7 +124,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form action="Untitled-1b.php" method="POST">
+              <form action="Untitled-1b.php" >
                   <div class="form-group">
                   <input type="text" name="team_manager_id" value="<?=$_SESSION['user_id']?>" hidden require>
                   <input type="text" name="team_manager_name" value="<?=$_SESSION['user_name']?>" hidden require>

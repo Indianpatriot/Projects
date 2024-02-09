@@ -296,53 +296,31 @@ $(function() {
 
 
   //]]></script>
-<script>
+  <script>
 $(document).ready(function(){
-	// File upload via Ajax
-	$("#uploadForm").on('submit', function(e){
-		e.preventDefault();
-		$.ajax({
-			xhr: function() {
-				var xhr = new window.XMLHttpRequest();
-				xhr.upload.addEventListener("progress", function(evt) {
-					if (evt.lengthComputable) {
-						var percentComplete = Math.round((evt.loaded / evt.total) * 100);
-						$(".progress-bar").width(percentComplete + '%');
-						$(".progress-bar").html(percentComplete+'%');
-					}
-			   }, false);
-			   return xhr;
-			},
-			type: 'POST',
-			url: 'Untitled-1b.php',
-			data: new FormData(this),
-			contentType: false,
-			cache: false,
-			processData:false,
-			beforeSend: function(){
-				$(".progress-bar").width('0%');
-				$("#formbox").prop('hidden', true);
-				$('#uploadStatus').html('<img src="https://adore.simtrak.in/assets/img/loading.gif"/>');
-			},
-			error:function(){
-				$('#uploadStatus').html('<p style="color:#EA4335;">Task Adddition Failed.</p>');
-				$("#formbox").prop('hidden', false);
-			},
-			success: function(response){
-				if(response == 'ok'){
-					$('#uploadForm')[0].reset();
-				    $("#submit").prop('disabled', true); // disable button
-					$('#uploadStatus').html('<center><span style="color:#28A74B;">Task Addded Successfully </br> <a  class="btn btn-primary" href="https://adore.simtrak.in/addons/teams/assets/task_create.php?type=self">Create a New Task</a></span></center>');
-					$('#formbox').html('');
-					window. close(); 
-				}else if(response !== 'ok'){
-					$('#uploadStatus').html('<p style="color:#EA4335;">Data Not Sent.</p>'+ response);
-				}
-			}
-		});
-	});
+    $("#uploadForm").on('submit', function(e){
+        e.preventDefault();
+        console.log("Form submitted"); // Log message to ensure the form submission event is triggered
+        $.ajax({
+            type: 'POST',
+            url: 'Untitled-1b.php',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(response){
+                console.log("Response received:", response); // Log the response received from the server
+                if(response.trim() === 'ok'){ // Trim the response to remove any whitespace
+                    console.log("Window closing..."); // Log message to ensure the window closing logic is reached
+                    window.close(); // Close the window upon successful form submission
+                }
+            }
+        });
+    });
 });
+
 </script>
+
     <script>
     window.onunload = refreshParent;
     function refreshParent() {
@@ -416,7 +394,7 @@ function myFunctiosn1() {
 <br>
 <div class="all-form-element-inner">
   <div id="formbox">
-    <form action="Unititled-1b.php" enctype="multipart/form-data">
+    <form id="uploadForm" enctype="multipart/form-data">
     <?php $i=0; if($_SESSION['role_id'] != 4){ ?>
     <div class="form-group-inner">
       <div class="row">
