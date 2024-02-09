@@ -399,14 +399,14 @@ function myFunctiosn1() {
         <input type="text" name="team_old" value="<?=$table->team_name?>" required hidden>
         <div class="form-group-inner">
             <div id="inputContainer" class="row">
-                <div className="form-group">
+                
                     <div class="col-lg-3">
                         <label class="login2 pull-right pull-right-pro">Team Name:</label>
                     </div>
                     <div class="col-lg-9">
                         <input type="text" name = "team_name" value="<?=$table->team_name?>" required>
                     </div>
-                </div>
+                
             </div>
         </div>
     <?php $i=0; if($_SESSION['role_id'] != 4){ ?>
