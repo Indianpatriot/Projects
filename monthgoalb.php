@@ -35,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $i = 0;
         foreach ($array as $value) {
             if ($value == 'Member Name') {
-                $i++;
                 continue;
             }
             $parameter_value = $_POST[$i];
