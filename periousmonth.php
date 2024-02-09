@@ -2,22 +2,7 @@
     include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
-    if(isset($_GET["select_month"])){
-      $month = $_GET["select_month"];
-      $year = $_GET["select_year"];
-      $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
-      $end_date = date('Y-m-t', strtotime($start_date));
-      $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
-      $results = mysqli_query($conn ,$sql2);
-    }else{
-      $year = date('Y');
-      $month = date('n');
-      $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
-      $end_date = date('Y-m-t', strtotime($start_date));
-      $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
-      $results = mysqli_query($conn ,$sql2);
-      }
-  ?>
+?>
 
 <!doctype html>
 <title>Task Assign |  SIMTRAK </title>
@@ -303,7 +288,7 @@ $(document).ready(function(){
         console.log("Form submitted"); // Log message to ensure the form submission event is triggered
         $.ajax({
             type: 'POST',
-            url: 'UI.php',
+            url: 'preivousmonthb.php',
             data: new FormData(this),
             contentType: false,
             cache: false,
