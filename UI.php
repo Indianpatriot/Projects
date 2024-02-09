@@ -4,6 +4,8 @@
   else{ header("location:login.php"); }
   $_SESSION["team_name"] = $teamname->team_name;
   include("periousmonthb.php");
+  $year = date('Y');
+  $month = date('n');
   
  ?>
 <!doctype html>
