@@ -380,8 +380,6 @@ function myFunctiosn1() {
 <div class="all-form-element-inner">
   <div id="formbox">
     <form id="uploadForm" enctype="multipart/form-data">
-        <input type="text" name="team_id" value="<?=$table->id?>" required hidden>
-        <input type="text" name="team_old" value="<?=$table->team_name?>" required hidden>
         <div class="form-group-inner">
             <div id="inputContainer" class="row">  
               <div class="col-lg-3">
@@ -404,51 +402,6 @@ function myFunctiosn1() {
             </div>
         </div>
         <div id="dynamicInput"></div>
-    <?php $i=0; if($_SESSION['role_id'] != 4){ ?>
-    <div class="form-group-inner">
-      <div class="row">
-          <div class="col-lg-3">
-              <label class="login2 pull-right pull-right-pro">Member Name:</label>
-          </div>
-          <div class="col-lg-9">
-                <div class="chosen-select-single">
-		              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="membername" required>
-                    <?php for($i=0; $i<count($user_array_id);$i++){ ?>
-                        <?php for($j=0; $j<count($role_array_id);$j++){ ?>
-                            <?php if($user_array_id[$i] == $role_array_id[$j]){ ?>
-                                <option value="<?=$i?>"><?=$user_array_name[$i]?></option>
-                            <?php } ?>
-                        <?php } ?>
-                    <?php }?>        
-                  </select>
-		            </div>
-          </div>
-      </div>
-    </div>
-    <?php } ?>
-    <div class="form-group-inner">
-      <div class="row">
-        <div class="col-lg-3">
-            <label class="login2 pull-right pull-right-pro">Date of goal:</label>
-        </div>
-        <div class="col-lg-9">
-            <input type="Date" class="form-control" placeholder="Date of Journal" name="date_data" value="09/02/2024" required="">
-        </div>
-      </div>
-    </div>
-    <?php $c=0; while($para = mysqli_fetch_object($parameters)){ ?>
-    <?php if($para->parameter == 'Date' || $para->parameter == 'Member Name'){$i++; continue;}  ?>
-      <div class="form-group-inner">
-          <div class="row">
-              <div class="col-lg-3">
-                  <label class="login2 pull-right pull-right-pro"><?=$para->parameter?>:</label>
-              </div>
-              <div class="col-lg-9">
-                  <input type="<?=$para->parameter_data_type?>" placeholder="<?=$para->parameter?>" class="form-control" id="task_name" name="<?=$c?>" required <?php $c++; ?>>
-              </div>
-          </div>
-      </div>
-    <?php }?>
     <center>
       <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
       <script>'.$window_close.'</script>
