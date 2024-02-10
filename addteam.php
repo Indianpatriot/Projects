@@ -389,7 +389,7 @@ function myFunctiosn1() {
               </div>
               <div class="col-lg-9">
                 <div class="chosen-select-single">
-		              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="team_name" onchange="createNewInput()" aria-label="Default select example" required>
+		              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" id="category" name="team_name" onchange="createNewInput()" aria-label="Default select example" required>
                   <?php $i=1; while($table = mysqli_fetch_object($team_name)){ if( $_SESSION['role_id'] != 3){?>
                       <option value="<?=$table->id ?>"><?php echo $table->team_name; ?></option>
                     <?php }elseif( $_SESSION['team_id'] == $table->id){ ?>
@@ -569,29 +569,6 @@ function myFunctiosn1() {
     <!-- main JS
 		============================================ -->
     <script src="https://adore.simtrak.in/assets/js/main.js"></script>
-    <script>
-      function createNewInput() {
-        var selectedValue = document.getElementById("category").value;
-        var dynamicInputContainer = document.getElementById("dynamicInput");
-
-        // Clear previous dynamic input
-        dynamicInputContainer.innerHTML = "";
-
-        if (selectedValue === "other") {
-            var newInput = document.createElement("input");
-            newInput.type = "text";
-            newInput.placeholder = "Create new team name";
-            newInput.name = "newteam";
-            dynamicInputContainer.appendChild(newInput);
-
-            var originalInput = document.createElement("input");
-            originalInput.type = "text";
-            originalInput.placeholder = "team domain";
-            originalInput.name = "teamdomain";
-            dynamicInputContainer.appendChild(originalInput);
-        }
-      }
-    </script>
     <script>
         var inputCount = 1; // Initialize input count
         var parameter = 100;
