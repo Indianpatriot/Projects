@@ -403,6 +403,7 @@ function myFunctiosn1() {
               </div>    
             </div>
         </div>
+        <div id="dynamicInput"></div>
     <?php $i=0; if($_SESSION['role_id'] != 4){ ?>
     <div class="form-group-inner">
       <div class="row">
@@ -568,7 +569,29 @@ function myFunctiosn1() {
     <!-- main JS
 		============================================ -->
     <script src="https://adore.simtrak.in/assets/js/main.js"></script>
+    <script>
+      function createNewInput() {
+        var selectedValue = document.getElementById("category").value;
+        var dynamicInputContainer = document.getElementById("dynamicInput");
 
+        // Clear previous dynamic input
+        dynamicInputContainer.innerHTML = "";
+
+        if (selectedValue === "other") {
+            var newInput = document.createElement("input");
+            newInput.type = "text";
+            newInput.placeholder = "Create new team name";
+            newInput.name = "newteam";
+            dynamicInputContainer.appendChild(newInput);
+
+            var originalInput = document.createElement("input");
+            originalInput.type = "text";
+            originalInput.placeholder = "team domain";
+            originalInput.name = "teamdomain";
+            dynamicInputContainer.appendChild(originalInput);
+        }
+      }
+    </script>
     <script>
         var inputCount = 1; // Initialize input count
         var parameter = 100;
