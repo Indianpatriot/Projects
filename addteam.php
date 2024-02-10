@@ -398,15 +398,23 @@ function myFunctiosn1() {
         <input type="text" name="team_id" value="<?=$table->id?>" required hidden>
         <input type="text" name="team_old" value="<?=$table->team_name?>" required hidden>
         <div class="form-group-inner">
-            <div id="inputContainer" class="row">
-                
-                    <div class="col-lg-3">
-                        <label class="login2 pull-right pull-right-pro">Team Name:</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" name = "team_name" value="0" required>
-                    </div>
-                
+            <div id="inputContainer" class="row">  
+              <div class="col-lg-3">
+                  <label class="login2 pull-right pull-right-pro">Team Name:</label>
+              </div>
+              <div class="col-lg-9">
+                <div class="chosen-select-single">
+		              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="team_name" onchange="createNewInput()" aria-label="Default select example" required>
+                    <?php for($i=0; $i<count($user_array_id);$i++){ ?>
+                        <?php for($j=0; $j<count($role_array_id);$j++){ ?>
+                            <?php if($user_array_id[$i] == $role_array_id[$j]){ ?>
+                                <option value="<?=$i?>"><?=$user_array_name[$i]?></option>
+                            <?php } ?>
+                        <?php } ?>
+                    <?php }?>        
+                  </select>
+		            </div>
+              </div>    
             </div>
         </div>
     <?php $i=0; if($_SESSION['role_id'] != 4){ ?>
