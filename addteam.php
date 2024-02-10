@@ -405,13 +405,14 @@ function myFunctiosn1() {
               <div class="col-lg-9">
                 <div class="chosen-select-single">
 		              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="team_name" onchange="createNewInput()" aria-label="Default select example" required>
-                    <?php for($i=0; $i<count($user_array_id);$i++){ ?>
-                        <?php for($j=0; $j<count($role_array_id);$j++){ ?>
-                            <?php if($user_array_id[$i] == $role_array_id[$j]){ ?>
-                                <option value="<?=$i?>"><?=$user_array_name[$i]?></option>
-                            <?php } ?>
-                        <?php } ?>
-                    <?php }?>        
+                  <?php $i=1; while($table = mysqli_fetch_object($team_name)){ if( $_SESSION['role_id'] != 3){?>
+                      <option value="<?=$table->id ?>"><?php echo $table->team_name; ?></option>
+                    <?php }elseif( $_SESSION['team_id'] == $table->id){ ?>
+                      <option value="<?=$table->id ?>"><?php echo $table->team_name; ?></option>
+                    <?php }} ?>
+                    <?php if( $_SESSION['role_id'] != 3){ ?>
+                      <option value="other">New Team</option>
+                    <?php } ?>        
                   </select>
 		            </div>
               </div>    
