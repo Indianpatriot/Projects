@@ -554,27 +554,78 @@ function myFunctiosn1() {
             divToRemove.parentNode.removeChild(divToRemove);
         }
 
-      function createNewInput() {
-        var selectedValue = document.getElementById("category").value;
-        var dynamicInputContainer = document.getElementById("dynamicInput");
+        function createNewInput() {
+    var selectedValue = document.getElementById("category").value;
+    var dynamicInputContainer = document.getElementById("dynamicInput");
 
-        // Clear previous dynamic input
-        dynamicInputContainer.innerHTML = "";
+    // Clear previous dynamic input
+    dynamicInputContainer.innerHTML = "";
 
-        if (selectedValue === "other") {
-            var newInput = document.createElement("input");
-            newInput.type = "text";
-            newInput.placeholder = "Create new team name";
-            newInput.name = "newteam";
-            dynamicInputContainer.appendChild(newInput);
+    if (selectedValue === "other") {
+        var newInputDiv = document.createElement("div");
+        newInputDiv.classList.add("form-group-inner");
 
-            var originalInput = document.createElement("input");
-            originalInput.type = "text";
-            originalInput.placeholder = "team domain";
-            originalInput.name = "teamdomain";
-            dynamicInputContainer.appendChild(originalInput);
-        }
-      }
+        var rowDiv = document.createElement("div");
+        rowDiv.classList.add("row");
+
+        var colLG3Div = document.createElement("div");
+        colLG3Div.classList.add("col-lg-3");
+
+        var labelElement = document.createElement("label");
+        labelElement.classList.add("login2", "pull-right", "pull-right-pro");
+        labelElement.textContent = "New Team Name:";
+
+        colLG3Div.appendChild(labelElement);
+        rowDiv.appendChild(colLG3Div);
+
+        var colLG9Div = document.createElement("div");
+        colLG9Div.classList.add("col-lg-9");
+
+        var newInput = document.createElement("input");
+        newInput.type = "text";
+        newInput.placeholder = "Enter new team name";
+        newInput.name = "newteam";
+        newInput.classList.add("form-control");
+
+        colLG9Div.appendChild(newInput);
+        rowDiv.appendChild(colLG9Div);
+
+        newInputDiv.appendChild(rowDiv);
+        dynamicInputContainer.appendChild(newInputDiv);
+
+        var newInputDiv = document.createElement("div");
+        newInputDiv.classList.add("form-group-inner");
+
+        var rowDiv = document.createElement("div");
+        rowDiv.classList.add("row");
+
+        var colLG3Div = document.createElement("div");
+        colLG3Div.classList.add("col-lg-3");
+
+        var labelElement = document.createElement("label");
+        labelElement.classList.add("login2", "pull-right", "pull-right-pro");
+        labelElement.textContent = "New Team domain:";
+
+        colLG3Div.appendChild(labelElement);
+        rowDiv.appendChild(colLG3Div);
+
+        var colLG9Div = document.createElement("div");
+        colLG9Div.classList.add("col-lg-9");
+
+        var newInput = document.createElement("input");
+        newInput.type = "text";
+        newInput.placeholder = "Enter new team domain";
+        newInput.name = "teamdomain";
+        newInput.classList.add("form-control");
+
+        colLG9Div.appendChild(newInput);
+        rowDiv.appendChild(colLG9Div);
+
+        newInputDiv.appendChild(rowDiv);
+        dynamicInputContainer.appendChild(newInputDiv);
+    }
+}
+
     </script>
 
 <script>
