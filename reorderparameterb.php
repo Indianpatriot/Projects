@@ -10,8 +10,8 @@ while($para = mysqli_fetch_object($parameter)){
 }
 
 if(isset($_POST["before"])){
-    $sql1="UPDATE `goal_parameter` SET `parameter`='".$array[$_POST["after"]]."' WHERE `parameter_id` = '".$idarray[$_POST["before"]]."' AND `team_id` = '$team_id'";
-    $sql2="UPDATE `goal_parameter` SET `parameter`='".$array[$_POST["before"]]."' WHERE `parameter_id` = '".$idarray[$_POST["after"]]."' AND `team_id` = '$team_id'";
+    $sql1="UPDATE `goal_parameter` SET `parameter`='".$array[$_POST["after"]]."' WHERE `parameter_id` = '".$idarray[$_POST["before"]]."'";
+    $sql2="UPDATE `goal_parameter` SET `parameter`='".$array[$_POST["before"]]."' WHERE `parameter_id` = '".$idarray[$_POST["after"]]."'";
     if(mysqli_query($conn,$sql2)){
         if(mysqli_query($conn,$sql1)){
             echo "ok";
