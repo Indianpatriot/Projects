@@ -302,7 +302,7 @@ $(document).ready(function(){
                   console.log("Window closing..."); // Log message to ensure the window closing logic is reached
                   window.close(); // Close the window upon successful form submission
                    // Redirect the current tab to access.php with the result parameter set to the response variable
-                   window.location.href = 'access.php?result=' + encodeURIComponent(response);
+                   window.location.href = 'DB/access.php?result=' + encodeURIComponent(response);
                 }
             }
         });
