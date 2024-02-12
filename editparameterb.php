@@ -16,6 +16,7 @@ if(isset($_POST[$val])){
     foreach($array as $value){
         if($value == "Date" || $value == "Member Name"){  continue; }else{       
             $sql1="UPDATE `goal_parameter` SET `parameter`='".$_POST[$val]."' WHERE parameter = '$value'";
+            if($value == $_POST[$val]){continue;}
             $sql2="ALTER TABLE `$teamname->team_name` CHANGE `$value` `".$_POST[$val]."` VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL";
             if(mysqli_query($conn,$sql2)){
                 if(mysqli_query($conn,$sql1)){
