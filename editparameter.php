@@ -391,7 +391,7 @@ function myFunctiosn1() {
                             <input type="text" value="<?=$value ?>" class="form-control" id="task_name" name="<?=$val ?>" required >
                         </div>
                     <?php }else { ?>
-                        <?php echo $value; continue;  ?>
+                        <?php continue;  ?>
                     <?php } ?>        
                 </div>
             </div>
