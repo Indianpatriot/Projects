@@ -387,7 +387,7 @@ function myFunctiosn1() {
                   <select style="width:100%" class="select2_demo_3 form-control" name="before" id="new_value" required="" tab-index="-1">
                     <?php $i=0; foreach($array as $value){ ?>
                       <?php if($value != "Date" && $value != "Member Name"){ ?>
-                        <option value="<?=$i?>"><?=$value?></option>
+                        <option value="<?=$value?>"><?=$value?></option>
                       <?php }?>
                     <?php $i++; } ?>
                   </select>
@@ -403,7 +403,7 @@ function myFunctiosn1() {
                     <select style="width:100%" class="select2_demo_3 form-control" name="after" id="new_value" required="" tab-index="-1">
                       <?php $i=0; foreach($array as $value){ ?>
                         <?php if($value != "Date" && $value != "Member Name"){ ?>
-                          <option value="<?=$i?>"><?=$value?></option>
+                          <option value="<?=$value?>"><?=$value?></option>
                         <?php }?>
                       <?php $i++; } ?>
                     </select>
