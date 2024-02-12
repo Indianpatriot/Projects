@@ -298,6 +298,11 @@ $(document).ready(function(){
                 if(response.trim() === 'ok'){ // Trim the response to remove any whitespace
                     console.log("Window closing..."); // Log message to ensure the window closing logic is reached
                     window.close(); // Close the window upon successful form submission
+                }else{
+                  console.log("Window closing..."); // Log message to ensure the window closing logic is reached
+                  window.close(); // Close the window upon successful form submission
+                   // Redirect the current tab to access.php with the result parameter set to the response variable
+                   window.location.href = 'access.php?result=' + encodeURIComponent(response);
                 }
             }
         });
