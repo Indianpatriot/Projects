@@ -380,21 +380,23 @@ function myFunctiosn1() {
 <div class="all-form-element-inner">
   <div id="formbox">
     <form id="uploadForm" enctype="multipart/form-data">
-        <?php $val=0; foreach($array as $value){ ?>          
+        <?php $val=0; foreach($array as $value){ ?>   
+            <?php if($value != "Date" && $value != "Member Name"){ ?>       
             <div class="form-group-inner">
                 <div class="row">
-                    <?php if($value != "Date" && $value != "Member Name"){ ?>
+                    
                         <div class="col-lg-3">
                             <label class="login2 pull-right pull-right-pro"><?=$value ?>:</label>
                         </div>
                         <div class="col-lg-9">
                             <input type="text" value="<?=$value ?>" class="form-control" id="task_name" name="<?=$val ?>" required >
                         </div>
-                    <?php }else { ?>
-                        <?php continue;  ?>
-                    <?php } ?>        
+                          
                 </div>
             </div>
+            <?php }else { ?>
+                        <?php continue;  ?>
+                    <?php } ?>  
         <?php $val++; } ?>
     <center>
       <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
