@@ -13,7 +13,7 @@ if(isset($_POST["before"])){
     $sql2="UPDATE `goal_parameter` SET `parameter`='".$array[$_POST["before"]]."' WHERE `parameter_id` = '".$idarray[$_POST["after"]]."' AND `team_id` = '".$_SESSION["team_id"]."'";
     if(mysqli_query($conn,$sql2)){
         if(mysqli_query($conn,$sql1)){
-            echo "ok";
+            echo "oghfk";
         }
     }
 }
