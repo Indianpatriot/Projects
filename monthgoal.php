@@ -398,15 +398,15 @@ function myFunctiosn1() {
     <input type="text" name="team_manager_id" value="<?=$_SESSION['user_id']?>" hidden require>
     <input type="text" name="team_manager_name" value="<?=$_SESSION['user_name']?>" hidden require>
                   
-    <?php $c=0; while($para = mysqli_fetch_object($parameters)){ ?>
-    <?php if($para->parameter == 'Date' || $para->parameter == 'Member Name'){continue;}  ?>
+    <?php $c=0; foreach ($array as $value) { ?>
+    <?php if($value == 'Date' || $value == 'Member Name'){continue;}  ?>
       <div class="form-group-inner">
           <div class="row">
               <div class="col-lg-3">
-                  <label class="login2 pull-right pull-right-pro"><?=$para->parameter?>:</label>
+                  <label class="login2 pull-right pull-right-pro"><?=$value?>:</label>
               </div>
               <div class="col-lg-9">
-                  <input type="<?=$para->parameter_data_type?>" placeholder="<?=$para->parameter?>" class="form-control" id="task_name" name="<?=$c?>" required >
+                  <input type="<?=$para->parameter_data_type?>" placeholder="<?=$value?>" class="form-control" id="task_name" name="<?=$c?>" required >
               </div>
           </div>
       </div>
