@@ -1,9 +1,6 @@
 <?php 
-    include("DB/dbconn.php");
-    $sql = "SELECT * FROM `teams` WHERE id = '" . $_GET['team_id'] . "'";
-    $teamactive = mysqli_query($conn ,$sql);
-    $table = mysqli_fetch_object($teamactive);
-  ?>
+    include("Untitled-1b.php");
+?>
 
 <!doctype html>
 <title>Task Assign |  SIMTRAK </title>
@@ -381,18 +378,19 @@ function myFunctiosn1() {
 <div class="all-form-element-inner">
   <div id="formbox">
     <form id="uploadForm" enctype="multipart/form-data">
-        <input type="text" name="team_id" value="<?=$table->id?>" required hidden>
         <div class="form-group-inner">
-        <div class="form-group">
-            <input type="text" id="old_value" class="form-control" placeholder="Old Value" value="<?=$table->Status?>" readonly="">
-        </div>
-        <div class="form-group">
-            <select class=" form-control" name="team_activation" id="new_value" required="" tab-index="-1">
-            <option value="Active" <?php if($table->Status=="Active"){ echo "selected"; } ?>>Active</option>
-                    <option value="Inactive" <?php if($table->Status=="Inactive"){ echo "selected"; } ?>>Inactive</option>
-            </select>
-        </div>
-      
+            <div class="row">
+                <div class="col-lg-3">
+                    <label class="login2 pull-right pull-right-pro">Delete Parameter:</label>
+                </div>
+                <div class="col-lg-9">
+                    <select class=" form-control" name="team_activation" id="new_value" required="" tab-index="-1">
+                        <?php foreach($array as $value){ if($value == 'Member Name' || $value == 'Date'){ continue;} ?>
+                            <option value="<?=$value?>" ><?=$value?></option>
+                        <?php } ?>
+                    </select>
+                </div> 
+            </div>
     </div>
     <center>
       <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
