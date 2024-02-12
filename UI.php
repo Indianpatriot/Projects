@@ -137,7 +137,7 @@
 <li class="nav-item">
 <a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Goal Management" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa  big-icon fa-list-alt"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="#" onclick="window.open('monthgoal.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Month Goal</a><a href="#" onclick="window.open('periousmonth.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Previous Month Goal</a></div>
+<a href="#" onclick="window.open('monthgoal.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Month Goal</a><a href="#" onclick="window.open('periousmonth.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Previous Months Goal</a></div>
 </li>
 <li class="nav-item">
 <a href="https://adore.simtrak.in/profile.php" aria-expanded="false" class="nav-link" title="Member" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="bi big-icon bi-people-fill"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
