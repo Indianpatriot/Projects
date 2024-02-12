@@ -142,7 +142,7 @@
 <li class="nav-item">
 <a href="https://adore.simtrak.in/profile.php" aria-expanded="false" class="nav-link" title="Member" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="bi big-icon bi-people-fill"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="member.php" class="dropdown-item">Memebr List</a></div>
+<a href="member.php" class="dropdown-item">Member List</a></div>
 </li>
 <li class="nav-item">
 <a href="logout.php" aria-expanded="false" class="nav-link" title="Logout"  ><i class="fa big-icon fa-power-off "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
