@@ -384,7 +384,7 @@ function myFunctiosn1() {
                     <label class="login2 pull-right pull-right-pro">Delete Parameter:</label>
                 </div>
                 <div class="col-lg-9">
-                    <select class=" form-control" name="team_activation" id="new_value" required="" tab-index="-1">
+                    <select class="select2_demo_3 form-control form-control" name="parametername" id="new_value" required="" tab-index="-1">
                         <?php foreach($array as $value){ if($value == 'Member Name' || $value == 'Date'){ continue;} ?>
                             <option value="<?=$value?>" ><?=$value?></option>
                         <?php } ?>

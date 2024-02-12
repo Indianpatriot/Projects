@@ -387,9 +387,9 @@ function myFunctiosn1() {
             <input type="text" id="old_value" class="form-control" placeholder="Old Value" value="<?=$table->Status?>" readonly="">
         </div>
         <div class="form-group">
-            <select class=" form-control" name="team_activation" id="new_value" required="" tab-index="-1">
-            <option value="Active" <?php if($table->Status=="Active"){ echo "selected"; } ?>>Active</option>
-                    <option value="Inactive" <?php if($table->Status=="Inactive"){ echo "selected"; } ?>>Inactive</option>
+            <select class="select2_demo_3 form-control" name="team_activation" id="new_value" required="" tab-index="-1">
+              <option value="Active" <?php if($table->Status=="Active"){ echo "selected"; } ?>>Active</option>
+              <option value="Inactive" <?php if($table->Status=="Inactive"){ echo "selected"; } ?>>Inactive</option>
             </select>
         </div>
       
