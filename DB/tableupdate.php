@@ -1,9 +1,9 @@
 
 <?php
 
-    include("dbcon.php");
+    include("dbconn.php");
 
-    $sql = "INSERT INTO `users` (`username`, `email`, `password`, `role_id`) VALUES ('Simran shrama', 'Simran.adoreindia@gmail.com', 'SimranAdore', '1')";
+    $sql = "UPDATE `goal_parameter` SET `parameter`='Date' WHERE `parameter_id` = '3'";
 
     if($conn->query($sql)){
         echo "done ok";
