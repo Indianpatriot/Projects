@@ -296,7 +296,7 @@ $(document).ready(function() {
               <td><?php echo $table->team_domain; ?></td>
               <?php if($_SESSION['role_id']==1){ ?>
                 <td><a href="#" onclick="window.open('teamstatus.php?team_id=<?=$table->id?>', 'newwindow', 'width=500,height=500'); return false;"><?php echo $table->Status; ?></a></td>
-                <td><a href="#" onclick="window.open('editteam.php', 'newwindow', 'width=500,height=500'); return false;">Edit Team</a></td>
+                <td><a href="#" onclick="window.open('editteam.php?team_id=<?=$table->id?>', 'newwindow', 'width=500,height=500'); return false;">Edit Team</a></td>
               <?php } ?>
             </tr>
             <?php } ?>

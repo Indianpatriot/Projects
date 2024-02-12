@@ -1,23 +1,13 @@
 <?php 
-    include("Untitled-1b.php"); 
+    include("DB/dbconn.php");
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
-    if(isset($_GET["select_month"])){
-      $month = $_GET["select_month"];
-      $year = $_GET["select_year"];
-      $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
-      $end_date = date('Y-m-t', strtotime($start_date));
-      $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
-      $results = mysqli_query($conn ,$sql2);
-    }else{
-      $year = date('Y');
-      $month = date('n');
-      $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
-      $end_date = date('Y-m-t', strtotime($start_date));
-      $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
-      $results = mysqli_query($conn ,$sql2);
-      }
-  ?>
+    $team_id = $_GET["team_id"]; 
+    $teamid = "SELECT * FROM `teams` where `id` ='$team_id'";
+    $teamid = mysqli_query($conn ,$teamid);
+    $teamid = mysqli_fetch_object($teamid);
+
+?>
 
 <!doctype html>
 <title>Task Assign |  SIMTRAK </title>
@@ -303,7 +293,7 @@ $(document).ready(function(){
         console.log("Form submitted"); // Log message to ensure the form submission event is triggered
         $.ajax({
             type: 'POST',
-            url: 'monthgoalb.php',
+            url: 'editteamb.php',
             data: new FormData(this),
             contentType: false,
             cache: false,
@@ -395,22 +385,28 @@ function myFunctiosn1() {
 <div class="all-form-element-inner">
   <div id="formbox">
     <form id="uploadForm" enctype="multipart/form-data">
-    <input type="text" name="team_manager_id" value="<?=$_SESSION['user_id']?>" hidden require>
-    <input type="text" name="team_manager_name" value="<?=$_SESSION['user_name']?>" hidden require>
-                  
-    <?php $c=0; foreach ($array as $value) { ?>
-    <?php if($value == 'Date' || $value == 'Member Name'){continue;}  ?>
-      <div class="form-group-inner">
-          <div class="row">
-              <div class="col-lg-3">
-                  <label class="login2 pull-right pull-right-pro"><?=$value?>:</label>
-              </div>
-              <div class="col-lg-9">
-                  <input type="<?=$para->parameter_data_type?>" placeholder="<?=$value?>" class="form-control" id="task_name" name="<?=$c?>" required >
-              </div>
-          </div>
-      </div>
-    <?php $c++; }?>
+    <input type="text" name="team_id" value="<?=$teamid->id?>" required hidden>
+    <input type="text" name="team_old" value="<?=$teamid->team_name?>" required hidden>              
+    <div class="form-group-inner">
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="login2 pull-right pull-right-pro">Team Name:</label>
+            </div>
+            <div class="col-lg-9">
+                <input type="text" value="<?=$teamid->team_name?>" class="form-control" id="task_name" name="team_name" required >
+            </div>
+        </div>
+    </div>
+    <div class="form-group-inner">
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="login2 pull-right pull-right-pro">Team Domain:</label>
+            </div>
+            <div class="col-lg-9">
+                <input type="text" value="<?=$teamid->team_domain?>" class="form-control" id="task_name" name="team_domain" required >
+            </div>
+        </div>
+    </div>
     <center>
       <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
       <script>'.$window_close.'</script>
