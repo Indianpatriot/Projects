@@ -412,7 +412,7 @@ function myFunctiosn1() {
                     <label for="inputField1" class="login2 pull-right pull-right-pro">Add Parameter:</label>
                 </div>
                 <div class="col-lg-9">
-                  <input type="text"  name="100" class="form-control" placeholder="Parameter Name" required>
+                  <input type="text"  name="500" class="form-control" placeholder="Parameter Name" required>
                 </div>
               </div>
             </div>
@@ -577,23 +577,23 @@ function addInputField() {
    
     newDiv.innerHTML = `
       <div id="inputField${inputCount}">
-        <div class="form-group-inner">
+        <div id="inputField${inputCount}" class="form-group-inner">
           <div class="row">  
             <div class="col-lg-3">
                 <label for="inputField1" class="login2 pull-right pull-right-pro">Add Parameter:</label>
             </div>
             <div class="col-lg-9">
-              <input type="text"  name="${parameter}" class="form-control" placeholder="Parameter Name" required>
+              <input type="text"  name="500" class="form-control" placeholder="Parameter Name" required>
             </div>
           </div>
         </div>
-        <div class="form-group-inner">
+        <div id="inputField${inputCount}" class="form-group-inner">
           <div id="inputField1" class="row">  
             <div class="col-lg-3">
                 <label for="inputField1" class="login2 pull-right pull-right-pro">Parameter Data Type:</label>
             </div>
             <div class="col-lg-9">
-              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="${data_type}" aria-label="Default select example" required>
+              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="500" aria-label="Default select example" required>
                 <option value="VARCHAR">Text</option>
                 <option value="INT" selected>Number</option>
               </select>
