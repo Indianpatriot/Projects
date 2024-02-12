@@ -412,7 +412,7 @@ function myFunctiosn1() {
                     <label for="inputField1" class="login2 pull-right pull-right-pro">Add Parameter:</label>
                 </div>
                 <div class="col-lg-9">
-                  <input type="text"  name="500" class="form-control" placeholder="Parameter Name" required>
+                  <input type="text"  name="100" class="form-control" placeholder="Parameter Name" required>
                 </div>
               </div>
             </div>
