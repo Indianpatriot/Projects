@@ -142,7 +142,7 @@
 <li class="nav-item">
 <a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Goal Management" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa  big-icon bi-pencil-square"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-<a href="#" onclick="window.open('deleteparameter.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Delete Parameter</a><a href="#" onclick="window.open('#', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Edit Parameter</a><a href="reorderparameter.php" onclick="window.open('#', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Reorder Parameter</a></div>
+<a href="#" onclick="window.open('deleteparameter.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Delete Parameter</a><a href="#" onclick="window.open('#', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Edit Parameter</a><a href="#" onclick="window.open('reorderparameter.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Reorder Parameter</a></div>
 </li>
 <li class="nav-item">
 <a href="https://adore.simtrak.in/profile.php" aria-expanded="false" class="nav-link" title="Member" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="bi big-icon bi-people-fill"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
