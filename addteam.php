@@ -380,8 +380,9 @@ function myFunctiosn1() {
 <div class="all-form-element-inner">
   <div id="formbox">
     <form id="uploadForm" enctype="multipart/form-data">
-      <div id="inputContainer">
-        <div class="form-group-inner">
+      <div>
+        <div id="inputContainer">
+          <div class="form-group-inner">
             <div class="row">  
               <div class="col-lg-3">
                   <label class="login2 pull-right pull-right-pro">Team Name:</label>
@@ -401,49 +402,54 @@ function myFunctiosn1() {
 		            </div>
               </div>    
             </div>
-        </div>
-        <div id="dynamicInput"></div>
-        <div id="inputField1">
-          <div class="form-group-inner">
+          </div>
+          <div id="dynamicInput"></div>
+          <div>
+          <div id="inputField1">
+            <div class="form-group-inner">
               <div class="row">  
                 <div class="col-lg-3">
                     <label for="inputField1" class="login2 pull-right pull-right-pro">Add Parameter:</label>
                 </div>
                 <div class="col-lg-9">
-                  <input type="text"  name="500" class="form-control" placeholder="Parameter Name" required>
+                  <input type="text"  name="100" class="form-control" placeholder="Parameter Name" required>
                 </div>
               </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="row">  
+                  <div class="col-lg-3">
+                      <label for="inputField1" class="login2 pull-right pull-right-pro">Parameter Data Type:</label>
+                  </div>
+                  <div class="col-lg-9">
+                    <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="500" aria-label="Default select example" required>
+                      <option value="VARCHAR">Text</option>
+                      <option value="INT" selected>Number</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
           </div>
           <div class="form-group-inner">
-              <div class="row">  
-                <div class="col-lg-3">
-                    <label for="inputField1" class="login2 pull-right pull-right-pro">Parameter Data Type:</label>
-                </div>
-                <div class="col-lg-9">
-                  <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="500" aria-label="Default select example" required>
-                    <option value="VARCHAR">Text</option>
-                    <option value="INT" selected>Number</option>
-                  </select>
-                </div>
-              </div>
-          </div>
-          </div>
-          <div class="form-group-inner">
-              <div class="row">
+            <div class="row">
               <div class="col-lg-3">
               </div>
               <div class="col-lg-9">
-              <a class="btn btn-primary addbutton2" style="float:right;margin-right:10px;" onclick="addInputField()">+New Task</a>
-              <a class="btn btn-danger" onclick="removeInputField(1)" style="float:right;">x</a>
+                <a class="btn btn-primary addbutton2" style="float:right;margin-right:10px;" onclick="addInputField()">+New Task</a>
+                <a class="btn btn-danger" onclick="removeInputField(1)" style="float:right;">x</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    <center>
-      <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
-      <script>'.$window_close.'</script>
-      <a href="#" class="btn btn-danger" onclick="javascript:window.close('','_parent','');" >Close</a>
-    </center>
-  </form>
+      <div>
+      <center>
+        <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
+        <script>'.$window_close.'</script>
+        <a href="#" class="btn btn-danger" onclick="javascript:window.close('','_parent','');" >Close</a>
+      </center>
+      </div>
+    </form>
 </div>
 <style>
 .icon-bar {
@@ -560,7 +566,7 @@ function myFunctiosn1() {
     <script src="https://adore.simtrak.in/assets/js/main.js"></script>
     <script>
         var inputCount = 1; // Initialize input count
-document.cookie = "inputCount=" + inputCount;
+        document.cookie = "inputCount=" + inputCount;
 
 function addInputField() {
     inputCount++; // Increment input count
@@ -577,7 +583,7 @@ function addInputField() {
                 <label for="inputField1" class="login2 pull-right pull-right-pro">Add Parameter:</label>
             </div>
             <div class="col-lg-9">
-              <input type="text"  name="500" class="form-control" placeholder="Parameter Name" required>
+              <input type="text"  name="${parameter}" class="form-control" placeholder="Parameter Name" required>
             </div>
           </div>
         </div>
@@ -587,7 +593,7 @@ function addInputField() {
                 <label for="inputField1" class="login2 pull-right pull-right-pro">Parameter Data Type:</label>
             </div>
             <div class="col-lg-9">
-              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="500" aria-label="Default select example" required>
+              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="${data_type}" aria-label="Default select example" required>
                 <option value="VARCHAR">Text</option>
                 <option value="INT" selected>Number</option>
               </select>
@@ -609,13 +615,12 @@ function addInputField() {
     `;
 
     // Append the new input field to the container
-    var container = document.getElementById("inputContainer");
-    container.appendChild(newDiv);
+    document.getElementById("inputContainer").appendChild(newDiv);
 }
 
 function removeInputField(inputNumber) {
     // Remove the div containing the input field, select, and remove button
-    var divToRemove = document.getElementById(`inputField${inputNumber}`).parentNode.parentNode;
+    var divToRemove = document.getElementById(`inputField${inputNumber}`).parentNode;
     divToRemove.parentNode.removeChild(divToRemove);
 }
 
