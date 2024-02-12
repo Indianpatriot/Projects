@@ -422,10 +422,12 @@ function myFunctiosn1() {
                       <label for="inputField1" class="login2 pull-right pull-right-pro">Parameter Data Type:</label>
                   </div>
                   <div class="col-lg-9">
-                    <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="500" aria-label="Default select example" required>
-                      <option value="VARCHAR">Text</option>
-                      <option value="INT" selected>Number</option>
-                    </select>
+                    <div class="chosen-select-single">
+                      <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="500" aria-label="Default select example" required>
+                        <option value="VARCHAR">Text</option>
+                        <option value="INT" selected>Number</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
             </div>
@@ -566,10 +568,14 @@ function myFunctiosn1() {
     <script src="https://adore.simtrak.in/assets/js/main.js"></script>
     <script>
         var inputCount = 1; // Initialize input count
+        var parameter = 100;
+        var data_type = 500;
         document.cookie = "inputCount=" + inputCount;
 
 function addInputField() {
     inputCount++; // Increment input count
+    parameter++;
+    data_type++;
     document.cookie = "inputCount=" + inputCount;
 
     // Create a new div to hold input fields, label, select, and remove button
@@ -577,26 +583,28 @@ function addInputField() {
    
     newDiv.innerHTML = `
       <div id="inputField${inputCount}">
-        <div id="inputField${inputCount}" class="form-group-inner">
+        <div class="form-group-inner">
           <div class="row">  
             <div class="col-lg-3">
                 <label for="inputField1" class="login2 pull-right pull-right-pro">Add Parameter:</label>
             </div>
             <div class="col-lg-9">
-              <input type="text"  name="500" class="form-control" placeholder="Parameter Name" required>
+              <input type="text"  name="${parameter}" class="form-control" placeholder="Parameter Name" required>
             </div>
           </div>
         </div>
-        <div id="inputField${inputCount}" class="form-group-inner">
+        <div class="form-group-inner">
           <div id="inputField1" class="row">  
             <div class="col-lg-3">
                 <label for="inputField1" class="login2 pull-right pull-right-pro">Parameter Data Type:</label>
             </div>
             <div class="col-lg-9">
-              <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="500" aria-label="Default select example" required>
-                <option value="VARCHAR">Text</option>
-                <option value="INT" selected>Number</option>
-              </select>
+              <div class="chosen-select-single">
+                <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="${data_type}" aria-label="Default select example" required>
+                  <option value="VARCHAR">Text</option>
+                  <option value="INT" selected>Number</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
