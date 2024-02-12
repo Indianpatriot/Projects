@@ -399,7 +399,7 @@ function myFunctiosn1() {
     <input type="text" name="team_manager_name" value="<?=$_SESSION['user_name']?>" hidden require>
                   
     <?php $c=0; while($para = mysqli_fetch_object($parameters)){ ?>
-    <?php if($para->parameter == 'Date' || $para->parameter == 'Member Name'){$i++; continue;}  ?>
+    <?php if($para->parameter == 'Date' || $para->parameter == 'Member Name'){continue;}  ?>
       <div class="form-group-inner">
           <div class="row">
               <div class="col-lg-3">
