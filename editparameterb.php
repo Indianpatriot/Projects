@@ -20,12 +20,12 @@ if(isset($_POST[$val])){
             $sql2="ALTER TABLE `$teamname->team_name` CHANGE `$value` `".$_POST[$val]."` VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL";
             if(mysqli_query($conn,$sql2)){
                 if(mysqli_query($conn,$sql1)){
-                    echo "ok";
                 }
             }
         }
         $val++;
     }
+    echo "ok";
 }
 
 ?>
