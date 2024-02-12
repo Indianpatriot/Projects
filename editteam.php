@@ -1,11 +1,26 @@
 <?php 
-    include("DB/team.php"); 
+    include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
+    if(isset($_GET["select_month"])){
+      $month = $_GET["select_month"];
+      $year = $_GET["select_year"];
+      $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
+      $end_date = date('Y-m-t', strtotime($start_date));
+      $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
+      $results = mysqli_query($conn ,$sql2);
+    }else{
+      $year = date('Y');
+      $month = date('n');
+      $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
+      $end_date = date('Y-m-t', strtotime($start_date));
+      $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
+      $results = mysqli_query($conn ,$sql2);
+      }
   ?>
+
 <!doctype html>
-<html class="no-js" lang="en">
-<title>Dashboard | SIMTRAK </title>
+<title>Task Assign |  SIMTRAK </title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- select2 CSS
@@ -27,7 +42,6 @@
  <script src="https://use.fontawesome.com/e418a5cc12.js"></script>
     <!-- adminpro icon CSS
 		============================================ -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://adore.simtrak.in/assets/css/adminpro-custon-icon.css">
     <!-- meanmenu icon CSS
 		============================================ -->
@@ -88,8 +102,261 @@
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
 <link href="https://cdn.datatables.net/fixedheader/3.1.8/css/fixedHeader.dataTables.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="ui.css">
+<style>
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 0px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 0px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black; 
+}
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #174182;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+* {
+  box-sizing: border-box;
+}
+[class^=tooltip] {
+  position: relative;
+}
+[class^=tooltip]:after {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  content: attr(data-tooltip);
+  padding: 6px 10px;
+  top: 1.4em;
+  left: 50%;
+  transform: translateX(-50%) translateY(-2px);
+  background: grey;
+  color: white;
+  white-space: nowrap;
+  z-index: 2;
+  border-radius: 2px;
+  transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+[class^=tooltip]:hover:after {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltip--left:after {
+  border-left: solid 5px transparent;
+  border-right: solid 5px transparent;
+  border-bottom: solid 5px grey;
+  top: -4px;
+  left: 0;
+  transform: translateX(-112%) translateY(0);
+}
+.tooltip--left:hover:after {
+  transform: translateX(-110%) translateY(0);
+}
+
+.tooltip--right:after {
+border-left: solid 5px transparent;
+  border-right: solid 5px transparent;
+  border-bottom: solid 5px grey;
+  top: -4px;
+  left: 100%;
+  transform: translateX(12%) translateY(0);
+}
+.tooltip--right:hover:after {
+  transform: translateX(10%) translateY(0);
+}
+
+.tooltip--triangle:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: solid 5px transparent;
+  border-right: solid 5px transparent;
+  border-bottom: solid 5px grey;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  transform: translateX(-50%) translateY(-2px);
+  top: 1.1em;
+  left: 50%;
+  transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+  z-index: 3;
+}
+.tooltip--triangle:hover:before {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+</style>
+     <script type="text/javascript">//<![CDATA[
+var todayDate = new Date().getDate();
     
+$(function() {
+     
+    $( "#task_deadline" ).datepicker({ startDate: '0d', format: 'dd/mm/yyyy'});
+  });
+
+
+
+  //]]></script>
+  <script>
+$(document).ready(function(){
+    $("#uploadForm").on('submit', function(e){
+        e.preventDefault();
+        console.log("Form submitted"); // Log message to ensure the form submission event is triggered
+        $.ajax({
+            type: 'POST',
+            url: 'monthgoalb.php',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(response){
+                console.log("Response received:", response); // Log the response received from the server
+                if(response.trim() === 'ok'){ // Trim the response to remove any whitespace
+                    console.log("Window closing..."); // Log message to ensure the window closing logic is reached
+                    window.close(); // Close the window upon successful form submission
+                }
+            }
+        });
+    });
+});
+
+</script>
+
+    <script>
+    window.onunload = refreshParent;
+    function refreshParent() {
+        window.opener.location.reload();
+    }
+</script>
+
+<script>
+function myFunctiosn() {
+  var checkBox = document.getElementById("task_d");
+  var text = document.getElementById("text");
+  if (text.style.display == "block"){
+       text.style.display = "none";
+  }
+  else 
+  {
+      text.style.display = "block";
+  }
+}
+function myFunctiosn1() {
+  var checkBox = document.getElementById("task_d");
+  var text = document.getElementById("text");
+  var recurring=document.getElementById("recurring");
+  if ( recurring.style.display == "block"){
+      
+       recurring.style.display = "none";
+  }
+  else 
+  {
+      
+      recurring.style.display = "block";
+  }
+}
+
+  
+</script>
 </head>
 
 <body onload="myFunction()" class="materialdesign">
@@ -109,248 +376,47 @@
                                     </div>
   </div>
 
-<div style="display:none;" id="myDiv" class="animate-bottom">
+<div style="display:none;overflow-x: hidden;overflow-y: scroll;" id="myDiv" class="animate-bottom">
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <!-- Header top area start-->
-
-
-        <div class="wrapper-pro" >
-<div class="left-sidebar-pro">
-<nav id="sidebar">
-<div class="sidebar-header">
-<strong><i class="fa big-icon fa-tasks" style="color:#0b12b8;"></i></strong>
+       <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+<div style="margin-top:0px;margin-bottom:20px;" class="income-dashone-total shadow-reset nt-mg-b-30">
+<div class="income-title">
+<div class="main-income-head">
+<h2>Task Creation Form</h2>
 </div>
-<div class="left-custom-menu-adp-wrap" >
-<ul class="nav navbar-nav left-sidebar-menu-pro" >
-<li class="nav-item">
-<a href="index.php" aria-expanded="false" class="nav-link" title="Dashboard" ><i class="fa big-icon fa-home "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
 </div>
-</li>
-<li class="nav-item">
-<a href="logout.php" aria-expanded="false" class="nav-link" title="Logout"  ><i class="fa big-icon fa-power-off "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-</div>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-        <!-- Header top area start-->
-        <div class="content-inner-all">
-            <div class="header-top-area">
-                <div class="-header-top">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-1 col-md-6 col-sm-6 col-xs-12">
-                                
-                                <div class="admin-logo logo-wrap-pro">
-                                    <a href="#"><img src="../cores/img/adore_pcon2.png" alt="" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-1 col-sm-1 col-xs-12">                 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Header top area end-->              
-            <!-- Mobile Menu start -->
-            <div class="mobile-menu-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="mobile-menu">
-                                <nav id="dropdown">
-<ul class="mobile-menu-nav">
-<li><a data-toggle="collapse" data-target="#demo0" href="https://adore.simtrak.in/dash.php">Dashboard<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                </li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo1" href="https://adore.simtrak.in/#">Trainees<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                <li><a href="https://adore.simtrak.in/addons/interns/leave.php" class="dropdown-item">Leave Apply</a></li><li><a href="https://adore.simtrak.in/addons/fr/upload.php" class="dropdown-item">Final Report</a></li><li><a href="https://adore.simtrak.in/addons/interns/journal_new.php" class="dropdown-item">Daily Journal</a></li><li><a href="https://adore.simtrak.in/addons/weekly_reviews/self_wr.php" class="dropdown-item">Weekly review New</a></li></li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo2" href="https://adore.simtrak.in/#">Go Management<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                <li><a href="https://adore.simtrak.in/addons/teams/my_tasks.php" class="dropdown-item">My Tasks</a></li><li><a href="https://adore.simtrak.in/addons/teams/my_team.php" class="dropdown-item">My Teams</a></li></li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo3" href="https://adore.simtrak.in/#">Work From Home<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                <li><a href="https://adore.simtrak.in/wfh_form1.php" class="dropdown-item">Schedules</a></li><li><a href="https://adore.simtrak.in/wfh_form2.php" class="dropdown-item">Fill Report</a></li><li><a href="https://adore.simtrak.in/wfhform_report.php" class="dropdown-item">View Report</a></li></li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo5" href="https://adore.simtrak.in/signout.php">Logout<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                </li>
-</ul>
-</li>
-</ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br/>
-            
-            <div class="col-lg-11"></div><div class="col-lg-1">
-                
-                
-<script>
-function goBack() {
-  window.history.back();
-}
-</script>
-<br/>
-</div>
-            <!-- Mobile Menu end -->
-                            
-<div class="container-fluid">
-<div class="row">
-<div class="col-lg-3">
 <div class="sparkline10-graph">
-<h4 style="color:#331c4d;"><strong>Welcome <br/><hr/><?php echo $_SESSION["user_name"];?></strong></h4>
-</div>
-</div>
-<div class="col-lg-3">
-<div class="sparkline10-graph">
-<center><img src="https://adore.simtrak.in/data/sys/com_logo.png"></br>
-<strong>Goal Management System</strong></center>
-</div>
-</div>
-<div class="col-lg-3">
-<div class="sparkline10-graph">
-Powered By</br>
-<img src="https://adore.simtrak.in/data/sys/logo_min.png"></br></br>
-</div>
-</div>
-<div class="col-lg-3">
-<div class="sparkline10-graph">
-    Today is
-<h3><?php echo Date('d/m/y'); ?></h3><br/></br>
-</div>
-</div>
-</div>
-</div>
-</br>
-        <div class="container-fluid">
-<div class="row">
-    <div class="col-lg-12">
-<div style="margin-top:0px;margin-bottom:20px" class="sparkline13-list shadow-reset mg-tb-30">
-<div class="sparkline13-hd">
-<div class="main-sparkline13-hd">
-<h1>TEAM</h1>
-<div class="sparkline13-outline-icon">
-</div>
-</div>
-</div><script type="text/javascript" class="init">
-$(document).ready(function() {
-	$('#ssss').DataTable({
-	    "pageLength": 10,
-	     "lengthChange": false,
-	    "order": [[ 0, "desc" ]]
-    } );
-} );
-</script>
-<div class="sparkline10-graph">
-<div class="static-table-list " style="overflow-x:scroll; overflow-y:hidden; border solid 0px;">
-    <br/>
-    <a href="#" onclick="window.open('addteam.php', 
-                         'newwindow', 
-                         'width=500,height=500'); 
-                        return false;" class="btn btn-primary">Add Team</a>
-<table width="100%"  id="ssss" class="table table-striped table-bordered"> 
-<thead>
-    <tr>
-        <th>Team Id</th>
-        <th>Team Name</th>
-        <th>Team Domain</th>
-        <?php if($_SESSION['role_id']==1){ ?>
-        <th>team status</th>
-        <th></th>
-        <?php } ?>
-    </tr>
-</thead>
-<tbody>
-            <?php while($table = mysqli_fetch_object($results)){ ?>
-            <tr>
-              <td><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></td>
-              <td><?php echo $table->team_name; ?></td>
-              <td><?php echo $table->team_domain; ?></td>
-              <?php if($_SESSION['role_id']==1){ ?>
-                <td><a href="#" onclick="window.open('teamstatus.php?team_id=<?=$table->id?>', 'newwindow', 'width=500,height=500'); return false;"><?php echo $table->Status; ?></a></td>
-                <a href="#" onclick="window.open('editteam.php', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-primary">Add Team</a>
-              <?php } ?>
-            </tr>
-            <?php } ?>
-</tbody>
-</table>
-</div>
-</div>
-
-</div>
-</div>
-<div class="col-lg-3">
-</div>
-</div>
-</div>
-   <div class="icon-bar">
-  <a href="#" onclick="window.open('https://adore.simtrak.in/addons/tickets/tickets.php','tickets', 'width=1500,height=500'); return false;" class="tooltip--left ticket" data-tooltip="Give Tickets"><i class="fa fa-tags"></i></a>
-</div>
-<style>
-.icon-bar {
-  position: fixed;
-  top: 10%;
-  right:0%;
-  background:none;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-   z-index:1;
-}
-
-/* Style the icon bar links */
-.icon-bar a {
-  display: block;
-  text-align: center;
-  padding: 16px;
-  transition: all 0.3s ease;
-  color: white;
-  font-size: 20px;
-  border-radius:50%;
-}
-
-/* Style the social media icons with color, if you want */
-.icon-bar a:hover {
-  background-color: #000;
-}
-
-.ticket {
-  background: #3B5998;
-  color: white;
- 
-}
-</style>
-</div><div class="icon-bar">
-<!--<a href="#" onclick="window.open('https://adore.simtrak.in/addons/tickets/tickets.php','tickets', 'width=1500,height=500'); return false;" class="tooltip--left ticket" data-tooltip="Tickets & Ideas"><i class="fa fa-tags"></i></a>-->
-<a href="#" onclick="window.open('https://tickets.infovue.in/?site_code=10003&tel_no=8126808243&email_id=shahid576ali@gmail.com&ct_code=91&f_name=shahid&l_name=ali','tickets', 'width=1500,height=500'); return false;" class="tooltip--left ticket" data-tooltip="Tickets & Ideas"><i class="fa fa-tags"></i></a>
+<br>
+<div class="all-form-element-inner">
+  <div id="formbox">
+    <form id="uploadForm" enctype="multipart/form-data">
+    <input type="text" name="team_manager_id" value="<?=$_SESSION['user_id']?>" hidden require>
+    <input type="text" name="team_manager_name" value="<?=$_SESSION['user_name']?>" hidden require>
+                  
+    <?php $c=0; foreach ($array as $value) { ?>
+    <?php if($value == 'Date' || $value == 'Member Name'){continue;}  ?>
+      <div class="form-group-inner">
+          <div class="row">
+              <div class="col-lg-3">
+                  <label class="login2 pull-right pull-right-pro"><?=$value?>:</label>
+              </div>
+              <div class="col-lg-9">
+                  <input type="<?=$para->parameter_data_type?>" placeholder="<?=$value?>" class="form-control" id="task_name" name="<?=$c?>" required >
+              </div>
+          </div>
+      </div>
+    <?php $c++; }?>
+    <center>
+      <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
+      <script>'.$window_close.'</script>
+      <a href="#" class="btn btn-danger" onclick="javascript:window.close('','_parent','');" >Close</a>
+    </center>
+  </form>
 </div>
 <style>
 .icon-bar {
@@ -387,7 +453,19 @@ $(document).ready(function() {
 }
 </style>
 </div>
-
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" id="bla">
+        <div class="modal-content" >
+            <div class="modal-body">
+                        <center><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></center>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <!-- chosen JS
 		============================================ -->
     <script src="https://adore.simtrak.in/assets/js/chosen/chosen.jquery.js"></script>
@@ -489,6 +567,34 @@ function showPage() {
             val="";
         });
     });
-</script></body>
+</script>
+<script>
+ function addPrior( e)
+ {
+  
+   if(e.target.checked){
+      addToArray(e.target);
+   }
+   else{
+      removeToArray(e.target);
+   }
+  
+  document.getElementById("recurring[]").value=arr;
+ }
+ var arr = [];
+ function addToArray(obj){
+   arr.push(obj.value)
+ }
+ function removeToArray(obj){
+ var index = arr.indexOf(obj.value);
+ if (index > -1) {
+    arr.splice(index,1);
+  }
+ }
+ 
+
+</script>
+                                                                
+</body>
 
 </html>
