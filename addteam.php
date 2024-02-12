@@ -295,7 +295,7 @@ $(document).ready(function(){
             processData: false,
             success: function(response){
                 console.log("Response received:", response); // Log the response received from the server
-                if(response.trim() === 'ok'){ // Trim the response to remove any whitespace
+                if(response.trim() === 'not ok'){ // Trim the response to remove any whitespace
                     console.log("Window closing..."); // Log message to ensure the window closing logic is reached
                     window.close(); // Close the window upon successful form submission
                 }else{
