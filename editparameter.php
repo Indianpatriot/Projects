@@ -1,5 +1,5 @@
 <?php 
-    include("reorderparameterb.php");
+    include("editparameterb.php");
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
 ?>
@@ -288,7 +288,7 @@ $(document).ready(function(){
         console.log("Form submitted"); // Log message to ensure the form submission event is triggered
         $.ajax({
             type: 'POST',
-            url: 'reorderparameterb.php',
+            url: 'editparameterb.php',
             data: new FormData(this),
             contentType: false,
             cache: false,
@@ -380,38 +380,22 @@ function myFunctiosn1() {
 <div class="all-form-element-inner">
   <div id="formbox">
     <form id="uploadForm" enctype="multipart/form-data">
-        <div class="form-group-inner">
-            <div class="row">
-                <div class="col-lg-3">
-                    <label class="login2 pull-right pull-right-pro">First Parameter:</label>
+        <?php $val=0; foreach($array as $value){ ?>          
+            <div class="form-group-inner">
+                <div class="row">
+                    <?php if($value != "Date" && $value != "Member Name"){ ?>
+                        <div class="col-lg-3">
+                            <label class="login2 pull-right pull-right-pro"><?=$value ?>:</label>
+                        </div>
+                        <div class="col-lg-9">
+                            <input type="text" value="<?=$value ?>" class="form-control" id="task_name" name="<?=$val ?>" required >
+                        </div>
+                    <?php }else { ?>
+                        <?php echo $value; continue;  ?>
+                    <?php } ?>        
                 </div>
-                <div class="col-lg-9">
-                  <select style="width:100%" class="select2_demo_3 form-control" name="before" id="new_value" required="" tab-index="-1">
-                    <?php $i=0; foreach($array as $value){ ?>
-                      <?php if($value != "Date" && $value != "Member Name"){ ?>
-                        <option value="<?=$i?>"><?=$value?></option>
-                      <?php }?>
-                    <?php $i++; } ?>
-                  </select>
-                </div> 
             </div>
-        </div>
-        <div class="form-group-inner">
-            <div class="row">
-                <div class="col-lg-3">
-                    <label class="login2 pull-right pull-right-pro">Second Parameter:</label>
-                </div>
-                <div class="col-lg-9">
-                    <select style="width:100%" class="select2_demo_3 form-control" name="after" id="new_value" required="" tab-index="-1">
-                      <?php $i=0; foreach($array as $value){ ?>
-                        <?php if($value != "Date" && $value != "Member Name"){ ?>
-                          <option value="<?=$i?>"><?=$value?></option>
-                        <?php }?>
-                      <?php $i++; } ?>
-                    </select>
-                </div> 
-            </div>
-        </div>
+        <?php $val++; } ?>
     <center>
       <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
       <script>'.$window_close.'</script>
@@ -454,7 +438,19 @@ function myFunctiosn1() {
 }
 </style>
 </div>
-
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" id="bla">
+        <div class="modal-content" >
+            <div class="modal-body">
+                        <center><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></center>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <!-- chosen JS
 		============================================ -->
     <script src="https://adore.simtrak.in/assets/js/chosen/chosen.jquery.js"></script>
