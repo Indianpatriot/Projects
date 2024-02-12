@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "UPDATE `goal_parameter` SET `parameter`='Date' WHERE `parameter_id` = '3'";
+    $sql = "UPDATE `goal_parameter` SET `parameter`='Date' WHERE `parameter` = '3'";
 
     if($conn->query($sql)){
         echo "done ok";
