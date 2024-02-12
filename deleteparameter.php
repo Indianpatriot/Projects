@@ -286,7 +286,7 @@ $(document).ready(function(){
         console.log("Form submitted"); // Log message to ensure the form submission event is triggered
         $.ajax({
             type: 'POST',
-            url: 'teamstatusb.php',
+            url: 'deleteparameterb.php',
             data: new FormData(this),
             contentType: false,
             cache: false,
@@ -391,7 +391,7 @@ function myFunctiosn1() {
                     </select>
                 </div> 
             </div>
-    </div>
+        </div>
     <center>
       <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
       <script>'.$window_close.'</script>
