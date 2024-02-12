@@ -308,7 +308,7 @@ $(document).ready(function(){
                   window.close(); // Close the window upon successful form submission
 
                    // Redirect the current tab to access.php with the result parameter set to the response variable
-                  window.location.href = 'DB/access.php?team_id=' + encodeURIComponent(response);
+                  //window.location.href = 'DB/access.php?team_id=' + encodeURIComponent(response);
 
                 }
             }
