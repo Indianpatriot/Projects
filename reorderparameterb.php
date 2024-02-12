@@ -1,6 +1,6 @@
 <?php
 include("DB/dbconn.php");
-$goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]." ORDER BY `goal_parameter`.`team_id` ASC ";
+$goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]." ORDER BY `goal_parameter`.`team_id` dSC ";
 $parameter = mysqli_query($conn,$goal_parameter);
 while($para = mysqli_fetch_object($parameter)){
     $array[$i] = $para->parameter;
@@ -13,7 +13,7 @@ if(isset($_POST["before"])){
     $sql2="UPDATE `goal_parameter` SET `parameter`='".$array[$_POST["before"]]."' WHERE `parameter_id` = '".$idarray[$_POST["after"]]."' AND `team_id` = '".$_SESSION["team_id"]."'";
     if(mysqli_query($conn,$sql2)){
         if(mysqli_query($conn,$sql1)){
-            echo "oghfk";
+            echo "ok";
         }
     }
 }
