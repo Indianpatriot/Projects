@@ -45,8 +45,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $parameter++;
         $data_type++;
     }while($j<$_COOKIE["inputCount"]);
-    echo "ok";   
-    
+    echo $teamID;
+}else{
+    echo "Not Ok"
 }
 
 
