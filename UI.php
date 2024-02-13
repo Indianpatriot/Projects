@@ -10,7 +10,7 @@
  ?>
 <!doctype html>
 <html class="no-js" lang="en">
-<title>Dashboard | SIMTRAK </title>
+<title>Team Data | GOAL MANAGEMENT </title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- select2 CSS
@@ -22,7 +22,7 @@
 
     <!-- favicon
 		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="https://adore.simtrak.in/assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="image/icon.png">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
@@ -140,7 +140,7 @@
 <a href="#" onclick="window.open('monthgoal.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Month Goal</a><a href="#" onclick="window.open('periousmonth.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Previous Months Goal</a></div>
 </li>
 <li class="nav-item">
-<a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Goal Management" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa  big-icon bi-pencil-square"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+<a href="https://adore.simtrak.in/#" aria-expanded="false" class="nav-link" title="Customize" data-toggle="dropdown" role="button" class="dropdown-toggle"><i class="fa  big-icon bi-pencil-square"></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
 <a href="#" onclick="window.open('deleteparameter.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Delete Parameter</a><a href="#" onclick="window.open('editparameter.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Edit Parameter</a><a href="#" onclick="window.open('reorderparameter.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Reorder Parameter</a></div>
 </li>
