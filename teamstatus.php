@@ -344,6 +344,10 @@ function myFunctiosn1() {
   
 </script>
 </head>
+
+<body onload="myFunction()" class="materialdesign">
+
+
 <div style="display:none;overflow-x: hidden;overflow-y: scroll;" id="myDiv" class="animate-bottom">
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
