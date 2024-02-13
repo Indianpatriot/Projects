@@ -346,7 +346,21 @@ function myFunctiosn1() {
 </head>
 
 <body onload="myFunction()" class="materialdesign">
-
+  <div id="loading">
+                                    <div id="ts-preloader-absolute25">
+                                        <div class="tscssload-triangles">
+                                            <div class="tscssload-tri tscssload-invert"></div>
+                                            <div class="tscssload-tri tscssload-invert"></div>
+                                            <div class="tscssload-tri"></div>
+                                            <div class="tscssload-tri tscssload-invert"></div>
+                                            <div class="tscssload-tri tscssload-invert"></div>
+                                            <div class="tscssload-tri"></div>
+                                            <div class="tscssload-tri tscssload-invert"></div>
+                                            <div class="tscssload-tri"></div>
+                                            <div class="tscssload-tri tscssload-invert"></div>
+                                        </div>
+                                    </div>
+  </div>
 
 <div style="display:none;overflow-x: hidden;overflow-y: scroll;" id="myDiv" class="animate-bottom">
     <!--[if lt IE 8]>
