@@ -3,7 +3,7 @@
 ?>
 
 <!doctype html>
-<title>Task Assign |  SIMTRAK </title>
+<title>Delete Parameter |  GOAL MANAGEMENT </title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- select2 CSS
@@ -15,7 +15,7 @@
 
     <!-- favicon
 		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="https://adore.simtrak.in/assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="image/icon.png">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
@@ -370,7 +370,7 @@ function myFunctiosn1() {
 <div style="margin-top:0px;margin-bottom:20px;" class="income-dashone-total shadow-reset nt-mg-b-30">
 <div class="income-title">
 <div class="main-income-head">
-<h2>Task Creation Form</h2>
+<h2>Delete Parameter</h2>
 </div>
 </div>
 <div class="sparkline10-graph">
