@@ -5,7 +5,7 @@
   ?>
 
 <!doctype html>
-<title>Task Assign |  SIMTRAK </title>
+<title>Team Create/Add Parameter |  GOAL MANAGEMENT </title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- select2 CSS
@@ -377,7 +377,7 @@ function myFunctiosn1() {
 <div style="margin-top:0px;margin-bottom:20px;" class="income-dashone-total shadow-reset nt-mg-b-30">
 <div class="income-title">
 <div class="main-income-head">
-<h2>Task Creation Form</h2>
+<h2>Team Create/Add Parameter</h2>
 </div>
 </div>
 <div class="sparkline10-graph">
@@ -442,7 +442,7 @@ function myFunctiosn1() {
               <div class="col-lg-3">
               </div>
               <div class="col-lg-9">
-                <a class="btn btn-primary addbutton2" style="float:right;margin-right:10px;" onclick="addInputField()">+New Task</a>
+                <a class="btn btn-primary addbutton2" style="float:right;margin-right:10px;" onclick="addInputField()">+New Parameter</a>
                 <a class="btn btn-danger" onclick="removeInputField(1)" style="float:right;">x</a>
               </div>
             </div>
@@ -619,7 +619,7 @@ function addInputField() {
             <div class="col-lg-3">
             </div>
             <div class="col-lg-9">
-              <a class="btn btn-primary addbutton2" style="float:right;margin-right:10px;" onclick="addInputField()">+New Task</a>
+              <a class="btn btn-primary addbutton2" style="float:right;margin-right:10px;" onclick="addInputField()">+New Parameter</a>
               <a class="btn btn-danger remove-lnk" onclick="removeInputField(${inputCount})" style="float:right;">x</a>
             </div>
           </div>
