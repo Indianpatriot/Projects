@@ -6,7 +6,7 @@
 
 <!doctype html>
 <html class="no-js" lang="en">
-<title>My Tasks |  SIMTRAK</title>
+<title>Member List |  GOAL MANAGEMENT</title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- select2 CSS
@@ -18,7 +18,7 @@
 
     <!-- favicon
 		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="https://adore.simtrak.in/assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="image/icon.png">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
@@ -319,7 +319,7 @@ $(document).ready(function() {
 <div class="left-custom-menu-adp-wrap" >
 <ul class="nav navbar-nav left-sidebar-menu-pro" >
 <li class="nav-item">
-<a href="home.php" aria-expanded="false" class="nav-link" title="Dashboard" ><i class="fa big-icon fa-home "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+<a href="index.php" aria-expanded="false" class="nav-link" title="Dashboard" ><i class="fa big-icon fa-home "></i> <span class="mini-dn"></span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
 </div>
 </li>

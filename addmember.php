@@ -20,7 +20,7 @@
   ?>
 
 <!doctype html>
-<title>Add Memebr |  GOAL MANAGEMENT </title>
+<title>Add Member |  GOAL MANAGEMENT </title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- select2 CSS
