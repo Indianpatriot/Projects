@@ -423,7 +423,7 @@ function myFunctiosn1() {
             <label class="login2 pull-right pull-right-pro">Date of goal:</label>
         </div>
         <div class="col-lg-9">
-            <input type="Date" class="form-control" placeholder="Date of Journal" name="date_data" value="<?php echo Date('y-m-d'); ?>" required="">
+            <input type="Date" class="form-control" placeholder="Date of Journal" name="date_data" value="<?php echo Date('d-m-y'); ?>" required="">
         </div>
       </div>
     </div>
