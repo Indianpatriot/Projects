@@ -283,7 +283,7 @@ Powered By</br>
 <div style="margin-top:0px;margin-bottom:20px" class="sparkline13-list shadow-reset mg-tb-30">
 <div class="sparkline13-hd">
 <div class="main-sparkline13-hd">
-<h1><?=$teamname->team_name?></h1>
+<h1><?php echo $_SESSION["team_name"]; ?></h1>
 <div class="sparkline13-outline-icon">
 </div>
 </div>
