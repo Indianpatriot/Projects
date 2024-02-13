@@ -17,7 +17,7 @@ if(isset($_GET["delete_goal"])){
     $sql5 = "DELETE FROM `$teamname->team_name` WHERE `ID` = '".$_GET["delete_goal"]."'";
     if(mysqli_query($conn,$sql5)){
         echo '<script type="text/javascript">';
-        echo 'window.location.href="Untitled-1.php";';
+        echo 'window.location.href="UI.php";';
         echo '</script>';
     }else{
         echo "undifined error";
