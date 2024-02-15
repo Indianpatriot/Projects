@@ -5,7 +5,7 @@
   ?>
 <!doctype html>
 <html class="no-js" lang="en">
-<title>Dashboard | SIMTRAK </title>
+<title>HOME | GOAL MANAGEMENT </title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- select2 CSS
@@ -166,32 +166,11 @@
                             <div class="mobile-menu">
                                 <nav id="dropdown">
 <ul class="mobile-menu-nav">
-<li><a data-toggle="collapse" data-target="#demo0" href="https://adore.simtrak.in/dash.php">Dashboard<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+<li><a data-toggle="collapse" data-target="#demo0" href="#">Home<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
  
    <ul id="demo" class="collapse dropdown-header-top">
                                                 
                                                 </li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo1" href="https://adore.simtrak.in/#">Trainees<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                <li><a href="https://adore.simtrak.in/addons/interns/leave.php" class="dropdown-item">Leave Apply</a></li><li><a href="https://adore.simtrak.in/addons/fr/upload.php" class="dropdown-item">Final Report</a></li><li><a href="https://adore.simtrak.in/addons/interns/journal_new.php" class="dropdown-item">Daily Journal</a></li><li><a href="https://adore.simtrak.in/addons/weekly_reviews/self_wr.php" class="dropdown-item">Weekly review New</a></li></li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo2" href="https://adore.simtrak.in/#">Go Management<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                <li><a href="https://adore.simtrak.in/addons/teams/my_tasks.php" class="dropdown-item">My Tasks</a></li><li><a href="https://adore.simtrak.in/addons/teams/my_team.php" class="dropdown-item">My Teams</a></li></li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo3" href="https://adore.simtrak.in/#">Work From Home<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                <li><a href="https://adore.simtrak.in/wfh_form1.php" class="dropdown-item">Schedules</a></li><li><a href="https://adore.simtrak.in/wfh_form2.php" class="dropdown-item">Fill Report</a></li><li><a href="https://adore.simtrak.in/wfhform_report.php" class="dropdown-item">View Report</a></li></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target="#demo5" href="https://adore.simtrak.in/signout.php">Logout<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
