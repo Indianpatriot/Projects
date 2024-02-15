@@ -186,18 +186,18 @@
                             <div class="mobile-menu">
                                 <nav id="dropdown">
 <ul class="mobile-menu-nav">
-<li><a data-toggle="collapse" data-target="#demo0" href="https://adore.simtrak.in/dash.php">Dashboard<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+<li><a data-toggle="collapse" data-target="#demo0" href="index.php">Home<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
  
    <ul id="demo" class="collapse dropdown-header-top">
                                                 
                                                 </li>
 </ul>
 </li>
-<li><a data-toggle="collapse" data-target="#demo1" href="https://adore.simtrak.in/#">Trainees<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+<li><a data-toggle="collapse" data-target="#demo1" href="#">Goal Management<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
  
    <ul id="demo" class="collapse dropdown-header-top">
                                                 
-                                                <li><a href="https://adore.simtrak.in/addons/interns/leave.php" class="dropdown-item">Leave Apply</a></li><li><a href="https://adore.simtrak.in/addons/fr/upload.php" class="dropdown-item">Final Report</a></li><li><a href="https://adore.simtrak.in/addons/interns/journal_new.php" class="dropdown-item">Daily Journal</a></li><li><a href="https://adore.simtrak.in/addons/weekly_reviews/self_wr.php" class="dropdown-item">Weekly review New</a></li></li>
+                                                <li><a href="https://adore.simtrak.in/addons/interns/leave.php" class="dropdown-item">Member Goal</a></li><li><a href="https://adore.simtrak.in/addons/fr/upload.php" class="dropdown-item">Final Report</a></li><li><a href="https://adore.simtrak.in/addons/interns/journal_new.php" class="dropdown-item">Daily Journal</a></li><li><a href="https://adore.simtrak.in/addons/weekly_reviews/self_wr.php" class="dropdown-item">Weekly review New</a></li></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target="#demo2" href="https://adore.simtrak.in/#">Go Management<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>

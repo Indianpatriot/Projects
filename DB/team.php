@@ -2,9 +2,9 @@
 
     include("dbconn.php");
     if($_SESSION['role_id']==1){
-        $sql = "SELECT * FROM `teams`";
+        $sql = "SELECT LPAD(id, 4, '0') AS id , `team_name`, `team_domain`, `Status` FROM `teams`";
     }else{
-        $sql = "SELECT * FROM `teams` where `Status` ='Active'";
+        $sql = "SELECT LPAD(id, 4, '0') AS id , `team_name`, `team_domain`, `Status` FROM `teams` where `Status` ='Active'";
     }
     $results = mysqli_query($conn ,$sql);
     $teamactive = mysqli_query($conn ,$sql);
