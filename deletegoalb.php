@@ -6,7 +6,7 @@ include("DB/dbconn.php");
     $teamname = mysqli_fetch_object($teamname_result);
 
 if(isset($_POST["delete_id"])){
-    $deletegoal = "UPDATE `$teamname->team_name` SET `Remark` = '".$_POST["remark"]."' , `goalset` = '2' WHERE '".$_POST["delete_id"]."'";
+    $deletegoal = "UPDATE `$teamname->team_name` SET `Remark` = '".$_POST["remark"]."' , `goalset` = '2' WHERE `ID` = '".$_POST["delete_id"]."'";
     if(mysqli_query($conn,$deletegoal)){
         echo "ok";
     }
