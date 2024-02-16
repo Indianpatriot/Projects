@@ -372,7 +372,7 @@ $(document).ready(function() {
               </td>
               <?php }?>
               <td><?php $table->Remark;?></td>
-              <td><?php if($_SESSION['role_id'] != 4){ ?><a href="#" onclick="window.open('deletegoal.php?delete_goal =<?$table->id?>', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-primary">delete</a><?php }?></td>
+              <td><?php if($_SESSION['role_id'] != 4){ ?><a href="#" onclick="window.open('deletegoal.php?delete_goal=<?$table->id?>', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-primary">delete</a><?php }?></td>
               <?php }?>
             </tr>
             
