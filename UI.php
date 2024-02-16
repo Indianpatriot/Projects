@@ -368,6 +368,7 @@ $(document).ready(function() {
                     echo date("d-m-Y", strtotime($table->$value));
                   }          
                 ?>
+                
               </td>
               <?php }?>
               <td></td>
