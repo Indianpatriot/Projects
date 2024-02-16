@@ -24,7 +24,6 @@ while ($para = mysqli_fetch_object($parameter_result)) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (mysqli_query($conn, $updategoal)) {
         $i = 0;
         if(isset($_POST["edit_goal_id"])){
         $updategoal = "UPDATE `$teamname` SET `goalset`= '0' WHERE `ID` = '".$_POST["edit_goal_id"]."'";
@@ -47,9 +46,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $i++;
         }
         echo "ok"; // Send response to JavaScript
-    } else {
-        echo "ok"; // Send response to JavaScript
-    }
-
 }
 ?>
