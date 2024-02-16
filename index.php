@@ -282,7 +282,7 @@ $(document).ready(function() {
               $achivement = (251/1000)*100; if($achivement <= 25 ){ ?>
               <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:red;"> <?=$t?>% </div></span></td>
               <?php }elseif($achivement <= 50 ){ ?>
-              <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:orange;"> <?=$achivement?>% </div></span></td>
+              <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:orange;"> <?=$t?>% </div></span></td>
               <?php }elseif($achivement <= 75 ){ ?>
               <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:yellow;"> <?=$achivement?>% </div></span></td>
               <?php }else{?>
