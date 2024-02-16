@@ -406,7 +406,7 @@ function myFunctiosn1() {
                   <label class="login2 pull-right pull-right-pro"><?=$value?>:</label>
               </div>
               <div class="col-lg-9">
-                  <input type="<?=$para->parameter_data_type?>" placeholder="<?=$value?>" class="form-control" id="task_name" name="<?=$c?>">
+                  <input type="<?=$para->parameter_data_type?>" placeholder="<?=$value?>" class="form-control" name="<?=$c?>">
               </div>
           </div>
       </div>
