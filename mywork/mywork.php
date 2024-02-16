@@ -1,5 +1,5 @@
 <?php
-$to_email = "shadowchor883@gmail.com";
+$to_email = "shahid576ali@gmail.com";
 $subject = "Forget password";
 $body = "Hello ,
 
