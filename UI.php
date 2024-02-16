@@ -311,7 +311,7 @@ $(document).ready(function() {
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr style="position:fixed">
               <th>Total History</th>
               <td></td>
               <?php
