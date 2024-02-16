@@ -290,7 +290,7 @@ $(document).ready(function() {
               <?php } ?>
               <?php if($_SESSION['role_id']==1){ ?>
                 <td>
-                  <a href="#" <?php if($table->Status=="Active"){ ?> class="btn btn-primary" <?php else { ?> class="btn btn-danger" <?php } ?>  title="Change Team Status" onclick="window.open('teamstatus.php?team_id=<?=$table->id?>', 'newwindow', 'width=500,height=500'); return false;"><i class='fa fa-gg-circle' aria-hidden='true'></i></a>
+                  <a href="#" <?php if($table->Status == "Active"){ ?> class="btn btn-primary" <?php else { ?> class="btn btn-danger" <?php } ?>  title="Change Team Status" onclick="window.open('teamstatus.php?team_id=<?=$table->id?>', 'newwindow', 'width=500,height=500'); return false;"><i class='fa fa-gg-circle' aria-hidden='true'></i></a>
                   <a href="#" class="btn btn-primary" title="Change Team Name" onclick="window.open('editteam.php?team_id=<?=$table->id?>', 'newwindow', 'width=500,height=500'); return false;"><i class='fa fa-edit' aria-hidden='true'></i></a>
                 </td>
               <?php } ?>
