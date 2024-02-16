@@ -37,6 +37,7 @@ if(isset($_GET["delete_goal"])){
       $array[$i] = $para->parameter;
       $i++;
     }
+    $abcd = $array[2];
     $totalsum = array_slice($array, 2);
     $totalsum = "" . implode(", ", array_map(function($item) { return "SUM(`$item`) AS `$item`"; }, $totalsum)) . "";
 // total history and month total
@@ -51,8 +52,11 @@ $totalhistory = mysqli_fetch_object($totalhistory);
 $totalmonth = "select $totalsum from `$teamname->team_name` where `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` <> '1'";
 $totalmonth = mysqli_query($conn,$totalmonth);
 $totalmonth = mysqli_fetch_object($totalmonth);
-$team_target = "UPDATE `teams` SET `Target_achiv` = '$totalmonth->$array[2]' WHERE `id` = '$teamID'";
+$ancdefg = $totalmonth->$abcd;
+echo $ancdefg;
+$team_target = "UPDATE `teams` SET `Target_achiv` = '$ancdefg' WHERE `id` = '$teamID'";
 $team_target = mysqli_query($conn,$team_target);
+echo $conn->error;
 // update goal
 if(isset($_REQUEST["team_manager_id"])){
     $updategoal = "UPDATE `$teamname->team_name` SET `Member ID` = ".$_REQUEST["team_manager_id"].", `Member Name`= '".$_REQUEST["team_manager_name"]."' WHERE `goalset` = '1'";
