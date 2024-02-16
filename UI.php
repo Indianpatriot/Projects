@@ -312,7 +312,7 @@ $(document).ready(function() {
             </thead>
             <tbody>
             <tr>
-              <th style="position:fixed">Total History</th>
+              <th>Total History</th>
               <td></td>
               <?php
               foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
