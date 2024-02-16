@@ -19,9 +19,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if($row->role_id == 3){
         if($role_id == 3){
-            $sql2 = "INSERT INTO `role_teams` (`role_id`, `team_id`, `user_id`) VALUES ('$role_id', '$teamID', '$id')";
-            if(mysqli_query($conn, $sql2)){
+            $managercheck = "SELECT * FROM `role_team` where `tema_id` = '$teamID' AND `role_id` = '$role_id'";
+            $managercheck = mysqli_num_rows($managercheck);
+            if($managercheck >=1){
                 echo "ok";
+            }else{
+                $sql2 = "INSERT INTO `role_teams` (`role_id`, `team_id`, `user_id`) VALUES ('$role_id', '$teamID', '$id')";
+                if(mysqli_query($conn, $sql2)){
+                    echo "ok";
+                } 
             }
         }else{
             echo "ok";
