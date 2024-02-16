@@ -186,7 +186,6 @@
     inherits: true;
     initial-value: 0;
   }
-  
   .pie {
     --p:0;
     --b:4px;
