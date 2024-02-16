@@ -276,7 +276,7 @@ $(document).ready(function() {
                 <td>
                   <a href="#" class="btn btn-primary" title="Change Team Status" onclick="window.open('teamstatus.php?team_id=<?=$table->id?>', 'newwindow', 'width=500,height=500'); return false;"><i class='fa fa-gg-circle' aria-hidden='true'></i></a>
                   <a href="#" class="btn btn-primary" title="Change Team Name" onclick="window.open('editteam.php?team_id=<?=$table->id?>', 'newwindow', 'width=500,height=500'); return false;"><i class='fa fa-edit' aria-hidden='true'></i></a>
-                  <span><div class="pie animate no-round" style="--p:100;--c:green;"> 80%</div></span>
+                  <span><div class="pie animate no-round" style="--p:80;--c:green;"> 80%</div></span>
                 </td>
               <?php } ?>
             </tr>
