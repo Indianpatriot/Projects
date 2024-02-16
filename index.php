@@ -258,7 +258,7 @@ $(document).ready(function() {
 <table width="100%"  id="ssss" class="table table-striped table-bordered"> 
 <thead>
     <tr>
-        <th style="width:AUTO;">Team Id</th>
+        <th style="width:fit-content;">Team Id</th>
         <th>Team Name</th>
         <th>Team Domain</th>
         <?php if($_SESSION['role_id']==1){ ?>
