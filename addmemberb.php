@@ -17,6 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $result35 = mysqli_query($conn, $sql35);
     $row = mysqli_fetch_object($result35);
             $managercheck = "SELECT * FROM `role_teams` where `tema_id` = '$teamID' AND `role_id` = '$role_id'";
+            $managercheck = mysqli_query($conn,$managercheck);
             $managercheck = mysqli_num_rows($managercheck);
             if($managercheck >=1){
                 echo "ok";
