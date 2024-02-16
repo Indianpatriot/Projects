@@ -10,7 +10,7 @@ $teamname_result = mysqli_query($conn, $sql1);
 $teamname_obj = mysqli_fetch_object($teamname_result);
 $teamname = $teamname_obj->team_name;
 
-$goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id = '$teamID' ORDER BY `goal_parameter`.`team_id` ASC ";
+$goal_parameter = "SELECT * FROM `goal_parameter` WHERE `team_id` ='0' OR `team_id` = '$teamID' ORDER BY `goal_parameter`.`team_id` ASC ";
 $parameter_result = mysqli_query($conn, $goal_parameter);
 
 
