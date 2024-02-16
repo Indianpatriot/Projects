@@ -394,6 +394,7 @@ function myFunctiosn1() {
     <?php if($value == 'Date' || $value == 'Member Name'){continue;}  ?>
       <div class="form-group-inner">
           <div class="row">
+            <input type="text" name = "edit_goal_id" value="<?=$delete_goal->ID?>" hidden>
               <div class="col-lg-3">
                   <label class="login2 pull-right pull-right-pro"><?=$value?>:</label>
               </div>
