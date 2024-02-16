@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $row = mysqli_fetch_object($result35);
             $managercheck = "SELECT * FROM `role_teams` where `tema_id` = '$teamID' AND `role_id` = '$role_id'";
             $managercheck = mysqli_num_rows($managercheck);
-            if($managercheck <=1){
+            if($managercheck >=1){
                 echo "ok";
             }else{
                 $sql2 = "INSERT INTO `role_teams` (`role_id`, `team_id`, `user_id`) VALUES ('$role_id', '$teamID', '$id')";
