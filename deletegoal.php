@@ -4,7 +4,7 @@
     $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
     $teamname_result = mysqli_query($conn, $sql1);
     $teamname = mysqli_fetch_object($teamname_result);
-    $delete_goal = "SELECT * FROM `$teamname->team_name` WHERE `ID` = '.$_GET["delete_goal"].'";
+    $delete_goal = "SELECT * FROM `$teamname->team_name` WHERE `ID` = '".$_GET["delete_goal"]."'";
     $delete_goal = mysqli_query($conn, $delete_goal);
     $delete_goal = mysqli_fetch_object($delete_goal);
 
