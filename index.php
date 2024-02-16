@@ -279,7 +279,7 @@ $(document).ready(function() {
               <td>team cordinator</td>
               <?php $ta = $table->Target_achiv;
                     $t = $table->Target;
-              $achivement = ($ta/$t)*100; if($achivement <= 25 ){ ?>
+              $achivement = (251/1000)*100; if($achivement <= 25 ){ ?>
               <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:red;"> <?=$achivement?>% </div></span></td>
               <?php }elseif($achivement <= 50 ){ ?>
               <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:orange;"> <?=$achivement?>% </div></span></td>
