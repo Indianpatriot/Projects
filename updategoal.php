@@ -435,11 +435,11 @@ function myFunctiosn1() {
                   <label class="login2 pull-right pull-right-pro"><?=$para->parameter?>:</label>
               </div>
               <div class="col-lg-9">
-                  <input type="<?=$para->parameter_data_type?>" placeholder="<?=$para->parameter?>" class="form-control" id="task_name" name="<?=$c?>" >
+                  <input type="<?=$para->parameter_data_type?>" placeholder="<?=$para->parameter?>" class="form-control" id="task_name" name="<?=$c?>" <?php $c++; ?>>
               </div>
           </div>
       </div>
-    <?php $c++;  }?>
+    <?php }?>
     <center>
       <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
       <script>'.$window_close.'</script>
