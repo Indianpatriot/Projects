@@ -261,8 +261,8 @@ $(document).ready(function() {
         <th style="width: 10%;">Team Id</th>
         <th>Team Name</th>
         <th>Team Domain</th>
-        <th>team manager</th>
-        <th>team coordinator</th>
+        <th>Team Manager</th>
+        <th>Team Coordinator</th>
         <th>Team Achivement</th>
         <?php if($_SESSION['role_id']==1){ ?>
         <th>Team Status/Edit</th>
