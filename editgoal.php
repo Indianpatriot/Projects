@@ -295,7 +295,7 @@ $(document).ready(function(){
         console.log("Form submitted"); // Log message to ensure the form submission event is triggered
         $.ajax({
             type: 'POST',
-            url: 'monthgoalb.php',
+            url: 'editgoalb.php',
             data: new FormData(this),
             contentType: false,
             cache: false,
