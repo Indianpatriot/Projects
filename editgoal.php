@@ -1,5 +1,5 @@
 <?php 
-    include("DB/dbconn.php"); 
+    include("Untitled-1b.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
     $teamID = $_SESSION["team_id"];
