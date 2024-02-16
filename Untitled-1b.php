@@ -105,6 +105,7 @@ while($user_id = mysqli_fetch_object($role_result)){
 
 $inputpara = array();
 $i=0;
+$z=0;
 $goalp = array();
     while($parat = mysqli_fetch_object($goalparameters)){
       if($parat->parameter=="Date" || $parat->parameter == 'Member Name'){
@@ -112,15 +113,16 @@ $goalp = array();
       }  
       $goalp[$i] = $parat->parameter;  
       $i++;
-    }
-    $z=0;
-    while(isset($_REQUEST[$z])){ 
-        if(isset($_REQUEST[$z])){
-            $inputpara[$z] = $_REQUEST[$z];
-        }else{
-            $inputpara[$z] = 0;
-        }
+      if(isset($_REQUEST[$z])){
+        $inputpara[$z] = $_REQUEST[$z];
+      }else{
+        $inputpara[$z] = 0;
+      }
         $z++;
+    }
+   
+    while(isset($_REQUEST[$z])){ 
+        
     }
 // update goal date wise
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
