@@ -394,12 +394,12 @@ function myFunctiosn1() {
     <?php if($value == 'Date' || $value == 'Member Name'){continue;}  ?>
       <div class="form-group-inner">
           <div class="row">
-            <input type="text" name="edit_goal_id" value="<?=$delete_goal->ID?>" hidden>
+            <input type="text" name="edit_goal_id" value="<?=$delete_goal->ID?>" hidden required>
               <div class="col-lg-3">
                   <label class="login2 pull-right pull-right-pro"><?=$value?>:</label>
               </div>
               <div class="col-lg-9">
-                  <input type="<?=$para->parameter_data_type?>" value="<?=$delete_goal->$value?>" class="form-control" id="task_name" name="<?=$c?>">
+                  <input type="<?=$para->parameter_data_type?>" value="<?=$delete_goal->$value?>" class="form-control" id="task_name" name="<?=$c?>" required>
               </div>
           </div>
       </div>
