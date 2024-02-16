@@ -17,7 +17,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $result35 = mysqli_query($conn, $sql35);
     $row = mysqli_fetch_object($result35);
 
-    if($row->role_id == 3){
         if($role_id == 3){
             $managercheck = "SELECT * FROM `role_team` where `tema_id` = '$teamID' AND `role_id` = '$role_id'";
             $managercheck = mysqli_num_rows($managercheck);
@@ -32,13 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }else{
             echo "ok";
         }
-    }else{
-        $sql1 = "UPDATE `users` SET `role_id`='$role_id' WHERE `id` = '$id' ";
-        $sql2 = "INSERT INTO `role_teams` (`role_id`, `team_id`, `user_id`) VALUES ('$role_id', '$teamID', '$id')";
-        if(mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)){
-            echo "ok";
-        }
-    }
+    
 }
 
 
