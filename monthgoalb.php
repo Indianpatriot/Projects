@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }else{
                 $parameter_value = 0;
             }
-            if($i==1){
+            if($i==0){
                 $team_target = "UPDATE `teams` SET `Target` = '$parameter_value' WHERE `id` = '$teamID'";
                 $team_target = mysqli_query($conn,$team_target);
             }
