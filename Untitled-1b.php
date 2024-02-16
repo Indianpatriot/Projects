@@ -53,10 +53,10 @@ $totalmonth = "select $totalsum from `$teamname->team_name` where `Date` BETWEEN
 $totalmonth = mysqli_query($conn,$totalmonth);
 $totalmonth = mysqli_fetch_object($totalmonth);
 $ancdefg = $totalmonth->$abcd;
-echo $ancdefg;
+
 $team_target = "UPDATE `teams` SET `Target_achiv` = '$ancdefg' WHERE `id` = '$teamID'";
 $team_target = mysqli_query($conn,$team_target);
-echo $conn->error;
+
 // update goal
 if(isset($_REQUEST["team_manager_id"])){
     $updategoal = "UPDATE `$teamname->team_name` SET `Member ID` = ".$_REQUEST["team_manager_id"].", `Member Name`= '".$_REQUEST["team_manager_name"]."' WHERE `goalset` = '1'";
