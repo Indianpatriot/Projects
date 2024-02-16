@@ -8,7 +8,7 @@ Please keep it confidential and do not share it with anyone.
 
 Best regards,
 Simtrak Team";
-$headers = "From: aishwaryasingh6807@gmail.com";
+$headers = "From: aishwaryasingh44092@gmail.com";
 mail($to_email, $subject, $body, $headers);
 
 
