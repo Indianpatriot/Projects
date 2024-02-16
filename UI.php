@@ -287,6 +287,9 @@ Powered By</br>
 <div class="sparkline13-outline-icon">
 </div>
 </div>
+<?php if(isset($_SESSION["allready"])){ ?>
+        <script>window.alert("<?=$_SESSION["allready"]?>");</script>
+      <?php unset($_SESSION["allready"]); } ?>
 </div><script type="text/javascript" class="init">
 $(document).ready(function() {
 	$('#ssss').DataTable({

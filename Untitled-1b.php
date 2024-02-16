@@ -139,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($rowcount >= 1) {
             // Data is already present, alert the user
             $_SESSION["allready"] = "$user_array_name[$i], already filled goal";
-            echo "already_filled";
+            echo "ok";
         } else {
             // Insert data into the database
             $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`, $result VALUES ('$user_array_id[$i]', '$user_array_name[$i]', $results";
