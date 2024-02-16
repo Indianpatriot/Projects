@@ -13,8 +13,7 @@ $teamname = $teamname_obj->team_name;
 $goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id = '$teamID' ORDER BY `goal_parameter`.`team_id` ASC ";
 $parameter_result = mysqli_query($conn, $goal_parameter);
 
-$parameters = array();
-$goalparameters = array();
+
 $array = array();
 $i = 0;
 
