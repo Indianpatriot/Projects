@@ -283,7 +283,7 @@ $(document).ready(function() {
               <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:orange;"> <?=$achivement?>% </div></span></td>
               <?php }elseif($achivement <= 75 ){ ?>
               <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:yellow;"> <?=$achivement?>% </div></span></td>
-              <?php }elseif($achivement <= 100 ){ ?>
+              <?php }else{?>
               <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:green;"> <?=$achivement?>% </div></span></td>
               <?php } ?>
               <?php if($_SESSION['role_id']==1){ ?>
