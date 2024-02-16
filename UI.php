@@ -377,7 +377,7 @@ $(document).ready(function() {
                   <?php if($table->goalset == 2){ ?>
                     <a href="#" onclick="window.open('editgoal.php?delete_goal=<?=$table->ID?>', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-danger">Edit</a>
                   <?php } ?>
-                  <a href="#" onclick="window.open('deletegoal.php?delete_goal=<?=$table->ID?>', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-primary">delete</a>
+                    <a href="#" onclick="window.open('deletegoal.php?delete_goal=<?=$table->ID?>', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-primary">delete</a>
                 <?php }?></td>
               <?php }?>
             </tr>
