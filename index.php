@@ -269,7 +269,7 @@ $(document).ready(function() {
 <tbody>
             <?php while($table = mysqli_fetch_object($results)){ ?>
             <tr>
-              <td style="width:fit-content;"><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></td>
+              <td style="width: 10%;"><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></td>
               <td><?php echo $table->team_name; ?></td>
               <td><?php echo $table->team_domain; ?></td>
               <?php if($_SESSION['role_id']==1){ ?>
