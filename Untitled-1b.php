@@ -13,7 +13,7 @@ $goalset = "SELECT * FROM `$teamname->team_name` where `goalset`='1'";
 $goalset = mysqli_query($conn,$goalset);
 $goalset = mysqli_fetch_object($goalset);
 // $achieve = "SELECT SUM() AS total_quantity FROM sales WHERE order_date BETWEEN '2022-01-01' AND '2022-12-31'"
-if(isset($_GET["delete_goal"])){
+if(isset($_GET["delete_fgdgoal"])){
     $sql5 = "DELETE FROM `$teamname->team_name` WHERE `ID` = '".$_GET["delete_goal"]."'";
     if(mysqli_query($conn,$sql5)){
         echo '<script type="text/javascript">';
