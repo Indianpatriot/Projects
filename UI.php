@@ -337,6 +337,15 @@ $(document).ready(function() {
               <?php } ?>
               <td></td>
             </tr>
+            <tr>
+              <th>Month Goal remaining</th>
+              <td></td>
+              <?php
+              foreach($array as $value){ if($value=="Date" || $value == "Member Name"){continue;}?>
+              <td><?=($goalset->$value-$totalmonth->$value) ?></td>
+              <?php } ?>
+              <td></td>
+            </tr>
             
             <?php 
               $row=0; 
