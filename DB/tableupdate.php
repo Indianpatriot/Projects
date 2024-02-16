@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `Jupiter` ADD `Remark` VARCHAR(100) NOT NULL AFTER `goalset`";
+    $sql = "UPDATE `LSET` SET `goalset` = '1' WHERE `ID` = '4'";
 
     if($conn->query($sql)){
         echo "done ok";
