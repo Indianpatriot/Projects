@@ -1,8 +1,13 @@
 <?php 
     include("DB/dbconn.php");
-    $sql = "SELECT * FROM `teams` WHERE id = '" . $_GET['team_id'] . "'";
-    $teamactive = mysqli_query($conn ,$sql);
-    $table = mysqli_fetch_object($teamactive);
+    $teamID = $_SESSION["team_id"];
+    $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
+    $teamname_result = mysqli_query($conn, $sql1);
+    $teamname = mysqli_fetch_object($teamname_result);
+    $delete_goal = "SELECT * FROM `$teamname->team_name` WHERE `ID` = '.$_GET["delete_goal"].'";
+    $delete_goal = mysqli_query($conn, $delete_goal);
+    $delete_goal = mysqli_fetch_object($delete_goal);
+
   ?>
 
 <!doctype html>
@@ -289,7 +294,7 @@ $(document).ready(function(){
         console.log("Form submitted"); // Log message to ensure the form submission event is triggered
         $.ajax({
             type: 'POST',
-            url: 'teamstatusb.php',
+            url: 'deletegoalb.php',
             data: new FormData(this),
             contentType: false,
             cache: false,
@@ -381,18 +386,11 @@ function myFunctiosn1() {
 <div class="all-form-element-inner">
   <div id="formbox">
     <form id="uploadForm" enctype="multipart/form-data">
-        <input type="text" name="team_id" value="<?=$table->id?>" required hidden>
+        <input type="text" name="delete_id" value="<?=$delete_goal->ID?>" required hidden>
         <div class="form-group-inner">
         <div class="form-group">
-            <input type="text" id="old_value" class="form-control" placeholder="Old Value" value="<?=$table->Status?>" readonly="">
+            <input type="text" id="old_value" name="remark" class="form-control" placeholder="Reason" required>
         </div>
-        <div class="form-group">
-            <select style="width:100%" class="select2_demo_3 form-control" name="team_activation" id="new_value" required="" tab-index="-1">
-              <option value="Active" <?php if($table->Status=="Active"){ echo "selected"; } ?>>Active</option>
-              <option value="Inactive" <?php if($table->Status=="Inactive"){ echo "selected"; } ?>>Inactive</option>
-            </select>
-        </div>
-      
     </div>
     <center>
       <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp Submit</button> 
