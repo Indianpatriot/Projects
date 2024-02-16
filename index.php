@@ -261,6 +261,9 @@ $(document).ready(function() {
         <th style="width: 10%;">Team Id</th>
         <th>Team Name</th>
         <th>Team Domain</th>
+        <th>team manager</th>
+        <th>team coordinator</th>
+        <th>Team Achivement</th>
         <?php if($_SESSION['role_id']==1){ ?>
         <th>Team Status/Edit</th>
         <?php } ?>
@@ -272,11 +275,21 @@ $(document).ready(function() {
               <td style="width: 10%;"><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></td>
               <td><?php echo $table->team_name; ?></td>
               <td><?php echo $table->team_domain; ?></td>
+              <td>team manager</td>
+              <td>team cordinator</td>
+              <?php $achivement=98; if($achivement <= 25 ){ ?>
+              <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:red;"> <?=$achivement?>% </div></span></td>
+              <?php }elseif($achivement <= 50 ){ ?>
+              <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:orange;"> <?=$achivement?>% </div></span></td>
+              <?php }elseif($achivement <= 75 ){ ?>
+              <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:yellow;"> <?=$achivement?>% </div></span></td>
+              <?php }elseif($achivement <= 100 ){ ?>
+              <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:green;"> <?=$achivement?>% </div></span></td>
+              <?php } ?>
               <?php if($_SESSION['role_id']==1){ ?>
                 <td>
                   <a href="#" class="btn btn-primary" title="Change Team Status" onclick="window.open('teamstatus.php?team_id=<?=$table->id?>', 'newwindow', 'width=500,height=500'); return false;"><i class='fa fa-gg-circle' aria-hidden='true'></i></a>
                   <a href="#" class="btn btn-primary" title="Change Team Name" onclick="window.open('editteam.php?team_id=<?=$table->id?>', 'newwindow', 'width=500,height=500'); return false;"><i class='fa fa-edit' aria-hidden='true'></i></a>
-                  <span><div class="pie animate no-round" style="--p:80;--c:green;"> 80%</div></span>
                 </td>
               <?php } ?>
             </tr>
