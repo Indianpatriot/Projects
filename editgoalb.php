@@ -51,5 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "error"; // Send response to JavaScript
     }
+    echo "ok";
 }
 ?>
