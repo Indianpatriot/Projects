@@ -277,7 +277,9 @@ $(document).ready(function() {
               <td><?php echo $table->team_domain; ?></td>
               <td>team manager</td>
               <td>team cordinator</td>
-              <?php $achivement = ($table->Target_achiv/$table->Target)%100; if($achivement <= 25 ){ ?>
+              <?php $ta = $table->Target_achiv;
+                    $t  = $table->Target;
+              $achivement = ($ta/$t)%100; if($achivement <= 25 ){ ?>
               <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:red;"> <?=$achivement?>% </div></span></td>
               <?php }elseif($achivement <= 50 ){ ?>
               <td><span><div class="pie animate no-round" style="--p:<?=$achivement?>;--c:orange;"> <?=$achivement?>% </div></span></td>
