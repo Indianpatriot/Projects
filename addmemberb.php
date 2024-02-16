@@ -25,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }else{
                 $sql2 = "INSERT INTO `role_teams` (`role_id`, `team_id`, `user_id`) VALUES ('$role_id', '$teamID', '$id')";
                 if(mysqli_query($conn, $sql2)){
-                    echo "ok";
+                    echo "okg";
                 } 
             }
         }else{
