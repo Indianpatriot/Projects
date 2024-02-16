@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["newteam"])){
         $newteam = $_POST["newteam"];
         $teamdomain = $_POST["teamdomain"];           
-        $sql1 = "CREATE TABLE `$newteam` (`ID` INT(10) NOT NULL AUTO_INCREMENT, `goalset` VARCHAR(50) NOT NULL , `Member ID` INT(10) NOT NULL , `Member Name` VARCHAR(50) NOT NULL , `Date` DATE NOT NULL, PRIMARY KEY (`ID`))";
+        $sql1 = "CREATE TABLE `$newteam` (`ID` INT(10) NOT NULL AUTO_INCREMENT, `goalset` VARCHAR(50) NOT NULL , `Member ID` INT(10) NOT NULL , `Member Name` VARCHAR(50) NOT NULL , `Date` DATE NOT NULL, `Remark` VARCHAR(100), PRIMARY KEY (`ID`))";
         $sql2 = "INSERT INTO `teams`(`team_name`, `team_domain`,`Status`) VALUES ('$newteam','$teamdomain','Active')";
         if(mysqli_query($conn,$sql1) && mysqli_query($conn,$sql2)){
             $sql3 = "SELECT * FROM `teams` WHERE `team_name` = '$newteam'";
