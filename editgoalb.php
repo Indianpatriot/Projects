@@ -1,7 +1,6 @@
 <?php
 include("DB/dbconn.php");
 
-session_start(); // Start the session to access session variables
 $username = $_SESSION['user_id'];
 
 // Fetch team goal
