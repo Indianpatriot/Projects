@@ -387,19 +387,16 @@ function myFunctiosn1() {
 <div class="all-form-element-inner">
   <div id="formbox">
     <form id="uploadForm" enctype="multipart/form-data">
-    <input type="text" name="team_manager_id" value="<?=$_SESSION['user_id']?>" hidden require>
-    <input type="text" name="team_manager_name" value="<?=$_SESSION['user_name']?>" hidden require>
-                  
+    <input type="text" name="edit_goal_id" value="<?=$delete_goal->ID?>" hidden require>              
     <?php $c=0; foreach ($array as $value) { ?>
     <?php if($value == 'Date' || $value == 'Member Name'){continue;}  ?>
       <div class="form-group-inner">
           <div class="row">
-            <input type="text" name="edit_goal_id" value="<?=$delete_goal->ID?>" hidden required>
               <div class="col-lg-3">
                   <label class="login2 pull-right pull-right-pro"><?=$value?>:</label>
               </div>
               <div class="col-lg-9">
-                  <input type="<?=$para->parameter_data_type?>" value="<?=$delete_goal->$value?>" class="form-control" id="task_name" name="<?=$c?>" required>
+                  <input type="<?=$para->parameter_data_type?>" value="<?=$delete_goal->$value?>" class="form-control" id="task_name" name="<?=$c?>" require>
               </div>
           </div>
       </div>
