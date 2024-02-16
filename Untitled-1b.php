@@ -110,7 +110,9 @@ $goalp = array();
     $z=0;
     while(isset($_REQUEST[$z])){ 
         if(isset($_REQUEST[$z])){
-        $inputpara[$z] = $_REQUEST[$z];
+            $inputpara[$z] = $_REQUEST[$z];
+        }else{
+            $inputpara[$z] = 0;
         }
         $z++;
     }
