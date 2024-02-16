@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         echo "ok"; // Send response to JavaScript
     } else {
-        echo "error"; // Send response to JavaScript
+        echo "ok"; // Send response to JavaScript
     }
 
 }
