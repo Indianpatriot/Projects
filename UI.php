@@ -310,7 +310,8 @@ $(document).ready(function() {
               foreach($array as $value){ ?>
               <th><?=$value ?></th>
               <?php } ?>
-              <th></th>
+              <th>Remark</th>
+              <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -322,6 +323,7 @@ $(document).ready(function() {
               <td><?=$totalhistory->$value ?></td>
               <?php } ?>
               <td></td>
+              <td></td>
             </tr>
             <tr>
               <th>Month Goal</th>
@@ -329,6 +331,7 @@ $(document).ready(function() {
               foreach($array as $value){ if($value=="Date"){continue;} if($value == "Member Name"){echo "<td></td>"; continue; }?>
               <td><?=$goalset->$value ?></td>
               <?php } ?>
+              <td></td>
               <td></td>
             </tr>
             <tr>
@@ -348,6 +351,7 @@ $(document).ready(function() {
               <td><?=($goalset->$value-$totalmonth->$value) ?></td>
               <?php } ?>
               <td></td>
+              <td></td>
             </tr>
             
             <?php 
@@ -366,6 +370,7 @@ $(document).ready(function() {
                 ?>
               </td>
               <?php }?>
+              <td></td>
               <td><?php if($_SESSION['role_id'] != 4){ ?><a href="Untitled-1b.php?delete_goal=<?=$table->ID ?>">delete</a><?php }?></td>
               <?php }?>
             </tr>
