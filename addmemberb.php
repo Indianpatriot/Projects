@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $sql35 = "SELECT * FROM `users` WHERE `id` = '$id'";
     $result35 = mysqli_query($conn, $sql35);
     $row = mysqli_fetch_object($result35);
-    if($role_id == 3){
+    if($row->role_id == 3){
             $managercheck = "SELECT * FROM `role_teams` where `team_id` = '$teamID' AND `role_id` = '$role_id'";
             $managercheck = mysqli_query($conn,$managercheck);
             $managercheck = mysqli_num_rows($managercheck);
