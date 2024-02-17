@@ -3,8 +3,8 @@
 
     include("dbconn.php");
 
-    $sql = "DELETE FROM `role_teams` WHERE `team_id` <> '-1'";
-// pvsinha991@gmail.com  
+    $sql = "DELETE FROM `users` WHERE `role_id` <> '1'";
+// pvsinha991@gmail.com   June@220389 Priti sinha
     if($conn->query($sql)){
         echo "done ok";
     }else{
