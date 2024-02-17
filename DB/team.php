@@ -6,8 +6,8 @@
     }else{
         $selectedteam = "SELECT * FROM `role_teams` WHERE `user_id` = '".$_SESSION['user_id']."'";
         $selectedteam = mysqli_query($conn,$selectedteam);
-        $selectids = array[];
-        $i = 0;
+        // $selectids = array[];
+        // $i = 0;
         // while($selecteteam = mysqli_fetch_object($selectedteam)){
         //    $selectids[$i] = $selecteteam->team_id;
         //    $i++; 
