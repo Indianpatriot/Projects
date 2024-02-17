@@ -38,22 +38,6 @@ if(isset($_GET["delete_fgdgoal"])){
       $i++;
     }
     $abcd = $array[2];
-    $totalsum = array_slice($array, 2);
-    $totalsum = "" . implode(", ", array_map(function($item) { return "SUM(`$item`) AS `$item`"; }, $totalsum)) . "";
-// total history and month total
-$year = date('Y');
-$month = date('n');
-$start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
-$end_date = date('Y-m-t', strtotime($start_date));
-$totalhistory = "select $totalsum from `$teamname->team_name` where `goalset` = '0'";
-$totalhistory = mysqli_query($conn,$totalhistory);
-$totalhistory = mysqli_fetch_object($totalhistory);
-
-$totalmonth = "select $totalsum from `$teamname->team_name` where `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0'";
-$totalmonth = mysqli_query($conn,$totalmonth);
-$totalmonth = mysqli_fetch_object($totalmonth);
-$ancdefg = $totalmonth->$abcd;
-
 $team_target = "UPDATE `teams` SET `Target_achiv` = '$ancdefg' WHERE `id` = '$teamID'";
 $team_target = mysqli_query($conn,$team_target);
 
