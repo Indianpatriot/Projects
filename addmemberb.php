@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $managercheck = mysqli_query($conn,$managercheck);
             $managercheck = mysqli_num_rows($managercheck);
             if($managercheck >=1){
-                echo "ok";
+                echo "oka";
             }else{
                 $sql2 = "INSERT INTO `role_teams` (`role_id`, `team_id`, `user_id`) VALUES ('$role_id', '$teamID', '$id')";
                 $sql3 = "UPDATE `users` SET `role_id`='3' WHERE `id` = '$userId'";
