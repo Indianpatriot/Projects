@@ -275,7 +275,7 @@ $(document).ready(function() {
               <td style="width: 10%;"><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></td>
               <td><?php echo $table->team_name; ?></td>
               <td><?php echo $table->team_domain; ?></td>
-              <td>team manager</td>
+              <td><?php echo $table->team_manager;</td>
               <td>team cordinator</td>
               <?php $ta = $table->Target_achiv;
                     $t = $table->Target;
