@@ -404,7 +404,7 @@ function myFunctiosn1() {
                 <div class="chosen-select-single">
 		            <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="membername" required>
                         <?php while($memberlist = mysqli_fetch_object($normaladdmember)){ ?>
-                            <option value="<?=$memberlist->id?>"><?=$memberlist->id?></option>
+                            <option value="<?=$memberlist->id?>"><?=$memberlist->username?></option>
                         <?php } ?>
                     </select>
 		        </div>
