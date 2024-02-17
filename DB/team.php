@@ -6,7 +6,7 @@
     }else{
         $selectedteam = "SELECT * FROM `role_teams`";
         $selectedteam = mysqli_query($conn,$selectedteam);
-        $selectids = array[];
+        $selectids = array();
         $i = 0;
         while($selecteteam = mysqli_fetch_object($selectedteam)){
            $selectids[$i] = $selecteteam->team_id;
