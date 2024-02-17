@@ -118,7 +118,7 @@ $goalp = array();
         if(isset($_REQUEST[$z])){
             $inputpara[$z] = $_REQUEST[$z];
         }else{
-            $inputpara[$z] = 0;
+            $inputpara[$z] = "0";
         }
         $z++;
     }
