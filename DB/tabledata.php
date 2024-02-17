@@ -2,7 +2,7 @@
 
 include("dbconn.php");
 
-$query = "SELECT * FROM `goal_parameter`";
+$query = "SELECT * FROM `Jupiter`";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
     // Fetch the result as an associative array
