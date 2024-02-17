@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DELETE FROM `users` WHERE `role_id` <> '1'";
+    $sql = "INSERT `users` (`id`,`username`,`email`,`password`,`role_id`) VALUE('50','Priti Sinha','pvsinha991@gmail.com','June@220389','5')";
 // pvsinha991@gmail.com   June@220389 Priti sinha
     if($conn->query($sql)){
         echo "done ok";
