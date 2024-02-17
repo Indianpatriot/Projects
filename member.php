@@ -431,7 +431,7 @@ function goBack() {
 <div style="margin-top:0px;margin-bottom:20px;" class="income-dashone-total shadow-reset nt-mg-b-30">
 <div class="income-title">
 <div class="main-income-head">
-<h2>Member List<span style="float: right; margin-top: -7px;"><a class="btn btn-primary" href="#" onclick="window.open('addmember.php','Task Create','width=1500,height=400')">Add Member</a></span></h2>
+<h2>Member List<?php if($_SESSION["role_id"] != 4){ ?><span style="float: right; margin-top: -7px;"><a class="btn btn-primary" href="#" onclick="window.open('addmember.php','Task Create','width=1500,height=400')">Add Member</a></span><?php } ?></h2>
 </h2>
 </div>
 </div><div class="sparkline10-graph" style="overflow-x:scroll; overflow-y:hidden; border solid 0px;">
