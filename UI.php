@@ -375,10 +375,12 @@ $(document).ready(function() {
               <td>
                 <?php if($_SESSION['role_id'] != 4){ ?>
                   <?php if($table->goalset == 2){ ?>
-                    <a href="#" onclick="window.open('editgoal.php?delete_goal=<?=$table->ID?>', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-danger">Edit</a>
+                    <a href="#" title="Edit Goal"  onclick="window.open('editgoal.php?delete_goal=<?=$table->ID?>', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-danger">E</a>
                   <?php } ?>
-                    <a href="#" onclick="window.open('deletegoal.php?delete_goal=<?=$table->ID?>', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-primary">delete</a>
-                <?php }?></td>
+                  <a href="#" title="Review Goal" onclick="window.open('deletegoal.php?delete_goal=<?=$table->ID?>', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-primary">R</a>
+                  <a href="#" title="Delete Goal" onclick="window.open('<?=$table->ID?>', 'newwindow', 'width=500,height=500'); return false;" class="btn btn-success">X</a>
+                <?php }?>
+              </td>
               <?php }?>
             </tr>
             
