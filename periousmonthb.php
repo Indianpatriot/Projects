@@ -20,7 +20,7 @@ if(isset($_SESSION["month"])){
     $end_date = date('Y-m-t', strtotime($start_date));
 }
 if(isset($_POST["membername"])){
-    if($_POST["membername"] == "all_goal"){
+    if($_POST["membername"] === "all_goal"){
         unset($_SESSION["individualid"]);
     }else{
         $_SESSION["individualid"] = $_POST["memebrname"];
