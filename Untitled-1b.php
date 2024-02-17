@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "ok";
         } else {
             // Insert data into the database
-            $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`, $result VALUES ('$user_array_id[$i]', '$user_array_name[$i]', $results";
+            $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('$user_array_id[$i]', '$user_array_name[$i]','0', $results";
             if (mysqli_query($conn, $goal)) {
                 // Data inserted successfully
                 echo "ok";
