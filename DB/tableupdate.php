@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "UPDATE `LSET` SET `goalset` = '1' WHERE `ID` = '4'";
+    $sql = "ALTER TABLE `teams` CHANGE `team_co-ordinator` `team_coordinator` VARCHAR(50)";
 
     if($conn->query($sql)){
         echo "done ok";

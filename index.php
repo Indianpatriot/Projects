@@ -276,7 +276,7 @@ $(document).ready(function() {
               <td><?php echo $table->team_name; ?></td>
               <td><?php echo $table->team_domain; ?></td>
               <td><?php echo $table->team_manager;</td>
-              <td>team cordinator</td>
+              <td><?php echo $table->team_team_coordinator</td>
               <?php $ta = $table->Target_achiv;
                     $t = $table->Target;
               $achivement = (float)($table->Target_achiv/$table->Target)*100; $achivement = number_format($achivement, 2); if($achivement <= 25 ){ ?>
