@@ -10,6 +10,7 @@
         $i = 0;
         while($selecteteam = mysqli_fetch_object($selectedteam)){
            $selectids[$i] = $selecteteam->team_id;
+           echo $selectid;
            $i++; 
         }
         $selectid = "(" . implode(",", $selectids) . ")";
