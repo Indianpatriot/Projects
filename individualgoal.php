@@ -403,9 +403,13 @@ function myFunctiosn1() {
           <div class="col-lg-9">
                 <div class="chosen-select-single">
 		            <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="membername" required>
-                        <?php while($memberlist = mysqli_fetch_object($normaladdmember)){ ?>
-                            <option value="<?=$memberlist->id?>"><?=$memberlist->username?></option>
+                    <?php $sno=1; for($i=0; $i<count($user_array_id);$i++){ ?>
+                        <?php for($j=0; $j<count($role_array_id);$j++){ ?>
+                            <?php if($user_array_id[$i] == $role_array_id[$j]){ ?>
+                                <option value="<?=$user_array_id[$i]?>"><?=$user_array_name[$i]?></option>
+                            <?php $sno++; } ?>
                         <?php } ?>
+                    <?php }?>
                     </select>
 		        </div>
           </div>

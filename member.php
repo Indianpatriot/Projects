@@ -447,7 +447,7 @@ function goBack() {
 					</thead>
 					
 					<tbody>
-                    <?php $sno=1; for($i=0; $i<count($user_array_id);$i++){ ?>
+                <?php $sno=1; for($i=0; $i<count($user_array_id);$i++){ ?>
                   <?php for($j=0; $j<count($role_array_id);$j++){ ?>
                     <?php if($user_array_id[$i] == $role_array_id[$j]){ ?>
                       <tr>
