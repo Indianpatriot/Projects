@@ -12,7 +12,6 @@
            $selectids[$i] = $selecteteam->team_id;
            $i++; 
         }
-        $selectid = "(" . implode(",", $selectids) . ")";
         $sql = "SELECT LPAD(id, 4, '0') AS id , `team_name`, `team_domain`, `Status`,`team_manager`,`team_coordinator`,`Target`,`Target_achiv` FROM `teams` where `Status` ='Active' AND `id` = '1'";
     }
     $results = mysqli_query($conn ,$sql);
