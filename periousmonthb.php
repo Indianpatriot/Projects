@@ -1,7 +1,7 @@
 <?php
 include("DB/dbconn.php");
 $teamname = $_SESSION["team_name"];
-$goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]." ORDER BY `goal_parameter`.`team_id` ASC ";
+$goal_parameter = "SELECT * FROM `goal_parameter WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]." ORDER BY `goal_parameter`.`team_id` ASC ";
 $parameter = mysqli_query($conn,$goal_parameter);  
 $array = array();
 $i = 0;
@@ -13,9 +13,9 @@ $totalsum = array_slice($array, 2);
 $totalsum = "" . implode(", ", array_map(function($item) { return "SUM(`$item`) AS `$item`"; }, $totalsum)) . "";
 // total history and month total
 
-if(isset($_POST["select_month"])){
-    $_SESSION["month"] = $_POST["select_month"];
-    $_SESSION["year"] = $_POST["select_year"];
+if(isset($_POST["SELECT_month"])){
+    $_SESSION["month"] = $_POST["SELECT_month"];
+    $_SESSION["year"] = $_POST["SELECT_year"];
     echo "ok";
 }   
 if(isset($_SESSION["month"])){
@@ -39,18 +39,18 @@ if(isset($_POST["membername"])){
     
 }
 if(isset($_SESSION["individualid"])){
-    $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND 'Member ID' = '".$_SESSION["individualid"]."' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
-    $totalhistory = "select $totalsum from `$teamname` where `goalset` = '0' AND 'Member ID' = '".$_SESSION["individualid"]."'";
-    $totalmonth = "select $totalsum from `$teamname` where `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0' AND 'Member ID' = '".$_SESSION["individualid"]."'";
+    $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND `Member ID` = '".$_SESSION["individualid"]."' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
+    $totalhistory = "SELECT $totalsum FROM `$teamname` WHERE `goalset` = '0' AND `Member ID` = '".$_SESSION["individualid"]."'";
+    $totalmonth = "SELECT $totalsum FROM `$teamname` WHERE `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0' AND `Member ID` = '".$_SESSION["individualid"]."'";
 }else{
     if($_SESSION['role_id'] != 4){
         $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
-        $totalhistory = "select $totalsum from `$teamname` where `goalset` = '0'";
-        $totalmonth = "select $totalsum from `$teamname` where `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0'";        
+        $totalhistory = "SELECT $totalsum FROM `$teamname` WHERE `goalset` = '0'";
+        $totalmonth = "SELECT $totalsum FROM `$teamname` WHERE `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0'";        
     }else{
-        $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND 'Member ID' = '".$_SESSION['user_id']."' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
-        $totalhistory = "select $totalsum from `$teamname` where `goalset` = '0' 'Member ID' = '".$_SESSION["individualid"]."'";
-        $totalmonth = "select $totalsum from `$teamname` where `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0' AND 'Member ID' = '".$_SESSION["individualid"]."'";        
+        $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND `Member ID` = '".$_SESSION['user_id']."' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
+        $totalhistory = "SELECT $totalsum FROM `$teamname` WHERE `goalset` = '0' `Member ID` = '".$_SESSION["individualid"]."'";
+        $totalmonth = "SELECT $totalsum FROM `$teamname` WHERE `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0' AND `Member ID` = '".$_SESSION["individualid"]."'";        
     }
 }
     $results = mysqli_query($conn ,$sql2);
