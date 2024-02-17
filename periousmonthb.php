@@ -6,7 +6,7 @@ $teamname = $_SESSION["team_name"];
 if(isset($_POST["select_month"])){
     $_SESSION["month"] = $_POST["select_month"];
     $_SESSION["year"] = $_POST["select_year"];
-    echo "ok";
+    echo "oka";
 }   
 if(isset($_SESSION["month"])){
     $month = $_SESSION["month"];
