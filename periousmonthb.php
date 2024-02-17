@@ -6,7 +6,7 @@ $teamname = $_SESSION["team_name"];
 if(isset($_POST["select_month"])){
     $_SESSION["month"] = $_POST["select_month"];
     $_SESSION["year"] = $_POST["select_year"];
-    echo "oka";
+    echo "ok";
 }   
 if(isset($_SESSION["month"])){
     $month = $_SESSION["month"];
@@ -28,6 +28,7 @@ if(isset($_POST["membername"])){
     }
     
 }
+echo $_SESSION["individualid"];
 if(isset($_SESSION["individualid"])){
     $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND 'ID' = '".$_SESSION['individual']."' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
 }else{
