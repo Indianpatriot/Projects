@@ -24,8 +24,9 @@ if(isset($_POST["membername"])){
         unset($_SESSION["individualid"]);
     }else{
         $_SESSION["individualid"] = $_POST["memebrname"];
+        echo "ok";
     }
-    echo "ok";
+    
 }
 if(isset($_SESSION["individualid"])){
     $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND 'ID' = '".$_SESSION['individual']."' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
