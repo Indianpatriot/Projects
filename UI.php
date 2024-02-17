@@ -342,6 +342,7 @@ $(document).ready(function() {
               <td><?=$totalmonth->$value ?></td>
               <?php } ?>
               <td></td>
+              <td></td>
             </tr>
             <tr>
               <th>Month Goal remaining</th>
