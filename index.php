@@ -275,8 +275,8 @@ $(document).ready(function() {
               <td style="width: 10%;"><a href="DB/access.php?team_id=<?=$table->id ?>">#<?php echo $table->id; ?></a></td>
               <td><?php echo $table->team_name; ?></td>
               <td><?php echo $table->team_domain; ?></td>
-              <td><?php echo $table->team_manager;</td>
-              <td><?php echo $table->team_team_coordinator</td>
+              <td><?php echo $table->team_manager;?></td>
+              <td><?php echo $table->team_team_coordinator; ?></td>
               <?php $ta = $table->Target_achiv;
                     $t = $table->Target;
               $achivement = (float)($table->Target_achiv/$table->Target)*100; $achivement = number_format($achivement, 2); if($achivement <= 25 ){ ?>
