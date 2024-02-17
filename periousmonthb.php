@@ -3,7 +3,7 @@ include("DB/dbconn.php");
 $teamname = $_SESSION["team_name"];
   
 
-if($_SERVER["REQUEST_METHOD"] === "POST"){
+if(isset($_POST["select_month"])){
     $_SESSION["month"] = $_POST["select_month"];
     $_SESSION["year"] = $_POST["select_year"];
     echo "ok";
