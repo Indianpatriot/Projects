@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `teams` CHANGE `team_co-ordinator` `team_coordinator` VARCHAR(50)";
+    $sql = "DELETE FROM `role_teams` WHERE `team_id` <> '-1'";
 
     if($conn->query($sql)){
         echo "done ok";
