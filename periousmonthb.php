@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     if($_SESSION['role_id'] != 4){
     $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
     }else{
-        $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
+        $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND 'ID' = '".$_SESSION['user_id']."' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
     }
     $results = mysqli_query($conn ,$sql2);
 
