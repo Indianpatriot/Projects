@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $i = 0;
         $updategoal = "UPDATE `$teamname` SET `goalset`= '0' WHERE `ID` = '".$_POST["edit_goal_id"]."'";
         $updategoal = mysqli_query($conn,$updategoal);
-        $updategoal = "UPDATE `$teamname` SET `Remark`= 'ok' WHERE `ID` = '".$_POST["edit_goal_id"]."'";
+        $updategoal = "UPDATE `$teamname` SET `Remark`= 'Update Goal' WHERE `ID` = '".$_POST["edit_goal_id"]."'";
         $updategoal = mysqli_query($conn,$updategoal);
         foreach ($array as $value) {
             if ($value == 'Member Name' || $value == 'Date') {
