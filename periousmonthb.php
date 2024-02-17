@@ -39,7 +39,7 @@ if(isset($_POST["membername"])){
     
 }
 if(isset($_SESSION["individualid"])){
-    $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND 'ID' = '".$_SESSION['individual']."' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
+    $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND 'ID' = '".$_SESSION['individualid']."' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
     $totalhistory = "select $totalsum from `$teamname->team_name` where `goalset` = '0'";
     $totalmonth = "select $totalsum from `$teamname->team_name` where `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0' AND 'ID' = '".$_SESSION['individual']."'";
 }else{
