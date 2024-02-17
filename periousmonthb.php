@@ -19,6 +19,7 @@ if(isset($_SESSION["month"])){
     $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
     $end_date = date('Y-m-t', strtotime($start_date));
 }
+if(isset())
     if($_SESSION['role_id'] != 4){
         $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
     }else{

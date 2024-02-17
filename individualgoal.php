@@ -303,7 +303,7 @@ $(document).ready(function(){
         console.log("Form submitted"); // Log message to ensure the form submission event is triggered
         $.ajax({
             type: 'POST',
-            url: 'addmemberb.php',
+            url: 'periousmonth.php',
             data: new FormData(this),
             contentType: false,
             cache: false,
@@ -406,21 +406,6 @@ function myFunctiosn1() {
                         <?php while($memberlist = mysqli_fetch_object($normaladdmember)){ ?>
                             <option value="<?=$memberlist->id?>"><?=$memberlist->username?></option>
                         <?php } ?>
-                    </select>
-		        </div>
-          </div>
-      </div>
-    </div>
-    <div class="form-group-inner">
-      <div class="row">
-          <div class="col-lg-3">
-              <label class="login2 pull-right pull-right-pro">Member Status:</label>
-          </div>
-          <div class="col-lg-9">
-                <div class="chosen-select-single">
-		            <select style="width:100%" class="select2_demo_3 form-control" data-placeholder="Select type" name="membertype" required>
-                        <option value="3">team manager</option>
-                        <option value="4">member</option>
                     </select>
 		        </div>
           </div>
