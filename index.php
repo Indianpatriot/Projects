@@ -2,6 +2,7 @@
     include("DB/team.php"); 
     if(isset($_SESSION['user_id'])){}
     else{ header("location:login.php"); }
+    unset($_SESSION["month"]);
   ?>
 <!doctype html>
 <html class="no-js" lang="en">
