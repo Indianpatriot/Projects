@@ -3,10 +3,7 @@
   if(isset($_SESSION['user_id'])){}
   else{ header("location:login.php"); }
   $_SESSION["team_name"] = $teamname->team_name;
-  include("periousmonthb.php");
-  $_SESSION["year"] = date('Y');
-  $_SESSION["month"] = date('n');
-  
+  include("periousmonthb.php");  
  ?>
 <!doctype html>
 <html class="no-js" lang="en">
