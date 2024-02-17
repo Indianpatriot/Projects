@@ -285,7 +285,7 @@ Powered By</br>
 <div style="margin-top:0px;margin-bottom:20px" class="sparkline13-list shadow-reset mg-tb-30">
 <div class="sparkline13-hd">
 <div class="main-sparkline13-hd">
-<h1><?php echo $_SESSION["team_name"]; ?></h1>
+<h1><?php echo $_SESSION["team_name"]; ?><?php if($_SESSION["role_id"] != 4){ ?><span style="float: right; margin-top: -7px;"><a class="btn btn-primary" href="#" onclick="window.open('addmember.php','Task Create','width=1500,height=400')">Add Member</a></span><?php } ?></h1>
 <div class="sparkline13-outline-icon">
 </div>
 </div>
