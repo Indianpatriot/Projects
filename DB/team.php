@@ -5,7 +5,7 @@
         $sql = "SELECT LPAD(id, 4, '0') AS id , `team_name`, `team_domain`, `Status`,`team_manager`,`team_coordinator`, `Target`,`Target_achiv` FROM `teams`";
     }else{
         $selectedteam = "SELECT * FROM `role_teams` WHERE `user_id` = '".$_SESSION['user_id']."'";
-        $selectedteam = mysqli_query($conn,$selectedteam);
+        // $selectedteam = mysqli_query($conn,$selectedteam);
         // $selectids = array[];
         // $i = 0;
         // while($selecteteam = mysqli_fetch_object($selectedteam)){
