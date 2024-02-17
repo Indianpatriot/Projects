@@ -8,8 +8,8 @@
         $selectedteam = mysqli_query($conn,$selectedteam);
         $selectids = array[];
         $i = 0;
-        while($selectedteam = mysqli_fetch_object($selectedteam)){
-           $selectids[$i] = $selectedteam->team_id;
+        while($selecteteam = mysqli_fetch_object($selectedteam)){
+           $selectids[$i] = $selecteteam->team_id;
            $i++; 
         }
         $selectid = "(" . implode(",", $selectids) . ")";
