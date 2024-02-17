@@ -386,7 +386,7 @@ function myFunctiosn1() {
 <div class="all-form-element-inner">
   <div id="formbox">
     <form id="uploadForm" enctype="multipart/form-data">
-        <input type="text" name="delete_id" value="<?=$delete_goal->ID?>" required hidden>
+        <input type="text" name="feedback_id" value="<?=$delete_goal->ID?>" required hidden>
         <div class="form-group-inner">
         <div class="form-group">
             <input type="text" id="old_value" name="feedback" class="form-control" placeholder="Feedback" required>
