@@ -19,6 +19,11 @@ $goalparameters = array();
 $array = array();
 $i = 0;
 
+$year = date('Y');
+$month = date('n');
+$setgoaldate = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-00';
+    
+
 while ($para = mysqli_fetch_object($parameter_result)) {
     $parameters[] = $para;
     $array[$i] = $para->parameter;
