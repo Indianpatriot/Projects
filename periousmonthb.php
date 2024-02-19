@@ -13,9 +13,9 @@ $totalsum = array_slice($array, 2);
 $totalsum = "" . implode(", ", array_map(function($item) { return "SUM(`$item`) AS `$item`"; }, $totalsum)) . "";
 // total history and month total
 
-if(isset($_POST["SELECT_month"])){
-    $_SESSION["month"] = $_POST["SELECT_month"];
-    $_SESSION["year"] = $_POST["SELECT_year"];
+if(isset($_POST["select_month"])){
+    $_SESSION["month"] = $_POST["select_month"];
+    $_SESSION["year"] = $_POST["select_year"];
     echo "ok";
 }   
 if(isset($_SESSION["month"])){
