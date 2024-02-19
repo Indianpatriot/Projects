@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "UPDATE `role_teams` SET `user_id` = '56' WHERE `user_id` = '50'";
+    $sql = "DELETE FROM `Jupiter`";
 
     if($conn->query($sql)){
         echo "done ok";
