@@ -28,9 +28,14 @@ while ($para = mysqli_fetch_object($parameter_result)) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $team_manager_id = $_POST["team_manager_id"];
     $team_manager_name = $_POST["team_manager_name"];
-
-    $updategoal = "UPDATE `$teamname` SET `Member ID` = '$team_manager_id', `Member Name`= '$team_manager_name' WHERE `goalset` = '1'";
-
+    $setgoalcheck = "SELECT * FROM `$teamname` WHERE `goalset` = '1'  AND `DATE` = '$setgoaldate'";
+    $setgoalcheck = mysqli_query($conn,$setgoalcheck);
+    $setgoalcheck = mysqli_num_rows($setgoalcheck);
+    if($setgoalcheck >=1){
+        $updategoal = "UPDATE `$teamname` SET `Member ID` = '$team_manager_id', `Member Name`= '$team_manager_name' WHERE `goalset` = '1' AND `DATE` = '$setgoaldate'";
+    }else{
+        $updategoal = "INSERT `$teamname` (`Member ID`, `Member Name`,`goalset`,`Date`) VALUE('$team_manager_id','$team_manager_name','1','$setgoaldate')";
+    }
     if (mysqli_query($conn, $updategoal)) {
         $i = 0;
         foreach ($array as $value) {
@@ -46,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $team_target = "UPDATE `teams` SET `Target` = '$parameter_value' WHERE `id` = '$teamID'";
                 $team_target = mysqli_query($conn,$team_target);
             }
-            $updategoal = "UPDATE `$teamname` SET `$value`= '$parameter_value' WHERE `goalset` = '1'";
+            $updategoal = "UPDATE `$teamname` SET `$value`= '$parameter_value' WHERE `goalset` = '1' AND `DATE` = '$setgoaldate'";
             if (!mysqli_query($conn, $updategoal)) {
                 echo $conn->error;
             }
