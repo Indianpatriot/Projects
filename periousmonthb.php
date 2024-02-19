@@ -21,11 +21,13 @@ if(isset($_POST["SELECT_month"])){
 if(isset($_SESSION["month"])){
     $month = $_SESSION["month"];
     $year = $_SESSION["year"];
+    $setgoaldate = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-00';
     $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
     $end_date = date('Y-m-t', strtotime($start_date));
 }else{
     $year = date('Y');
     $month = date('n');
+    $setgoaldate = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-00';
     $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
     $end_date = date('Y-m-t', strtotime($start_date));
 }
@@ -38,7 +40,7 @@ if(isset($_POST["membername"])){
     echo "ok";
 }
 if(isset($_SESSION["individualid"])){
-    $goalset = "SELECT * FROM `$teamname` where `goalset`='1'";
+    $goalset = "SELECT * FROM `$teamname` where `goalset`='1' AND `DATE` = '$setgoaldate'";
     $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND `Member ID` = '".$_SESSION["individualid"]."' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
     $totalhistory = "SELECT $totalsum FROM `$teamname` WHERE `goalset` = '0' AND `Member ID` = '".$_SESSION["individualid"]."'";
     $totalmonth = "SELECT $totalsum FROM `$teamname` WHERE `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0' AND `Member ID` = '".$_SESSION["individualid"]."'";
