@@ -10,8 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     include("dbconn.php");
     $rolemember = "DELETE FROM `role_teams` WHERE `role_id` = '$roleId' AND `team_id` = '$teamId' AND `user_id` = '$userId'";
     if($roleId==3){
+        $remove_manager = "UPDATE `teams` SET `team_manager`='' WHERE `id` = '$teamId'";
         if(mysqli_query($conn,$rolemember)){
-            echo "member remove";
+            if(mysqli_query($conn,$remove_manager)){
+                echo "member remove";
+            }
         }
     }else{
         $usermember = "UPDATE `users` SET `role_id`='5' WHERE `id` = '$userId'";
