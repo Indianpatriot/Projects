@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DELETE FROM `Jupiter`";
+    $sql = "DELETE FROM `LSET`";
 
     if($conn->query($sql)){
         echo "done ok";
