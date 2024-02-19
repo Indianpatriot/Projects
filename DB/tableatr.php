@@ -1,6 +1,6 @@
 <?php
 
-include("dbconn.php");
+include("dbconna.php");
     
     // Fetch the list of tables from the information schema
 $sql = "SHOW TABLES";

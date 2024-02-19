@@ -1,6 +1,6 @@
 <?php
 
-include("dbconn.php");
+include("dbconna.php");
 
 $query = "SELECT * FROM `LSET`";
 $result = $conn->query($query);
