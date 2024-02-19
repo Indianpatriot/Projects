@@ -52,6 +52,12 @@ if(isset($_SESSION["individualid"])){
         $totalmonth = "SELECT $totalsum FROM `$teamname` WHERE `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0' AND `Member ID` = '".$_SESSION["individualid"]."'";        
     }
 }
+
+$goalset = "SELECT * FROM `$teamname` where `goalset`='1'";
+$goalset = mysqli_query($conn,$goalset);
+$goalset = mysqli_fetch_object($goalset);
+
+
     $results = mysqli_query($conn ,$sql2);
     $totalmonth = mysqli_query($conn,$totalmonth);
     $totalmonth = mysqli_fetch_object($totalmonth);
