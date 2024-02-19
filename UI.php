@@ -2,6 +2,7 @@
   include("Untitled-1b.php"); 
   if(isset($_SESSION['user_id'])){}
   else{ header("location:login.php"); }
+  $_SESSION["team_id"] = $teamname->id;
   $_SESSION["team_name"] = $teamname->team_name;
   include("periousmonthb.php");  
  ?>

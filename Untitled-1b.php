@@ -35,10 +35,6 @@ if(isset($_GET["delete_fgdgoal"])){
       $array[$i] = $para->parameter;
       $i++;
     }
-    $abcd = $array[2];
-$team_target = "UPDATE `teams` SET `Target_achiv` = '$ancdefg' WHERE `id` = '$teamID'";
-$team_target = mysqli_query($conn,$team_target);
-
 // update goal
 if(isset($_REQUEST["team_manager_id"])){
     $updategoal = "UPDATE `$teamname->team_name` SET `Member ID` = ".$_REQUEST["team_manager_id"].", `Member Name`= '".$_REQUEST["team_manager_name"]."' WHERE `goalset` = '1'";

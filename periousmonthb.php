@@ -1,6 +1,7 @@
 <?php
 include("DB/dbconn.php");
 $teamname = $_SESSION["team_name"];
+$teamID = $_SESSION["team_id"];
 $goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =".$_SESSION["team_id"]." ORDER BY `goal_parameter`.`team_id` ASC ";
 $parameter = mysqli_query($conn,$goal_parameter);  
 $array = array();
@@ -65,5 +66,11 @@ if(isset($_SESSION["individualid"])){
     $totalmonth = mysqli_fetch_object($totalmonth);
     $totalhistory = mysqli_query($conn,$totalhistory);
     $totalhistory = mysqli_fetch_object($totalhistory);
+
+    $abcd = $array[2];
+    $ancdefg = $totalmonth->$abcd;
+    $team_target = "UPDATE `teams` SET `Target_achiv` = '$ancdefg' WHERE `id` = '$teamID'";
+    $team_target = mysqli_query($conn,$team_target);
+
 
 ?>
