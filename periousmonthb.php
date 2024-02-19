@@ -46,12 +46,12 @@ if(isset($_SESSION["individualid"])){
     $totalmonth = "SELECT $totalsum FROM `$teamname` WHERE `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0' AND `Member ID` = '".$_SESSION["individualid"]."'";
 }else{
     if($_SESSION['role_id'] != 4){
-        $goalset = "SELECT * FROM `$teamname` where `goalset`='1'";
+        $goalset = "SELECT * FROM `$teamname` where `goalset`='1' AND `DATE` = '$setgoaldate'";
         $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
         $totalhistory = "SELECT $totalsum FROM `$teamname` WHERE `goalset` = '0'";
         $totalmonth = "SELECT $totalsum FROM `$teamname` WHERE `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0'";        
     }else{
-        $goalset = "SELECT * FROM `$teamname` where `goalset`='1'";
+        $goalset = "SELECT * FROM `$teamname` where `goalset`='1' AND `DATE` = '$setgoaldate'";
         $sql2 = "SELECT * FROM `$teamname` WHERE `goalset` <> '1' AND `Member ID` = '".$_SESSION['user_id']."' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
         $totalhistory = "SELECT $totalsum FROM `$teamname` WHERE `goalset` = '0' `Member ID` = '".$_SESSION["individualid"]."'";
         $totalmonth = "SELECT $totalsum FROM `$teamname` WHERE `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0' AND `Member ID` = '".$_SESSION["individualid"]."'";        
