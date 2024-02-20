@@ -197,7 +197,7 @@
  
    <ul id="demo" class="collapse dropdown-header-top">
                                                 
-                                                <li><a href="https://adore.simtrak.in/addons/interns/leave.php" class="dropdown-item">Member Goal</a></li><li><a href="https://adore.simtrak.in/addons/fr/upload.php" class="dropdown-item">Final Report</a></li><li><a href="https://adore.simtrak.in/addons/interns/journal_new.php" class="dropdown-item">Daily Journal</a></li><li><a href="https://adore.simtrak.in/addons/weekly_reviews/self_wr.php" class="dropdown-item">Weekly review New</a></li></li>
+                                                <li><a href="#" onclick="window.open('monthgoal.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Month Goal</a></li><li><a href="#" onclick="window.open('periousmonth.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Previous Months Goal </a></li></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target="#demo2" href="https://adore.simtrak.in/#">Go Management<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
