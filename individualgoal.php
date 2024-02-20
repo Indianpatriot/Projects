@@ -5,7 +5,7 @@
   ?>
 
 <!doctype html>
-<title>Add Member |  GOAL MANAGEMENT </title>
+<title>Team Goal |  GOAL MANAGEMENT </title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- select2 CSS
@@ -372,7 +372,7 @@ function myFunctiosn1() {
 <div style="margin-top:0px;margin-bottom:20px;" class="income-dashone-total shadow-reset nt-mg-b-30">
 <div class="income-title">
 <div class="main-income-head">
-<h2>Add Member</h2>
+<h2>Delete Goal Reason</h2>
 </div>
 </div>
 <div class="sparkline10-graph">
