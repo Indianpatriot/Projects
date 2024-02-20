@@ -200,35 +200,20 @@
                                                 <li><a href="#" onclick="window.open('monthgoal.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Month Goal</a></li><li><a href="#" onclick="window.open('periousmonth.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Previous Months Goal </a></li></li>
 </ul>
 </li>
-<li><a data-toggle="collapse" data-target="#demo2" href="https://adore.simtrak.in/#">Go Management<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+<li><a data-toggle="collapse" data-target="#demo2" href="#">Customize<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
  
    <ul id="demo" class="collapse dropdown-header-top">
                                                 
-                                                <li><a href="https://adore.simtrak.in/addons/teams/my_tasks.php" class="dropdown-item">My Tasks</a></li><li><a href="https://adore.simtrak.in/addons/teams/my_team.php" class="dropdown-item">My Teams</a></li></li>
+                                                <li><a href="#" onclick="window.open('deleteparameter.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Delete Parameter</a></li><li><a href="#" onclick="window.open('editparameter.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Edit Parameter</a></li><li><a href="#" onclick="window.open('reorderparameter.php', 'newwindow', 'width=500,height=500'); return false;" class="dropdown-item">Reorder Parameter</a></li></li>
 </ul>
 </li>
-<li><a data-toggle="collapse" data-target="#demo3" href="https://adore.simtrak.in/#">Work From Home<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                <li><a href="https://adore.simtrak.in/wfh_form1.php" class="dropdown-item">Schedules</a></li><li><a href="https://adore.simtrak.in/wfh_form2.php" class="dropdown-item">Fill Report</a></li><li><a href="https://adore.simtrak.in/wfhform_report.php" class="dropdown-item">View Report</a></li></li>
-</ul>
-</li>
-<li><a data-toggle="collapse" data-target="#demo4" href="https://adore.simtrak.in/profile.php">Profile<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+<li><a data-toggle="collapse" data-target="#demo3" href="#">Member<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
  
    <ul id="demo" class="collapse dropdown-header-top">
                                                 
                                                 <li><a href="member.php" class="dropdown-item">Member List</a></li></li>
 </ul>
 </li>
-<li><a data-toggle="collapse" data-target="#demo5" href="https://adore.simtrak.in/signout.php">Logout<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
- 
-   <ul id="demo" class="collapse dropdown-header-top">
-                                                
-                                                </li>
-</ul>
-</li>
-</ul>
                                 </nav>
                             </div>
                         </div>
