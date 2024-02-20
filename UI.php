@@ -214,6 +214,15 @@
                                                 <li><a href="member.php" class="dropdown-item">Member List</a></li></li>
 </ul>
 </li>
+
+<li><a data-toggle="collapse" data-target="#demo5" href="logout.php">Logout<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+ 
+   <ul id="demo" class="collapse dropdown-header-top">
+                                                
+                                                </li>
+</ul>
+</li>
+</ul>
                                 </nav>
                             </div>
                         </div>
