@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($value == 'Member Name' || $value == 'Date') {
                 continue;
             }
-            if(isset($_POST[$i])){
+            if(!empty($_POST[$i])){
                 $parameter_value = $_POST[$i];
             }else{
                 $parameter_value = 0;
