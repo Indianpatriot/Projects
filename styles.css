@@ -6,7 +6,7 @@
 }
 
 .hidden {
-  display:none;
+  display: none;
 }
 
 
@@ -41,8 +41,8 @@ form h2 {
   margin-bottom: 10px;
 }
 
-.test{
-  width:300px;
+.test {
+  width: 300px;
   display: flex;
   justify-content: flex-start;
   align-items: center;

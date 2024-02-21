@@ -24,27 +24,27 @@ while ($para = mysqli_fetch_object($parameter_result)) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $i = 0;
-        $updategoal = "UPDATE `$teamname` SET `goalset`= '0' WHERE `ID` = '".$_POST["edit_goal_id"]."'";
-        $updategoal = mysqli_query($conn,$updategoal);
-        $updategoal = "UPDATE `$teamname` SET `Remark`= 'Update Goal' WHERE `ID` = '".$_POST["edit_goal_id"]."'";
-        $updategoal = mysqli_query($conn,$updategoal);
-        foreach ($array as $value) {
-            if ($value == 'Member Name' || $value == 'Date') {
-                continue;
-            }
-            if(isset($_POST[$i])){
-                $parameter_value = $_POST[$i];
-            }else{
-                $parameter_value = "0";
-            }
-            
-            $updategoal = "UPDATE `$teamname` SET `$value`= '$parameter_value' WHERE `ID` = '".$_POST["edit_goal_id"]."'";
-            if (!mysqli_query($conn, $updategoal)) {
-                echo $conn->error;
-            }
-            $i++;
+    $i = 0;
+    $updategoal = "UPDATE `$teamname` SET `goalset`= '0' WHERE `ID` = '" . $_POST["edit_goal_id"] . "'";
+    $updategoal = mysqli_query($conn, $updategoal);
+    $updategoal = "UPDATE `$teamname` SET `Remark`= 'Update Goal' WHERE `ID` = '" . $_POST["edit_goal_id"] . "'";
+    $updategoal = mysqli_query($conn, $updategoal);
+    foreach ($array as $value) {
+        if ($value == 'Member Name' || $value == 'Date') {
+            continue;
         }
-        echo "ok"; // Send response to JavaScript
+        if (isset($_POST[$i])) {
+            $parameter_value = $_POST[$i];
+        } else {
+            $parameter_value = "0";
+        }
+
+        $updategoal = "UPDATE `$teamname` SET `$value`= '$parameter_value' WHERE `ID` = '" . $_POST["edit_goal_id"] . "'";
+        if (!mysqli_query($conn, $updategoal)) {
+            echo $conn->error;
+        }
+        $i++;
+    }
+    echo "ok"; // Send response to JavaScript
 }
 ?>

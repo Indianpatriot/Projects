@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Login and Sign Up</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <?php session_start(); ?>
 </head>
-<body style="background-image: url('https://adore.simtrak.in/data/sys/bg.jpg');background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
-  <h1> <center>GOAL MANAGEMENT SYSTEM</center></h1>
+
+<body
+  style="background-image: url('https://adore.simtrak.in/data/sys/bg.jpg');background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+  <h1>
+    <center>GOAL MANAGEMENT SYSTEM</center>
+  </h1>
   <div class="container">
     <div class="form-container" id="login-section">
       <h2>Login</h2>
-      <span style="color:red"><?php if(isset($_SESSION["message"])){ echo $_SESSION["message"]; } unset($_SESSION["message"]); ?> </span>
+      <span style="color:red">
+        <?php if(isset($_SESSION["message"])){ echo $_SESSION["message"]; } unset($_SESSION["message"]); ?>
+      </span>
       <form action="loginb.php" method="post" id="login-form">
         <input class="testMe" type="text" name="username" placeholder="Username" required>
         <div class="password-container">
           <input class="testMe" type="password" name="password" placeholder="Password" required>
 
-          
+
         </div>
         <div class="test">
-            
-            <input type="checkbox" id="show-login-password"> 
 
-            <span>Show Password</span>
-          </div>
+          <input type="checkbox" id="show-login-password">
+
+          <span>Show Password</span>
+        </div>
         <button type="submit">Login</button>
         <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
       </form>
@@ -47,7 +54,7 @@
     </div>
   </div>
 
-  <script >
+  <script>
     const loginSection = document.getElementById('login-section');
     const signupSection = document.getElementById('signup-section');
     const signupLink = document.getElementById('signup-link');
@@ -82,4 +89,5 @@
     });
   </script>
 </body>
+
 </html>
