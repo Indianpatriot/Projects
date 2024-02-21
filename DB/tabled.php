@@ -1,8 +1,8 @@
 <?php
 
-include("dbconna.php");
+include("dbconn.php");
 
-$query = "SELECT * FROM `role_teams`";
+$query = "SELECT * FROM `pinnacle 1`";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
     // Fetch the result as an associative array
