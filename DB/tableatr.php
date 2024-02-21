@@ -1,13 +1,13 @@
 <?php
 
-include("dbconna.php");
+include("dbconn.php");
     
     // Fetch the list of tables from the information schema
 $sql = "SHOW TABLES";
 $result = $conn->query($sql);
 
 // Check if there are tables
-$columnsSql = "SHOW COLUMNS FROM `Jupiter`";
+$columnsSql = "SHOW COLUMNS FROM `pinnacle 1`";
         $columnsResult = $conn->query($columnsSql);
 
         if ($columnsResult->num_rows > 0) {
