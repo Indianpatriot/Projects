@@ -1,7 +1,7 @@
 
 <?php
 
-    include("dbconna.php");
+    include("dbconn.php");
 
     $sql = "UPDATE `users` SET `username`='Isha Malik' WHERE `id` = '62'";
 
