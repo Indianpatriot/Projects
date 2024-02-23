@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `LSET` DROP `Basic forms`";
+    $sql = "ALTER TABLE `LSET` ADD `Institutes` VARCHAR(50) NOT NULL";
 
     if($conn->query($sql)){
         echo "done ok";
