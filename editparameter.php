@@ -423,6 +423,7 @@ if (isset($_SESSION['user_id'])) {
                               </label>
                             </div>
                             <div class="col-lg-9">
+                              <input type="text" value="<?=$idarray["$val"]?>" require hidden>
                               <input type="text" value="<?= $value ?>" class="form-control" id="task_name" name="<?= $val ?>"
                                 required>
                             </div>
