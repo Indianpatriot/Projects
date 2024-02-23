@@ -23,7 +23,7 @@ if (isset($_POST[$val])) {
         if ($value == "Date" || $value == "Member Name") {
             continue;
         } else {
-            $sql1 = "UPDATE `goal_parameter` SET `parameter`='" . $_POST[$val] . "' WHERE parameter = '$value'";
+            $sql1 = "UPDATE `goal_parameter` SET `parameter`='" . $_POST[$val] . "' WHERE `parameter` = '$value' AND `team_id` = '$team_id'";
             if ($value == $_POST[$val]) {
                 continue;
             }
