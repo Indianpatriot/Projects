@@ -9,7 +9,7 @@ $teamID = $_SESSION["team_id"];
 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
 $teamname = mysqli_query($conn, $sql1);
 $teamname = mysqli_fetch_object($teamname);
-
+$_SESSION["team_name"] = $teamname->team_name;
 // $achieve = "SELECT SUM() AS total_quantity FROM sales WHERE order_date BETWEEN '2022-01-01' AND '2022-12-31'"
 if (isset($_GET["delete_fgdgoal"])) {
     $sql5 = "DELETE FROM `$teamname->team_name` WHERE `ID` = '" . $_GET["delete_goal"] . "'";

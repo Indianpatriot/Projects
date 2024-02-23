@@ -5,6 +5,8 @@ if (isset($_SESSION['user_id'])) {
   header("location:login.php");
 }
 unset($_SESSION["month"]);
+unset($_SESSION["team_id"]);
+unset($_SESSION["team_name"]);
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
