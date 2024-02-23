@@ -2,7 +2,7 @@
 
 include("dbconn.php");
 
-$query = "SELECT * FROM `pinnacle 1`";
+$query = "SELECT * FROM `LSET`";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
     // Fetch the result as an associative array

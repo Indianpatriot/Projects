@@ -7,7 +7,7 @@ $sql = "SHOW TABLES";
 $result = $conn->query($sql);
 
 // Check if there are tables
-$columnsSql = "SHOW COLUMNS FROM `Pinnacle`";
+$columnsSql = "SHOW COLUMNS FROM `LSET`";
         $columnsResult = $conn->query($columnsSql);
 
         if ($columnsResult->num_rows > 0) {
