@@ -22,13 +22,14 @@ if (isset($_POST[$val])) {
         if ($value == "Date" || $value == "Member Name") {
             continue;
         } else {
-            $sql1 = "UPDATE `goal_parameter` SET `parameter`= '$_POST[$val]' WHERE `parameter` = '$value' AND `team_id` = '$teamID'";
             if ($value == $_POST[$val]) {
                 continue;
             }
+            $valchange = $_POST[$val];
+            $sql45 = "UPDATE `goal_parameter` SET `parameter`= '$valchange' WHERE `parameter` = '$value' AND `team_id` = '$teamID'";
             $sql2 = "ALTER TABLE `$teamname->team_name` CHANGE `$value` `$_POST[$val]` VARCHAR(50) NOT NULL";
             if (mysqli_query($conn, $sql2)) {
-                if (mysqli_query($conn, $sql1)) {
+                if (mysqli_query($conn, $sql45)) {
                 }
             }
         }
