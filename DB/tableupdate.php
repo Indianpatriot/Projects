@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DROP TABLE Pinnacke 1";
+    $sql = "DROP TABLE `Pinnacke 1`";
 
     if($conn->query($sql)){
         echo "done ok";
