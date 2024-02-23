@@ -1,7 +1,7 @@
 
 <?php
 
-    include("dbconna.php");
+    include("dbconn.php");
 
     $sql = "DELETE `teams` WHere `id`='13'";
 
