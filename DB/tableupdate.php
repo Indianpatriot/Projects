@@ -1,7 +1,7 @@
 
 <?php
 
-    include("dbconn.php");
+    include("dbconna.php");
 
     $sql = "DROP TABLE `Pinnacle 1`";
 
