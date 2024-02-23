@@ -1,14 +1,13 @@
 <?php
 
 include("DB/dbconn.php");
-$team_id = $_SESSION["team_id"];
 
 $teamID = $_SESSION["team_id"];
 $sql1 = "SELECT * FROM `teams` WHERE `id` = '$teamID'";
 $teamname_result = mysqli_query($conn, $sql1);
 $teamname = mysqli_fetch_object($teamname_result);
 
-$goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id ='$team_id' ORDER BY `goal_parameter`.`team_id` ASC ";
+$goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id ='$teamID' ORDER BY `goal_parameter`.`team_id` ASC ";
 $parameter = mysqli_query($conn, $goal_parameter);
 $i = 0;
 while ($para = mysqli_fetch_object($parameter)) {
@@ -23,11 +22,11 @@ if (isset($_POST[$val])) {
         if ($value == "Date" || $value == "Member Name") {
             continue;
         } else {
-            $sql1 = "UPDATE `goal_parameter` SET `parameter`='" . $_POST[$val] . "' WHERE `parameter` = '$value' AND `team_id` = '$team_id'";
+            $sql1 = "UPDATE `goal_parameter` SET `parameter`= '$_POST[$val]' WHERE `parameter` = '$value' AND `team_id` = '$teamID'";
             if ($value == $_POST[$val]) {
                 continue;
             }
-            $sql2 = "ALTER TABLE `$teamname->team_name` CHANGE `$value` `" . $_POST[$val] . "` VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL";
+            $sql2 = "ALTER TABLE `$teamname->team_name` CHANGE `$value` `$_POST[$val]` VARCHAR(50) NOT NULL";
             if (mysqli_query($conn, $sql2)) {
                 if (mysqli_query($conn, $sql1)) {
                 }
