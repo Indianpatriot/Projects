@@ -23,6 +23,7 @@ if (isset($_POST[$val])) {
             continue;
         } else {
             if ($value == $_POST[$val]) {
+                $val++;
                 continue;
             }
             $valchange = $_POST[$val];
