@@ -1,6 +1,6 @@
 <?php
 
-include("dbconna.php");
+include("dbconn.php");
 
     $sql = "SHOW TABLES";
     $result = $conn->query($sql);
