@@ -164,6 +164,8 @@ include("periousmonthb.php");
                     <a href="#"
                       onclick="window.open('deleteparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                       class="dropdown-item">Delete Parameter</a><a href="#"
+                      onclick="window.open('addparameter.php', 'newwindow', 'width=500,height=500'); return false;"
+                      class="dropdown-item">Add Parameter</a><a href="#"
                       onclick="window.open('editparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                       class="dropdown-item">Edit Parameter</a><a href="#"
                       onclick="window.open('reorderparameter.php', 'newwindow', 'width=500,height=500'); return false;"
@@ -249,6 +251,9 @@ include("periousmonthb.php");
                         <li><a href="#"
                             onclick="window.open('deleteparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                             class="dropdown-item">Delete Parameter</a></li>
+                            <li><a href="#"
+                            onclick="window.open('addparameter.php', 'newwindow', 'width=500,height=500'); return false;"
+                            class="dropdown-item">Add Parameter</a></li>
                         <li><a href="#"
                             onclick="window.open('editparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                             class="dropdown-item">Edit Parameter</a></li>
