@@ -3,7 +3,7 @@
 
     include("dbconna.php");
 
-    $sql = "UPDATE `users` SET `username`='Isha Malik' WHERE `id` = '62'";
+    $sql = "DELETE `teams` WHere `id`='13'";
 
     if($conn->query($sql)){
         echo "done ok";
