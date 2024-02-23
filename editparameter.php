@@ -412,7 +412,7 @@ if (isset($_SESSION['user_id'])) {
               <div class="all-form-element-inner">
                 <div id="formbox">
                   <form id="uploadForm" enctype="multipart/form-data">
-                    <?php $val = 0;
+                    <?php $val = 0; $ida =100;
                     foreach ($array as $value) { ?>
                       <?php if ($value != "Date" && $value != "Member Name") { ?>
                         <div class="form-group-inner">
@@ -423,7 +423,7 @@ if (isset($_SESSION['user_id'])) {
                               </label>
                             </div>
                             <div class="col-lg-9">
-                              <input type="text" value="<?=$idarray["$val"]?>" require hidden>
+                              <input type="text" value="<?=$idarray["$val"]?>" name="<?=$ida?>" require hidden>
                               <input type="text" value="<?= $value ?>" class="form-control" id="task_name" name="<?= $val ?>"
                                 required>
                             </div>
@@ -432,7 +432,7 @@ if (isset($_SESSION['user_id'])) {
                       <?php } else { ?>
                         <?php continue; ?>
                       <?php } ?>
-                      <?php $val++;
+                      <?php $val++; $ida++;
                     } ?>
                     <center>
                       <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp

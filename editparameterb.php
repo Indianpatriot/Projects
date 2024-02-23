@@ -22,12 +22,13 @@ while ($para = mysqli_fetch_object($parameter)) {
 }
 
 $val = 0;
+$ida = 100;
 if (isset($_POST[$val])) {
     foreach ($array as $value) { 
         if ($value == "Date" || $value == "Member Name") {
             continue;
         } else {
-            $sql1 = "UPDATE `goal_parameter` SET `parameter`='" . $_POST[$val] . "' WHERE parameter = '$value'";
+            $sql1 = "UPDATE `goal_parameter` SET `parameter`='" . $_POST[$val] . "' WHERE parameter = '".$_POST[$ida]."'";
             if ($value == $_POST[$val]) {
                 continue;
             }
