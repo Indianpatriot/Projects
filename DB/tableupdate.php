@@ -1,9 +1,9 @@
 
 <?php
 
-    include("dbconna.php");
+    include("dbconn.php");
 
-    $sql = "DROP TABLE `Pinnacle 1`";
+    $sql = "ALTER TABLE `LSET` DROP `Basic forms`";
 
     if($conn->query($sql)){
         echo "done ok";
