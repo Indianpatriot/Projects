@@ -275,10 +275,12 @@ unset($_SESSION["team_name"]);
                 <div class="sparkline10-graph">
                   <div class="static-table-list " style="overflow-x:scroll; overflow-y:hidden; border solid 0px;">
                     <br />
+                    <?php if($_SESSION['role_id'] == 1){ ?>
                     <a href="#" onclick="window.open('addteam.php', 
                          'newwindow', 
                          'width=500,height=500'); 
                         return false;" class="btn btn-primary">Add Team</a>
+                    <?php } ?>
                     <table width="100%" id="ssss" class="table table-striped table-bordered">
                       <thead>
                         <tr>
