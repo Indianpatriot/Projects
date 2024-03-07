@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `LSET` ADD `Institutes` VARCHAR(50) NOT NULL";
+    $sql = "ALTER TABLE `Pinnacle 1` CHANGE `Remark` `Reamrk` varhcar(500) NOT NULL;";
 
     if($conn->query($sql)){
         echo "done ok";
