@@ -362,7 +362,7 @@ include("periousmonthb.php");
                 <script type="text/javascript" class="init">
                   $(document).ready(function () {
                     $('#ssss').DataTable({
-                      "pageLength": 20,
+                      "pageLength": 10,
                       "lengthChange": false,
                       "order": [[0, "desc"]]
                     });
