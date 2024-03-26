@@ -303,8 +303,7 @@ include("periousmonthb.php");
         </div>
         <!-- Mobile Menu end -->
 
-        <div class="container-fluid" style="position: sticky;
-            top: 0;">
+        <div class="container-fluid">
           <div class="row">
             <div class="col-lg-3">
               <div class="sparkline10-graph">
@@ -376,8 +375,8 @@ include("periousmonthb.php");
                       onclick="window.open('updategoal.php', 'newwindow', 'width=500,height=500'); return false;"
                       class="btn btn-primary">Add Goal</a>
                     <table width="100%" id="ssss" class="table table-striped table-bordered">
-                      <thead>
-                        <tr style="position: sticky; top: 0;">
+                      <thead style="position: sticky;">
+                        <tr>
                           <?php
                           foreach ($array as $value) { ?>
                             <th>
