@@ -369,7 +369,7 @@ include("periousmonthb.php");
                   });
                 </script>
                 <div class="sparkline10-graph">
-                  <div class="static-table-list " style="overflow-x:scroll; overflow-y:hidden; border solid 0px;">
+                  <div class="static-table-list " style="overflow-x:scroll; overflow-y:hidden; border solid 0px; border-collapse: collapse;">
                     <br />
                     <a href="#"
                       onclick="window.open('updategoal.php', 'newwindow', 'width=500,height=500'); return false;"
