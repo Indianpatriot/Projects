@@ -376,7 +376,9 @@ include("periousmonthb.php");
                       class="btn btn-primary">Add Goal</a>
                     <table width="100%" id="ssss" class="table table-striped table-bordered">
                       <thead>
-                        <tr style="position: sticky; top: 0;">
+                        <tr style="position: -webkit-sticky;
+  position: sticky;
+  top: 0;">
                           <?php
                           foreach ($array as $value) { ?>
                             <th>
