@@ -369,16 +369,14 @@ include("periousmonthb.php");
                   });
                 </script>
                 <div class="sparkline10-graph">
-                  <div class="static-table-list " style="overflow-x:scroll; overflow-y:visible; border solid 0px;">
+                  <div class="static-table-list " style="overflow-x:scroll; overflow-y:hidden; border solid 0px;">
                     <br />
                     <a href="#"
                       onclick="window.open('updategoal.php', 'newwindow', 'width=500,height=500'); return false;"
                       class="btn btn-primary">Add Goal</a>
                     <table width="100%" id="ssss" class="table table-striped table-bordered">
                       <thead>
-                        <tr style="position: -webkit-sticky;
-  position: sticky;
-  top: 0;">
+                        <tr>
                           <?php
                           foreach ($array as $value) { ?>
                             <th>
