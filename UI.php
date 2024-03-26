@@ -1,12 +1,12 @@
 <?php
-include("Untitled-1b.php");
-if (isset($_SESSION['user_id'])) {
+include ("Untitled-1b.php");
+if (isset ($_SESSION['user_id'])) {
 } else {
   header("location:login.php");
 }
 $_SESSION["team_id"] = $teamname->id;
 $_SESSION["team_name"] = $teamname->team_name;
-include("periousmonthb.php");
+include ("periousmonthb.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -251,7 +251,7 @@ include("periousmonthb.php");
                         <li><a href="#"
                             onclick="window.open('deleteparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                             class="dropdown-item">Delete Parameter</a></li>
-                            <li><a href="#"
+                        <li><a href="#"
                             onclick="window.open('addparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                             class="dropdown-item">Add Parameter</a></li>
                         <li><a href="#"
@@ -354,7 +354,7 @@ include("periousmonthb.php");
                     <div class="sparkline13-outline-icon">
                     </div>
                   </div>
-                  <?php if (isset($_SESSION["allready"])) { ?>
+                  <?php if (isset ($_SESSION["allready"])) { ?>
                     <script>window.alert("<?= $_SESSION["allready"] ?>");</script>
                     <?php unset($_SESSION["allready"]);
                   } ?>
@@ -375,7 +375,7 @@ include("periousmonthb.php");
                       onclick="window.open('updategoal.php', 'newwindow', 'width=500,height=500'); return false;"
                       class="btn btn-primary">Add Goal</a>
                     <table width="100%" id="ssss" class="table table-striped table-bordered">
-                      <thead>
+                      <thead style="position: sticky; top: 0;">
                         <tr>
                           <?php
                           foreach ($array as $value) { ?>
@@ -396,7 +396,9 @@ include("periousmonthb.php");
                             if ($value == "Date" || $value == "Member Name") {
                               continue;
                             } ?>
-                            <td><?= $totalhistory->$value ?></td>
+                            <td>
+                              <?= $totalhistory->$value ?>
+                            </td>
                           <?php } ?>
                           <td></td>
                           <td></td>
@@ -412,7 +414,9 @@ include("periousmonthb.php");
                               echo "<td></td>";
                               continue;
                             } ?>
-                            <td><?= $goalset->$value ?></td>
+                            <td>
+                              <?= $goalset->$value ?>
+                            </td>
                           <?php } ?>
                           <td></td>
                           <td></td>
@@ -425,7 +429,9 @@ include("periousmonthb.php");
                             if ($value == "Date" || $value == "Member Name") {
                               continue;
                             } ?>
-                            <td><?= $totalmonth->$value ?></td>
+                            <td>
+                              <?= $totalmonth->$value ?>
+                            </td>
                           <?php } ?>
                           <td></td>
                           <td></td>
@@ -438,7 +444,9 @@ include("periousmonthb.php");
                             if ($value == "Date" || $value == "Member Name") {
                               continue;
                             } ?>
-                            <td><?= ($goalset->$value - $totalmonth->$value) ?></td>
+                            <td>
+                              <?= ($goalset->$value - $totalmonth->$value) ?>
+                            </td>
                           <?php } ?>
                           <td></td>
                           <td></td>
