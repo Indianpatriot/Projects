@@ -368,7 +368,7 @@ include("periousmonthb.php");
                     });
                   });
                 </script>
-                <div class="sparkline10-graph">
+                <div class="sparkline10-graph" style="border-collapse: collapse;">
                   <div class="static-table-list " style="overflow-x:scroll; overflow-y:hidden; border solid 0px; border-collapse: collapse;">
                     <br />
                     <a href="#"
