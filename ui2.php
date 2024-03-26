@@ -389,7 +389,7 @@ include("periousmonthb.php");
                       </thead>
                       <tbody>
                         <tr style="position: static;">
-                          <th>Total History</th>
+                          <th><span style="font-size: 0;">00000</span> Total History</th>
                           <td></td>
                           <?php
                           foreach ($array as $value) {
