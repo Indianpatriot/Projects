@@ -388,7 +388,7 @@ include("periousmonthb.php");
                         </tr>
                       </thead>
                       <tbody>
-                        <tr style="position: static">
+                        <tr style="position: static;">
                           <th>Total History</th>
                           <td></td>
                           <?php
