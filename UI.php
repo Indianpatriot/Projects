@@ -411,7 +411,7 @@ include ("periousmonthb.php");
                           <th>Action</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody id="table-body">
                         <tr>
                           <th>Total History</th>
                           <td></td>
@@ -529,6 +529,18 @@ include ("periousmonthb.php");
             </div>
           </div>
         </div>
+        <script>
+          window.onload = function() {
+    var tableWrapper = document.getElementById('table-wrapper');
+    var tableBody = document.getElementById('table-body');
+    
+    tableWrapper.addEventListener('scroll', function() {
+        var translate = 'translate(0,' + this.scrollTop + 'px)';
+        tableBody.style.transform = translate;
+    });
+};
+
+        </script>
         <div class="icon-bar">
           <a href="#"
             onclick="window.open('https://adore.simtrak.in/addons/tickets/tickets.php','tickets', 'width=1500,height=500'); return false;"
