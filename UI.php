@@ -303,7 +303,8 @@ include("periousmonthb.php");
         </div>
         <!-- Mobile Menu end -->
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="position: sticky;
+            top: 0;">
           <div class="row">
             <div class="col-lg-3">
               <div class="sparkline10-graph">
