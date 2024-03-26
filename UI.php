@@ -377,7 +377,7 @@ include("periousmonthb.php");
                     <table width="100%" id="ssss" class="table table-striped table-bordered" style="border-collapse: collapse;">
                       <thead>
                         <tr style="position: sticky;
-            top: 0;">
+            top: 0; z-index: 1;">
                           <?php
                           foreach ($array as $value) { ?>
                             <th>
