@@ -386,7 +386,8 @@ include("periousmonthb.php");
                           <th>Remark</th>
                           <th>Action</th>
                         </tr>
-                      
+                      </thead>
+                      <tbody>
                         <tr style="position: static;">
                           <th>Total History</th>
                           <td></td>
@@ -442,8 +443,7 @@ include("periousmonthb.php");
                           <td></td>
                           <td></td>
                         </tr>
-                        </thead>
-                      <tbody>
+
                         <?php
                         $row = 0;
                         $checkdata = 0;
