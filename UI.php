@@ -375,7 +375,7 @@ include("periousmonthb.php");
                       onclick="window.open('updategoal.php', 'newwindow', 'width=500,height=500'); return false;"
                       class="btn btn-primary">Add Goal</a>
                     <table width="100%" id="ssss" class="table table-striped table-bordered">
-                      <thead style="position: fixed;">
+                      <thead style="position:sticky;">
                         <tr>
                           <?php
                           foreach ($array as $value) { ?>
