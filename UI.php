@@ -374,7 +374,7 @@ include("periousmonthb.php");
                     <a href="#"
                       onclick="window.open('updategoal.php', 'newwindow', 'width=500,height=500'); return false;"
                       class="btn btn-primary">Add Goal</a>
-                    <table width="100%" id="ssss" class="table table-striped table-bordered">
+                    <table width="100%" id="ssss" class="table table-striped table-bordered" style="border-collapse: collapse;">
                       <thead>
                         <tr style="position: sticky;
             top: 0; z-index: 1;">
