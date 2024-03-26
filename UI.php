@@ -379,12 +379,12 @@ include ("periousmonthb.php");
                         <tr  style="position: sticky; top: 0;">
                           <?php
                           foreach ($array as $value) { ?>
-                            <th>
+                            <th  style="position: sticky; top: 0;">
                               <?= $value ?>
                             </th>
                           <?php } ?>
-                          <th>Remark</th>
-                          <th>Action</th>
+                          <th  style="position: sticky; top: 0;">Remark</th>
+                          <th  style="position: sticky; top: 0;">Action</th>
                         </tr>
                       </thead>
                       <tbody>
