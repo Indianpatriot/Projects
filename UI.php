@@ -83,8 +83,9 @@ include ("periousmonthb.php");
   <link rel="stylesheet" href="https://adore.simtrak.in/assets/css/summernote.css">
 <style>
   .table-wrapper {
-    overflow-x: auto;
     max-height: 400px; /* Adjust as needed */
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .table-wrapper table {
