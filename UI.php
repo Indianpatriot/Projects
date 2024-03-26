@@ -376,7 +376,7 @@ include("periousmonthb.php");
                       class="btn btn-primary">Add Goal</a>
                     <table width="100%" id="ssss" class="table table-striped table-bordered">
                       <thead>
-                        <tr style="position:fixed;">
+                        <tr>
                           <?php
                           foreach ($array as $value) { ?>
                             <th>
