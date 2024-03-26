@@ -1,12 +1,12 @@
 <?php
-include ("Untitled-1b.php");
-if (isset ($_SESSION['user_id'])) {
+include("Untitled-1b.php");
+if (isset($_SESSION['user_id'])) {
 } else {
   header("location:login.php");
 }
 $_SESSION["team_id"] = $teamname->id;
 $_SESSION["team_name"] = $teamname->team_name;
-include ("periousmonthb.php");
+include("periousmonthb.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -81,31 +81,7 @@ include ("periousmonthb.php");
   <!-- summernote CSS
     ============================================ -->
   <link rel="stylesheet" href="https://adore.simtrak.in/assets/css/summernote.css">
-<style>
-  .table-wrapper {
-    max-height: 300px; /* Adjust as needed */
-    overflow-x: auto;
-    overflow-y: auto;
-}
 
-.table-wrapper table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table-wrapper th,
-.table-wrapper td {
-    padding: 8px;
-}
-
-.thead-fixed th {
-    position: sticky;
-    top: 0;
-    background-color: #fff; /* Adjust as needed */
-    z-index: 1;
-}
-
-</style>
   <link rel="stylesheet" href="https://adore.simtrak.in/assets/css/preloader/preloader-style.css">
   <script src="https://adore.simtrak.in/assets/js/vendor/modernizr-2.8.3.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -275,7 +251,7 @@ include ("periousmonthb.php");
                         <li><a href="#"
                             onclick="window.open('deleteparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                             class="dropdown-item">Delete Parameter</a></li>
-                        <li><a href="#"
+                            <li><a href="#"
                             onclick="window.open('addparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                             class="dropdown-item">Add Parameter</a></li>
                         <li><a href="#"
@@ -378,7 +354,7 @@ include ("periousmonthb.php");
                     <div class="sparkline13-outline-icon">
                     </div>
                   </div>
-                  <?php if (isset ($_SESSION["allready"])) { ?>
+                  <?php if (isset($_SESSION["allready"])) { ?>
                     <script>window.alert("<?= $_SESSION["allready"] ?>");</script>
                     <?php unset($_SESSION["allready"]);
                   } ?>
@@ -399,7 +375,7 @@ include ("periousmonthb.php");
                       onclick="window.open('updategoal.php', 'newwindow', 'width=500,height=500'); return false;"
                       class="btn btn-primary">Add Goal</a>
                     <table width="100%" id="ssss" class="table table-striped table-bordered">
-                      <thead class="thead-fixed">
+                      <thead>
                         <tr>
                           <?php
                           foreach ($array as $value) { ?>
@@ -411,7 +387,7 @@ include ("periousmonthb.php");
                           <th>Action</th>
                         </tr>
                       </thead>
-                      <tbody id="table-body">
+                      <tbody>
                         <tr>
                           <th>Total History</th>
                           <td></td>
@@ -420,9 +396,7 @@ include ("periousmonthb.php");
                             if ($value == "Date" || $value == "Member Name") {
                               continue;
                             } ?>
-                            <td>
-                              <?= $totalhistory->$value ?>
-                            </td>
+                            <td><?= $totalhistory->$value ?></td>
                           <?php } ?>
                           <td></td>
                           <td></td>
@@ -438,9 +412,7 @@ include ("periousmonthb.php");
                               echo "<td></td>";
                               continue;
                             } ?>
-                            <td>
-                              <?= $goalset->$value ?>
-                            </td>
+                            <td><?= $goalset->$value ?></td>
                           <?php } ?>
                           <td></td>
                           <td></td>
@@ -453,9 +425,7 @@ include ("periousmonthb.php");
                             if ($value == "Date" || $value == "Member Name") {
                               continue;
                             } ?>
-                            <td>
-                              <?= $totalmonth->$value ?>
-                            </td>
+                            <td><?= $totalmonth->$value ?></td>
                           <?php } ?>
                           <td></td>
                           <td></td>
@@ -468,9 +438,7 @@ include ("periousmonthb.php");
                             if ($value == "Date" || $value == "Member Name") {
                               continue;
                             } ?>
-                            <td>
-                              <?= ($goalset->$value - $totalmonth->$value) ?>
-                            </td>
+                            <td><?= ($goalset->$value - $totalmonth->$value) ?></td>
                           <?php } ?>
                           <td></td>
                           <td></td>
@@ -529,18 +497,6 @@ include ("periousmonthb.php");
             </div>
           </div>
         </div>
-        <script>
-          window.onload = function() {
-    var tableWrapper = document.getElementById('table-wrapper');
-    var tableBody = document.getElementById('table-body');
-    
-    tableWrapper.addEventListener('scroll', function() {
-        var translate = 'translate(0,' + this.scrollTop + 'px)';
-        tableBody.style.transform = translate;
-    });
-};
-
-        </script>
         <div class="icon-bar">
           <a href="#"
             onclick="window.open('https://adore.simtrak.in/addons/tickets/tickets.php','tickets', 'width=1500,height=500'); return false;"
