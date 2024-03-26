@@ -368,7 +368,7 @@ include("periousmonthb.php");
                     });
                   });
                 </script>
-                <div class="sparkline10-graph">
+                <div class="sparkline10-graph" style="position: sticky; top: 0; z-index: 1;">
                   <div class="static-table-list " style="overflow-x:scroll; overflow-y:hidden; border solid 0px; border-collapse: collapse;">
                     <br />
                     <a href="#"
@@ -376,8 +376,7 @@ include("periousmonthb.php");
                       class="btn btn-primary">Add Goal</a>
                     <table width="100%" id="ssss" class="table table-striped table-bordered" style="border-collapse: collapse;">
                       <thead>
-                        <tr style="position: sticky;
-            top: 0; z-index: 1;">
+                        <tr style="position: sticky; top: 0; z-index: 1;">
                           <?php
                           foreach ($array as $value) { ?>
                             <th>
