@@ -355,6 +355,7 @@ if (isset ($_GET["select_month"])) {
               var confirmation = confirm("Data from one day before is missing. Do you want to submit again?");
               if (confirmation) {
                 submitFormData(); // Resubmit the form
+                window.close();
               } else {
                 console.log("Window closing...");
                 window.close(); // Close the window if user chooses not to submit again
