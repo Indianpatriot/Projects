@@ -482,17 +482,6 @@ if (isset($_GET["select_month"])) {
                         </div>
                       </div>
                     <?php } ?>
-                    <div class="form-group-inner">
-                      <div class="row">
-                        <div class="col-lg-3">
-                          <label class="login2 pull-right pull-right-pro">Remark:</label>
-                        </div>
-                        <div class="col-lg-9">
-                          <input type="text" class="form-control" name="Remark"
-                            placeholder="Remark" required="">
-                        </div>
-                      </div>
-                    </div>
                     <center>
                       <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp
                         Submit</button>
