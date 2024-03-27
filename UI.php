@@ -1,12 +1,12 @@
 <?php
-include("Untitled-1b.php");
-if (isset($_SESSION['user_id'])) {
+include ("Untitled-1b.php");
+if (isset ($_SESSION['user_id'])) {
 } else {
   header("location:login.php");
 }
 $_SESSION["team_id"] = $teamname->id;
 $_SESSION["team_name"] = $teamname->team_name;
-include("periousmonthb.php");
+include ("periousmonthb.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -251,7 +251,7 @@ include("periousmonthb.php");
                         <li><a href="#"
                             onclick="window.open('deleteparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                             class="dropdown-item">Delete Parameter</a></li>
-                            <li><a href="#"
+                        <li><a href="#"
                             onclick="window.open('addparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                             class="dropdown-item">Add Parameter</a></li>
                         <li><a href="#"
@@ -354,7 +354,7 @@ include("periousmonthb.php");
                     <div class="sparkline13-outline-icon">
                     </div>
                   </div>
-                  <?php if (isset($_SESSION["allready"])) { ?>
+                  <?php if (isset ($_SESSION["allready"])) { ?>
                     <script>window.alert("<?= $_SESSION["allready"] ?>");</script>
                     <?php unset($_SESSION["allready"]);
                   } ?>
@@ -389,20 +389,7 @@ include("periousmonthb.php");
                       </thead>
                       <tbody>
                         <tr>
-                          <th >Total History</th>
-                          <td></td>
-                          <?php
-                          foreach ($array as $value) {
-                            if ($value == "Date" || $value == "Member Name") {
-                              continue;
-                            } ?>
-                            <td><?= $totalhistory->$value ?></td>
-                          <?php } ?>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <th>Month Goal</th>
+                          <th><span style="font-size:0;">z</span>Month Goal</th>
                           <?php
                           foreach ($array as $value) {
                             if ($value == "Date") {
@@ -412,33 +399,39 @@ include("periousmonthb.php");
                               echo "<td></td>";
                               continue;
                             } ?>
-                            <td><?= $goalset->$value ?></td>
+                            <td>
+                              <?= $goalset->$value ?>
+                            </td>
                           <?php } ?>
                           <td></td>
                           <td></td>
                         </tr>
                         <tr>
-                          <th>Total Month</th>
+                          <th><span style="font-size:0;">y</span>Total Month</th>
                           <td></td>
                           <?php
                           foreach ($array as $value) {
                             if ($value == "Date" || $value == "Member Name") {
                               continue;
                             } ?>
-                            <td><?= $totalmonth->$value ?></td>
+                            <td>
+                              <?= $totalmonth->$value ?>
+                            </td>
                           <?php } ?>
                           <td></td>
                           <td></td>
                         </tr>
                         <tr>
-                          <th>Month Goal remaining</th>
+                          <th><span style="font-size:0;">x</span>Month Goal remaining</th>
                           <td></td>
                           <?php
                           foreach ($array as $value) {
                             if ($value == "Date" || $value == "Member Name") {
                               continue;
                             } ?>
-                            <td><?= ($goalset->$value - $totalmonth->$value) ?></td>
+                            <td>
+                              <?= ($goalset->$value - $totalmonth->$value) ?>
+                            </td>
                           <?php } ?>
                           <td></td>
                           <td></td>
@@ -482,11 +475,25 @@ include("periousmonthb.php");
                             </td>
                           <?php } ?>
                         </tr>
-
-                        </thead>
-                      <tbody>
-
                       </tbody>
+                      <tfoot>
+                        <tr style="position: static;">
+                          <th>Total History</th>
+                          <td></td>
+                          <?php
+                          foreach ($array as $value) {
+                            if ($value == "Date" || $value == "Member Name") {
+                              continue;
+                            } ?>
+                            <td>
+                              <?= $totalhistory->$value ?>
+                            </td>
+                          <?php } ?>
+                          <td></td>
+                          <td></td>
+                        </tr>
+
+                      </tfoot>
                     </table>
                   </div>
                 </div>
