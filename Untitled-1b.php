@@ -1,6 +1,6 @@
 <?php
 
-include ("DB/dbconn.php");
+include("DB/dbconn.php");
 
 $username = $_SESSION['user_id'];
 $total = array([], []);
@@ -11,7 +11,7 @@ $teamname = mysqli_query($conn, $sql1);
 $teamname = mysqli_fetch_object($teamname);
 $_SESSION["team_name"] = $teamname->team_name;
 // $achieve = "SELECT SUM() AS total_quantity FROM sales WHERE order_date BETWEEN '2022-01-01' AND '2022-12-31'"
-if (isset ($_GET["delete_fgdgoal"])) {
+if (isset($_GET["delete_fgdgoal"])) {
     $sql5 = "DELETE FROM `$teamname->team_name` WHERE `ID` = '" . $_GET["delete_goal"] . "'";
     if (mysqli_query($conn, $sql5)) {
         echo '<script type="text/javascript">';
@@ -36,7 +36,7 @@ while ($para = mysqli_fetch_object($parameter)) {
     $i++;
 }
 // update goal
-if (isset ($_REQUEST["team_manager_id"])) {
+if (isset($_REQUEST["team_manager_id"])) {
     $updategoal = "UPDATE `$teamname->team_name` SET `Member ID` = " . $_REQUEST["team_manager_id"] . ", `Member Name`= '" . $_REQUEST["team_manager_name"] . "' WHERE `goalset` = '1'";
     if (mysqli_query($conn, $updategoal)) {
         $i = 0;
@@ -94,8 +94,8 @@ while ($parat = mysqli_fetch_object($goalparameters)) {
     $i++;
 }
 $z = 0;
-while (isset ($_REQUEST[$z])) {
-    if (!empty ($_REQUEST[$z])) {
+while (isset($_REQUEST[$z])) {
+    if (!empty($_REQUEST[$z])) {
         $inputpara[$z] = $_REQUEST[$z];
     } else {
         $inputpara[$z] = "0";
@@ -104,66 +104,55 @@ while (isset ($_REQUEST[$z])) {
 }
 // update goal date wise
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $check_date = $_SESSION["one_day_before"];
-    $i = $_REQUEST["membername"];
-    $temp_uid = $user_array_id[$i];
-    $sqlcheckdata = "SELECT * FROM ` `$teamname->team_name` WHERE `Member ID` = '$temp_uid' AND `Date` = '$date_data'";
-    $checkdata = mysqli_query($conn, $sqlcheckdata);
-    $checkdatarow = mysqli_num_rows($checkdata);
-    if ($checkdata >= 1) {
-        $date_data = $_REQUEST["date_data"];
-        $Remark = $_REQUEST["Remark"];
-        $result = "`Date`,`" . implode("`,`", $goalp) . "`,`Remark`)";
-        $results = "'$date_data','" . implode("','", $inputpara) . "','$Remark')";
+    $date_data = $_REQUEST["date_data"];
+    $Remark = $_REQUEST["Remark"];
+    $result = "`Date`,`" . implode("`,`", $goalp) . "`,`Remark`)";
+    $results = "'$date_data','" . implode("','", $inputpara) . "','$Remark')";
 
-        if (isset ($_REQUEST["membername"])) {
-            $i = $_REQUEST["membername"];
-            $temp_uid = $user_array_id[$i];
-            // Checking if data is already in the database
-            $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '$temp_uid' AND `Date` = '$date_data'";
-            $check = mysqli_query($conn, $query_check_db);
-            $rowcount = mysqli_num_rows($check);
+    if (isset($_REQUEST["membername"])) {
+        $i = $_REQUEST["membername"];
+        $temp_uid = $user_array_id[$i];
+        // Checking if data is already in the database
+        $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '$temp_uid' AND `Date` = '$date_data'";
+        $check = mysqli_query($conn, $query_check_db);
+        $rowcount = mysqli_num_rows($check);
 
-            if ($rowcount >= 1) {
-                // Data is already present, alert the user
-                $_SESSION["allready"] = "$user_array_name[$i], already filled goal";
+        if ($rowcount >= 1) {
+            // Data is already present, alert the user
+            $_SESSION["allready"] = "$user_array_name[$i], already filled goal";
+            echo "ok";
+        } else {
+            // Insert data into the database
+            $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('$user_array_id[$i]', '$user_array_name[$i]','0', $results";
+            if (mysqli_query($conn, $goal)) {
+                // Data inserted successfully
                 echo "ok";
             } else {
-                // Insert data into the database
-                $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('$user_array_id[$i]', '$user_array_name[$i]','0', $results";
-                if (mysqli_query($conn, $goal)) {
-                    // Data inserted successfully
-                    echo "ok";
-                } else {
-                    // Error occurred during insertion
-                    echo "error";
-                }
-            }
-        } else {
-            // Insert data for the current user
-            $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '" . $_SESSION['user_id'] . "' AND `Date` = '$date_data'";
-            $check = mysqli_query($conn, $query_check_db);
-            $rowcount = mysqli_num_rows($check);
-
-            if ($rowcount >= 1) {
-                // Data is already present, alert the user
-                $_SESSION["allready"] = "" . $_SESSION['user_name'] . ", already filled goal";
-                echo "already_filled";
-            } else {
-                // Insert data into the database
-                $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`, $result VALUES ('" . $_SESSION['user_id'] . "', '" . $_SESSION['user_name'] . "', $results";
-                if (mysqli_query($conn, $goal)) {
-                    // Data inserted successfully
-                    echo "ok";
-                } else {
-                    // Error occurred during insertion
-                    echo "error";
-                }
+                // Error occurred during insertion
+                echo "error";
             }
         }
-    }else{
-        echo "data nhi h";
-        $_SESSION["one_day_before"] = "0000000";
+    } else {
+        // Insert data for the current user
+        $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '" . $_SESSION['user_id'] . "' AND `Date` = '$date_data'";
+        $check = mysqli_query($conn, $query_check_db);
+        $rowcount = mysqli_num_rows($check);
+
+        if ($rowcount >= 1) {
+            // Data is already present, alert the user
+            $_SESSION["allready"] = "" . $_SESSION['user_name'] . ", already filled goal";
+            echo "already_filled";
+        } else {
+            // Insert data into the database
+            $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`, $result VALUES ('" . $_SESSION['user_id'] . "', '" . $_SESSION['user_name'] . "', $results";
+            if (mysqli_query($conn, $goal)) {
+                // Data inserted successfully
+                echo "ok";
+            } else {
+                // Error occurred during insertion
+                echo "error";
+            }
+        }
     }
 }
 
@@ -171,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $normalmember = "SELECT * FROM `users` WHERE `role_id` IN (3, 5) ORDER BY id ASC";
 $normaladdmember = mysqli_query($conn, $normalmember);
 
-if (isset ($_GET["membername"])) {
+if (isset($_GET["membername"])) {
     $id = $_GET["membername"];
     $role_id = $_GET["membertype"];
     $sql35 = "SELECT * FROM `users` WHERE `id` = '$id'";

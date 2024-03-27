@@ -1,13 +1,12 @@
 <?php
-include ("Untitled-1b.php");
-if (isset ($_SESSION['user_id'])) {
+include("Untitled-1b.php");
+if (isset($_SESSION['user_id'])) {
 } else {
   header("location:login.php");
 }
 $_SESSION["team_id"] = $teamname->id;
 $_SESSION["team_name"] = $teamname->team_name;
-include ("periousmonthb.php");
-$_SESSION["one_day_before"] = date("Y-m-d", strtotime("-1 day"));
+include("periousmonthb.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -252,7 +251,7 @@ $_SESSION["one_day_before"] = date("Y-m-d", strtotime("-1 day"));
                         <li><a href="#"
                             onclick="window.open('deleteparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                             class="dropdown-item">Delete Parameter</a></li>
-                        <li><a href="#"
+                            <li><a href="#"
                             onclick="window.open('addparameter.php', 'newwindow', 'width=500,height=500'); return false;"
                             class="dropdown-item">Add Parameter</a></li>
                         <li><a href="#"
@@ -355,7 +354,7 @@ $_SESSION["one_day_before"] = date("Y-m-d", strtotime("-1 day"));
                     <div class="sparkline13-outline-icon">
                     </div>
                   </div>
-                  <?php if (isset ($_SESSION["allready"])) { ?>
+                  <?php if (isset($_SESSION["allready"])) { ?>
                     <script>window.alert("<?= $_SESSION["allready"] ?>");</script>
                     <?php unset($_SESSION["allready"]);
                   } ?>
@@ -390,7 +389,20 @@ $_SESSION["one_day_before"] = date("Y-m-d", strtotime("-1 day"));
                       </thead>
                       <tbody>
                         <tr>
-                          <th><span style="font-size:0;">z</span>Month Goal</th>
+                          <th>Total History</th>
+                          <td></td>
+                          <?php
+                          foreach ($array as $value) {
+                            if ($value == "Date" || $value == "Member Name") {
+                              continue;
+                            } ?>
+                            <td><?= $totalhistory->$value ?></td>
+                          <?php } ?>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th>Month Goal</th>
                           <?php
                           foreach ($array as $value) {
                             if ($value == "Date") {
@@ -400,39 +412,33 @@ $_SESSION["one_day_before"] = date("Y-m-d", strtotime("-1 day"));
                               echo "<td></td>";
                               continue;
                             } ?>
-                            <td>
-                              <?= $goalset->$value ?>
-                            </td>
+                            <td><?= $goalset->$value ?></td>
                           <?php } ?>
                           <td></td>
                           <td></td>
                         </tr>
                         <tr>
-                          <th><span style="font-size:0;">y</span>Total Month</th>
+                          <th>Total Month</th>
                           <td></td>
                           <?php
                           foreach ($array as $value) {
                             if ($value == "Date" || $value == "Member Name") {
                               continue;
                             } ?>
-                            <td>
-                              <?= $totalmonth->$value ?>
-                            </td>
+                            <td><?= $totalmonth->$value ?></td>
                           <?php } ?>
                           <td></td>
                           <td></td>
                         </tr>
                         <tr>
-                          <th><span style="font-size:0;">x</span>Month Goal remaining</th>
+                          <th>Month Goal remaining</th>
                           <td></td>
                           <?php
                           foreach ($array as $value) {
                             if ($value == "Date" || $value == "Member Name") {
                               continue;
                             } ?>
-                            <td>
-                              <?= ($goalset->$value - $totalmonth->$value) ?>
-                            </td>
+                            <td><?= ($goalset->$value - $totalmonth->$value) ?></td>
                           <?php } ?>
                           <td></td>
                           <td></td>
@@ -476,25 +482,11 @@ $_SESSION["one_day_before"] = date("Y-m-d", strtotime("-1 day"));
                             </td>
                           <?php } ?>
                         </tr>
-                      </tbody>
-                      <tfoot>
-                        <tr style="position: static;">
-                          <th>Total History</th>
-                          <td></td>
-                          <?php
-                          foreach ($array as $value) {
-                            if ($value == "Date" || $value == "Member Name") {
-                              continue;
-                            } ?>
-                            <td>
-                              <?= $totalhistory->$value ?>
-                            </td>
-                          <?php } ?>
-                          <td></td>
-                          <td></td>
-                        </tr>
 
-                      </tfoot>
+                        </thead>
+                      <tbody>
+
+                      </tbody>
                     </table>
                   </div>
                 </div>
