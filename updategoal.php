@@ -488,7 +488,7 @@ if (isset($_GET["select_month"])) {
                           <label class="login2 pull-right pull-right-pro">Remark:</label>
                         </div>
                         <div class="col-lg-9">
-                          <input type="text" class="form-control" placeholder="Date of Journal" name="date_data"
+                          <input type="text" class="form-control" name="Remark"
                             placeholder="Remark" required="">
                         </div>
                       </div>
