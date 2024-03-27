@@ -19,6 +19,7 @@ if (isset ($_GET["select_month"])) {
   $sql2 = "SELECT * FROM `$teamname->team_name` WHERE `goalset` <> '1' AND `Date` BETWEEN '$start_date' AND '$end_date' ORDER BY `Date` DESC";
   $results = mysqli_query($conn, $sql2);
 }
+$_SESSION["last_date"] = date("Y-m-d", strtotime("-1 day"));
 ?>
 
 <!doctype html>
