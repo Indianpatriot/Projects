@@ -335,6 +335,9 @@ if (isset ($_GET["select_month"])) {
       $("#uploadForm").on('submit', function (e) {
         e.preventDefault();
         console.log("Form submitted"); // Log message to ensure the form submission event is triggered
+        submitFormData();
+      });
+      function submitFormData(){
         $.ajax({
           type: 'POST',
           url: 'Untitled-1b.php',
@@ -358,7 +361,7 @@ if (isset ($_GET["select_month"])) {
             }
           }
         });
-      });
+      }
     });
 
   </script>
