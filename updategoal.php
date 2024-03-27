@@ -1,10 +1,10 @@
 <?php
-include("Untitled-1b.php");
-if (isset($_SESSION['user_id'])) {
+include ("Untitled-1b.php");
+if (isset ($_SESSION['user_id'])) {
 } else {
   header("location:login.php");
 }
-if (isset($_GET["select_month"])) {
+if (isset ($_GET["select_month"])) {
   $month = $_GET["select_month"];
   $year = $_GET["select_year"];
   $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
@@ -335,6 +335,9 @@ if (isset($_GET["select_month"])) {
       $("#uploadForm").on('submit', function (e) {
         e.preventDefault();
         console.log("Form submitted"); // Log message to ensure the form submission event is triggered
+        submitFormData();
+      });
+      function submitFormData() {
         $.ajax({
           type: 'POST',
           url: 'Untitled-1b.php',
@@ -347,10 +350,20 @@ if (isset($_GET["select_month"])) {
             if (response.trim() === 'ok') { // Trim the response to remove any whitespace
               console.log("Window closing..."); // Log message to ensure the window closing logic is reached
               window.close(); // Close the window upon successful form submission
+            } else if (response.trim() === 'data nhi h') {
+              console.log("Data is missing.");
+              var confirmation = confirm("Data from one day before is missing. Do you want to submit again?");
+              if (confirmation) {
+                submitFormData(); // Resubmit the form
+              } else {
+                console.log("Window closing...");
+                window.close(); // Close the window if user chooses not to submit again
+              }
             }
           }
+        }
         });
-      });
+      }
     });
 
   </script>
@@ -473,7 +486,9 @@ if (isset($_GET["select_month"])) {
                       <div class="form-group-inner">
                         <div class="row">
                           <div class="col-lg-3">
-                            <label class="login2 pull-right pull-right-pro"><?= $para->parameter ?>:</label>
+                            <label class="login2 pull-right pull-right-pro">
+                              <?= $para->parameter ?>:
+                            </label>
                           </div>
                           <div class="col-lg-9">
                             <input type="<?= $para->parameter_data_type ?>" placeholder="<?= $para->parameter ?>"
@@ -488,8 +503,7 @@ if (isset($_GET["select_month"])) {
                           <label class="login2 pull-right pull-right-pro">Remark:</label>
                         </div>
                         <div class="col-lg-9">
-                          <input type="text" class="form-control" name="Remark"
-                            placeholder="Remark" required="">
+                          <input type="text" class="form-control" name="Remark" placeholder="Remark" required="">
                         </div>
                       </div>
                     </div>
