@@ -105,8 +105,9 @@ while (isset($_REQUEST[$z])) {
 // update goal date wise
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date_data = $_REQUEST["date_data"];
-    $result = "`Date`,`" . implode("`,`", $goalp) . "`)";
-    $results = "'$date_data','" . implode("','", $inputpara) . "')";
+    $Remark = $_REQUEST["Remark"];
+    $result = "`Date`,`" . implode("`,`", $goalp) . "`,`Remark`)";
+    $results = "'$date_data','" . implode("','", $inputpara) . "','$Remark')";
 
     if (isset($_REQUEST["membername"])) {
         $i = $_REQUEST["membername"];
