@@ -485,6 +485,24 @@ include ("periousmonthb.php");
                                                     <?php } ?>
                                                 </tr>
                                             </tbody>
+                                            <tfoot>
+                                                <tr style="position: static;">
+                                                    <th>Total History</th>
+                                                    <td></td>
+                                                    <?php
+                                                    foreach ($array as $value) {
+                                                        if ($value == "Date" || $value == "Member Name") {
+                                                            continue;
+                                                        } ?>
+                                                        <td>
+                                                            <?= $totalhistory->$value ?>
+                                                        </td>
+                                                    <?php } ?>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+
+                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
