@@ -353,7 +353,7 @@ function submitFormData() {
             if (response.trim() === 'ok') {
                 console.log("Window closing...");
                 window.close();
-            } else if (response.trim() === 'data nhi h') {
+            } else if (response.trim() === 'notok') {
                 console.log("Data is missing.");
                 var confirmation = confirm("Data from one day before is missing. Do you want to submit again?");
                 if (confirmation) {
