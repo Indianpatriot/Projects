@@ -332,38 +332,41 @@ if (isset ($_GET["select_month"])) {
     //]]></script>
   <script>
     $(document).ready(function () {
-      $("#uploadForm").on('submit', function (e) {
+    $("#uploadForm").on('submit', function (e) {
         e.preventDefault();
-        console.log("Form submitted"); // Log message to ensure the form submission event is triggered
+        console.log("Form submitted");
+
         submitFormData();
-      });
     });
-    function submitFormData(){
-        $.ajax({
-          type: 'POST',
-          url: 'Untitled-1b.php',
-          data: new FormData(this),
-          contentType: false,
-          cache: false,
-          processData: false,
-          success: function (response) {
-            console.log("Response received:", response); // Log the response received from the server
-            if (response.trim() === 'ok') { // Trim the response to remove any whitespace
-              console.log("Window closing..."); // Log message to ensure the window closing logic is reached
-              window.close(); // Close the window upon successful form submission
-            } else if (response.trim() === 'notok') {
-              var confirmation = confirm("missing last goal. can you submit form.");
-              if (confirmation) {
-                submitFormData();
-              } else {
-                console.log("Window closing..."); // Log message to ensure the window closing logic is reached
-                window.close(); // Close the window upon successful form submission
-              }
+});
+
+function submitFormData() {
+    $.ajax({
+        type: 'POST',
+        url: 'Untitled-1b.php',
+        data: new FormData($("#uploadForm")[0]), // Serialize the form data
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (response) {
+            console.log("Response received:", response);
+            if (response.trim() === 'ok') {
+                console.log("Window closing...");
+                window.close();
+            } else if (response.trim() === 'data nhi h') {
+                console.log("Data is missing.");
+                var confirmation = confirm("Data from one day before is missing. Do you want to submit again?");
+                if (confirmation) {
+                    submitFormData(); // Resubmit the form
+                } else {
+                    console.log("Window closing...");
+                    window.close(); // Close the window if user chooses not to submit again
+                }
             }
-          }
-        });
-      }
-  </script>
+        }
+    });
+}
+</script>
 
   <script>
     window.onunload = refreshParent;
