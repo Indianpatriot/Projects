@@ -485,7 +485,7 @@ if (isset($_GET["select_month"])) {
                     <div class="form-group-inner">
                         <div class="row">
                           <div class="col-lg-3">
-                            <label class="login2 pull-right pull-right-pro"><?= $para->parameter ?>:</label>
+                            <label class="login2 pull-right pull-right-pro">Remark:</label>
                           </div>
                           <div class="col-lg-9">
                             <input type="text" placeholder="Remark"
