@@ -7,7 +7,6 @@ if (isset($_SESSION['user_id'])) {
 unset($_SESSION["month"]);
 unset($_SESSION["team_id"]);
 unset($_SESSION["team_name"]);
-$_SESSION["last_date"] = date("Y-m-d", strtotime("-1 day"));
 ?>
 <!doctype html>
 <html class="no-js" lang="en">

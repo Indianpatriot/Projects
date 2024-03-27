@@ -102,16 +102,10 @@ while (isset ($_REQUEST[$z])) {
     }
     $z++;
 }
-// update goal date wise
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $last_date = $_SESSION["last_date"];
-    $i = $_REQUEST["membername"];
-    $temp_uid = $user_array_id[$i];
-    $lastdatecheck = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '$temp_uid' AND `Date` = '$date_data'";
-    $lastdatecheck = mysqli_query($conn, $lastdatecheck);
-    $lastdaterow = mysqli_num_rows($lastdatecheck);
-    if ($lastdaterow >= 1) {
-        $date_data = $_REQUEST["date_data"];
+//submit function 
+function submitdata(){
+    global $goalp,$inputpara,$user_array_id,$teamname,$conn,$user_array_name;
+    $date_data = $_REQUEST["date_data"];
         $Remark = $_REQUEST["Remark"];
         $result = "`Date`,`" . implode("`,`", $goalp) . "`,`Remark`)";
         $results = "'$date_data','" . implode("','", $inputpara) . "','$Remark')";
@@ -161,9 +155,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
         }
+}
+// update goal date wise
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $last_date = date("Y-m-d", strtotime("-1 day"));
+    $i = $_REQUEST["membername"];
+    $temp_uid = $user_array_id[$i];
+    $lastdatecheck = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '$temp_uid' AND `Date` = '$date_data'";
+    $lastdatecheck = mysqli_query($conn, $lastdatecheck);
+    $lastdaterow = mysqli_num_rows($lastdatecheck);
+    if ($lastdaterow >= 1) {
+        submitdata();
     }else {
-        $_SESSION["last_date"] = "9999";
-        echo  "notok";
+        if(isset($_SESSION["confirm"])){
+            submitdata();
+            unset($_SESSION["confirm"]);
+        }else{
+            $_SESSION["confirm"] = "ok";
+            echo  "notok";
+        }
     }
 
 }
