@@ -1,10 +1,10 @@
 <?php
-include("Untitled-1b.php");
-if (isset($_SESSION['user_id'])) {
+include ("Untitled-1b.php");
+if (isset ($_SESSION['user_id'])) {
 } else {
   header("location:login.php");
 }
-if (isset($_GET["select_month"])) {
+if (isset ($_GET["select_month"])) {
   $month = $_GET["select_month"];
   $year = $_GET["select_year"];
   $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
@@ -345,9 +345,16 @@ if (isset($_GET["select_month"])) {
           success: function (response) {
             console.log("Response received:", response); // Log the response received from the server
             if (response.trim() === 'ok') { // Trim the response to remove any whitespace
-              confirm("zfsd");
               console.log("Window closing..."); // Log message to ensure the window closing logic is reached
               window.close(); // Close the window upon successful form submission
+            } else if (response.trim() === 'notok') {
+              var confirmation = confirm("missing last goal. can you submit form.");
+              if (confirmation) {
+                submitFormData();
+              } else {
+                console.log("Window closing..."); // Log message to ensure the window closing logic is reached
+                window.close(); // Close the window upon successful form submission
+              }
             }
           }
         });
@@ -474,7 +481,9 @@ if (isset($_GET["select_month"])) {
                       <div class="form-group-inner">
                         <div class="row">
                           <div class="col-lg-3">
-                            <label class="login2 pull-right pull-right-pro"><?= $para->parameter ?>:</label>
+                            <label class="login2 pull-right pull-right-pro">
+                              <?= $para->parameter ?>:
+                            </label>
                           </div>
                           <div class="col-lg-9">
                             <input type="<?= $para->parameter_data_type ?>" placeholder="<?= $para->parameter ?>"
@@ -484,16 +493,16 @@ if (isset($_GET["select_month"])) {
                       </div>
                     <?php } ?>
                     <div class="form-group-inner">
-                        <div class="row">
-                          <div class="col-lg-3">
-                            <label class="login2 pull-right pull-right-pro">Remark:</label>
-                          </div>
-                          <div class="col-lg-9">
-                            <input type="text" placeholder="Remark"
-                              class="form-control" id="task_name" name="Remark" required>
-                          </div>
+                      <div class="row">
+                        <div class="col-lg-3">
+                          <label class="login2 pull-right pull-right-pro">Remark:</label>
+                        </div>
+                        <div class="col-lg-9">
+                          <input type="text" placeholder="Remark" class="form-control" id="task_name" name="Remark"
+                            required>
                         </div>
                       </div>
+                    </div>
                     <center>
                       <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp
                         Submit</button>

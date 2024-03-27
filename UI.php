@@ -7,6 +7,7 @@ if (isset ($_SESSION['user_id'])) {
 $_SESSION["team_id"] = $teamname->id;
 $_SESSION["team_name"] = $teamname->team_name;
 include ("periousmonthb.php");
+$_SESSION["last_date"] = date("Y-m-d", strtotime("-1 day"));
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
