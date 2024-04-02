@@ -492,7 +492,8 @@ function submitFormData() {
                             </label>
                           </div>
                           <div class="col-lg-9">
-                            jdfksdjf
+                            <input value="yes"
+                              class="form-control" id="task_name" name="<?= $c ?>" <?php $c++; ?> readonly>
                           </div>
                         </div>
                       </div>
