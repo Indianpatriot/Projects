@@ -441,46 +441,8 @@ function submitFormData() {
               <div class="all-form-element-inner">
                 <div id="formbox">
                   <form id="uploadForm" enctype="multipart/form-data">
-                    <?php $i = 0;
-                    if ($_SESSION['role_id'] != 4) { ?>
-                      <div class="form-group-inner">
-                        <div class="row">
-                          <div class="col-lg-3">
-                            <label class="login2 pull-right pull-right-pro">Member Name:</label>
-                          </div>
-                          <div class="col-lg-9">
-                            <div class="chosen-select-single">
-                              <select style="width:100%" class="select2_demo_3 form-control"
-                                data-placeholder="Select type" name="membername" required>
-                                <?php for ($i = 0; $i < count($user_array_id); $i++) { ?>
-                                  <?php for ($j = 0; $j < count($role_array_id); $j++) { ?>
-                                    <?php if ($user_array_id[$i] == $role_array_id[$j]) { ?>
-                                      <option value="<?= $i ?>">
-                                        <?= $user_array_name[$i] ?>
-                                      </option>
-                                    <?php } ?>
-                                  <?php } ?>
-                                <?php } ?>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    <?php } ?>
-                    <div class="form-group-inner">
-                      <div class="row">
-                        <div class="col-lg-3">
-                          <label class="login2 pull-right pull-right-pro">Date of goal:</label>
-                        </div>
-                        <div class="col-lg-9">
-                          <input type="Date" class="form-control" placeholder="Date of Journal" name="date_data"
-                            value="<?php echo date('Y-m-d'); ?>" required="">
-                        </div>
-                      </div>
-                    </div>
-                    <?php $c = 0;
-                    while ($para = mysqli_fetch_object($parameters)) { ?>
-                      <?php if ($para->parameter == 'Date' || $para->parameter == 'Member Name') {
+                    <?php foreach ($array as $value) { ?>
+                      <?php if ($value == 'Date' || $value == 'Member Name') {
                         $i++;
                         continue;
                       } ?>
@@ -488,30 +450,17 @@ function submitFormData() {
                         <div class="row">
                           <div class="col-lg-3">
                             <label class="login2 pull-right pull-right-pro">
-                              <?= $para->parameter ?>:
+                              <?= $value ?>:
                             </label>
                           </div>
                           <div class="col-lg-9">
-                            <input value="yes"
-                              class="form-control" id="task_name" name="<?= $c ?>" <?php $c++; ?> readonly>
+                            <input value="<?=$totalhistory->$value?>"
+                              class="form-control" id="task_name" readonly>
                           </div>
                         </div>
                       </div>
                     <?php } ?>
-                    <div class="form-group-inner">
-                      <div class="row">
-                        <div class="col-lg-3">
-                          <label class="login2 pull-right pull-right-pro">Remark:</label>
-                        </div>
-                        <div class="col-lg-9">
-                          <input type="text" placeholder="Remark" class="form-control" id="task_name" name="Remark"
-                            required>
-                        </div>
-                      </div>
-                    </div>
                     <center>
-                      <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>&nbsp
-                        Submit</button>
                       <script>'.$window_close.'</script>
                       <a href="#" class="btn btn-danger" onclick="javascript:window.close('','_parent','');">Close</a>
                     </center>
