@@ -434,7 +434,7 @@ function submitFormData() {
           <div style="margin-top:0px;margin-bottom:20px;" class="income-dashone-total shadow-reset nt-mg-b-30">
             <div class="income-title">
               <div class="main-income-head">
-                <h2>Total Goal(<?php echo $totalhistorystratingdate->date . " to " . date('d-m-y'); ?>) </h2>
+                <h2>Total Goal(<?php echo $totalhistorystratingdate->Date . " to " . date('d-m-y'); ?>) </h2>
               </div>
             </div>
             <div class="sparkline10-graph">
