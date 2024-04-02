@@ -154,6 +154,9 @@ include ("periousmonthb.php");
                                     <?php } ?> <a href="#"
                                         onclick="window.open('periousmonth.php', 'newwindow', 'width=500,height=500'); return false;"
                                         class="dropdown-item">Previous Months Goal</a>
+                                        <a href="#"
+                                        onclick="window.open('totalhistory.php', 'newwindow', 'width=500,height=500'); return false;"
+                                        class="dropdown-item">Total Goal</a>
                                 </div>
                             </li>
                             <?php if ($_SESSION["role_id"] != 4) { ?>
