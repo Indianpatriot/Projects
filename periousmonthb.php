@@ -75,7 +75,7 @@ $team_target = mysqli_query($conn, $team_target);
 
 
 // total history
-$totalhistorystratingdate = "SELECT * FROM `$teamname` ORDER BY `Date` ASC LIMIT 1";
+$totalhistorystratingdate = "SELECT * FROM `$teamname` ORDER BY `Date` ASC LIMIT 1 OFFSET 1";
 $totalhistorystratingdate = mysqli_query($conn,$totalhistorystratingdate);
 $totalhistorystratingdate = mysqli_fetch_object($totalhistorystratingdate);
 
