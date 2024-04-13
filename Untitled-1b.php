@@ -145,7 +145,7 @@ function submitdata(){
                 echo "already_filled";
             } else {
                 // Insert data into the database
-                $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`, $result VALUES ('" . $_SESSION['user_id'] . "', '" . $_SESSION['user_name'] . "', $results";
+                $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('" . $_SESSION['user_id'] . "', '" . $_SESSION['user_name'] . "','0', $results";
                 if (mysqli_query($conn, $goal)) {
                     // Data inserted successfully
                     echo "ok";
