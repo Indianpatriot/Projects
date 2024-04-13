@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "ALTER TABLE `Pinnacle 1` CHANGE `Reamrk` `Remark` varchar(500) NOT NULL;";
+    $sql = "UPDATE `Vision` SET `goalset` = '0' WHERE `Member ID` = '69';";
 
     if($conn->query($sql)){
         echo "done ok";
