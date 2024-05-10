@@ -401,7 +401,7 @@ include ("periousmonthb.php");
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <th><span style="font-size:0;">z</span>Month Goal</th>
+                                                    <th><span style="font-size:0;">z</span><?php echo date("F");?> Goal</th>
                                                     <?php
                                                     foreach ($array as $value) {
                                                         if ($value == "Date") {
@@ -419,7 +419,7 @@ include ("periousmonthb.php");
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <th><span style="font-size:0;">y</span>Total Month</th>
+                                                    <th><span style="font-size:0;">y</span>Total <?php echo date("F");?></th>
                                                     <td></td>
                                                     <?php
                                                     foreach ($array as $value) {
@@ -434,7 +434,7 @@ include ("periousmonthb.php");
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <th><span style="font-size:0;">x</span>Month Goal remaining</th>
+                                                    <th><span style="font-size:0;">x</span><?php echo date("F");?> Goal remaining</th>
                                                     <td></td>
                                                     <?php
                                                     foreach ($array as $value) {
