@@ -97,6 +97,7 @@ $z = 0;
 while (isset ($_REQUEST[$z])) {
     if (!empty ($_REQUEST[$z])) {
         $inputpara[$z] = $_REQUEST[$z];
+
     } else {
         $inputpara[$z] = "0";
     }
@@ -127,7 +128,21 @@ function submitdata(){
                 $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('$user_array_id[$i]', '$user_array_name[$i]','0', $results";
                 if (mysqli_query($conn, $goal)) {
                     // Data inserted successfully
+                    $massage = "Hi \n goal of team $teamname->team_name \n ";
+                    while (isset ($_REQUEST[$z])) {
+                        if (!empty ($_REQUEST[$z])) {
+                            $message .= "$goalp[$z]: $_REQUEST[$z]\n";
+                        } else {
+                            $message .= "$goalp[$z]: 0\n";
+                        }
+                        $z++;
+                    }
+                    $to = "shahid576ali@gmail.com";
+                    $subject = "goal sheet of $teamname->team_name";
+                    $header = "From: contact@simtrak.in";
+                    if (mail($to, $subject, $message, $headers)) {
                     echo "ok";
+                    }
                 } else {
                     // Error occurred during insertion
                     echo "error";
@@ -148,7 +163,21 @@ function submitdata(){
                 $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('" . $_SESSION['user_id'] . "', '" . $_SESSION['user_name'] . "','0', $results";
                 if (mysqli_query($conn, $goal)) {
                     // Data inserted successfully
+                    $massage = "Hi \n goal of team $teamname->team_name \n ";
+                    while (isset ($_REQUEST[$z])) {
+                        if (!empty ($_REQUEST[$z])) {
+                            $message .= "$goalp[$z]: $_REQUEST[$z]\n";
+                        } else {
+                            $message .= "$goalp[$z]: 0\n";
+                        }
+                        $z++;
+                    }
+                    $to = "shahid576ali@gmail.com";
+                    $subject = "goal sheet of $teamname->team_name";
+                    $header = "From: contact@simtrak.in";
+                    if (mail($to, $subject, $message, $headers)) {
                     echo "ok";
+                    }
                 } else {
                     // Error occurred during insertion
                     echo "error";
