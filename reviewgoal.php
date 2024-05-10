@@ -11,7 +11,7 @@ $delete_goal = mysqli_fetch_object($delete_goal);
 ?>
 
 <!doctype html>
-<title>Goal Review | GOAL MANAGEMENT </title>
+<title>Goal Feedback | GOAL MANAGEMENT </title>
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -408,7 +408,7 @@ $delete_goal = mysqli_fetch_object($delete_goal);
           <div style="margin-top:0px;margin-bottom:20px;" class="income-dashone-total shadow-reset nt-mg-b-30">
             <div class="income-title">
               <div class="main-income-head">
-                <h2>Goal Review</h2>
+                <h2>Goal Feedback</h2>
               </div>
             </div>
             <div class="sparkline10-graph">
