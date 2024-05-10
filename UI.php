@@ -477,7 +477,7 @@ include ("periousmonthb.php");
                                                                 if ($value != "Date") {
                                                                     echo $table->$value;
                                                                 } else {
-                                                                    echo date("d-F", strtotime($table->$value));
+                                                                    echo date("d-M-y", strtotime($table->$value));
                                                                 }
                                                                 ?>
 
