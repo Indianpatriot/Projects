@@ -139,7 +139,7 @@ function submitdata(){
                     }
                     $to = "shahid576ali@gmail.com";
                     $subject = "goal sheet of $teamname->team_name";
-                    $headers = "From: contact@simtrak.in";
+                    $headers = "From: shadowchor883@gmail.com";
                     if (mail($to, $subject, $message, $headers)) {
                     echo "ok";
                     }
