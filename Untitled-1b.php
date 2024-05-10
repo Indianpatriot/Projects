@@ -140,7 +140,7 @@ function submitdata(){
                     }
                     $to = "shahid576ali@gmail.com";
                     $subject = "goal sheet of $teamname->team_name";
-                    $headers = "From: shadowchor883@gmail.com";
+                    $headers = "From: contact@simtrak.in";
                     if (mail($to, $subject, $message, $headers)) {
                     echo "ok";
                     }
@@ -164,7 +164,7 @@ function submitdata(){
                 $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('" . $_SESSION['user_id'] . "', '" . $_SESSION['user_name'] . "','0', $results";
                 if (mysqli_query($conn, $goal)) {
                     // Data inserted successfully
-                    $massage = "Hi \n goal of team $teamname->team_name \n ";
+                    $message = "Hi \n goal of team $teamname->team_name \n ";
                     while (isset ($_REQUEST[$z])) {
                         if (!empty ($_REQUEST[$z])) {
                             $message .= "$goalp[$z]: $_REQUEST[$z]\n";
