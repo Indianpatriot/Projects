@@ -139,7 +139,7 @@ function submitdata(){
                     }
                     $to = "shahid576ali@gmail.com";
                     $subject = "goal sheet of $teamname->team_name";
-                    $header = "From: contact@simtrak.in";
+                    $headers = "From: contact@simtrak.in";
                     if (mail($to, $subject, $message, $headers)) {
                     echo "ok";
                     }
@@ -174,7 +174,7 @@ function submitdata(){
                     }
                     $to = "shahid576ali@gmail.com";
                     $subject = "goal sheet of $teamname->team_name";
-                    $header = "From: contact@simtrak.in";
+                    $headers = "From: contact@simtrak.in";
                     if (mail($to, $subject, $message, $headers)) {
                     echo "ok";
                     }
