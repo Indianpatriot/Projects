@@ -129,6 +129,7 @@ function submitdata(){
                 if (mysqli_query($conn, $goal)) {
                     // Data inserted successfully
                     $massage = "Hi \n goal of team $teamname->team_name \n ";
+                    $z=0;
                     while (isset ($_REQUEST[$z])) {
                         if (!empty ($_REQUEST[$z])) {
                             $message .= "$goalp[$z]: $_REQUEST[$z]\n";
