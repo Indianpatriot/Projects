@@ -128,7 +128,7 @@ function submitdata(){
                 $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('$user_array_id[$i]', '$user_array_name[$i]','0', $results";
                 if (mysqli_query($conn, $goal)) {
                     // Data inserted successfully
-                    $message .= "Hi \n $date_data goal of team $teamname->team_name \n ";
+                    $message .= "Hi \n $date_data goal of team $teamname->team_name \n fill by $user_array_name[$i]";
                     $z=0;
                     while (isset ($_REQUEST[$z])) {
                         if (!empty ($_REQUEST[$z])) {
