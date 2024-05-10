@@ -1,6 +1,6 @@
 <?php
 include ("Untitled-1b.php");
-if (isset ($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id'])) {
 } else {
     header("location:login.php");
 }
@@ -154,7 +154,7 @@ include ("periousmonthb.php");
                                     <?php } ?> <a href="#"
                                         onclick="window.open('periousmonth.php', 'newwindow', 'width=500,height=500'); return false;"
                                         class="dropdown-item">Previous Months Goal</a>
-                                        <a href="#"
+                                    <a href="#"
                                         onclick="window.open('totalhistory.php', 'newwindow', 'width=500,height=500'); return false;"
                                         class="dropdown-item">Total Goal</a>
                                 </div>
@@ -365,7 +365,7 @@ include ("periousmonthb.php");
                                         <div class="sparkline13-outline-icon">
                                         </div>
                                     </div>
-                                    <?php if (isset ($_SESSION["allready"])) { ?>
+                                    <?php if (isset($_SESSION["allready"])) { ?>
                                         <script>window.alert("<?= $_SESSION["allready"] ?>");</script>
                                         <?php unset($_SESSION["allready"]);
                                     } ?>
@@ -401,7 +401,12 @@ include ("periousmonthb.php");
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <th><span style="font-size:0;">z</span><?php echo date("F");?> Goal</th>
+                                                    <th><span style="font-size:0;">z</span><?php if ((isset($_SESSION["month"]))) {
+                                                                echo date("F", mktime(0, 0, 0, $_SESSION["month"], 1));
+                                                            } else {
+                                                                echo date('F');
+                                                            } ?> Goal 
+                                                    </th>
                                                     <?php
                                                     foreach ($array as $value) {
                                                         if ($value == "Date") {
@@ -419,7 +424,12 @@ include ("periousmonthb.php");
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <th><span style="font-size:0;">y</span>Total <?php echo date("F");?></th>
+                                                    <th><span style="font-size:0;">y</span>Total
+                                                    <?php if ((isset($_SESSION["month"]))) {
+                                                                echo date("F", mktime(0, 0, 0, $_SESSION["month"], 1));
+                                                            } else {
+                                                                echo date('F');
+                                                            } ?></th>
                                                     <td></td>
                                                     <?php
                                                     foreach ($array as $value) {
@@ -434,7 +444,13 @@ include ("periousmonthb.php");
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <th><span style="font-size:0;">x</span><?php echo date("F");?> Goal remaining</th>
+                                                    <th><span
+                                                            style="font-size:0;">x</span><?php if ((isset($_SESSION["month"]))) {
+                                                                echo date("F", mktime(0, 0, 0, $_SESSION["month"], 1));
+                                                            } else {
+                                                                echo date('F');
+                                                            } ?>
+                                                        Goal remaining</th>
                                                     <td></td>
                                                     <?php
                                                     foreach ($array as $value) {
