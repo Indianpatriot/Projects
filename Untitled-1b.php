@@ -128,22 +128,30 @@ function submitdata()
             $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('$user_array_id[$i]', '$user_array_name[$i]','0', $results";
             if (mysqli_query($conn, $goal)) {
                 // Data inserted successfully
-                $message .= "Hi \n $date_data goal of team $teamname->team_name \n fill by $user_array_name[$i] \n";
-                // Start the table
-                $message .= "Attribute\t\tValue\n";
-                // Loop through the requests
-                $z = 0;
-                while (isset($_REQUEST["$z"])) {
-                    // Check if the value is empty, if not, use it, otherwise, use 0
-                    $value = !empty($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
+                // Construct the HTML message body
+                $message = "<html><body>";
+                $message .= "<p>Hi,</p>";
+                $message .= "<p>The goal of team LSET is to be filled by Simran</p>";
+                $message .= "<table border='1'>";
+                $message .= "<tr><th>Attribute</th><th>Value</th></tr>";
 
-                    // Add the attribute and value to the message in tabular format
-                    $message .= "<table border='1'><tr><td>$goalp[$z]</td><td>$value</td></tr></table>";
+                // Loop through the requests
+                $z = 1; // Assuming attributes start from 1
+                while (isset($_REQUEST["$z"])) {
+                    // Get the attribute and value
+                    $attribute = $goalp[$z];
+                    $value = isset($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
+
+                    // Add the row to the table
+                    $htmlMessage .= "<tr><td>$attribute</td><td>$value</td></tr>";
 
                     // Increment the counter
                     $z++;
                 }
-                
+
+                $htmlMessage .= "</table>";
+                $htmlMessage .= "</body></html>";
+
                 $to = "shadowchor883@gmail.com";
                 $subject = "goal sheet of $teamname->team_name";
                 $headers = "From: contact@simtrak.in\r\n";
