@@ -138,7 +138,7 @@ function submitdata()
                     $value = !empty($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
 
                     // Add the attribute and value to the message in tabular format
-                    $message .= "<table><tr><td>$goalp[$z]</td><td>$value</td></tr></table>";
+                    $message .= "<table border='1'><tr><td>$goalp[$z]</td><td>$value</td></tr></table>";
 
                     // Increment the counter
                     $z++;
