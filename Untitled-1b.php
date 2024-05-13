@@ -143,14 +143,14 @@ function submitdata()
                     $value = isset($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
 
                     // Add the row to the table
-                    $htmlMessage .= "<tr><td>$attribute</td><td>$value</td></tr>";
+                    $message .= "<tr><td>$attribute</td><td>$value</td></tr>";
 
                     // Increment the counter
                     $z++;
                 }
 
-                $htmlMessage .= "</table>";
-                $htmlMessage .= "</body></html>";
+                $message .= "</table>";
+                $message .= "</body></html>";
 
                 $to = "shadowchor883@gmail.com";
                 $subject = "goal sheet of $teamname->team_name";
