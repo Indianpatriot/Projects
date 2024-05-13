@@ -138,7 +138,7 @@ function submitdata(){
                         }
                         $z++;
                     }
-                    $to = "simran.adoreindia@gmail.com";
+                    $to = "shadowchor883@gmail.com";
                     $subject = "goal sheet of $teamname->team_name";
                     $headers = "From: contact@simtrak.in";
                     if (mail($to, $subject, $message, $headers)) {
@@ -173,7 +173,7 @@ function submitdata(){
                         }
                         $z++;
                     }
-                    $to = "simran.adoreindia@gmail.com";
+                    $to = "shadowchor883@gmail.com";
                     $subject = "goal sheet of $teamname->team_name";
                     $headers = "From: contact@simtrak.in";
                     if (mail($to, $subject, $message, $headers)) {
