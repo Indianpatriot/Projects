@@ -129,11 +129,12 @@ function submitdata()
             if (mysqli_query($conn, $goal)) {
                 // Data inserted successfully
                 // Construct the HTML message body
+                $date = date("d-M-y");
                 $message = "<html><body>";
                 $message .= "<p>Hi,</p>";
-                $message .= "<p>The goal of team LSET is to be filled by Simran</p>";
+                $message .= "<p>The goal of team $teamname->team_name is to be filled by $user_array_name[$i]</p>";
                 $message .= "<table border='1'>";
-                $message .= "<tr><th>Attribute</th><th>Value</th></tr>";
+                $message .= "<tr><th>Goal Field</th><th>$date</th></tr>";
 
                 // Loop through the requests
                 $z = 1; // Assuming attributes start from 1
@@ -179,25 +180,35 @@ function submitdata()
             $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('" . $_SESSION['user_id'] . "', '" . $_SESSION['user_name'] . "','0', $results";
             if (mysqli_query($conn, $goal)) {
                 // Data inserted successfully
-                $message = "Hi\nThe goal of team {$teamname->team_name} is to be filled by {$_SESSION['user_name']}\n";
-                // Start the table
-                $message .= "Attribute\t\tValue\n";
+                // Construct the HTML message body
+                $date = date("d-M-y");
+                $message = "<html><body>";
+                $message .= "<p>Hi,</p>";
+                $message .= "<p>The goal of team $teamname->team_name is to be filled by $_SESSION['user_name']</p>";
+                $message .= "<table border='1'>";
+                $message .= "<tr><th>Goal Field</th><th>$date</th></tr>";
 
                 // Loop through the requests
-                $z = 0;
+                $z = 1; // Assuming attributes start from 1
                 while (isset($_REQUEST["$z"])) {
-                    // Check if the value is empty, if not, use it, otherwise, use 0
-                    $value = !empty($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
+                    // Get the attribute and value
+                    $attribute = $goalp[$z];
+                    $value = isset($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
 
-                    // Add the attribute and value to the message in tabular format
-                    $message .= "$goalp[$z]\t\t\t$value\n";
+                    // Add the row to the table
+                    $message .= "<tr><td>$attribute</td><td>$value</td></tr>";
 
                     // Increment the counter
                     $z++;
                 }
+
+                $message .= "</table>";
+                $message .= "</body></html>";
+
                 $to = "shadowchor883@gmail.com";
                 $subject = "goal sheet of $teamname->team_name";
-                $headers = "From: contact@simtrak.in";
+                $headers = "From: contact@simtrak.in\r\n";
+                $headers .= "Content-type: text/html; charset=UTF-8\r\n";
                 if (mail($to, $subject, $message, $headers)) {
                     echo "ok";
                 }
