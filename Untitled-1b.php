@@ -11,7 +11,7 @@ $teamname = mysqli_query($conn, $sql1);
 $teamname = mysqli_fetch_object($teamname);
 $_SESSION["team_name"] = $teamname->team_name;
 // $achieve = "SELECT SUM() AS total_quantity FROM sales WHERE order_date BETWEEN '2022-01-01' AND '2022-12-31'"
-if (isset ($_GET["delete_fgdgoal"])) {
+if (isset($_GET["delete_fgdgoal"])) {
     $sql5 = "DELETE FROM `$teamname->team_name` WHERE `ID` = '" . $_GET["delete_goal"] . "'";
     if (mysqli_query($conn, $sql5)) {
         echo '<script type="text/javascript">';
@@ -36,7 +36,7 @@ while ($para = mysqli_fetch_object($parameter)) {
     $i++;
 }
 // update goal
-if (isset ($_REQUEST["team_manager_id"])) {
+if (isset($_REQUEST["team_manager_id"])) {
     $updategoal = "UPDATE `$teamname->team_name` SET `Member ID` = " . $_REQUEST["team_manager_id"] . ", `Member Name`= '" . $_REQUEST["team_manager_name"] . "' WHERE `goalset` = '1'";
     if (mysqli_query($conn, $updategoal)) {
         $i = 0;
@@ -94,8 +94,8 @@ while ($parat = mysqli_fetch_object($goalparameters)) {
     $i++;
 }
 $z = 0;
-while (isset ($_REQUEST[$z])) {
-    if (!empty ($_REQUEST[$z])) {
+while (isset($_REQUEST[$z])) {
+    if (!empty($_REQUEST[$z])) {
         $inputpara[$z] = $_REQUEST[$z];
 
     } else {
@@ -104,87 +104,161 @@ while (isset ($_REQUEST[$z])) {
     $z++;
 }
 //submit function 
-function submitdata(){
-    global $goalp,$inputpara,$user_array_id,$teamname,$conn,$user_array_name;
+function submitdata()
+{
+    global $goalp, $inputpara, $user_array_id, $teamname, $conn, $user_array_name;
     $date_data = $_REQUEST["date_data"];
-        $Remark = $_REQUEST["Remark"];
-        $result = "`Date`,`" . implode("`,`", $goalp) . "`,`Remark`)";
-        $results = "'$date_data','" . implode("','", $inputpara) . "','$Remark')";
+    $Remark = $_REQUEST["Remark"];
+    $result = "`Date`,`" . implode("`,`", $goalp) . "`,`Remark`)";
+    $results = "'$date_data','" . implode("','", $inputpara) . "','$Remark')";
 
-        if (isset ($_REQUEST["membername"])) {
-            $i = $_REQUEST["membername"];
-            $temp_uid = $user_array_id[$i];
-            // Checking if data is already in the database
-            $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '$temp_uid' AND `Date` = '$date_data'";
-            $check = mysqli_query($conn, $query_check_db);
-            $rowcount = mysqli_num_rows($check);
+    if (isset($_REQUEST["membername"])) {
+        $i = $_REQUEST["membername"];
+        $temp_uid = $user_array_id[$i];
+        // Checking if data is already in the database
+        $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '$temp_uid' AND `Date` = '$date_data'";
+        $check = mysqli_query($conn, $query_check_db);
+        $rowcount = mysqli_num_rows($check);
 
-            if ($rowcount >= 1) {
-                // Data is already present, alert the user
-                $_SESSION["allready"] = "$user_array_name[$i], already filled goal";
-                echo "ok";
-            } else {
-                // Insert data into the database
-                $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('$user_array_id[$i]', '$user_array_name[$i]','0', $results";
-                if (mysqli_query($conn, $goal)) {
-                    // Data inserted successfully
-                    $message .= "Hi \n $date_data goal of team $teamname->team_name \n fill by $user_array_name[$i] \n";
-                    $z=0;
-                    while (isset ($_REQUEST[$z])) {
-                        if (!empty ($_REQUEST[$z])) {
-                            $message .= "$goalp[$z]: $_REQUEST[$z]\n";
-                        } else {
-                            $message .= "$goalp[$z]: 0\n";
-                        }
-                        $z++;
-                    }
-                    $to = "shadowchor883@gmail.com";
-                    $subject = "goal sheet of $teamname->team_name";
-                    $headers = "From: contact@simtrak.in";
-                    if (mail($to, $subject, $message, $headers)) {
-                    echo "ok";
-                    }
-                } else {
-                    // Error occurred during insertion
-                    echo "error";
-                }
-            }
+        if ($rowcount >= 1) {
+            // Data is already present, alert the user
+            $_SESSION["allready"] = "$user_array_name[$i], already filled goal";
+            echo "ok";
         } else {
-            // Insert data for the current user
-            $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '" . $_SESSION['user_id'] . "' AND `Date` = '$date_data'";
-            $check = mysqli_query($conn, $query_check_db);
-            $rowcount = mysqli_num_rows($check);
+            // Insert data into the database
+            $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('$user_array_id[$i]', '$user_array_name[$i]','0', $results";
+            if (mysqli_query($conn, $goal)) {
+                // Data inserted successfully
+                $message = "
+<html>
+<head>
+  <title>Team Goals</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <p>Hi,</p>
+  <p>The goal of team {$teamname->team_name} is to be filled by {$_SESSION['user_name']}</p>
+  <table>
+    <tr>
+      <th>Goal</th>
+      <th>Value</th>
+    </tr>
+";
 
-            if ($rowcount >= 1) {
-                // Data is already present, alert the user
-                $_SESSION["allready"] = "" . $_SESSION['user_name'] . ", already filled goal";
-                echo "already_filled";
-            } else {
-                // Insert data into the database
-                $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('" . $_SESSION['user_id'] . "', '" . $_SESSION['user_name'] . "','0', $results";
-                if (mysqli_query($conn, $goal)) {
-                    // Data inserted successfully
-                    $message = "Hi\nThe goal of team {$teamname->team_name} is to be filled by {$_SESSION['user_name']}\n";
-                    while (isset ($_REQUEST[$z])) {
-                        if (!empty ($_REQUEST[$z])) {
-                            $message .= "$goalp[$z]: $_REQUEST[$z]\n";
-                        } else {
-                            $message .= "$goalp[$z]: 0\n";
-                        }
-                        $z++;
-                    }
-                    $to = "shadowchor883@gmail.com";
-                    $subject = "goal sheet of $teamname->team_name";
-                    $headers = "From: contact@simtrak.in";
-                    if (mail($to, $subject, $message, $headers)) {
+$z = 0;
+while (isset($_REQUEST[$z])) {
+    $goalValue = !empty($_REQUEST[$z]) ? $_REQUEST[$z] : 0;
+    $message .= "
+    <tr>
+      <td>{$goalp[$z]}</td>
+      <td>$goalValue</td>
+    </tr>
+    ";
+    $z++;
+}
+
+$message .= "
+  </table>
+</body>
+</html>
+";
+                $to = "shadowchor883@gmail.com";
+                $subject = "goal sheet of $teamname->team_name";
+                $headers = "From: contact@simtrak.in";
+                if (mail($to, $subject, $message, $headers)) {
                     echo "ok";
-                    }
-                } else {
-                    // Error occurred during insertion
-                    echo "error";
                 }
+            } else {
+                // Error occurred during insertion
+                echo "error";
             }
         }
+    } else {
+        // Insert data for the current user
+        $query_check_db = "SELECT * FROM `$teamname->team_name` WHERE `Member ID` = '" . $_SESSION['user_id'] . "' AND `Date` = '$date_data'";
+        $check = mysqli_query($conn, $query_check_db);
+        $rowcount = mysqli_num_rows($check);
+
+        if ($rowcount >= 1) {
+            // Data is already present, alert the user
+            $_SESSION["allready"] = "" . $_SESSION['user_name'] . ", already filled goal";
+            echo "already_filled";
+        } else {
+            // Insert data into the database
+            $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('" . $_SESSION['user_id'] . "', '" . $_SESSION['user_name'] . "','0', $results";
+            if (mysqli_query($conn, $goal)) {
+                // Data inserted successfully
+                $message = "
+<html>
+<head>
+  <title>Team Goals</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <p>Hi,</p>
+  <p>The goal of team {$teamname->team_name} is to be filled by {$_SESSION['user_name']}</p>
+  <table>
+    <tr>
+      <th>Goal</th>
+      <th>Value</th>
+    </tr>
+";
+
+                $z = 0;
+                while (isset($_REQUEST[$z])) {
+                    $goalValue = !empty($_REQUEST[$z]) ? $_REQUEST[$z] : 0;
+                    $message .= "
+    <tr>
+      <td>{$goalp[$z]}</td>
+      <td>$goalValue</td>
+    </tr>
+    ";
+                    $z++;
+                }
+
+                $message .= "
+  </table>
+</body>
+</html>
+";
+                $to = "shadowchor883@gmail.com";
+                $subject = "goal sheet of $teamname->team_name";
+                $headers = "From: contact@simtrak.in";
+                if (mail($to, $subject, $message, $headers)) {
+                    echo "ok";
+                }
+            } else {
+                // Error occurred during insertion
+                echo "error";
+            }
+        }
+    }
 }
 // update goal date wise
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -196,13 +270,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lastdaterow = mysqli_num_rows($lastdatecheck);
     if ($lastdaterow >= 1) {
         submitdata();
-    }else {
-        if(isset($_SESSION["confirm"])){
+    } else {
+        if (isset($_SESSION["confirm"])) {
             submitdata();
             unset($_SESSION["confirm"]);
-        }else{
+        } else {
             $_SESSION["confirm"] = "ok";
-            echo  "notok";
+            echo "notok";
         }
     }
 
@@ -212,7 +286,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $normalmember = "SELECT * FROM `users` WHERE `role_id` IN (3, 5) ORDER BY id ASC";
 $normaladdmember = mysqli_query($conn, $normalmember);
 
-if (isset ($_GET["membername"])) {
+if (isset($_GET["membername"])) {
     $id = $_GET["membername"];
     $role_id = $_GET["membertype"];
     $sql35 = "SELECT * FROM `users` WHERE `id` = '$id'";
