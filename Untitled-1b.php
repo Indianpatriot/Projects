@@ -110,7 +110,33 @@ function submitdata()
     $Remark = $_REQUEST["Remark"];
     $result = "`Date`,`" . implode("`,`", $goalp) . "`,`Remark`)";
     $results = "'$date_data','" . implode("','", $inputpara) . "','$Remark')";
-
+    $year = date('Y');
+    $month = date('n');
+    $setgoaldate = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-00';
+    $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
+    $end_date = date('Y-m-t', strtotime($start_date));
+    $teamname = $_SESSION["team_name"];
+    $goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =" . $_SESSION["team_id"] . " ORDER BY `goal_parameter`.`team_id` ASC ";
+    $parameter = mysqli_query($conn, $goal_parameter);
+    $array = array();
+    $i = 0;
+    while ($para = mysqli_fetch_object($parameter)) {
+        $array[$i] = $para->parameter;
+        $i++;
+    }
+    $totalsum = array_slice($array, 2);
+    $totalsum = "" . implode(", ", array_map(function ($item) {
+        return "SUM(`$item`) AS `$item`";
+    }, $totalsum)) . "";
+    $goalset = "SELECT * FROM `$teamname` where `goalset`='1' AND `DATE` = '$setgoaldate'";
+    $totalhistory = "SELECT $totalsum FROM `$teamname` WHERE `goalset` = '0' `Member ID` = '" . $_SESSION["individualid"] . "'";
+    $totalmonth = "SELECT $totalsum FROM `$teamname` WHERE `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0' AND `Member ID` = '" . $_SESSION["individualid"] . "'";
+    $goalset = mysqli_query($conn, $goalset);
+    $goalset = mysqli_fetch_object($goalset);
+    $totalmonth = mysqli_query($conn, $totalmonth);
+    $totalmonth = mysqli_fetch_object($totalmonth);
+    $totalhistory = mysqli_query($conn, $totalhistory);
+    $totalhistory = mysqli_fetch_object($totalhistory);
     if (isset($_REQUEST["membername"])) {
         $i = $_REQUEST["membername"];
         $temp_uid = $user_array_id[$i];
@@ -130,11 +156,12 @@ function submitdata()
                 // Data inserted successfully
                 // Construct the HTML message body
                 $date = date("d-M-y");
+                $mname = date('F');
                 $message = "<html><body>";
                 $message .= "<p>Hi,</p>";
                 $message .= "<p>The goal of team $teamname->team_name is to be filled by $user_array_name[$i]</p>";
                 $message .= "<table border='1'>";
-                $message .= "<tr><th>Goal Field</th><th>$date</th></tr>";
+                $message .= "<tr><th>Goal Field</th><th>today($date)</th><th>$date('F')</th></tr>";
 
                 // Loop through the requests
                 $z = 1; // Assuming attributes start from 1
@@ -144,7 +171,7 @@ function submitdata()
                     $value = isset($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
 
                     // Add the row to the table
-                    $message .= "<tr><td>$attribute</td><td>$value</td></tr>";
+                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$totalmonth->$attribute</td></tr>";
 
                     // Increment the counter
                     $z++;
@@ -184,7 +211,7 @@ function submitdata()
                 $date = date("d-M-y");
                 $message = "<html><body>";
                 $message .= "<p>Hi,</p>";
-                $message .= "<p>The goal of team $teamname->team_name is to be filled by ".$_SESSION['user_name']."</p>";
+                $message .= "<p>The goal of team $teamname->team_name is to be filled by " . $_SESSION['user_name'] . "</p>";
                 $message .= "<table border='1'>";
                 $message .= "<tr><th>Goal Field</th><th>$date</th></tr>";
 
