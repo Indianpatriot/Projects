@@ -129,52 +129,21 @@ function submitdata()
             $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('$user_array_id[$i]', '$user_array_name[$i]','0', $results";
             if (mysqli_query($conn, $goal)) {
                 // Data inserted successfully
-                $message = "
-<html>
-<head>
-  <title>Team Goals</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: left;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
-</head>
-<body>
-  <p>Hi,</p>
-  <p>The goal of team {$teamname->team_name} is to be filled by {$_SESSION['user_name']}</p>
-  <table>
-    <tr>
-      <th>Goal</th>
-      <th>Value</th>
-    </tr>
-";
+                $message .= "Hi \n $date_data goal of team $teamname->team_name \n fill by $user_array_name[$i] \n";
+                // Start the table
+                $message .= "Attribute\t\tValue\n";
+                // Loop through the requests
+                $z = 0;
+                while (isset($_REQUEST["$z"])) {
+                    // Check if the value is empty, if not, use it, otherwise, use 0
+                    $value = !empty($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
 
-$z = 0;
-while (isset($_REQUEST[$z])) {
-    $goalValue = !empty($_REQUEST[$z]) ? $_REQUEST[$z] : 0;
-    $message .= "
-    <tr>
-      <td>{$goalp[$z]}</td>
-      <td>$goalValue</td>
-    </tr>
-    ";
-    $z++;
-}
+                    // Add the attribute and value to the message in tabular format
+                    $message .= "$goalp[$z]\t\t\t$value\n";
 
-$message .= "
-  </table>
-</body>
-</html>
-";
+                    // Increment the counter
+                    $z++;
+                }
                 $to = "shadowchor883@gmail.com";
                 $subject = "goal sheet of $teamname->team_name";
                 $headers = "From: contact@simtrak.in";
@@ -201,52 +170,22 @@ $message .= "
             $goal = "INSERT INTO `$teamname->team_name` (`Member ID`, `Member Name`,`goalset`, $result VALUES ('" . $_SESSION['user_id'] . "', '" . $_SESSION['user_name'] . "','0', $results";
             if (mysqli_query($conn, $goal)) {
                 // Data inserted successfully
-                $message = "
-<html>
-<head>
-  <title>Team Goals</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: left;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
-</head>
-<body>
-  <p>Hi,</p>
-  <p>The goal of team {$teamname->team_name} is to be filled by {$_SESSION['user_name']}</p>
-  <table>
-    <tr>
-      <th>Goal</th>
-      <th>Value</th>
-    </tr>
-";
+                $message = "Hi\nThe goal of team {$teamname->team_name} is to be filled by {$_SESSION['user_name']}\n";
+                // Start the table
+                $message .= "Attribute\t\tValue\n";
 
+                // Loop through the requests
                 $z = 0;
-                while (isset($_REQUEST[$z])) {
-                    $goalValue = !empty($_REQUEST[$z]) ? $_REQUEST[$z] : 0;
-                    $message .= "
-    <tr>
-      <td>{$goalp[$z]}</td>
-      <td>$goalValue</td>
-    </tr>
-    ";
+                while (isset($_REQUEST["$z"])) {
+                    // Check if the value is empty, if not, use it, otherwise, use 0
+                    $value = !empty($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
+
+                    // Add the attribute and value to the message in tabular format
+                    $message .= "$goalp[$z]\t\t\t$value\n";
+
+                    // Increment the counter
                     $z++;
                 }
-
-                $message .= "
-  </table>
-</body>
-</html>
-";
                 $to = "shadowchor883@gmail.com";
                 $subject = "goal sheet of $teamname->team_name";
                 $headers = "From: contact@simtrak.in";
