@@ -20,8 +20,10 @@ if (isset($_GET["delete_fgdgoal"])) {
         echo "undifined error";
     }
 }
-
-
+$year = date('Y');
+$month = date('n');
+$start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
+$end_date = date('Y-m-t', strtotime($start_date));
 
 // team parameter
 $goal_parameter = "SELECT * FROM `goal_parameter` WHERE team_id ='0' OR team_id =" . $_SESSION["team_id"] . " ORDER BY `goal_parameter`.`team_id` ASC ";
@@ -34,6 +36,12 @@ while ($para = mysqli_fetch_object($parameter)) {
     $array[$i] = $para->parameter;
     $i++;
 }
+$totalsum = "" . implode(", ", array_map(function ($item) {
+    return "SUM(`$item`) AS `$item`"; }, $totalsum)) . "";
+    $totalmonth = "SELECT $totalsum FROM `$teamname` WHERE `Date` BETWEEN '$start_date' AND '$end_date' AND `goalset` = '0'";
+    $totalmonth = mysqli_query($conn, $totalmonth);
+$totalmonth = mysqli_fetch_object($totalmonth);
+// total history and month total
 // update goal
 if (isset($_REQUEST["team_manager_id"])) {
     $updategoal = "UPDATE `$teamname->team_name` SET `Member ID` = " . $_REQUEST["team_manager_id"] . ", `Member Name`= '" . $_REQUEST["team_manager_name"] . "' WHERE `goalset` = '1'";
@@ -105,7 +113,7 @@ while (isset($_REQUEST[$z])) {
 //submit function 
 function submitdata()
 {
-    global $goalp, $inputpara, $user_array_id, $teamname, $conn, $user_array_name;
+    global $goalp, $inputpara, $user_array_id, $teamname, $conn, $user_array_name, $totalmonth;
     $date_data = $_REQUEST["date_data"];
     $Remark = $_REQUEST["Remark"];
     $result = "`Date`,`" . implode("`,`", $goalp) . "`,`Remark`)";
@@ -134,7 +142,7 @@ function submitdata()
                 $message .= "<p>Hi,</p>";
                 $message .= "<p>The goal of team $teamname->team_name is to be filled by $user_array_name[$i]</p>";
                 $message .= "<table border='1'>";
-                $message .= "<tr><th>Goal Field</th><th>$date</th></tr>";
+                $message .= "<tr><th>Goal Field</th><th>$date</th><th>this month</th></tr>";
 
                 // Loop through the requests
                 $z = 1; // Assuming attributes start from 1
@@ -144,7 +152,7 @@ function submitdata()
                     $value = isset($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
 
                     // Add the row to the table
-                    $message .= "<tr><td>$attribute</td><td>$value</td></tr>";
+                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$totalmonth->$attribute</td></tr>";
 
                     // Increment the counter
                     $z++;
