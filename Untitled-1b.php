@@ -184,7 +184,7 @@ function submitdata()
                 $date = date("d-M-y");
                 $message = "<html><body>";
                 $message .= "<p>Hi,</p>";
-                $message .= "<p>The goal of team $teamname->team_name is to be filled by $_SESSION['user_name']</p>";
+                $message .= "<p>The goal of team $teamname->team_name is to be filled by ".$_SESSION['user_name']."</p>";
                 $message .= "<table border='1'>";
                 $message .= "<tr><th>Goal Field</th><th>$date</th></tr>";
 
