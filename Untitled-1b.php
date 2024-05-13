@@ -1,7 +1,6 @@
 <?php
 
 include ("DB/dbconn.php");
-
 $username = $_SESSION['user_id'];
 $total = array([], []);
 // print team goal
@@ -139,11 +138,12 @@ function submitdata()
                     $value = !empty($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
 
                     // Add the attribute and value to the message in tabular format
-                    $message .= "<table><tr><td>$goalp[$z]</td><td>$value</td></tr></table>";
+                    $message .= "$goalp[$z]\t\t\t$value\n";
 
                     // Increment the counter
                     $z++;
                 }
+                $message .= file_get_contents("table.php");
                 $to = "shadowchor883@gmail.com";
                 $subject = "goal sheet of $teamname->team_name";
                 $headers = "From: contact@simtrak.in";
@@ -181,7 +181,7 @@ function submitdata()
                     $value = !empty($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
 
                     // Add the attribute and value to the message in tabular format
-                    $message .= "<table><tr><td>$goalp[$z]</td><td>$value</td></tr></table>";
+                    $message .= "$goalp[$z]\t\t\t$value\n";
 
                     // Increment the counter
                     $z++;
