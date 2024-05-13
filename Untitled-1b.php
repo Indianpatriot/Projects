@@ -143,10 +143,10 @@ function submitdata()
                     // Increment the counter
                     $z++;
                 }
-                $message .= file_get_contents("table.php");
+                
                 $to = "shadowchor883@gmail.com";
                 $subject = "goal sheet of $teamname->team_name";
-                $headers = "From: contact@simtrak.in";
+                $headers = "From: contact@simtrak.in; Content-type: text/html; charset=UTF-8";
                 if (mail($to, $subject, $message, $headers)) {
                     echo "ok";
                 }
