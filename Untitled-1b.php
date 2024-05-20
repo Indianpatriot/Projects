@@ -154,7 +154,7 @@ function submitdata()
                 $message .= '<p>The goal of team <strong>' . htmlspecialchars($teamname->team_name) . '</strong> is to be filled by <strong>' . htmlspecialchars($user_array_name[$i]) . '</strong>.</p>';
                 $message .= '</div>';
                 $message .= '<table class="table">';
-                $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Status as of ' . htmlspecialchars($date_data) . '</th><th>' . htmlspecialchars(date("F", strtotime($date_data))) . '</th></tr></thead>';
+                $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Status as of ' . htmlspecialchars($date_data) . '</th><th class="th">' . htmlspecialchars(date("F", strtotime($date_data))) . '</th></tr></thead>';
                 $message .= '<tbody>';
                 // Loop through the requests
                 $z = 1; // Assuming attributes start from 1
