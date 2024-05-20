@@ -106,12 +106,6 @@ while (isset($_REQUEST[$z])) {
 function submitdata()
 {
     global $goalp, $inputpara, $user_array_id, $teamname, $conn, $user_array_name;
-    $year = date('Y');
-    $month = date('n');
-    $setgoaldate = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-00';
-    $goalset = "SELECT * FROM `$teamname` where `goalset`='1' AND `DATE` = '$setgoaldate'";
-    $goalset = mysqli_query($conn, $goalset);
-    $goalset = mysqli_fetch_object($goalset);
     $date_data = $_REQUEST["date_data"];
     $Remark = $_REQUEST["Remark"];
     $result = "`Date`,`" . implode("`,`", $goalp) . "`,`Remark`)";
@@ -138,16 +132,16 @@ function submitdata()
                 $date = date("d-M-y");
                 $message = "<html><body>";
                 $message .= "<p>Hi,</p>";
-                $message .= "<p>The goal of team " . htmlspecialchars($teamname->team_name) . " is to be filled by " . htmlspecialchars($user_array_name[$i]) . "</p>";
+                $message .= "<p>The goal of team $teamname->team_name is to be filled by $user_array_name[$i]</p>";
                 $message .= "<table border='1'>";
-                $message .= "<tr><th>Goal Field</th><th>" . htmlspecialchars($date) . "</th></tr>";
+                $message .= "<tr><th>Goal Field</th><th>$date</th></tr>";
 
                 // Loop through the requests
                 $z = 1; // Assuming attributes start from 1
-                while (isset($_REQUEST[(string) $z])) {
+                while (isset($_REQUEST["$z"])) {
                     // Get the attribute and value
-                    $attribute = htmlspecialchars($goalp[$z]);
-                    $value = isset($_REQUEST[(string) $z]) ? htmlspecialchars($_REQUEST[(string) $z]) : 0;
+                    $attribute = $goalp[$z];
+                    $value = isset($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
 
                     // Add the row to the table
                     $message .= "<tr><td>$attribute</td><td>$value</td></tr>";
@@ -159,51 +153,10 @@ function submitdata()
                 $message .= "</table>";
                 $message .= "</body></html>";
 
-                $message = '<html><head>';
-                $message .= '<style>
-                body { font-family: Arial, sans-serif; }
-                .container { margin-top: 20px; }
-                .header { margin-bottom: 20px; }
-                .table { margin-top: 20px; border-collapse: collapse; width: 100%; }
-                .table, .th, .td { border: 1px solid black; }
-                .th, .td { padding: 8px; text-align: left; }
-             </style>';
-                $message .= '</head><body>';
-                $message .= '<div class="container">';
-                $message .= '<div class="header">';
-                $message .= '<h1>Team Goal Update</h1>';
-                $message .= '<p>Hi,</p>';
-                $message .= '<p>The goal of team <strong>' . htmlspecialchars($teamname->team_name) . '</strong> is to be filled by <strong>' . htmlspecialchars($user_array_name[$i]) . '</strong>.</p>';
-                $message .= '</div>';
-                $message .= '<table class="table">';
-                $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Status as of ' . htmlspecialchars($date) . '</th><th>This Month goal</th></tr></thead>';
-                $message .= '<tbody>';
-
-                // Loop through the requests
-                $z = 1; // Assuming attributes start from 1
-                while (isset($_REQUEST["$z"])) {
-                    // Get the attribute and value
-                    $attribute = $goalp[$z];
-                    $value = isset($_REQUEST["$z"]) ? $_REQUEST["$z"] : 0;
-                    // Add the row to the table
-                    $message .= '<tr><td class="td">' . $attribute . '</td><td class="td">' . $value . '</td></tr>';
-
-                    // Increment the counter
-                    $z++;
-                }
-
-                $message .= '</tbody></table>';
-                $message .= '</div>';
-                $message .= '</body></html>';
-
-                // Email details
                 $to = "shadowchor883@gmail.com";
-                $subject = "Goal Sheet of " . htmlspecialchars($teamname->team_name);
+                $subject = "goal sheet of $teamname->team_name";
                 $headers = "From: contact@simtrak.in\r\n";
-                $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-
-                // Send the email
                 if (mail($to, $subject, $message, $headers)) {
                     echo "ok";
                 }
@@ -231,7 +184,7 @@ function submitdata()
                 $date = date("d-M-y");
                 $message = "<html><body>";
                 $message .= "<p>Hi,</p>";
-                $message .= "<p>The goal of team $teamname->team_name is to be filled by " . $_SESSION['user_name'] . "</p>";
+                $message .= "<p>The goal of team $teamname->team_name is to be filled by ".$_SESSION['user_name']."</p>";
                 $message .= "<table border='1'>";
                 $message .= "<tr><th>Goal Field</th><th>$date</th></tr>";
 
