@@ -113,7 +113,7 @@ function submitdata()
     $year = date('Y');
     $month = date('n');
     $setgoaldate = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-00';
-    $goalset = "SELECT * FROM `$teamname` where `goalset`='1' AND `DATE` = '$setgoaldate'";
+    $goalset = "SELECT * FROM `$teamname->team_name` where `goalset`='1' AND `DATE` = '$setgoaldate'";
     $goalset = mysqli_query($conn, $goalset);
     $goalset = mysqli_fetch_object($goalset);
 
