@@ -150,7 +150,7 @@ function submitdata()
                     $value = isset($_REQUEST[(string) $z]) ? htmlspecialchars($_REQUEST[(string) $z]) : 0;
 
                     // Add the row to the table
-                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalset->$attribute</td></tr>";
+                    $message .= "<tr><td>$attribute</td><td>$value</td></tr>";
 
                     // Increment the counter
                     $z++;
