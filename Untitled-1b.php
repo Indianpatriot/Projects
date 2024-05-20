@@ -110,6 +110,12 @@ function submitdata()
     $Remark = $_REQUEST["Remark"];
     $result = "`Date`,`" . implode("`,`", $goalp) . "`,`Remark`)";
     $results = "'$date_data','" . implode("','", $inputpara) . "','$Remark')";
+    $year = date('Y');
+    $month = date('n');
+    $setgoaldate = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-00';
+    $goalset = "SELECT * FROM `$teamname` where `goalset`='1' AND `DATE` = '$setgoaldate'";
+    $goalset = mysqli_query($conn, $goalset);
+    $goalset = mysqli_fetch_object($goalset);
 
     if (isset($_REQUEST["membername"])) {
         $i = $_REQUEST["membername"];
@@ -148,7 +154,7 @@ function submitdata()
                 $message .= '<p>The goal of team <strong>' . htmlspecialchars($teamname->team_name) . '</strong> is to be filled by <strong>' . htmlspecialchars($user_array_name[$i]) . '</strong>.</p>';
                 $message .= '</div>';
                 $message .= '<table class="table">';
-                $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Status as of ' . htmlspecialchars($date) . '</th></tr></thead>';
+                $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Status as of ' . htmlspecialchars($date_data) . '</th><th>' . htmlspecialchars(date("F", strtotime($date_data))) . '</th></tr></thead>';
                 $message .= '<tbody>';
                 // Loop through the requests
                 $z = 1; // Assuming attributes start from 1
@@ -156,9 +162,9 @@ function submitdata()
                     // Get the attribute and value
                     $attribute = htmlspecialchars($goalp[$z]);
                     $value = isset($_REQUEST["$z"]) ? htmlspecialchars($_REQUEST["$z"]) : 0;
-
+                    $goalvalues = htmlspecialchars($goalset->$attribute);
                     // Add the row to the table
-                    $message .= "<tr><td>$attribute</td><td>$value</td></tr>";
+                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalvalues</td></tr>";
 
                     // Increment the counter
                     $z++;
