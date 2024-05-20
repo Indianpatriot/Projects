@@ -157,7 +157,7 @@ function submitdata()
                 $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Status as of ' . htmlspecialchars($date_data) . '</th><th class="th">' . htmlspecialchars(date("F", strtotime($date_data))) . '</th></tr></thead>';
                 $message .= '<tbody>';
                 // Loop through the requests
-                $z = 1; // Assuming attributes start from 1
+                $z = 0; // Assuming attributes start from 1
                 while (isset($_REQUEST["$z"])) {
                     // Get the attribute and value
                     $attribute = htmlspecialchars($goalp[$z]);
