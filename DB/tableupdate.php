@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "UPDATE `Vision` SET `goalset` = '0' WHERE `Member ID` = '69';";
+    $sql = "DELETE FROM `LSET` WHERE `Date` BETWEEN '2023-06-01' AND '2023-10-31';";";
 
     if($conn->query($sql)){
         echo "done ok";
