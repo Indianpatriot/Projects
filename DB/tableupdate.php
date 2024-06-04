@@ -3,7 +3,7 @@
 
     include("dbconn.php");
 
-    $sql = "DELETE FROM `LSET` WHERE `Date` BETWEEN '2023-06-01' AND '2023-10-31';";
+    $sql = "DELETE FROM `LSET` WHERE `Date` BETWEEN '2024-06-01' AND '2024-10-31';";
 
     if($conn->query($sql)){
         echo "done ok";
