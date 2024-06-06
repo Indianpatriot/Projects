@@ -363,6 +363,8 @@ function submitFormData() {
                     console.log("Window closing...");
                     window.close(); // Close the window if user chooses not to submit again
                 }
+            } else {
+              alert(response.trim());
             }
         }
     });
