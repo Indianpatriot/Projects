@@ -1,6 +1,6 @@
 <?php
 
-include ("DB/dbconn.php");
+include ("DB/periousmonthb.php");
 $username = $_SESSION['user_id'];
 $total = array([], []);
 // print team goal
@@ -154,17 +154,19 @@ function submitdata()
                 $message .= '<p>The goal of team <strong>' . htmlspecialchars($teamname->team_name) . '</strong> is to be filled by <strong>' . htmlspecialchars($user_array_name[$i]) . '</strong>.</p>';
                 $message .= '</div>';
                 $message .= '<table class="table">';
-                $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Status as of ' . htmlspecialchars($date_data) . '</th><th class="th">' . htmlspecialchars(date("F", strtotime($date_data))) . '</th></tr></thead>';
+                $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Goal of ' . htmlspecialchars($date_data) . '</th><th class="th">' . htmlspecialchars(date("F", strtotime($date_data))) . ' Goal </th><th>total ' . htmlspecialchars(date("F", strtotime($date_data))) . ' goal</th><th>total goal('.htmlspecialchars(date('d-m-y', strtotime($totalhistorystratingdate->Date))).' to '.htmlspecialchars(date('d-m-y')).')</th></tr></thead>';
                 $message .= '<tbody>';
                 // Loop through the requests
                 $z = 0; // Assuming attributes start from 1
                 while (isset($_REQUEST["$z"])) {
-                    // Get the attribute and value
+                    // Get the attribute and value 
                     $attribute = htmlspecialchars($goalp[$z]);
                     $value = isset($_REQUEST["$z"]) ? htmlspecialchars($_REQUEST["$z"]) : 0;
                     $goalvalues = htmlspecialchars($goalset->$attribute);
+                    $totalmonths = htmlspecialchars($totalmonth->$attribute);
+                    $totalhistorys = htmlspecialchars($totalhistory->$attribute);
                     // Add the row to the table
-                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalvalues</td></tr>";
+                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalvalues</td><td>$totalmonths</td><td>$totalhistorys</td><td></td></tr>";
 
                     // Increment the counter
                     $z++;

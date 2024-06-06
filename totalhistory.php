@@ -430,7 +430,7 @@ function submitFormData() {
     <!-- Header top area start-->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12"> 
           <div style="margin-top:0px;margin-bottom:20px;" class="income-dashone-total shadow-reset nt-mg-b-30">
             <div class="income-title">
               <div class="main-income-head">
