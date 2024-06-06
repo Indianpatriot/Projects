@@ -1,6 +1,6 @@
 <?php
 
-include ("DB/periousmonthb.php");
+include ("periousmonthb.php");
 $username = $_SESSION['user_id'];
 $total = array([], []);
 // print team goal
