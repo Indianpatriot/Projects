@@ -176,7 +176,7 @@ function submitdata()
                 $message .= '</div>';
                 $message .= '</body></html>';
 
-                $to = "shadowchor883@gmail.com";
+                $to = "simran.adoreindia@gmail.com";
                 $subject = "Goal Sheet of " . htmlspecialchars($teamname->team_name);
                 $headers = "From: contact@simtrak.in\r\n";
                 $headers .= "MIME-Version: 1.0\r\n";
@@ -246,7 +246,7 @@ function submitdata()
                 $message .= '</div>';
                 $message .= '</body></html>';
 
-                $to = "shadowchor883@gmail.com";
+                $to = "simran.adoreindia@gmail.com";
                 $subject = "Goal Sheet of " . htmlspecialchars($teamname->team_name);
                 $headers = "From: contact@simtrak.in\r\n";
                 $headers .= "MIME-Version: 1.0\r\n";
