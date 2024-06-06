@@ -160,14 +160,13 @@ function submitdata()
                 $z = 0; // Assuming attributes start from 1
                 while (isset($_REQUEST["$z"])) {
                     // Get the attribute and value 
-                    $attributes = htmlspecialchars($goalp[$z]);
-                    $attribute = $goalp[$z];
+                    $attribute = htmlspecialchars($goalp[$z]);
                     $value = isset($_REQUEST["$z"]) ? htmlspecialchars($_REQUEST["$z"]) : 0;
-                    $goalvalues = isset($goal->$attribute) ? htmlspecialchars($goalset->$attribute) : 0;
-                    $totalmonths = isset($totalmonth->$attribute) ? htmlspecialchars($totalmonth->$attribute) : 0;
-                    $totalhistorys = isset($totalhistory->$attribute) ? htmlspecialchars($totalhistory->$attribute) : 0;
+                    $goalvalues = htmlspecialchars($goal->$attribute);
+                    $totalmonths = htmlspecialchars($totalmonth->$attribute);
+                    $totalhistorys = htmlspecialchars($totalhistory->$attribute);
                     // Add the row to the table
-                    $message .= "<tr><td>$attributes</td><td>$value</td><td>$goalvalues</td><td>$totalmonths</td><td>$totalhistorys</td></tr>";
+                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalvalues</td><td>$totalmonths</td><td>$totalhistorys</td></tr>";
 
                     // Increment the counter
                     $z++;
@@ -231,14 +230,13 @@ function submitdata()
                 $z = 0; // Assuming attributes start from 1
                 while (isset($_REQUEST["$z"])) {
                     // Get the attribute and value 
-                    $attributes = htmlspecialchars($goalp[$z]);
-                    $attribute = $goalp[$z];
+                    $attribute = htmlspecialchars($goalp[$z]);
                     $value = isset($_REQUEST["$z"]) ? htmlspecialchars($_REQUEST["$z"]) : 0;
-                    $goalvalues = isset($goal->$attribute) ? htmlspecialchars($goalset->$attribute) : 0;
-                    $totalmonths = isset($totalmonth->$attribute) ? htmlspecialchars($totalmonth->$attribute) : 0;
-                    $totalhistorys = isset($totalhistory->$attribute) ? htmlspecialchars($totalhistory->$attribute) : 0;
+                    $goalvalues = htmlspecialchars($goal->$attribute);
+                    $totalmonths = htmlspecialchars($totalmonth->$attribute);
+                    $totalhistorys = htmlspecialchars($totalhistory->$attribute);
                     // Add the row to the table
-                    $message .= "<tr><td>$attributes</td><td>$value</td><td>$goalvalues</td><td>$totalmonths</td><td>$totalhistorys</td></tr>";
+                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalvalues</td><td>$totalmonths</td><td>$totalhistorys</td></tr>";
 
                     // Increment the counter
                     $z++;
