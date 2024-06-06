@@ -105,7 +105,7 @@ while (isset($_REQUEST[$z])) {
 //submit function 
 function submitdata()
 {
-    global $goalp, $inputpara, $user_array_id, $teamname, $conn, $user_array_name;
+    global $goalp, $inputpara, $user_array_id, $teamname, $conn, $user_array_name ,$totalhistory , $totalmonth, $totalhistorystratingdate;
     $date_data = $_REQUEST["date_data"];
     $Remark = $_REQUEST["Remark"];
     $result = "`Date`,`" . implode("`,`", $goalp) . "`,`Remark`)";
@@ -162,8 +162,8 @@ function submitdata()
                     // Get the attribute and value 
                     $attribute = htmlspecialchars($goalp[$z]);
                     $value = isset($_REQUEST["$z"]) ? htmlspecialchars($_REQUEST["$z"]) : 0;
-                    $goalvalues = htmlspecialchars($goal->$attribute);
-                    $totalmonths = htmlspecialchars($totalmonth->$attribute);
+                    $goalvalues = htmlspecialchars($goalset->$attribute);
+                    $totalmonths = htmlspecialchars($totalmonth->$attribute); 
                     $totalhistorys = htmlspecialchars($totalhistory->$attribute);
                     // Add the row to the table
                     $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalvalues</td><td>$totalmonths</td><td>$totalhistorys</td></tr>";
