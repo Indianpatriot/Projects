@@ -166,7 +166,7 @@ function submitdata()
                     $totalmonths = htmlspecialchars($totalmonth->$attribute);
                     $totalhistorys = htmlspecialchars($totalhistory->$attribute);
                     // Add the row to the table
-                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalvalues</td><td>$totalmonths</td><td>$totalhistorys</td><td></td></tr>";
+                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalvalues</td><td>$totalmonths</td><td>$totalhistorys</td></tr>";
 
                     // Increment the counter
                     $z++;
