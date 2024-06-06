@@ -162,9 +162,9 @@ function submitdata()
                     // Get the attribute and value 
                     $attribute = htmlspecialchars($goalp[$z]);
                     $value = isset($_REQUEST["$z"]) ? htmlspecialchars($_REQUEST["$z"]) : 0;
-                    $goalvalues = htmlspecialchars($goalset->$attribute);
-                    $totalmonths = htmlspecialchars($totalmonth->$attribute);
-                    $totalhistorys = htmlspecialchars($totalhistory->$attribute);
+                    $goalvalues = isset($goal->$attribute) ? htmlspecialchars($goalset->$attribute) : 0;
+                    $totalmonths = isset($totalmonth->$attribute) ? htmlspecialchars($totalmonth->$attribute) : 0;
+                    $totalhistorys = isset($totalhistory->$attribute) ? htmlspecialchars($totalhistory->$attribute) : 0;
                     // Add the row to the table
                     $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalvalues</td><td>$totalmonths</td><td>$totalhistorys</td></tr>";
 
