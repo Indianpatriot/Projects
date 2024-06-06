@@ -33,11 +33,11 @@ if (isset($_SESSION["month"])) {
     $start_date = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-01';
     $end_date = date('Y-m-t', strtotime($start_date));
 }
-if (isset($_POST["membername"])) {
-    if ($_POST["membername"] == 0) {
+if (isset($_POST["membernames"])) {
+    if ($_POST["membernames"] == 0) {
         unset($_SESSION["individualid"]);
     } else {
-        $_SESSION["individualid"] = $_POST["membername"];
+        $_SESSION["individualid"] = $_POST["membernames"];
     }
     echo "ok";
 }

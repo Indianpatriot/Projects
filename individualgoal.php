@@ -420,7 +420,7 @@ if (isset($_SESSION['user_id'])) {
                         <div class="col-lg-9">
                           <div class="chosen-select-single">
                             <select style="width:100%" class="select2_demo_3 form-control"
-                              data-placeholder="Select type" name="membername" required>
+                              data-placeholder="Select type" name="membernames" required>
                               <option value="0">Team Goal</option>
                               <?php $sno = 1;
                               for ($i = 0; $i < count($user_array_id); $i++) { ?>
