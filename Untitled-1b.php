@@ -154,7 +154,7 @@ function submitdata()
                 $message .= '<p>The goal of team <strong>' . htmlspecialchars($teamname->team_name) . '</strong> is to be filled by <strong>' . htmlspecialchars($user_array_name[$i]) . '</strong>.</p>';
                 $message .= '</div>';
                 $message .= '<table class="table">';
-                $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Goal of ' . htmlspecialchars($date_data) . '</th><th class="th">' . htmlspecialchars(date("F", strtotime($date_data))) . ' Goal </th><th class="th">total ' . htmlspecialchars(date("F", strtotime($date_data))) . ' goal</th><th class="th">total goal('.htmlspecialchars(date('d-m-y', strtotime($totalhistorystratingdate->Date))).' to '.htmlspecialchars(date('d-m-y')).')</th></tr></thead>';
+                $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Goal of ' . htmlspecialchars($date_data) . '</th><th class="th">' . htmlspecialchars(date("F", strtotime($date_data))) . ' Goal </th><th class="th">Total ' . htmlspecialchars(date("F", strtotime($date_data))) . ' Goal</th><th class="th">Total Goal('.htmlspecialchars(date('d-m-y', strtotime($totalhistorystratingdate->Date))).' to '.htmlspecialchars(date('d-m-y')).')</th></tr></thead>';
                 $message .= '<tbody>';
                 // Loop through the requests
                 $z = 0; // Assuming attributes start from 1
@@ -166,7 +166,7 @@ function submitdata()
                     $totalmonths = htmlspecialchars($totalmonth->$attribute); 
                     $totalhistorys = htmlspecialchars($totalhistory->$attribute);
                     // Add the row to the table
-                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalvalues</td><td>$totalmonths</td><td>$totalhistorys</td></tr>";
+                    $message .= '<tr><td class="td">$attribute</td><td class="td">$value</td><td class="td">$goalvalues</td><td class="td">$totalmonths</td><td class="td">$totalhistorys</td></tr>';
 
                     // Increment the counter
                     $z++;
@@ -224,7 +224,7 @@ function submitdata()
                 $message .= '<p>The goal of team <strong>' . htmlspecialchars($teamname->team_name) . '</strong> is to be filled by <strong>' . htmlspecialchars($_SESSION['user_name']) . '</strong>.</p>';
                 $message .= '</div>';
                 $message .= '<table class="table">';
-                $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Goal of ' . htmlspecialchars($date_data) . '</th><th class="th">' . htmlspecialchars(date("F", strtotime($date_data))) . ' Goal </th><th class="th">total ' . htmlspecialchars(date("F", strtotime($date_data))) . ' goal</th><th class="th">total goal('.htmlspecialchars(date('d-m-y', strtotime($totalhistorystratingdate->Date))).' to '.htmlspecialchars(date('d-m-y')).')</th></tr></thead>';
+                $message .= '<thead><tr><th class="th">Goal Field</th><th class="th">Goal of ' . htmlspecialchars($date_data) . '</th><th class="th">' . htmlspecialchars(date("F", strtotime($date_data))) . ' Goal </th><th class="th">Total ' . htmlspecialchars(date("F", strtotime($date_data))) . ' Goal</th><th class="th">Total Goal('.htmlspecialchars(date('d-m-y', strtotime($totalhistorystratingdate->Date))).' to '.htmlspecialchars(date('d-m-y')).')</th></tr></thead>';
                 $message .= '<tbody>';
                 // Loop through the requests
                 $z = 0; // Assuming attributes start from 1
@@ -236,7 +236,7 @@ function submitdata()
                     $totalmonths = htmlspecialchars($totalmonth->$attribute);
                     $totalhistorys = htmlspecialchars($totalhistory->$attribute);
                     // Add the row to the table
-                    $message .= "<tr><td>$attribute</td><td>$value</td><td>$goalvalues</td><td>$totalmonths</td><td>$totalhistorys</td></tr>";
+                    $message .= '<tr><td class="td">$attribute</td><td class="td">$value</td><td class="td">$goalvalues</td><td class="td">$totalmonths</td><td class="td">$totalhistorys</td></tr>';
 
                     // Increment the counter
                     $z++;
