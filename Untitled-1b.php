@@ -179,6 +179,7 @@ function submitdata()
                 $to = "simran.adoreindia@gmail.com";
                 $subject = "Goal Sheet of " . htmlspecialchars($teamname->team_name);
                 $headers = "From: contact@simtrak.in\r\n";
+                $headers .= "cc: dinesh.garghouse@gmail.com\r\n";
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-type: text/html; charset=UTF-8\r\n";
                 if (mail($to, $subject, $message, $headers)) {
@@ -249,6 +250,7 @@ function submitdata()
                 $to = "simran.adoreindia@gmail.com";
                 $subject = "Goal Sheet of " . htmlspecialchars($teamname->team_name);
                 $headers = "From: contact@simtrak.in\r\n";
+                $headers .= "cc: dinesh.garghouse@gmail.com\r\n";
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-type: text/html; charset=UTF-8\r\n";
                 if (mail($to, $subject, $message, $headers)) {
